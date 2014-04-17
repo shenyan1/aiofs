@@ -1,0 +1,212 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AIO_BLKSIZE	aio_read.c	12;"	d	file:
+AIO_BLKSIZE	rawbench.c	54;"	d	file:
+AIO_MAXIO	aio_read.c	13;"	d	file:
+AIO_MAXIO	rawbench.c	55;"	d	file:
+ASSERT	lfs.h	52;"	d
+AVG_FSIZE	lfs.h	42;"	d
+AVL_AFTER	avl.h	106;"	d
+AVL_BEFORE	avl.h	105;"	d
+AVL_NEXT	avl.h	185;"	d
+AVL_PREV	avl.h	186;"	d
+AVL_REINSERT	avl.c	783;"	d	file:
+BLOCK_SIZE	rawbench.c	22;"	d	file:
+B_FALSE	lfs.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	e	enum:boolean
+B_TRUE	lfs.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	e	enum:boolean
+CHILDBIT	avl.c	893;"	d	file:
+CHUNK_SIZE	rawbench.c	23;"	d	file:
+COMPLETE_TIME_FILE	rawbench.c	27;"	d	file:
+COUNT	tread.c	13;"	d	file:
+CPPFLAGS	Makefile	/^CPPFLAGS = -Isrc$/;"	m
+FILE_ENTRYS	lfs.h	44;"	d
+FSNAME	lfs.h	20;"	d
+LFS_BLKSIZE	lfs.h	56;"	d
+LFS_DATA_DOMAIN	lfs.h	40;"	d
+LFS_FILE_ENTRY	lfs.h	36;"	d
+LFS_FREE	lfs.h	46;"	d
+LFS_NFREE	lfs.h	48;"	d
+LFS_SPACE_ENTRY	lfs.h	38;"	d
+MAX	arc.c	7;"	d	file:
+MAX_FILE_NO	lfs.h	22;"	d
+MAX_FSIZE	lfs.h	50;"	d
+MIN	arc.c	8;"	d	file:
+QUEUE_SIZE	rawbench.c	56;"	d	file:
+REFERENCE_DISKS	rawbench.c	24;"	d	file:
+RESPONSE_TIME_FILE	rawbench.c	28;"	d	file:
+SIZE	tread.c	12;"	d	file:
+TEST_BLKSIZE	lfs_test.c	8;"	d	file:
+TEST_BLKSIZE	mseq.c	6;"	d	file:
+THREAD_NUMS	lfs_test.c	121;"	d	file:
+TIME_OUT	tread.c	14;"	d	file:
+TRACE_FILE	rawbench.c	26;"	d	file:
+VERIFY	lfs.h	54;"	d
+VERSION	lfs.h	21;"	d
+_AVL_H	avl.h	7;"	d
+_FILE_OFFSET_BITS	rawbench.c	1;"	d	file:
+_GNU_SOURCE	rawbench.c	2;"	d	file:
+_LFS_H	lfs.h	2;"	d
+__ARC_H__	arc.h	2;"	d
+__arc	arc.h	/^struct __arc {$/;"	s
+__arc_balance	arc.c	/^static void __arc_balance(struct __arc *cache, unsigned long size)$/;"	f	file:
+__arc_create	arc.c	/^struct __arc *__arc_create(struct __arc_ops *ops, unsigned long c)$/;"	f
+__arc_destroy	arc.c	/^void __arc_destroy(struct __arc *cache)$/;"	f
+__arc_hash	arc.h	/^struct __arc_hash {$/;"	s
+__arc_hash_fini	arc.c	/^static void __arc_hash_fini(struct __arc *cache)$/;"	f	file:
+__arc_hash_init	arc.c	/^static void __arc_hash_init(struct __arc *cache)$/;"	f	file:
+__arc_hash_insert	arc.c	/^static void __arc_hash_insert(struct __arc *cache, const void *key, struct __arc_object *obj)$/;"	f	file:
+__arc_hash_lookup	arc.c	/^static struct __arc_object *__arc_hash_lookup(struct __arc *cache, const void *key)$/;"	f	file:
+__arc_list	arc.h	/^struct __arc_list {$/;"	s
+__arc_list_each	arc.h	18;"	d
+__arc_list_each_prev	arc.h	21;"	d
+__arc_list_entry	arc.h	15;"	d
+__arc_list_init	arc.h	/^__arc_list_init( struct __arc_list * head )$/;"	f
+__arc_list_insert	arc.h	/^__arc_list_insert(struct __arc_list *list, struct __arc_list *prev, struct __arc_list *next)$/;"	f
+__arc_list_prepend	arc.h	/^__arc_list_prepend(struct __arc_list *head, struct __arc_list *list)$/;"	f
+__arc_list_remove	arc.h	/^__arc_list_remove(struct __arc_list *head)$/;"	f
+__arc_list_splice	arc.h	/^__arc_list_splice(struct __arc_list *prev, struct __arc_list *next)$/;"	f
+__arc_lookup	arc.c	/^struct __arc_object *__arc_lookup(struct __arc *cache, const void *key)$/;"	f
+__arc_move	arc.c	/^static struct __arc_object *__arc_move(struct __arc *cache, struct __arc_object *obj, struct __arc_state *state)$/;"	f	file:
+__arc_object	arc.h	/^struct __arc_object {$/;"	s
+__arc_object_init	arc.c	/^void __arc_object_init(struct __arc_object *obj, unsigned long size)$/;"	f
+__arc_ops	arc.h	/^struct __arc_ops {$/;"	s
+__arc_state	arc.h	/^struct __arc_state {$/;"	s
+__arc_state_lru	arc.c	/^static struct __arc_object *__arc_state_lru(struct __arc_state *state)$/;"	f	file:
+aio_completion_handler	rawbench.c	/^void* aio_completion_handler( void * thread_data )$/;"	f
+arc_hash_init	arc.c	/^uint64_t arc_hash_init()$/;"	f
+avl_add	avl.c	/^avl_add(avl_tree_t *tree, void *new_node)$/;"	f
+avl_balance2child	avl.c	/^static const int  avl_balance2child[]	= {0, 0, 1};$/;"	v	file:
+avl_child2balance	avl.c	/^static const int  avl_child2balance[2]	= {-1, 1};$/;"	v	file:
+avl_create	avl.c	/^avl_create(avl_tree_t *tree, int (*compar) (const void *, const void *),$/;"	f
+avl_destroy	avl.c	/^avl_destroy(avl_tree_t *tree)$/;"	f
+avl_destroy_nodes	avl.c	/^avl_destroy_nodes(avl_tree_t *tree, void **cookie)$/;"	f
+avl_find	avl.c	/^avl_find(avl_tree_t *tree, const void *value, avl_index_t *where)$/;"	f
+avl_first	avl.c	/^avl_first(avl_tree_t *tree)$/;"	f
+avl_index_t	avl.h	/^typedef uintptr_t avl_index_t;$/;"	t
+avl_insert	avl.c	/^avl_insert(avl_tree_t *tree, void *new_data, avl_index_t where)$/;"	f
+avl_insert_here	avl.c	/^avl_insert_here($/;"	f
+avl_is_empty	avl.c	/^avl_is_empty(avl_tree_t *tree)$/;"	f
+avl_last	avl.c	/^avl_last(avl_tree_t *tree)$/;"	f
+avl_nearest	avl.c	/^avl_nearest(avl_tree_t *tree, avl_index_t where, int direction)$/;"	f
+avl_node_t	avl.h	/^typedef struct avl_node avl_node_t;$/;"	t	typeref:struct:avl_node
+avl_numnodes	avl.c	/^avl_numnodes(avl_tree_t *tree)$/;"	f
+avl_remove	avl.c	/^avl_remove(avl_tree_t *tree, void *data)$/;"	f
+avl_rotation	avl.c	/^avl_rotation(avl_tree_t *tree, avl_node_t *node, int balance)$/;"	f	file:
+avl_tree_t	avl.h	/^typedef struct avl_tree avl_tree_t;$/;"	t	typeref:struct:avl_tree
+avl_update	avl.c	/^avl_update(avl_tree_t *t, void *obj)$/;"	f
+avl_update_gt	avl.c	/^avl_update_gt(avl_tree_t *t, void *obj)$/;"	f
+avl_update_lt	avl.c	/^avl_update_lt(avl_tree_t *t, void *obj)$/;"	f
+avl_walk	avl.c	/^avl_walk(avl_tree_t *tree, void	*oldnode, int left)$/;"	f
+block_device	lfs.h	/^	char *block_device;$/;"	m	struct:lfs_info
+boolean	lfs.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	g
+boolean_t	lfs.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	t	typeref:enum:boolean
+bucket	arc.h	/^    struct __arc_list *bucket;$/;"	m	struct:__arc_hash	typeref:struct:__arc_hash::__arc_list
+buf	rawbench.c	/^	char				*buf;$/;"	m	struct:io_queue	file:
+bytecount	rawbench.c	/^	int	 		bytecount;$/;"	m	struct:trace_entry	file:
+c	arc.h	/^    unsigned long c, p;$/;"	m	struct:__arc
+cmp	arc.h	/^    int (*cmp) (struct __arc_object *obj, const void *key);$/;"	m	struct:__arc_ops
+compfile	rawbench.c	/^FILE *compfile;$/;"	v
+complete_time	rawbench.c	/^double		*complete_time;\/\/65536 is chosen according to \/proc\/sys\/fs\/aio_max_nr $/;"	v
+create	arc.h	/^    struct __arc_object *(*create) (const void *key);$/;"	m	struct:__arc_ops	typeref:struct:__arc_ops::create
+cur_usec	lfs_test.c	/^uint64_t cur_usec(void)$/;"	f
+cur_usec	tread.c	/^unsigned long long cur_usec(void)$/;"	f
+destroy	arc.h	/^    void (*destroy) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
+devno	rawbench.c	/^	short	 	devno;$/;"	m	struct:trace_entry	file:
+elapse_sec	rawbench.c	/^double elapse_sec()$/;"	f
+evict	arc.h	/^    void (*evict) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
+f_table	lfs.h	/^	file_entry_t *f_table;$/;"	m	struct:lfs_info
+fd	lfs.h	/^	int fd;$/;"	m	struct:lfs_info
+fetch	arc.h	/^    int (*fetch) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
+file_entry	lfs.h	/^typedef struct file_entry{$/;"	s
+file_entry_t	lfs.h	/^}file_entry_t;$/;"	t	typeref:struct:file_entry
+filename	lfs.h	/^	char filename[8];$/;"	m	struct:file_entry
+finalize	rawbench.c	/^int finalize(	)$/;"	f
+fpos	lfs_test.c	/^	uint64_t fpos;$/;"	m	struct:test_unit	file:
+fpos	mseq.c	/^	uint64_t fpos;$/;"	m	struct:test_unit	file:
+fsize	lfs.h	/^	uint32_t fsize;$/;"	m	struct:file_entry
+func1	lfs_test.c	/^void func1(){$/;"	f
+func2	lfs_test.c	/^void func2(){$/;"	f
+getFilesize	tread.c	/^uint64_t getFilesize(char *str){$/;"	f
+getphymemsize	lfs.h	/^uint64_t getphymemsize(){$/;"	f
+hash	arc.h	/^    struct __arc_hash hash;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_hash
+hash	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::
+hash	arc.h	/^    unsigned long (*hash) (const void *key);$/;"	m	struct:__arc_ops
+head	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::__arc_list
+head	arc.h	/^    struct __arc_list head;$/;"	m	struct:__arc_state	typeref:struct:__arc_state::__arc_list
+ht_mask	arc.h	/^	uint64_t ht_mask;$/;"	m	struct:__arc_hash
+id	lfs_test.c	/^	int id;$/;"	m	struct:test_unit	file:
+id	mseq.c	/^	int id;$/;"	m	struct:test_unit	file:
+id2no	rawbench.c	/^short id2no(unsigned int id){$/;"	f
+id_list	rawbench.c	/^unsigned int id_list[]=$/;"	v
+initialize	rawbench.c	/^int initialize()$/;"	f
+io_play	rawbench.c	/^void io_play()$/;"	f
+io_queue	rawbench.c	/^struct io_queue{$/;"	s	file:
+iocb	rawbench.c	/^	struct iocb 		iocb;$/;"	m	struct:io_queue	typeref:struct:io_queue::iocb	file:
+ioctx	rawbench.c	/^io_context_t ioctx;$/;"	v
+ioq	rawbench.c	/^struct	io_queue *ioq;$/;"	v	typeref:struct:io_queue
+is_free	lfs.h	/^	uint32_t is_free;   $/;"	m	struct:file_entry
+issue_time	rawbench.c	/^	double			issue_time;	$/;"	m	struct:io_queue	file:
+kmutex	lfs.h	/^typedef struct kmutex {$/;"	s
+kmutex_t	lfs.h	/^} kmutex_t;$/;"	t	typeref:struct:kmutex
+lfs_arc_hash	arc.c	/^uint64_t lfs_arc_hash(uint64_t id,uint64_t offset){$/;"	f
+lfs_info	lfs.h	/^typedef struct lfs_info{$/;"	s
+lfs_info_t	lfs.h	/^}lfs_info_t;$/;"	t	typeref:struct:lfs_info
+lfs_test_read	lfs_test.c	/^void *lfs_test_read(void *arg){$/;"	f
+listen_thread	rawbench.c	/^void *listen_thread(void * ptr)$/;"	f
+m_magic	lfs.h	/^	uint64_t	m_magic;$/;"	m	struct:kmutex
+m_owner	lfs.h	/^	void		*m_owner;$/;"	m	struct:kmutex
+main	a.c	/^main()$/;"	f
+main	aio_read.c	/^void main(int args, void *argv[])$/;"	f
+main	l.c	/^main()$/;"	f
+main	lfs_test.c	/^int main(){$/;"	f
+main	rawbench.c	/^int main(int argc, char * argv[])$/;"	f
+main	tread.c	/^main(int argc, char *argv[])$/;"	f
+main	type.c	/^main()$/;"	f
+meta_table	lfs.h	/^	uint64_t *meta_table;$/;"	m	struct:file_entry
+mfu	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
+mfug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
+mru	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
+mrug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_state
+mutex	rawbench.c	/^pthread_mutex_t	mutex;$/;"	v
+next	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::
+num_files	lfs_test.c	/^int num_files;$/;"	v
+num_files	mseq.c	/^int num_files=0;$/;"	v
+odsfd	aio_read.c	/^int odsfd = -1;$/;"	v
+off	lfs.h	/^	uint64_t off;$/;"	m	struct:lfs_info
+ops	arc.h	/^    struct __arc_ops *ops;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_ops
+p	arc.h	/^    unsigned long c, p;$/;"	m	struct:__arc
+prev	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::__arc_list
+raid_fd	rawbench.c	/^int	raid_fd;$/;"	v
+rd_done	aio_read.c	/^static void rd_done(io_context_t ctx, struct iocb *iocb, long res, long res2)$/;"	f	file:
+read_test_fini	lfs_test.c	/^void read_test_fini(){$/;"	f
+read_test_init	lfs_test.c	/^void read_test_init(){$/;"	f
+readfd	lfs_test.c	/^int *readfd;$/;"	v
+readfd	mseq.c	/^int *readfd;$/;"	v
+record_count	rawbench.c	/^long	record_count=0;$/;"	v
+ref_cnt	rawbench.c	/^	int	 			ref_cnt;$/;"	m	struct:io_queue	file:
+req_count	rawbench.c	/^int 				req_count=0;$/;"	v
+reqtime	rawbench.c	/^	double		reqtime;	$/;"	m	struct:trace_entry	file:
+respfile	rawbench.c	/^FILE *respfile;$/;"	v
+response_time	rawbench.c	/^long			*response_time;$/;"	v
+rwType	rawbench.c	/^	char 		rwType;$/;"	m	struct:trace_entry	file:
+should_stop	rawbench.c	/^int	should_stop =0;$/;"	v
+size	arc.h	/^    uint64_t size;$/;"	m	struct:__arc_hash
+size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_object
+size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_state
+srcfd	aio_read.c	/^int srcfd = -1;$/;"	v
+startbyte	rawbench.c	/^	long long 	startbyte;$/;"	m	struct:trace_entry	file:
+state	arc.h	/^    struct __arc_state *state;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::__arc_state
+test_read	mseq.c	/^int test_read(int id,char *buffer,uint64_t size,uint64_t offset){$/;"	f
+test_start	rawbench.c	/^struct timeval	test_start;$/;"	v	typeref:struct:timeval
+test_unit	lfs_test.c	/^typedef struct test_unit{$/;"	s	file:
+test_unit	mseq.c	/^typedef struct test_unit{$/;"	s	file:
+test_unit_t	lfs_test.c	/^}test_unit_t;$/;"	t	typeref:struct:test_unit	file:
+test_unit_t	mseq.c	/^}test_unit_t;$/;"	t	typeref:struct:test_unit	file:
+trace_entry	rawbench.c	/^struct trace_entry{$/;"	s	file:
+trace_name	rawbench.c	/^const char * trace_name = TRACE_FILE;$/;"	v
+trace_nextrequest	rawbench.c	/^int trace_nextrequest(struct trace_entry* req)$/;"	f
+tracefile	rawbench.c	/^FILE *tracefile;$/;"	v

@@ -1,0 +1,285 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AIO_BLKSIZE	aiotest.c	15;"	d	file:
+AIO_BLKSIZE	rawbench.c	54;"	d	file:
+AIO_MAXIO	aiotest.c	16;"	d	file:
+AIO_MAXIO	rawbench.c	55;"	d	file:
+BLOCK_SIZE	rawbench.c	22;"	d	file:
+CHUNK_SIZE	rawbench.c	23;"	d	file:
+COMPLETE_TIME_FILE	rawbench.c	27;"	d	file:
+DEVIATIONS	aio-stress.c	129;"	d	file:
+IO_CMD_FDSYNC	libaio.h	/^	IO_CMD_FDSYNC = 3,$/;"	e	enum:io_iocb_cmd
+IO_CMD_FSYNC	libaio.h	/^	IO_CMD_FSYNC = 2,$/;"	e	enum:io_iocb_cmd
+IO_CMD_NOOP	libaio.h	/^	IO_CMD_NOOP = 6,$/;"	e	enum:io_iocb_cmd
+IO_CMD_POLL	libaio.h	/^	IO_CMD_POLL = 5, \/* Never implemented in mainline, see io_prep_poll *\/$/;"	e	enum:io_iocb_cmd
+IO_CMD_PREAD	libaio.h	/^	IO_CMD_PREAD = 0,$/;"	e	enum:io_iocb_cmd
+IO_CMD_PREADV	libaio.h	/^	IO_CMD_PREADV = 7,$/;"	e	enum:io_iocb_cmd
+IO_CMD_PWRITE	libaio.h	/^	IO_CMD_PWRITE = 1,$/;"	e	enum:io_iocb_cmd
+IO_CMD_PWRITEV	libaio.h	/^	IO_CMD_PWRITEV = 8,$/;"	e	enum:io_iocb_cmd
+IO_FREE	aio-stress.c	65;"	d	file:
+IO_PENDING	aio-stress.c	66;"	d	file:
+LAST_STAGE	aio-stress.c	/^    LAST_STAGE,$/;"	e	enum:__anon1	file:
+NEW_GETEVENTS	aio-stress.c	46;"	d	file:
+O_DIRECT	aio-stress.c	70;"	d	file:
+PADDED	libaio.h	102;"	d
+PADDED	libaio.h	106;"	d
+PADDED	libaio.h	163;"	d
+PADDED	libaio.h	53;"	d
+PADDED	libaio.h	57;"	d
+PADDED	libaio.h	63;"	d
+PADDED	libaio.h	67;"	d
+PADDED	libaio.h	71;"	d
+PADDED	libaio.h	75;"	d
+PADDED	libaio.h	80;"	d
+PADDED	libaio.h	84;"	d
+PADDED	libaio.h	89;"	d
+PADDED	libaio.h	93;"	d
+PADDED	libaio.h	97;"	d
+PADDEDptr	libaio.h	103;"	d
+PADDEDptr	libaio.h	107;"	d
+PADDEDptr	libaio.h	164;"	d
+PADDEDptr	libaio.h	54;"	d
+PADDEDptr	libaio.h	58;"	d
+PADDEDptr	libaio.h	64;"	d
+PADDEDptr	libaio.h	68;"	d
+PADDEDptr	libaio.h	72;"	d
+PADDEDptr	libaio.h	76;"	d
+PADDEDptr	libaio.h	81;"	d
+PADDEDptr	libaio.h	85;"	d
+PADDEDptr	libaio.h	90;"	d
+PADDEDptr	libaio.h	94;"	d
+PADDEDptr	libaio.h	98;"	d
+PADDEDul	libaio.h	104;"	d
+PADDEDul	libaio.h	108;"	d
+PADDEDul	libaio.h	165;"	d
+PADDEDul	libaio.h	55;"	d
+PADDEDul	libaio.h	59;"	d
+PADDEDul	libaio.h	65;"	d
+PADDEDul	libaio.h	69;"	d
+PADDEDul	libaio.h	73;"	d
+PADDEDul	libaio.h	77;"	d
+PADDEDul	libaio.h	82;"	d
+PADDEDul	libaio.h	86;"	d
+PADDEDul	libaio.h	91;"	d
+PADDEDul	libaio.h	95;"	d
+PADDEDul	libaio.h	99;"	d
+PROG_VERSION	aio-stress.c	45;"	d	file:
+QUEUE_SIZE	rawbench.c	56;"	d	file:
+READ	aio-stress.c	/^    READ,$/;"	e	enum:__anon1	file:
+REFERENCE_DISKS	rawbench.c	24;"	d	file:
+RESPONSE_TIME_FILE	rawbench.c	28;"	d	file:
+RREAD	aio-stress.c	/^    RREAD,$/;"	e	enum:__anon1	file:
+RUN_FOREVER	aio-stress.c	67;"	d	file:
+RWRITE	aio-stress.c	/^    RWRITE,$/;"	e	enum:__anon1	file:
+TRACE_FILE	rawbench.c	26;"	d	file:
+USE_MALLOC	aio-stress.c	81;"	d	file:
+USE_SHM	aio-stress.c	82;"	d	file:
+USE_SHMFS	aio-stress.c	83;"	d	file:
+WRITE	aio-stress.c	/^    WRITE,$/;"	e	enum:__anon1	file:
+_FILE_OFFSET_BITS	aio-stress.c	44;"	d	file:
+_FILE_OFFSET_BITS	rawbench.c	1;"	d	file:
+_GNU_SOURCE	aioexa.c	1;"	d	file:
+_GNU_SOURCE	rawbench.c	2;"	d	file:
+__LIBAIO_H	libaio.h	24;"	d
+__pad3	libaio.h	/^	long long	__pad3;$/;"	m	struct:io_iocb_common
+active_opers	aio-stress.c	/^    struct io_oper *active_opers;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_oper	file:
+addr	libaio.h	/^	struct sockaddr *addr;$/;"	m	struct:io_iocb_sockaddr	typeref:struct:io_iocb_sockaddr::sockaddr
+aio_completion_handler	rawbench.c	/^void* aio_completion_handler( void * thread_data )$/;"	f
+aio_fildes	libaio.h	/^	int		aio_fildes;$/;"	m	struct:iocb
+aio_lio_opcode	libaio.h	/^	short		aio_lio_opcode;	$/;"	m	struct:iocb
+aio_reqprio	libaio.h	/^	short		aio_reqprio;$/;"	m	struct:iocb
+aio_setup	aio-stress.c	/^void aio_setup(io_context_t *io_ctx, int n)$/;"	f
+aligned_buffer	aio-stress.c	/^char *aligned_buffer = NULL;$/;"	v
+buf	aio-stress.c	/^    char *buf;$/;"	m	struct:io_unit	file:
+buf	rawbench.c	/^	char				*buf;$/;"	m	struct:io_queue	file:
+buf_size	aio-stress.c	/^    int buf_size;$/;"	m	struct:io_unit	file:
+build_iocb	aio-stress.c	/^static struct io_unit *build_iocb(struct thread_info *t, struct io_oper *oper)$/;"	f	file:
+build_oper	aio-stress.c	/^int build_oper(struct thread_info *t, struct io_oper *oper, int num_ios, $/;"	f
+busy	aio-stress.c	/^    int busy;$/;"	m	struct:io_unit	file:
+bytecount	rawbench.c	/^	int	 		bytecount;$/;"	m	struct:trace_entry	file:
+c	libaio.h	/^		struct io_iocb_common		c;$/;"	m	union:iocb::__anon2	typeref:struct:iocb::__anon2::io_iocb_common
+calc_latency	aio-stress.c	/^static void calc_latency(struct timeval *start_tv, struct timeval *stop_tv,$/;"	f	file:
+check_finished_io	aio-stress.c	/^static int check_finished_io(struct io_unit *io) {$/;"	f	file:
+compfile	rawbench.c	/^FILE *compfile;$/;"	v
+complete_time	rawbench.c	/^double		*complete_time;\/\/65536 is chosen according to \/proc\/sys\/fs\/aio_max_nr $/;"	v
+completion_latency_stats	aio-stress.c	/^int completion_latency_stats = 0;$/;"	v
+context_offset	aio-stress.c	/^off_t context_offset = 2 * 1024 * 1024;$/;"	v
+create_oper	aio-stress.c	/^create_oper(int fd, int rw, off_t start, off_t end, int reclen, int depth,$/;"	f	file:
+depth	aio-stress.c	/^    int depth;$/;"	m	struct:io_oper	file:
+depth	aio-stress.c	/^int depth = 64;$/;"	v
+deviations	aio-stress.c	/^    double deviations[DEVIATIONS]; $/;"	m	struct:io_latency	file:
+deviations	aio-stress.c	/^int deviations[DEVIATIONS] = { 100, 250, 500, 1000, 5000, 10000 };$/;"	v
+devno	rawbench.c	/^	short	 	devno;$/;"	m	struct:trace_entry	file:
+drop_shm	aio-stress.c	/^void drop_shm() {$/;"	f
+elapse_sec	rawbench.c	/^double elapse_sec()$/;"	f
+end	aio-stress.c	/^    off_t end;$/;"	m	struct:io_oper	file:
+events	aio-stress.c	/^    struct io_event *events;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_event	file:
+fd	aio-stress.c	/^    int fd;$/;"	m	struct:io_oper	file:
+file_name	aio-stress.c	/^    char *file_name;$/;"	m	struct:io_oper	file:
+finalize	rawbench.c	/^int finalize(	)$/;"	f
+find_iou	aio-stress.c	/^static struct io_unit *find_iou(struct thread_info *t, struct io_oper *oper)$/;"	f	file:
+finish_io	aio-stress.c	/^void finish_io(struct thread_info *t, struct io_unit *io, long result,$/;"	f
+finish_oper	aio-stress.c	/^finish_oper(struct thread_info *t, struct io_oper *oper)$/;"	f	file:
+finished_opers	aio-stress.c	/^    struct io_oper *finished_opers;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_oper	file:
+flags	libaio.h	/^	unsigned	flags;$/;"	m	struct:io_iocb_common
+free_ious	aio-stress.c	/^    struct io_unit *free_ious;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_unit	file:
+fsync_stages	aio-stress.c	/^int fsync_stages = 1;$/;"	v
+global_stage_start_time	aio-stress.c	/^struct timeval global_stage_start_time;$/;"	v	typeref:struct:timeval
+global_thread_info	aio-stress.c	/^struct thread_info *global_thread_info;$/;"	v	typeref:struct:thread_info
+global_thread_throughput	aio-stress.c	/^void global_thread_throughput(struct thread_info *t, char *this_stage) {$/;"	f
+grab_iou	aio-stress.c	/^static int grab_iou(struct io_unit *io, struct io_oper *oper) {$/;"	f	file:
+id2no	rawbench.c	/^short id2no(unsigned int id){$/;"	f
+id_list	rawbench.c	/^unsigned int id_list[]=$/;"	v
+initialize	rawbench.c	/^int initialize()$/;"	f
+io_callback_t	libaio.h	/^typedef void (*io_callback_t)(io_context_t ctx, struct iocb *iocb, long res, long res2);$/;"	t
+io_completion_latency	aio-stress.c	/^    struct io_latency io_completion_latency;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_latency	file:
+io_context_t	libaio.h	/^typedef struct io_context *io_context_t;$/;"	t	typeref:struct:io_context
+io_ctx	aio-stress.c	/^    io_context_t io_ctx;$/;"	m	struct:thread_info	file:
+io_event	libaio.h	/^struct io_event {$/;"	s
+io_fdsync	libaio.h	/^static inline int io_fdsync(io_context_t ctx, struct iocb *iocb, io_callback_t cb, int fd)$/;"	f
+io_fsync	libaio.h	/^static inline int io_fsync(io_context_t ctx, struct iocb *iocb, io_callback_t cb, int fd)$/;"	f
+io_iocb_cmd	libaio.h	/^typedef enum io_iocb_cmd {$/;"	g
+io_iocb_cmd_t	libaio.h	/^} io_iocb_cmd_t;$/;"	t	typeref:enum:io_iocb_cmd
+io_iocb_common	libaio.h	/^struct io_iocb_common {$/;"	s
+io_iocb_poll	libaio.h	/^struct io_iocb_poll {$/;"	s
+io_iocb_sockaddr	libaio.h	/^struct io_iocb_sockaddr {$/;"	s
+io_iocb_vector	libaio.h	/^struct io_iocb_vector {$/;"	s
+io_iter	aio-stress.c	/^int io_iter = 8;$/;"	v
+io_latency	aio-stress.c	/^struct io_latency {$/;"	s	file:
+io_oper	aio-stress.c	/^    struct io_oper *io_oper;$/;"	m	struct:io_unit	typeref:struct:io_unit::io_oper	file:
+io_oper	aio-stress.c	/^struct io_oper {$/;"	s	file:
+io_oper_wait	aio-stress.c	/^static int io_oper_wait(struct thread_info *t, struct io_oper *oper) {$/;"	f	file:
+io_play	rawbench.c	/^void io_play()$/;"	f
+io_poll	libaio.h	/^static inline int io_poll(io_context_t ctx, struct iocb *iocb, io_callback_t cb, int fd, int events)$/;"	f
+io_prep_fdsync	libaio.h	/^static inline void io_prep_fdsync(struct iocb *iocb, int fd)$/;"	f
+io_prep_fsync	libaio.h	/^static inline void io_prep_fsync(struct iocb *iocb, int fd)$/;"	f
+io_prep_poll	libaio.h	/^static inline void io_prep_poll(struct iocb *iocb, int fd, int events)$/;"	f
+io_prep_pread	libaio.h	/^static inline void io_prep_pread(struct iocb *iocb, int fd, void *buf, size_t count, long long offset)$/;"	f
+io_prep_preadv	libaio.h	/^static inline void io_prep_preadv(struct iocb *iocb, int fd, const struct iovec *iov, int iovcnt, long long offset)$/;"	f
+io_prep_pwrite	libaio.h	/^static inline void io_prep_pwrite(struct iocb *iocb, int fd, void *buf, size_t count, long long offset)$/;"	f
+io_prep_pwritev	libaio.h	/^static inline void io_prep_pwritev(struct iocb *iocb, int fd, const struct iovec *iov, int iovcnt, long long offset)$/;"	f
+io_queue	rawbench.c	/^struct io_queue{$/;"	s	file:
+io_set_callback	libaio.h	/^static inline void io_set_callback(struct iocb *iocb, io_callback_t cb)$/;"	f
+io_set_eventfd	libaio.h	/^static inline void io_set_eventfd(struct iocb *iocb, int eventfd)$/;"	f
+io_start_time	aio-stress.c	/^    struct timeval io_start_time;		\/* time of io_submit *\/$/;"	m	struct:io_unit	typeref:struct:io_unit::timeval	file:
+io_submit_latency	aio-stress.c	/^    struct io_latency io_submit_latency;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_latency	file:
+io_unit	aio-stress.c	/^struct io_unit {$/;"	s	file:
+iocb	aio-stress.c	/^    struct iocb iocb;$/;"	m	struct:io_unit	typeref:struct:io_unit::iocb	file:
+iocb	libaio.h	/^struct iocb {$/;"	s
+iocb	rawbench.c	/^	struct iocb 		iocb;$/;"	m	struct:io_queue	typeref:struct:io_queue::iocb	file:
+iocbs	aio-stress.c	/^    struct iocb **iocbs;$/;"	m	struct:thread_info	typeref:struct:thread_info::iocb	file:
+ioctx	rawbench.c	/^io_context_t ioctx;$/;"	v
+ioq	rawbench.c	/^struct	io_queue *ioq;$/;"	v	typeref:struct:io_queue
+ios	aio-stress.c	/^    struct io_unit *ios;$/;"	m	struct:thread_info	typeref:struct:thread_info::io_unit	file:
+issue_time	rawbench.c	/^	double			issue_time;	$/;"	m	struct:io_queue	file:
+iterations	aio-stress.c	/^int iterations = RUN_FOREVER;$/;"	v
+last_err	aio-stress.c	/^    int last_err;$/;"	m	struct:io_oper	file:
+last_offset	aio-stress.c	/^    off_t last_offset;$/;"	m	struct:io_oper	file:
+latency_stats	aio-stress.c	/^int latency_stats = 0;$/;"	v
+len	libaio.h	/^	int		len;$/;"	m	struct:io_iocb_sockaddr
+listen_thread	rawbench.c	/^void *listen_thread(void * ptr)$/;"	f
+main	aio-stress.c	/^int main(int ac, char **av) $/;"	f
+main	aioexa.c	/^int main(int argc, char *argv[])  $/;"	f
+main	aiotest.c	/^void main(int args,void * argv[])$/;"	f
+main	rawbench.c	/^int main(int argc, char * argv[])$/;"	f
+max	aio-stress.c	/^    double max;$/;"	m	struct:io_latency	file:
+max_io_submit	aio-stress.c	/^int max_io_submit = 0;$/;"	v
+min	aio-stress.c	/^    double min;$/;"	m	struct:io_latency	file:
+mutex	rawbench.c	/^pthread_mutex_t	mutex;$/;"	v
+next	aio-stress.c	/^    struct io_oper *next;$/;"	m	struct:io_oper	typeref:struct:io_oper::io_oper	file:
+next	aio-stress.c	/^    struct io_unit *next;$/;"	m	struct:io_unit	typeref:struct:io_unit::io_unit	file:
+nr	libaio.h	/^	int			nr;$/;"	m	struct:io_iocb_vector
+num_contexts	aio-stress.c	/^int num_contexts = 1;$/;"	v
+num_err	aio-stress.c	/^    int num_err;$/;"	m	struct:io_oper	file:
+num_files	aio-stress.c	/^    int num_files;$/;"	m	struct:thread_info	file:
+num_global_events	aio-stress.c	/^    int num_global_events;$/;"	m	struct:thread_info	file:
+num_global_ios	aio-stress.c	/^    int num_global_ios;$/;"	m	struct:thread_info	file:
+num_global_pending	aio-stress.c	/^    int num_global_pending;$/;"	m	struct:thread_info	file:
+num_pending	aio-stress.c	/^    int num_pending;$/;"	m	struct:io_oper	file:
+num_threads	aio-stress.c	/^int num_threads = 1;$/;"	v
+o_direct	aio-stress.c	/^int o_direct = 0;$/;"	v
+o_sync	aio-stress.c	/^int o_sync = 0;$/;"	v
+odsfd	aiotest.c	/^ int odsfd=-1;$/;"	v
+offset	libaio.h	/^	long long		offset;$/;"	m	struct:io_iocb_vector
+offset	libaio.h	/^	long long	offset;$/;"	m	struct:io_iocb_common
+oper_list_add	aio-stress.c	/^static void oper_list_add(struct io_oper *oper, struct io_oper **list)$/;"	f	file:
+oper_list_del	aio-stress.c	/^static void oper_list_del(struct io_oper *oper, struct io_oper **list)$/;"	f	file:
+oper_mb_trans	aio-stress.c	/^static inline double oper_mb_trans(struct io_oper *oper) {$/;"	f	file:
+oper_runnable	aio-stress.c	/^static int oper_runnable(struct io_oper *oper) {$/;"	f	file:
+padded_reclen	aio-stress.c	/^int padded_reclen = 0;$/;"	v
+page_size_mask	aio-stress.c	/^unsigned long page_size_mask;$/;"	v
+parse_size	aio-stress.c	/^off_t parse_size(char *size_arg, off_t mult) {$/;"	f
+poll	libaio.h	/^		struct io_iocb_poll		poll;$/;"	m	union:iocb::__anon2	typeref:struct:iocb::__anon2::io_iocb_poll
+prev	aio-stress.c	/^    struct io_oper *prev;$/;"	m	struct:io_oper	typeref:struct:io_oper::io_oper	file:
+print_completion_latency	aio-stress.c	/^static void print_completion_latency(struct thread_info *t)$/;"	f	file:
+print_lat	aio-stress.c	/^static void print_lat(char *str, struct io_latency *lat) {$/;"	f	file:
+print_latency	aio-stress.c	/^static void print_latency(struct thread_info *t)$/;"	f	file:
+print_time	aio-stress.c	/^static void print_time(struct io_oper *oper) {$/;"	f	file:
+print_usage	aio-stress.c	/^void print_usage(void) {$/;"	f
+raid_fd	rawbench.c	/^int	raid_fd;$/;"	v
+random_byte_offset	aio-stress.c	/^off_t random_byte_offset(struct io_oper *oper) {$/;"	f
+rd_done	aiotest.c	/^static void rd_done(io_context_t ctx, struct iocb *iocb, long res, long res2)$/;"	f	file:
+read_some_events	aio-stress.c	/^int read_some_events(struct thread_info *t) {$/;"	f
+rec_len	aio-stress.c	/^long rec_len = 64 * 1024;$/;"	v
+reclen	aio-stress.c	/^    int reclen;$/;"	m	struct:io_oper	file:
+record_count	rawbench.c	/^long	record_count=0;$/;"	v
+ref_cnt	rawbench.c	/^	int	 			ref_cnt;$/;"	m	struct:io_queue	file:
+req_count	rawbench.c	/^int 				req_count=0;$/;"	v
+reqtime	rawbench.c	/^	double		reqtime;	$/;"	m	struct:trace_entry	file:
+res	aio-stress.c	/^    long res;$/;"	m	struct:io_unit	file:
+resfd	libaio.h	/^	unsigned	resfd;$/;"	m	struct:io_iocb_common
+respfile	rawbench.c	/^FILE *respfile;$/;"	v
+response_time	rawbench.c	/^long			*response_time;$/;"	v
+restart_oper	aio-stress.c	/^static int restart_oper(struct io_oper *oper) {$/;"	f	file:
+run_active_list	aio-stress.c	/^static int run_active_list(struct thread_info *t,$/;"	f	file:
+run_built	aio-stress.c	/^int run_built(struct thread_info *t, int num_ios, struct iocb **my_iocbs) $/;"	f
+run_workers	aio-stress.c	/^int run_workers(struct thread_info *t, int num_threads)$/;"	f
+rw	aio-stress.c	/^    int rw;$/;"	m	struct:io_oper	file:
+rwType	rawbench.c	/^	char 		rwType;$/;"	m	struct:trace_entry	file:
+saddr	libaio.h	/^		struct io_iocb_sockaddr	saddr;$/;"	m	union:iocb::__anon2	typeref:struct:iocb::__anon2::io_iocb_sockaddr
+setup_ious	aio-stress.c	/^int setup_ious(struct thread_info *t, $/;"	f
+setup_shared_mem	aio-stress.c	/^int setup_shared_mem(int num_threads, int num_files, int depth, $/;"	f
+shm_id	aio-stress.c	/^int shm_id;$/;"	v
+should_stop	rawbench.c	/^int	should_stop =0;$/;"	v
+srcfd	aiotest.c	/^int srcfd=-1;$/;"	v
+stage_cond	aio-stress.c	/^pthread_cond_t stage_cond = PTHREAD_COND_INITIALIZER;$/;"	v
+stage_mb_trans	aio-stress.c	/^    double stage_mb_trans;$/;"	m	struct:thread_info	file:
+stage_mutex	aio-stress.c	/^pthread_mutex_t stage_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+stage_name	aio-stress.c	/^char *stage_name(int rw) {$/;"	f
+stages	aio-stress.c	/^long stages = 0;$/;"	v
+start	aio-stress.c	/^    off_t start;$/;"	m	struct:io_oper	file:
+start_routine	aio-stress.c	/^typedef void * (*start_routine)(void *);$/;"	t	file:
+start_time	aio-stress.c	/^    struct timeval start_time;$/;"	m	struct:io_oper	typeref:struct:io_oper::timeval	file:
+startbyte	rawbench.c	/^	long long 	startbyte;$/;"	m	struct:trace_entry	file:
+started_ios	aio-stress.c	/^    int started_ios;$/;"	m	struct:io_oper	file:
+stonewall	aio-stress.c	/^int stonewall = 1;$/;"	v
+stonewalled	aio-stress.c	/^    int stonewalled;$/;"	m	struct:io_oper	file:
+test_start	rawbench.c	/^struct timeval	test_start;$/;"	v	typeref:struct:timeval
+thread_info	aio-stress.c	/^struct thread_info {$/;"	s	file:
+threads_ending	aio-stress.c	/^int threads_ending = 0;$/;"	v
+threads_starting	aio-stress.c	/^int threads_starting = 0;$/;"	v
+tid	aio-stress.c	/^    pthread_t tid;$/;"	m	struct:thread_info	file:
+time_since	aio-stress.c	/^static double time_since(struct timeval *start_tv, struct timeval *stop_tv)$/;"	f	file:
+time_since_now	aio-stress.c	/^static double time_since_now(struct timeval *start_tv)$/;"	f	file:
+total_io	aio-stress.c	/^    double total_io;$/;"	m	struct:io_latency	file:
+total_ios	aio-stress.c	/^    int total_ios;$/;"	m	struct:io_oper	file:
+total_lat	aio-stress.c	/^    double total_lat;$/;"	m	struct:io_latency	file:
+trace_entry	rawbench.c	/^struct trace_entry{$/;"	s	file:
+trace_name	rawbench.c	/^const char * trace_name = TRACE_FILE;$/;"	v
+trace_nextrequest	rawbench.c	/^int trace_nextrequest(struct trace_entry* req)$/;"	f
+tracefile	rawbench.c	/^FILE *tracefile;$/;"	v
+u	libaio.h	/^	} u;$/;"	m	struct:iocb	typeref:union:iocb::__anon2
+unaligned_buffer	aio-stress.c	/^char *unaligned_buffer = NULL;$/;"	v
+unlink_files	aio-stress.c	/^int unlink_files = 0;$/;"	v
+update_iou_counters	aio-stress.c	/^static void update_iou_counters(struct iocb **my_iocbs, int nr,$/;"	f	file:
+use_shm	aio-stress.c	/^int use_shm = 0;$/;"	v
+v	libaio.h	/^		struct io_iocb_vector		v;$/;"	m	union:iocb::__anon2	typeref:struct:iocb::__anon2::io_iocb_vector
+vec	libaio.h	/^	const struct iovec	*vec;$/;"	m	struct:io_iocb_vector	typeref:struct:io_iocb_vector::iovec
+verify	aio-stress.c	/^int verify = 0;$/;"	v
+verify_buf	aio-stress.c	/^char *verify_buf = NULL;$/;"	v
+worker	aio-stress.c	/^int worker(struct thread_info *t)$/;"	f
+wr_done	aiotest.c	/^static void wr_done(io_context_t ctx, struct iocb *iocb, long res, long res2)$/;"	f	file:

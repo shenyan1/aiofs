@@ -1,0 +1,67 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AIO_BLKSIZE	rawbench.c	58;"	d	file:
+AIO_MAXIO	rawbench.c	59;"	d	file:
+BLOCK_SIZE	rawbench.c	23;"	d	file:
+CHUNK_SIZE	rawbench.c	24;"	d	file:
+COMPLETE_TIME_FILE	rawbench.c	28;"	d	file:
+MAXSIZE	rawbench.c	30;"	d	file:
+QUEUE_SIZE	rawbench.c	60;"	d	file:
+REFERENCE_DISKS	rawbench.c	25;"	d	file:
+RESPONSE_TIME_FILE	rawbench.c	29;"	d	file:
+TEST_BLKSIZE	threads.c	12;"	d	file:
+THREAD_NUMS	threads.c	46;"	d	file:
+TRACE_FILE	rawbench.c	27;"	d	file:
+_FILE_OFFSET_BITS	rawbench.c	1;"	d	file:
+_GNU_SOURCE	rawbench.c	2;"	d	file:
+aio_completion_handler	rawbench.c	/^void* aio_completion_handler( void * thread_data )$/;"	f
+buf	rawbench.c	/^	char				*buf;$/;"	m	struct:io_queue	file:
+bytecount	rawbench.c	/^	int	 		bytecount;$/;"	m	struct:trace_entry	file:
+compfile	rawbench.c	/^FILE *compfile;$/;"	v
+complete_time	rawbench.c	/^double		*complete_time;\/\/65536 is chosen according to \/proc\/sys\/fs\/aio_max_nr $/;"	v
+cur_usec	rawbench.c	/^uint64_t cur_usec(void)$/;"	f
+cur_usec	threads.c	/^uint64_t cur_usec(void)$/;"	f
+devno	rawbench.c	/^	short	 	devno;$/;"	m	struct:trace_entry	file:
+elapse_sec	rawbench.c	/^double elapse_sec()$/;"	f
+finalize	rawbench.c	/^int finalize()$/;"	f
+fpos	threads.c	/^	uint64_t fpos;$/;"	m	struct:test_unit	file:
+id	threads.c	/^	int id;$/;"	m	struct:test_unit	file:
+id2no	rawbench.c	/^short id2no(unsigned int id){$/;"	f
+id_list	rawbench.c	/^unsigned int id_list[]=$/;"	v
+initialize	rawbench.c	/^int initialize()$/;"	f
+io_play	rawbench.c	/^void io_play()$/;"	f
+io_queue	rawbench.c	/^struct io_queue{$/;"	s	file:
+iocb	rawbench.c	/^	struct iocb 		iocb;$/;"	m	struct:io_queue	typeref:struct:io_queue::iocb	file:
+ioctx	rawbench.c	/^io_context_t ioctx;$/;"	v
+ioq	rawbench.c	/^struct	io_queue *ioq;$/;"	v	typeref:struct:io_queue
+issue_time	rawbench.c	/^	double			issue_time;	$/;"	m	struct:io_queue	file:
+lfs_test_read	threads.c	/^void *lfs_test_read(void *arg){$/;"	f
+lfs_test_streamread	threads.c	/^int lfs_test_streamread(){$/;"	f
+main	rawbench.c	/^int main(int argc, char * argv[])$/;"	f
+main	threads.c	/^main(){$/;"	f
+mutex	rawbench.c	/^pthread_mutex_t	mutex;$/;"	v
+num_files	threads.c	/^int num_files=0;$/;"	v
+offs	rawbench.c	/^int offs[MAXSIZE];$/;"	v
+raid_fd	rawbench.c	/^int	raid_fd;$/;"	v
+readfd	threads.c	/^int *readfd;$/;"	v
+record_count	rawbench.c	/^long	record_count=0;$/;"	v
+ref_cnt	rawbench.c	/^	int	 			ref_cnt;$/;"	m	struct:io_queue	file:
+req_count	rawbench.c	/^int req_count=0;$/;"	v
+reqtime	rawbench.c	/^	double		reqtime;	$/;"	m	struct:trace_entry	file:
+respfile	rawbench.c	/^FILE *respfile;$/;"	v
+response_time	rawbench.c	/^long			*response_time;$/;"	v
+rwType	rawbench.c	/^	char 		rwType;$/;"	m	struct:trace_entry	file:
+should_stop	rawbench.c	/^int	should_stop =0;$/;"	v
+sigint_handler	rawbench.c	/^static void sigint_handler(int f){$/;"	f	file:
+startbyte	rawbench.c	/^	long long 	startbyte;$/;"	m	struct:trace_entry	file:
+test_start	rawbench.c	/^struct timeval	test_start;$/;"	v	typeref:struct:timeval
+test_unit	threads.c	/^typedef struct test_unit{$/;"	s	file:
+test_unit_t	threads.c	/^}test_unit_t;$/;"	t	typeref:struct:test_unit	file:
+trace_entry	rawbench.c	/^struct trace_entry{$/;"	s	file:
+trace_name	rawbench.c	/^const char * trace_name = TRACE_FILE;$/;"	v
+trace_nextrequest	rawbench.c	/^int trace_nextrequest(struct trace_entry* req,int idx)$/;"	f
+tracefile	rawbench.c	/^FILE *tracefile;$/;"	v

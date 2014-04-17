@@ -1,0 +1,7 @@
+The large file system support a "fixed-size" file store. The filesystem is implemented in user space.
+The ARC Cache is supported in this version.
+And support 200M files.
+To do:
+support small alloc
+AUTHOR
+Yan Shen (shenyan_001@126.com)
