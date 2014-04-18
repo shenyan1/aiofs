@@ -42,6 +42,52 @@ int file_create(int size){
         }
     return -LFS_ENOSPC;
 }
+#define FNAMESIZE sizeof(uint64_t)
+#define FILESIZE  sizeof(uint32_t)
+#define FFLAG     sizeof(uint32_t)
+#define BLKPTRSIZE sizeof(uint64_t)
+#define TOTALSIZE (FNAMESIZE+FILESIZE+FFLAG+57*BLKPTRSIZE)
+int getfilemetadata(int id){
+	uint64_t off;
+	if(id<0)
+		return -LFS_INVALID;
+	off = LFS_FILE_ENTRY;
+	off += id*(FNAMESIZE+FILESIZE+FFLAG+57*BLKPTRSIZE);
+	return off;
+}
+int getfilesize(int id){
+	uint64_t offset;
+	int fsize;
+	offset = getfilemetadata(id);
+	if(offset == -LFS_INVALID){
+		printf("file io error\n");
+		return -1;
+	}
+	pread(lfs_n.fd,&fsize,sizeof(uint32_t),offset+FNAMESIZE);
+	printf("file size=%d\n",fsize);
+	return fsize;
+}
+
+int file_remove(int id){
+
+	uint64_t off,size;
+	char buffer[TOTALSIZE+1];
+	off = getfilemetadata(id);
+
+	if(id > lfs_n.max_files)
+		return -LFS_INVALID;
+	if(off<0||lfs_n.f_table[id].is_free==LFS_FREE){
+#ifdef LFS_DEBUG
+		printf("file_remove failed: id=%d is freed\n",id);
+#endif
+	return -LFS_INVALID;
+	}
+	memset(buffer,0,TOTALSIZE);
+	pwrite(lfs_n.fd,buffer,TOTALSIZE,off);
+	printf("file removed\n");
+	return 0;
+}
+	
 inline uint64_t getdiskpos(uint64_t offset){
         uint64_t off;
         off = offset / LFS_BLKSIZE;
@@ -106,28 +152,6 @@ int file_open(int id,int flag){
         }
         return LFS_SUCCESS;
 }
-
-int file_remove(int id){
-        int size;
-        uint64_t fp;
-        char *buffer;
-        size = (FILE_ENTRYS-1)*sizeof(uint64_t);
-        buffer = malloc(size);
-        memset(buffer,0,size);
-        if(lfs_n.f_table[id].is_free == LFS_FREE){
-                printf("the file %d is already removed\n",id);
-                return false;
-        }
-        if(lfs_n.f_table[id].meta_table[1] != 0){
-                //TO DO:put the meta_table's content into small space_map.
-        }
-        lfs_n.f_table[id].is_free = LFS_FREE;
-        fp = getlocalp(id);
-        pwrite(lfs_n.fd,buffer,size,fp+sizeof(uint64_t));
-        return true;
-
-}
-
 /* LFS METHOD to read a file
  * param:int   id
  * param:char *buffer
