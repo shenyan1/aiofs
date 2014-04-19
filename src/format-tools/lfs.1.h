@@ -3,6 +3,7 @@
 #include "avl.h"
 #include "lfs_err.h"
 #include "arc.h"
+#include "sarc.h"
 #define true 1
 #define false 0
 #include<unistd.h>
@@ -11,6 +12,7 @@
 #include"lfs_cache.h"
 #include<assert.h>
 #include<stdlib.h>
+#include"config.h"
 typedef struct file_entry{
 	char filename[8];
 	uint32_t fsize;
@@ -49,7 +51,7 @@ typedef struct kmutex {
 #define VERSION "01"
 #define MAX_FILE_NO 10<<10
 
-#define LFS_FILE_ENTRY sizeof(uint64_t)+sizeof(uint32_t)
+#define LFS_FILE_ENTRY sizeof(uint64_t)+ sizeof(uint32_t)
 #define MAX_FILES (10<<10)
 #define LFS_SPACE_ENTRY (LFS_FILE_ENTRY+(2*sizeof(uint32_t)+sizeof(uint64_t)+57*sizeof(uint64_t))*MAX_FILES)
 #define P2ROUNDUP(x, align)	(-(-(x) & -(align)))

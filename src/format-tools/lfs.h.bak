@@ -24,16 +24,15 @@ typedef struct lfs_info{
 	file_entry_t *f_table;
 	char *block_device;
 	avl_tree_t *root;
-#ifdef USE_SARC
-	sarc_t *sarc_cache;
-#else
 	arc_t *arc_cache;
-#endif
-	uint64_t *freemap;
 	cache_t *lfs_cache;
 	cache_t *lfs_obj_cache;
 	uint32_t max_files;
 }lfs_info_t;
+#define FSNAME "LFS"
+#define VERSION "01"
+#define MAX_FILE_NO 10<<10
+
 extern uint64_t getphymemsize(void);
 
 /*
@@ -44,16 +43,11 @@ typedef struct kmutex {
 	uint64_t	m_magic;
 	pthread_mutex_t	m_lock;
 } kmutex_t;
-
-#define FSNAME "LFS"
-#define VERSION "01"
-#define MAX_FILE_NO 10<<10
-
+/* freemap support 2TB 1MB blocks*/
 #define LFS_FILE_ENTRY sizeof(uint64_t)+sizeof(uint32_t)
-#define MAX_FILES (10<<10)
+#define MAX_FILES  (10<<10)
 #define LFS_SPACE_ENTRY (LFS_FILE_ENTRY+(2*sizeof(uint32_t)+sizeof(uint64_t)+57*sizeof(uint64_t))*MAX_FILES)
 #define P2ROUNDUP(x, align)	(-(-(x) & -(align)))
-#define P2ALIGN(x, align)	((x) & -(align))
 #define LFS_DATA_DOMAIN1  (LFS_SPACE_ENTRY+((1<<20)*2*sizeof(uint64_t)))
 #define LFS_DATA_DOMAIN     P2ROUNDUP(LFS_DATA_DOMAIN1,1<<9)
 
