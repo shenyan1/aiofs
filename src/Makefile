@@ -3,7 +3,7 @@ PROGS = lfs_load
 SRCS  = $(wildcard *.c)
 OBJS  = $(SRCS:.c=.o)
 CCFLAGS = -g -Wall -O0
-LIBS  = -lpthread
+LIBS  = -lpthread -laio
 all: lfs_load
 lfs_load:$(OBJS)
 	$(CC) $^ -g -o $@ $(LIBS)

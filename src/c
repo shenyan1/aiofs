@@ -1,22 +1,22 @@
 fs name=LFS
 version is 01hash size = 8192
-mru:0xb82168,mfu:0xb821b8,mrug=0xb82118,mfug=0xb82208
-support 2384 files
-read meta 120 file is free 1
-1 file is free 1
-2 file is free 1
-3 file is free 1
-4 file is free 1
-5 file is free 1
-6 file is free 1
-7 file is free 1
-8 file is free 1
-9 file is free 1
-10 file is free 1
-11 file is free 1
-12 file is free 1
-13 file is free 1
-14 file is free 1
+mru:0xf27168,mfu:0xf271b8,mrug=0xf27118,mfug=0xf27208
+support 10240 files
+read meta 120 file is free 0
+1 file is free 0
+2 file is free 0
+3 file is free 0
+4 file is free 0
+5 file is free 0
+6 file is free 0
+7 file is free 0
+8 file is free 0
+9 file is free 0
+10 file is free 0
+11 file is free 0
+12 file is free 0
+13 file is free 0
+14 file is free 0
 15 file is free 0
 16 file is free 0
 17 file is free 0
@@ -10245,117 +10245,1187 @@ read meta 120 file is free 1
 
 	=================lfs's dnode table============================
 
-	entry 0 filename=LFS_T,fsize=209715200 isfree=1
+	entry 0 filename=,fsize=0 isfree=0
 		metadata
-21611008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 1 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 1 filename=,fsize=0 isfree=0
 		metadata
-231326208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 2 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 2 filename=,fsize=0 isfree=0
 		metadata
-441041408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 3 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 3 filename=,fsize=0 isfree=0
 		metadata
-650756608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 4 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 4 filename=,fsize=0 isfree=0
 		metadata
-860471808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 5 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 5 filename=,fsize=0 isfree=0
 		metadata
-1070187008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 6 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 6 filename=,fsize=0 isfree=0
 		metadata
-1279902208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 7 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 7 filename=,fsize=0 isfree=0
 		metadata
-1489617408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 8 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 8 filename=,fsize=0 isfree=0
 		metadata
-1699332608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 9 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 9 filename=,fsize=0 isfree=0
 		metadata
-1909047808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 10 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 10 filename=,fsize=0 isfree=0
 		metadata
-2118763008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 11 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 11 filename=,fsize=0 isfree=0
 		metadata
-2328478208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 12 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 12 filename=,fsize=0 isfree=0
 		metadata
-2538193408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 13 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 13 filename=,fsize=0 isfree=0
 		metadata
-2747908608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
-	entry 14 filename=LFS_T,fsize=209715200 isfree=1
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 14 filename=,fsize=0 isfree=0
 		metadata
-2957623808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 15 filename=,fsize=0 isfree=0
 		metadata
-3167339008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 16 filename=,fsize=0 isfree=0
 		metadata
-3377054208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 17 filename=,fsize=0 isfree=0
 		metadata
-3586769408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 18 filename=,fsize=0 isfree=0
 		metadata
-3796484608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 19 filename=,fsize=0 isfree=0
 		metadata
-4006199808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 20 filename=,fsize=0 isfree=0
 		metadata
-4215915008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 21 filename=,fsize=0 isfree=0
 		metadata
-4425630208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 22 filename=,fsize=0 isfree=0
 		metadata
-4635345408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 23 filename=,fsize=0 isfree=0
 		metadata
-4845060608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 24 filename=,fsize=0 isfree=0
 		metadata
-5054775808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 25 filename=,fsize=0 isfree=0
 		metadata
-5264491008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 26 filename=,fsize=0 isfree=0
 		metadata
-5474206208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 27 filename=,fsize=0 isfree=0
 		metadata
-5683921408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 28 filename=,fsize=0 isfree=0
 		metadata
-5893636608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 29 filename=,fsize=0 isfree=0
 		metadata
-6103351808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 30 filename=,fsize=0 isfree=0
 		metadata
-6313067008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 31 filename=,fsize=0 isfree=0
 		metadata
-6522782208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 32 filename=,fsize=0 isfree=0
 		metadata
-6732497408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 33 filename=,fsize=0 isfree=0
 		metadata
-6942212608 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 34 filename=,fsize=0 isfree=0
 		metadata
-7151927808 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 35 filename=,fsize=0 isfree=0
 		metadata
-7361643008 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 36 filename=,fsize=0 isfree=0
 		metadata
-7571358208 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
 	entry 37 filename=,fsize=0 isfree=0
 		metadata
-7781073408 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 38 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 39 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 40 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 41 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 42 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 43 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 44 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 45 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 46 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 47 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 48 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 49 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 50 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 51 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	entry 52 filename=,fsize=0 isfree=0
+		metadata
+0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +0 +
+	=================lfs's dnode table============================
+free space =21611008
+free space =4425630208
+free space =8829649408
+free space =13233668608
+free space =17637687808
+free space =22041707008
+free space =26445726208
+free space =30849745408
+free space =35253764608
+free space =39657783808
+free space =44061803008
+free space =48465822208
+free space =52869841408
+free space =57273860608
+free space =61677879808
+free space =66081899008
+free space =70485918208
+free space =74889937408
+free space =79293956608
+free space =83697975808
+free space =88101995008
+free space =92506014208
+free space =96910033408
+free space =101314052608
+free space =105718071808
+free space =110122091008
+free space =114526110208
+free space =118930129408
+free space =123334148608
+free space =127738167808
+free space =132142187008
+free space =136546206208
+free space =140950225408
+free space =145354244608
+free space =149758263808
+free space =154162283008
+free space =158566302208
+free space =162970321408
+free space =167374340608
+free space =171778359808
+free space =176182379008
+free space =180586398208
+free space =184990417408
+free space =189394436608
+free space =193798455808
+free space =198202475008
+free space =202606494208
+free space =207010513408
+free space =211414532608
+free space =215818551808
+free space =220222571008
+free space =224626590208
+free space =229030609408
+free space =233434628608
+free space =237838647808
+free space =242242667008
+free space =246646686208
+free space =251050705408
+free space =255454724608
+free space =259858743808
+free space =264262763008
+free space =268666782208
+free space =273070801408
+free space =277474820608
+free space =281878839808
+free space =286282859008
+free space =290686878208
+free space =295090897408
+free space =299494916608
+free space =303898935808
+free space =308302955008
+free space =312706974208
+free space =317110993408
+free space =321515012608
+free space =325919031808
+free space =330323051008
+free space =334727070208
+free space =339131089408
+free space =343535108608
+free space =347939127808
+free space =352343147008
+free space =356747166208
+free space =361151185408
+free space =365555204608
+free space =369959223808
+free space =374363243008
+free space =378767262208
+free space =383171281408
+free space =387575300608
+free space =391979319808
+free space =396383339008
+free space =400787358208
+free space =405191377408
+free space =409595396608
+free space =413999415808
+free space =418403435008
+free space =422807454208
+free space =427211473408
+free space =431615492608
+free space =436019511808
+free space =440423531008
+free space =444827550208
+free space =449231569408
+free space =453635588608
+free space =458039607808
+free space =462443627008
+free space =466847646208
+free space =471251665408
+free space =475655684608
+free space =480059703808
+free space =484463723008
+free space =488867742208
+free space =493271761408
+free space =497675780608
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0
+free space =0

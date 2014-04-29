@@ -19,7 +19,8 @@
 #include <fcntl.h>
 #include <features.h>
 #include <sys/vfs.h>
-
+#include "lfs.h"
+#include "lfs_thread.h"
 
 #define BLOCK_SIZE	512
 #define CHUNK_SIZE  128	//64KB
@@ -29,37 +30,30 @@
 
 uint64_t offs[MAXSIZE];
 
-FILE *tracefile;
 int	raid_fd;
-FILE *compfile;
-FILE *respfile;
 //long		period_nr=0;
 struct trace_entry{
 	short	 	devno;
-	long long 	startbyte;
+	uint64_t 	startbyte;
 	int	 		bytecount;
 	char 		rwType;
-	double		reqtime;	
 };
 
 //struct aiocb aiocb_array[65536];
-double		*complete_time;//65536 is chosen according to /proc/sys/fs/aio_max_nr 
-long			*response_time;
 long	record_count=0;
-pthread_mutex_t	mutex;
+pthread_mutex_t	iocb_queue_mutex;
 
 int	should_stop =0;
 
 struct timeval	test_start;
 io_context_t ioctx;
-#define	AIO_BLKSIZE	1024*1024
+#define	AIO_BLKSIZE	LFS_BLKSIZE
 #define	AIO_MAXIO	 	512
 #define	QUEUE_SIZE		4*AIO_MAXIO
 
 struct io_queue{
 	struct iocb 		iocb;
 	char				*buf;
-	double			issue_time;	
 	int	 			ref_cnt;
 };
 
@@ -82,25 +76,7 @@ short id2no(unsigned int id){
 	    printf("dingdong::UNKNOWN disk id--->%d\n",id);
 	    return len;
 }
-uint64_t cur_usec(void)
-{
-    struct timeval __time;
-    unsigned long long cur_usec;
 
-    gettimeofday(&__time, NULL);
-    cur_usec =  __time.tv_sec;
-    cur_usec *= 1000000;
-    cur_usec += __time.tv_usec;
-
-    return cur_usec;
-}
-
-
-int initialize()
-{
-	pthread_mutex_init (&mutex,NULL);
-	return 1;
-}
 
 /*return value:
  *-1: failed
@@ -110,7 +86,6 @@ int initialize()
 int trace_nextrequest(struct trace_entry* req,int idx)
 {
 	
-	unsigned int u_devno;
 	int	ret = 0;
 	req->startbyte = offs[idx];
 	req->bytecount = AIO_BLKSIZE;
@@ -134,24 +109,16 @@ int trace_nextrequest(struct trace_entry* req,int idx)
 int finalize()
 {
 	
-	pthread_mutex_destroy(&mutex);
+	pthread_mutex_destroy(&iocb_queue_mutex);
 	return 1;
 }
 
-double elapse_sec()
-{
-	struct timeval current_tv;
-	
-	gettimeofday(&current_tv,NULL);
-	return (double)(current_tv.tv_sec-test_start.tv_sec)+(double)(current_tv.tv_usec-test_start.tv_usec)/1000000.0;
-}
 
 void* aio_completion_handler( void * thread_data )
 {
 	struct io_event events[AIO_MAXIO];
 	struct io_queue	*this_io;
-	int		num,i,j;
-	double comp_time,resp_time;
+	int		num,i;
 	int total=0;
 	while(1){
 		num = io_getevents(ioctx, 1, AIO_MAXIO, events, NULL);
@@ -159,7 +126,6 @@ void* aio_completion_handler( void * thread_data )
 			break;
 	//	printf("\n%d io_request completed\n\n", num);
 
-		comp_time =elapse_sec();
 		for(i=0;i<num;i++){
 			this_io = (struct io_queue*)events[i].data;
 
@@ -182,12 +148,12 @@ void* aio_completion_handler( void * thread_data )
 			}
 		}
 
-		pthread_mutex_lock (&mutex);
+		pthread_mutex_lock (&iocb_queue_mutex);
 		for(i=0;i<num;i++){
 			this_io = (struct io_queue*)events[i].data;
 			this_io->ref_cnt =0;
 		}
-		pthread_mutex_unlock (&mutex);
+		pthread_mutex_unlock (&iocb_queue_mutex);
 		total+= num;
 		if(total==MAXSIZE)
 			break;
@@ -201,13 +167,9 @@ int req_count=0;
 void io_play()
 {
 	struct trace_entry request;
-	double		now_sec;
-	double		baseline_time = 0.0;
-	double		last_reqtime = 0.0;
 	int			ret;	
 	int			i;
 	int			queue_idx =0;
-	pthread_t 	completion_th;
 	struct io_queue		*this_io;
 	struct iocb			*this_iocb;
 	memset(&ioctx, 0, sizeof(ioctx));
@@ -229,10 +191,6 @@ void io_play()
 	}
 
 	//create the aio_completion_handler thread
-	if(pthread_create(&completion_th, NULL, aio_completion_handler, (void*)NULL) !=0){
-		printf ("Create completion thread error!\n");
-		exit(1); 
-	}
 //	if(pthread_detach(completion_th) !=0){
 	//	printf ("Detach completion thread error!\n");
 	//	exit (1);
@@ -241,12 +199,10 @@ void io_play()
 	for(idx=0;idx<MAXSIZE;idx++){
 		// read one trace entry and initialize an aiocb
 		ret = trace_nextrequest(&request,idx);
-		if(ret==1)
-			baseline_time += last_reqtime;
 		
 repeat:
 		//allocate a free ioqueue
-		pthread_mutex_lock (&mutex);
+		pthread_mutex_lock (&iocb_queue_mutex);
 		for(i=0; i<QUEUE_SIZE; i++){
 			this_io = &ioq[(queue_idx+i)%QUEUE_SIZE];
 			if(!this_io->ref_cnt){
@@ -255,7 +211,7 @@ repeat:
 				break;
 			}
 		}
-		pthread_mutex_unlock (&mutex);
+		pthread_mutex_unlock (&iocb_queue_mutex);
 		if(i == QUEUE_SIZE){
 			printf("sleep");
 			usleep(200);
@@ -276,13 +232,7 @@ repeat:
 			io_prep_pwrite(this_iocb, raid_fd, this_io->buf, request.bytecount, request.startbyte);
 		this_iocb->data = this_io;
 		printf("submit iocb=%p\n",this_iocb);
-		last_reqtime = request.reqtime;
 		//sleep some time if necessary
-		now_sec= elapse_sec();
-		if(request.reqtime>now_sec){
-			usleep((long)((request.reqtime-now_sec)*1000000.0));	
-			//printf("usleep: %ld\n",(long)((request.reqtime-now_sec)*1000000.0));
-		}
 
 		//play the request
 		ret = io_submit(ioctx, 1, &this_iocb);
@@ -308,23 +258,26 @@ static void sigint_handler(int f){
 	assert(0);
 }
 
-int main(int argc, char * argv[])
-{
-	pthread_t listen_th;
-	int i,flags,bw;
-	uint64_t ctime,stime;
+int aio_init(){
 
-	srand(0);
-	for(i=0;i<MAXSIZE;i++){
-		offs[i]= AIO_BLKSIZE;
-		offs[i]*=(rand() % MAXSIZE);
-		printf("offs=%"PRIu64"\n",offs[i]);
+	pthread_t receiver_th;
+	/* init aio_receiver thread.
+         */
+	if(pthread_create(&receiver_th, NULL, aio_completion_handler, (void*)NULL) !=0){
+		printf ("Create completion thread error!\n");
+		exit(1); 
 	}
 
-	//	assert(0);
-//SIGINT
 	signal(SIGINT,sigint_handler);
-	//create the listen thread
+	pthread_mutex_init (&iocb_queue_mutex,NULL);
+	
+
+}
+int main(int argc, char * argv[])
+{
+	int flags;
+
+	srand(0);
 	
 	flags =   O_RDWR|  O_LARGEFILE;
 	raid_fd =open(argv[1],flags,0777);
@@ -332,21 +285,9 @@ int main(int argc, char * argv[])
 		printf("RAID5 open failure:%d\n",raid_fd);
 		exit(1) ;
 	}
-	stime = cur_usec();
-	initialize();
-	gettimeofday(&test_start,NULL);
 	io_play();
 
 	finalize();
-	ctime = cur_usec();
-	bw = MAXSIZE * (AIO_BLKSIZE);
-	bw = bw / (ctime - stime);
-	printf("bw=%"PRIu64"",bw);
-
-	bw *= 1000000;
-	bw = bw / 1024;
-	printf("stat: bw = %"PRIu64" kB/s\n",bw);
-
 	close(raid_fd);
 
 	return 0;

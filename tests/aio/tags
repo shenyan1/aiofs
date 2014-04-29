@@ -4,18 +4,17 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AIO_BLKSIZE	rawbench.c	58;"	d	file:
-AIO_MAXIO	rawbench.c	59;"	d	file:
-BLOCK_SIZE	rawbench.c	23;"	d	file:
-CHUNK_SIZE	rawbench.c	24;"	d	file:
-COMPLETE_TIME_FILE	rawbench.c	28;"	d	file:
-MAXSIZE	rawbench.c	30;"	d	file:
-QUEUE_SIZE	rawbench.c	60;"	d	file:
-REFERENCE_DISKS	rawbench.c	25;"	d	file:
-RESPONSE_TIME_FILE	rawbench.c	29;"	d	file:
+AIO_BLKSIZE	rawbench.c	55;"	d	file:
+AIO_BLKSIZE	threads.c	13;"	d	file:
+AIO_MAXIO	rawbench.c	56;"	d	file:
+BLOCK_SIZE	rawbench.c	24;"	d	file:
+CHUNK_SIZE	rawbench.c	25;"	d	file:
+MAXSIZE	rawbench.c	28;"	d	file:
+MAXSIZE	threads.c	15;"	d	file:
+QUEUE_SIZE	rawbench.c	57;"	d	file:
+REFERENCE_DISKS	rawbench.c	26;"	d	file:
 TEST_BLKSIZE	threads.c	12;"	d	file:
-THREAD_NUMS	threads.c	46;"	d	file:
-TRACE_FILE	rawbench.c	27;"	d	file:
+THREAD_NUMS	threads.c	14;"	d	file:
 _FILE_OFFSET_BITS	rawbench.c	1;"	d	file:
 _GNU_SOURCE	rawbench.c	2;"	d	file:
 aio_completion_handler	rawbench.c	/^void* aio_completion_handler( void * thread_data )$/;"	f
@@ -27,6 +26,7 @@ cur_usec	rawbench.c	/^uint64_t cur_usec(void)$/;"	f
 cur_usec	threads.c	/^uint64_t cur_usec(void)$/;"	f
 devno	rawbench.c	/^	short	 	devno;$/;"	m	struct:trace_entry	file:
 elapse_sec	rawbench.c	/^double elapse_sec()$/;"	f
+fd	threads.c	/^int fd;$/;"	v
 finalize	rawbench.c	/^int finalize()$/;"	f
 fpos	threads.c	/^	uint64_t fpos;$/;"	m	struct:test_unit	file:
 id	threads.c	/^	int id;$/;"	m	struct:test_unit	file:
@@ -45,7 +45,8 @@ main	rawbench.c	/^int main(int argc, char * argv[])$/;"	f
 main	threads.c	/^main(){$/;"	f
 mutex	rawbench.c	/^pthread_mutex_t	mutex;$/;"	v
 num_files	threads.c	/^int num_files=0;$/;"	v
-offs	rawbench.c	/^int offs[MAXSIZE];$/;"	v
+offs	rawbench.c	/^uint64_t offs[MAXSIZE];$/;"	v
+offs	threads.c	/^int offs[MAXSIZE];$/;"	v
 raid_fd	rawbench.c	/^int	raid_fd;$/;"	v
 readfd	threads.c	/^int *readfd;$/;"	v
 record_count	rawbench.c	/^long	record_count=0;$/;"	v
@@ -62,6 +63,5 @@ test_start	rawbench.c	/^struct timeval	test_start;$/;"	v	typeref:struct:timeval
 test_unit	threads.c	/^typedef struct test_unit{$/;"	s	file:
 test_unit_t	threads.c	/^}test_unit_t;$/;"	t	typeref:struct:test_unit	file:
 trace_entry	rawbench.c	/^struct trace_entry{$/;"	s	file:
-trace_name	rawbench.c	/^const char * trace_name = TRACE_FILE;$/;"	v
 trace_nextrequest	rawbench.c	/^int trace_nextrequest(struct trace_entry* req,int idx)$/;"	f
 tracefile	rawbench.c	/^FILE *tracefile;$/;"	v

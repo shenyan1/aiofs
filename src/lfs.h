@@ -12,6 +12,7 @@
 #include"lfs_cache.h"
 #include<assert.h>
 #include<stdlib.h>
+#include<sys/time.h>
 #include"config.h"
 typedef struct file_entry{
 	char filename[8];
@@ -25,20 +26,18 @@ typedef struct lfs_info{
 	uint64_t off;
 	file_entry_t *f_table;
 	char *block_device;
-	avl_tree_t *root;
 #ifdef USE_SARC
 	sarc_t *sarc_cache;
 #else
 	arc_t *arc_cache;
 #endif
+	uint64_t *freemap;
 	cache_t *lfs_cache;
 	cache_t *lfs_obj_cache;
+	CQ *cq;
+        io_queue_info_t cq_info;
 	uint32_t max_files;
 }lfs_info_t;
-#define FSNAME "LFS"
-#define VERSION "01"
-#define MAX_FILE_NO 10<<10
-
 extern uint64_t getphymemsize(void);
 
 /*
@@ -50,9 +49,13 @@ typedef struct kmutex {
 	pthread_mutex_t	m_lock;
 } kmutex_t;
 
-#define LFS_FILE_ENTRY sizeof(uint64_t)+sizeof(uint32_t)
+#define FSNAME "LFS"
+#define VERSION "01"
+#define MAX_FILE_NO 10<<10
 
-#define LFS_SPACE_ENTRY (LFS_FILE_ENTRY+(2*sizeof(uint32_t)+sizeof(uint64_t)+57*sizeof(uint64_t))*(10<<10))
+#define LFS_FILE_ENTRY sizeof(uint64_t)+sizeof(uint32_t)
+#define MAX_FILES (10<<10)
+#define LFS_SPACE_ENTRY (LFS_FILE_ENTRY+(2*sizeof(uint32_t)+sizeof(uint64_t)+57*sizeof(uint64_t))*MAX_FILES)
 #define P2ROUNDUP(x, align)	(-(-(x) & -(align)))
 #define P2ALIGN(x, align)	((x) & -(align))
 #define LFS_DATA_DOMAIN1  (LFS_SPACE_ENTRY+((1<<20)*2*sizeof(uint64_t)))
@@ -76,7 +79,10 @@ typedef struct kmutex {
 #define MIN(a, b)       ((a) < (b) ? (a) : (b))
 #define MAX(a, b)       ((a) < (b) ? (b) : (a))
 
+
 #define LFS_BLKSIZE (1<<20)
+
+extern uint64_t cur_usec(void);
 extern uint64_t getlocalp(uint64_t id);
 extern uint64_t arc_hash_init(void);
 extern void lfs_mutex(pthread_mutex_t *lock);

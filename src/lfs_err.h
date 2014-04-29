@@ -7,4 +7,5 @@
 #define LFS_EOPEN 3
 #define LFS_ENOSPC 4
 #define LFS_EPM	   5
+#define LFS_INVALID 6
 #endif
