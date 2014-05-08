@@ -19,6 +19,8 @@ void
 mutex_destroy (lmutex_t * mp)
 {
     int ret = pthread_mutex_destroy (&mp->mutex);
+    if(ret!=0)
+      printf("mutex destroy failed=%d",ret);
     assert (ret == 0);
 }
 
@@ -114,11 +116,15 @@ CQ_ITEM *cq_pop(CQ *cq) {
 
     return item;
 }
-void cq_init(CQ *cq) {
-    pthread_mutex_init(&cq->lock, NULL);
-    pthread_cond_init(&cq->cond, NULL);
-    cq->head = NULL;
-    cq->tail = NULL;
+void cq_init() {
+    
+    RFS_CQ = (CQ *)malloc(sizeof(CQ));
+    pthread_mutex_init(&RFS_CQ->lock, NULL);
+    pthread_mutex_init(&lfs_n.cq_info.cqi_freelist_lock,NULL);
+    lfs_n.cq_info.cqi_freelist = NULL;
+    pthread_cond_init(&RFS_CQ->cond, NULL);
+    RFS_CQ->head = NULL;
+    RFS_CQ->tail = NULL;
 }
 
 void cqi_free(CQ_ITEM *item) {

@@ -616,7 +616,7 @@ arc_read_done (struct __arc_object *obj)
     mutex_enter (&obj->obj_lock, __func__);
     if (obj->read_state == READ_STATE)
       {
-	  obj->read_state = READ_FINISHED;
+	  obj->read_state = READ_HALF_FINISHED;
 	  cv_broadcast (&obj->cv);
       }
     mutex_exit (&obj->obj_lock, __func__);
@@ -685,7 +685,7 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	  else
 	    {
 		//print_state(cache);
-		//printf("in arc_lookup,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
+		printf("err:in arc_lookup,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
 		printf ("hits %" PRIu64 ",total=%" PRIu64 "",
 			cache->arc_stats.hits, cache->arc_stats.total);
 		exit (1);
@@ -698,22 +698,23 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	    {
 		arc_stat_update (cache);
 		obj = cache->ops->create (id, offset);
-#ifdef LFS_DEBUG
 		printf ("going to insert hash arc_lookup\n");
-#endif
+
 		__arc_hash_insert (cache, key, obj, hash_lock);
 		__arc_adjust (cache);	//obj->size
 
 		cache->ops->fetch_from_disk (id, offset, obj);
-		if (!obj)
-		    return NULL;
+
+		assert(obj);
 		obj = __arc_move (cache, obj, &cache->mru, OBJ_INIT);
 		assert (obj->state == &cache->mru);
-		assert (obj->read_state == READ_STATE);
-		arc_read_done (obj);
+		mutex_enter(&obj->obj_lock,__func__);
+	  	obj->read_state = READ_FINISHED;
+		mutex_exit(&obj->obj_lock,__func__);
+		printf("first read,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
 		return obj;
 	    }
-	  else if (obj != NULL && obj->read_state == READ_STATE)
+	  else if (obj != NULL && (obj->read_state == READ_STATE|| obj->read_state == READ_HALF_FINISHED))
 	    {
 		mutex_exit (hash_lock, __func__);
 
@@ -721,7 +722,8 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 #ifdef LFS_DEBUG
 		printf ("going to wait\n");
 #endif
-		while (obj->read_state == READ_STATE)
+
+		while (obj->read_state == READ_STATE || obj->read_state == READ_HALF_FINISHED)
 		  {
 		      cv_wait (&obj->cv, &obj->obj_lock);
 		  }
@@ -737,6 +739,5 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	    }
       }
     assert (0);
-    //printf("end arc Look up obj=%p,id=%"PRIu64",offset=%"PRIu64"\n",obj,id,offset);
     return obj;
 }

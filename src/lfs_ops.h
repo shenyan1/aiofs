@@ -2,6 +2,7 @@
 #define _LFS_OPS_H
 #include"config.h"
 #include"sarc.h"
+#include"arc.h"
 /*
  The file is implement the lfs's user operations
  It contains :
@@ -12,6 +13,7 @@
  */
 #define READ_STATE    1
 #define READ_FINISHED 2
+#define READ_HALF_FINISHED 3
 struct object {
     uint64_t id;
     uint64_t offset;
@@ -31,5 +33,7 @@ extern int  file_read(int id,char *buffer,uint32_t size,uint64_t offset);
 extern int file_open(int id,int flag);
 extern int file_remove(int id);
 extern void lfs_arc_init(uint64_t arc_size);
+struct object *getobj (struct __arc_object *e);
+
 extern struct __arc_ops arc_ops;
 #endif

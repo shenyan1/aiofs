@@ -45,6 +45,8 @@ __arc_list_splice(struct __arc_list *prev, struct __arc_list *next)
     prev->next = next;
 }
 
+inline void
+arc_read_done (struct __arc_object *obj);
 
 static inline void
 __arc_list_remove(struct __arc_list *head)

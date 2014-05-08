@@ -13,7 +13,9 @@
 #include"lfs_test.h"
 #include"lfs_thread.h"
 #include"lfs_ops.h"
+#include"lfs_fops.h"
 #include"lfs_cache.h"
+#include"aio_api.h"
 lfs_info_t lfs_n;
 
 char *testbuffer;
@@ -52,6 +54,7 @@ LoadFileEntry ()
  */
     pread (lfs_n.fd, &max_files, sizeof (uint32_t), sizeof (uint64_t));
     lfs_n.max_files = max_files;
+
     printf ("support %d files\n", lfs_n.max_files);
     lfs_n.off = LFS_FILE_ENTRY;
     for (i = 0; i < 10 << 10; i++)
@@ -116,18 +119,19 @@ print_lfstable ()
 int
 LoadSpaceEntry ()
 {
-    int i;
     lfs_n.off = LFS_SPACE_ENTRY;
     /*8MB freemap can contain 2TB 1MB blocks */
     lfs_n.freemap = malloc (16 << 20);
 
     memset (lfs_n.freemap, 0, 16 << 20);
     pread (lfs_n.fd, lfs_n.freemap, 16 << 20, lfs_n.off);
+#if 0
     for (i = 0; i < 1024; i++)
       {
-	  printf ("free space =%" PRIu64 "\n", lfs_n.freemap[i]);
+//	  printf ("free space =%" PRIu64 "\n", lfs_n.freemap[i]);
       }
-    assert (0);
+    //assert (0);
+#endif
     return true;
 }
 
@@ -157,10 +161,11 @@ lfs_init ()
     lfs_n.lfs_obj_cache =
 	cache_create ("obj_cache", sizeof (struct object), sizeof (char *),
 		      NULL, NULL, arc_size);
-
+	
     LoadFileEntry ();
     print_lfstable ();
     LoadSpaceEntry ();
+    aio_init();
     return 0;
 }
 
@@ -208,9 +213,6 @@ main (int argc, char *argv[])
 	  exit (1);
       }
     lfs_init ();
-    getfilesize (1);
-    file_remove (1);
-    getfilesize (1);
     lfs_test (argv);
     lfs_fini ();
     printf ("Congratulations,the lfs filesystem V2 run success\n");

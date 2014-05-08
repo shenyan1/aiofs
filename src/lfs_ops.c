@@ -71,12 +71,28 @@ __op_create (uint64_t id, uint64_t offset)
 }
 
 static inline int
-__op_fetch_disk (uint64_t id, uint64_t offset, struct __arc_object *e)
+__op_fetch_disk (uint64_t id, uint64_t offset, struct __arc_object *_obj)
 {
 
-    struct object *obj = getobj (e);
-    pread (lfs_n.fd, obj->data, 1 << 20,
+    CQ_ITEM *item = cqi_new();
+    item->fops = READ_COMMAND;
+    item->offset = offset;
+    item->fid = id;
+    item->obj = _obj;
+
+    assert (_obj->read_state == READ_STATE);
+/*    pread (lfs_n.fd, obj->data, 1 << 20,
 	   offset + lfs_n.f_table[id].meta_table[0]);
+*/    
+    cq_push(lfs_n.cq,item);
+    mutex_enter(&_obj->obj_lock,__func__);
+    
+    while(_obj->read_state == READ_STATE){
+	cv_wait(&_obj->cv,&_obj->obj_lock);
+
+    } 
+
+    mutex_exit(&_obj->obj_lock,__func__);
     return 1;
 }
 
@@ -114,7 +130,7 @@ static void
 __op_destroy (struct __arc_object *e)
 {
     struct object *obj = __arc_list_entry (e, struct object, entry);
-//              free(obj->data);
+
     mutex_destroy (&e->obj_lock);
 //              printf("obj's offset=%"PRIu64"id=%"PRIu64"",obj->offset,obj->id);
     cv_destroy (&e->cv);

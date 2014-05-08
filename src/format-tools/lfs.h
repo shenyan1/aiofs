@@ -1,8 +1,6 @@
 #ifndef _LFS_H
 #define _LFS_H
-#include "avl.h"
 #include "lfs_err.h"
-#include "arc.h"
 #define true 1
 #define false 0
 #include<unistd.h>
@@ -23,12 +21,6 @@ typedef struct lfs_info{
 	uint64_t off;
 	file_entry_t *f_table;
 	char *block_device;
-	avl_tree_t *root;
-#ifdef USE_SARC
-	sarc_t *sarc_cache;
-#else
-	arc_t *arc_cache;
-#endif
 	uint64_t *freemap;
 	cache_t *lfs_cache;
 	cache_t *lfs_obj_cache;

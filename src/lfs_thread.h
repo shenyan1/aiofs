@@ -11,6 +11,7 @@
 #define OBJ_UNLOCK 0
 #define OBJ_INIT   2
 #define RW_DEFAULT	RW_READER
+#include <libaio.h>
 typedef pthread_t mown_t;
 typedef struct lmutex{
 	pthread_mutex_t mutex;
@@ -43,15 +44,19 @@ extern void rw_exit(krwlock_t *rwlp);
  */
 #define READ_COMMAND  0
 #define WRITE_COMMAND 1
+
 typedef struct conn_queue_item CQ_ITEM;
 struct conn_queue_item {
     int size;
     int shmid;
+    int fid;
     int fops;
+    struct __arc_object *obj;
     uint64_t offset;
     CQ_ITEM *prev;
     CQ_ITEM *next;
 };
+
 typedef struct rfs_io_queue CQ;
 
 struct rfs_io_queue {
@@ -60,12 +65,25 @@ struct rfs_io_queue {
     pthread_mutex_t lock;
     pthread_cond_t  cond;
 };
+struct io_queue
+{
+    struct iocb iocb;
+    int ref_cnt;
+    CQ_ITEM *item;
+};
+
+typedef struct io_queue IOCBQ;
 typedef struct io_queue_info{
         pthread_mutex_t item_locks;
    	CQ_ITEM *cqi_freelist;
 	pthread_mutex_t cqi_freelist_lock;
+        IOCBQ *iocbq;
+        pthread_mutex_t iocb_queue_mutex;
 }io_queue_info_t;
+extern CQ_ITEM *cq_pop(CQ *cq);
 
+extern CQ_ITEM *cqi_new(void);
+extern void cq_init(void);
 extern void cq_push(CQ *cq, CQ_ITEM *item);
 extern CQ_ITEM* cq_pop(CQ *cq);
 

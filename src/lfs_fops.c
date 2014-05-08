@@ -85,7 +85,7 @@ int
 file_remove (int id)
 {
 
-    uint64_t off, size;
+    uint64_t off;
     char buffer[TOTALSIZE + 1];
     off = getfilemetadata (id);
 

@@ -1,6 +1,5 @@
 #ifndef _LFS_H
 #define _LFS_H
-#include "avl.h"
 #include "lfs_err.h"
 #include "arc.h"
 #include "sarc.h"
@@ -21,6 +20,10 @@ typedef struct file_entry{
 	uint64_t *meta_table;
 }file_entry_t;
 
+#define FREELIST_LOCK lfs_n.cq_info.cqi_freelist_lock;
+#define RFS_CQ 	    lfs_n.cq
+#define IOCBQ_MUTEX lfs_n.cq_info.iocb_queue_mutex
+#define IOCBQUEUE lfs_n.cq_info.iocbq
 typedef struct lfs_info{
 	int fd;
 	uint64_t off;
@@ -37,6 +40,10 @@ typedef struct lfs_info{
 	CQ *cq;
         io_queue_info_t cq_info;
 	uint32_t max_files;
+/* aio threads
+ */
+        pthread_t rfs_receiver_th;
+	pthread_t rfs_worker_th;
 }lfs_info_t;
 extern uint64_t getphymemsize(void);
 
