@@ -731,7 +731,7 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	  	obj->read_state = READ_FINISHED;
 		cv_broadcast(&obj->cv);
 		mutex_exit(&obj->obj_lock,__func__);
-		printf("first read,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
+	//	printf("first read,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
 		return obj;
 	    }
 	  else if (obj != NULL && (obj->read_state == READ_STATE|| obj->read_state == READ_HALF_FINISHED))

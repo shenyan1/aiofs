@@ -4,22 +4,15 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ARC_MUTEXES	arc.h	64;"	d
-ASSERT	avl.c	83;"	d	file:
 ASSERT	lfs.1.h	73;"	d
-ASSERT	lfs.h	71;"	d
+ASSERT	lfs.h	60;"	d
 AVG_FSIZE	lfs.1.h	62;"	d
-AVG_FSIZE	lfs.h	60;"	d
-AVL_AFTER	avl.h	105;"	d
-AVL_BEFORE	avl.h	104;"	d
+AVG_FSIZE	lfs.h	49;"	d
 AVL_DATA2NODE	avl_impl.h	129;"	d
 AVL_INDEX2CHILD	avl_impl.h	137;"	d
 AVL_INDEX2NODE	avl_impl.h	136;"	d
 AVL_MKINDEX	avl_impl.h	138;"	d
-AVL_NEXT	avl.h	186;"	d
 AVL_NODE2DATA	avl_impl.h	128;"	d
-AVL_PREV	avl.h	187;"	d
-AVL_REINSERT	avl.c	778;"	d	file:
 AVL_SETBALANCE	avl_impl.h	117;"	d
 AVL_SETBALANCE	avl_impl.h	75;"	d
 AVL_SETCHILD	avl_impl.h	108;"	d
@@ -32,383 +25,153 @@ AVL_XCHILD	avl_impl.h	107;"	d
 AVL_XCHILD	avl_impl.h	71;"	d
 AVL_XPARENT	avl_impl.h	100;"	d
 AVL_XPARENT	avl_impl.h	68;"	d
+BLKPTRSIZE	lfs_format.c	123;"	d	file:
 BLKSHIFT	lfs.1.h	72;"	d
-BLKSHIFT	lfs.h	70;"	d
-B_FALSE	avl.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	e	enum:boolean
-B_TRUE	avl.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	e	enum:boolean
-CACHE_H	lfs_cache.h	3;"	d
+BLKSHIFT	lfs.h	59;"	d
 CC	Makefile	/^CC    = gcc$/;"	m
 CCFLAGS	Makefile	/^CCFLAGS = -g -Wall -O0$/;"	m
-CHILDBIT	avl.c	888;"	d	file:
 FILE_ENTRYS	lfs.1.h	64;"	d
-FILE_ENTRYS	lfs.h	62;"	d
+FILE_ENTRYS	lfs.h	51;"	d
 FSNAME	lfs.1.h	50;"	d
-FSNAME	lfs.h	48;"	d
-FormatFSinformation	lfs_format.c	/^int FormatFSinformation(int fd)$/;"	f
-FormatFileEntry	lfs_format.c	/^int FormatFileEntry(int fd)$/;"	f
-FormatSpaceEntry	lfs_format.c	/^int FormatSpaceEntry(int fd)$/;"	f
-IN_MFUG	arc.c	502;"	d	file:
+FSNAME	lfs.h	37;"	d
+FormatFSinformation	lfs_format.c	/^FormatFSinformation (int fd)$/;"	f
+FormatFileEntry	lfs_format.c	/^FormatFileEntry (int fd)$/;"	f
+FormatSpaceEntry	lfs_format.c	/^FormatSpaceEntry (int fd)$/;"	f
 LFS_BLKSIZE	lfs.1.h	80;"	d
-LFS_BLKSIZE	lfs.h	78;"	d
+LFS_BLKSIZE	lfs.h	67;"	d
 LFS_DATA_DOMAIN	lfs.1.h	60;"	d
-LFS_DATA_DOMAIN	lfs.h	58;"	d
+LFS_DATA_DOMAIN	lfs.h	47;"	d
 LFS_DATA_DOMAIN1	lfs.1.h	59;"	d
-LFS_DATA_DOMAIN1	lfs.h	57;"	d
+LFS_DATA_DOMAIN1	lfs.h	46;"	d
 LFS_EBIG	lfs_err.h	5;"	d
 LFS_EBOUND	lfs_err.h	6;"	d
 LFS_ENOSPC	lfs_err.h	8;"	d
 LFS_EOPEN	lfs_err.h	7;"	d
 LFS_EPM	lfs_err.h	9;"	d
 LFS_FILE_ENTRY	lfs.1.h	54;"	d
-LFS_FILE_ENTRY	lfs.h	52;"	d
+LFS_FILE_ENTRY	lfs.h	41;"	d
 LFS_FREE	lfs.1.h	66;"	d
-LFS_FREE	lfs.h	64;"	d
+LFS_FREE	lfs.h	53;"	d
 LFS_NFREE	lfs.1.h	68;"	d
-LFS_NFREE	lfs.h	66;"	d
+LFS_NFREE	lfs.h	55;"	d
 LFS_SPACE_ENTRY	lfs.1.h	56;"	d
-LFS_SPACE_ENTRY	lfs.h	54;"	d
+LFS_SPACE_ENTRY	lfs.h	43;"	d
 LFS_SUCCESS	lfs_err.h	4;"	d
 LIBS	Makefile	/^LIBS  = -lpthread$/;"	m
+LoadFileEntry	tools.c	/^int LoadFileEntry ()$/;"	f
 MAX	lfs.1.h	78;"	d
-MAX	lfs.h	76;"	d
-MAXOBJ	test.c	126;"	d	file:
+MAX	lfs.h	65;"	d
 MAX_FILES	lfs.1.h	55;"	d
-MAX_FILES	lfs.h	53;"	d
+MAX_FILES	lfs.h	42;"	d
 MAX_FILE_NO	lfs.1.h	52;"	d
-MAX_FILE_NO	lfs.h	50;"	d
+MAX_FILE_NO	lfs.h	39;"	d
 MAX_FSIZE	lfs.1.h	70;"	d
-MAX_FSIZE	lfs.h	68;"	d
+MAX_FSIZE	lfs.h	57;"	d
 MIN	lfs.1.h	77;"	d
-MIN	lfs.h	75;"	d
+MIN	lfs.h	64;"	d
 MTX_DEST	lfs_thread.h	5;"	d
 MTX_INIT	lfs_thread.h	4;"	d
 MTX_MAGIC	lfs_thread.h	3;"	d
 MUTEX_DEFAULT	lfs_thread.h	6;"	d
-MUTEX_HELD	block_alloc.h	20;"	d
-NDEBUG	lfs_cache.c	7;"	d	file:
-NUMS	test.c	17;"	d	file:
 OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 OBJ_INIT	lfs_thread.h	12;"	d
 OBJ_LOCK	lfs_thread.h	10;"	d
 OBJ_UNLOCK	lfs_thread.h	11;"	d
 P2ALIGN	lfs.1.h	58;"	d
-P2ALIGN	lfs.h	56;"	d
+P2ALIGN	lfs.h	45;"	d
 P2ROUNDUP	lfs.1.h	57;"	d
-P2ROUNDUP	lfs.h	55;"	d
+P2ROUNDUP	lfs.h	44;"	d
 PROGS	Makefile	/^PROGS = lfs_load$/;"	m
-READ_FINISHED	lfs_ops.h	12;"	d
-READ_STATE	lfs_ops.h	11;"	d
 RW_READER	lfs_thread.h	8;"	d
 RW_WRITER	lfs_thread.h	9;"	d
 SRCS	Makefile	/^SRCS  = $(wildcard *.c)$/;"	m
-TEST_BLKSIZE	lfs_test.c	6;"	d	file:
-THREAD_NUMS	lfs_test.c	146;"	d	file:
 VERIFY	lfs.1.h	75;"	d
-VERIFY	lfs.h	73;"	d
+VERIFY	lfs.h	62;"	d
 VERSION	lfs.1.h	51;"	d
-VERSION	lfs.h	49;"	d
-_AVL_H	avl.h	7;"	d
+VERSION	lfs.h	38;"	d
 _AVL_IMPL_H	avl_impl.h	28;"	d
-_BLOCK_ALLOC_H	block_alloc.h	2;"	d
 _LFS_H	lfs.1.h	2;"	d
 _LFS_H	lfs.h	2;"	d
-_LFS_OPS_H	lfs_ops.h	2;"	d
-_LFS_TEST_H	lfs_test.h	2;"	d
 _LFS_THREAD_H	lfs_thread.h	2;"	d
-_XOPEN_SOURCE	lfs_ops.c	1;"	d	file:
-__ARC_H__	arc.h	2;"	d
+_XOPEN_SOURCE	tools.c	2;"	d	file:
 __LFS_ERR_H	lfs_err.h	2;"	d
-__arc	arc.h	/^typedef struct __arc {$/;"	s
-__arc_adjust	arc.c	/^static void __arc_adjust(struct __arc *cache){$/;"	f	file:
-__arc_create	arc.c	/^struct __arc *__arc_create(struct __arc_ops *ops, uint64_t c)$/;"	f
-__arc_destroy	arc.c	/^void __arc_destroy(struct __arc *cache)$/;"	f
-__arc_hash	arc.h	/^struct __arc_hash {$/;"	s
-__arc_hash_fini	arc.c	/^static void __arc_hash_fini(struct __arc *cache)$/;"	f	file:
-__arc_hash_init	arc.c	/^static void __arc_hash_init(struct __arc *cache)$/;"	f	file:
-__arc_hash_insert	arc.c	/^static inline void __arc_hash_insert(struct __arc *cache, uint64_t key, struct __arc_object *obj,pthread_mutex_t *hash_lock)$/;"	f	file:
-__arc_hash_lookup	arc.c	/^static struct __arc_object *__arc_hash_lookup(struct __arc *cache, uint64_t id,uint64_t offset,pthread_mutex_t **mem_lock)$/;"	f	file:
-__arc_list	arc.h	/^struct __arc_list {$/;"	s
-__arc_list_each	arc.h	18;"	d
-__arc_list_each_prev	arc.h	21;"	d
-__arc_list_entry	arc.h	15;"	d
-__arc_list_init	arc.h	/^__arc_list_init( struct __arc_list * head )$/;"	f
-__arc_list_insert	arc.h	/^__arc_list_insert(struct __arc_list *list, struct __arc_list *prev, struct __arc_list *next)$/;"	f
-__arc_list_prepend	arc.h	/^__arc_list_prepend(struct __arc_list *head, struct __arc_list *list)$/;"	f
-__arc_list_remove	arc.h	/^__arc_list_remove(struct __arc_list *head)$/;"	f
-__arc_list_splice	arc.h	/^__arc_list_splice(struct __arc_list *prev, struct __arc_list *next)$/;"	f
-__arc_lookup	arc.c	/^struct __arc_object *__arc_lookup(struct __arc *cache, uint64_t id, uint64_t offset)$/;"	f
-__arc_move	arc.c	/^static struct __arc_object *__arc_move(struct __arc *cache, struct __arc_object *obj, struct __arc_state *state,int flag)$/;"	f	file:
-__arc_move_state	arc.c	/^static struct __arc_object *__arc_move_state(struct __arc *cache,struct __arc_state *state1,struct __arc_state *state2)$/;"	f	file:
-__arc_object	arc.h	/^struct __arc_object {$/;"	s
-__arc_object_init	arc.c	/^void __arc_object_init(struct __arc_object *obj, unsigned long size)$/;"	f
-__arc_ops	arc.h	/^struct __arc_ops {$/;"	s
-__arc_replace	arc.c	/^static void __arc_replace(struct __arc *cache,int ismfug){$/;"	f	file:
-__arc_state	arc.h	/^struct __arc_state {$/;"	s
-__arc_state_lru	arc.c	/^static struct __arc_object *__arc_state_lru(struct __arc_state *state)$/;"	f	file:
-__op_compare	lfs_ops.c	/^static int __op_compare(struct __arc_object *e, uint64_t id,uint64_t offset)$/;"	f	file:
-__op_compare	test.c	/^static int __op_compare(struct __arc_object *e, uint64_t id,uint64_t offset)$/;"	f	file:
-__op_create	lfs_ops.c	/^static struct __arc_object *__op_create(uint64_t id,uint64_t offset)$/;"	f	file:
-__op_create	test.c	/^static struct __arc_object *__op_create(uint64_t id,uint64_t offset)$/;"	f	file:
-__op_destroy	lfs_ops.c	/^static void __op_destroy(struct __arc_object *e)$/;"	f	file:
-__op_destroy	test.c	/^static void __op_destroy(struct __arc_object *e)$/;"	f	file:
-__op_evict	lfs_ops.c	/^static void __op_evict(struct __arc_object *e)$/;"	f	file:
-__op_evict	test.c	/^static void __op_evict(struct __arc_object *e)$/;"	f	file:
-__op_fetch	lfs_ops.c	/^static int __op_fetch(struct __arc_object *e)$/;"	f	file:
-__op_fetch	test.c	/^static int __op_fetch(struct __arc_object *e)$/;"	f	file:
-__op_fetch_disk	lfs_ops.c	/^static inline int  __op_fetch_disk(uint64_t id,uint64_t offset,struct __arc_object *e){$/;"	f	file:
-__op_hash	lfs_ops.c	/^uint64_t __op_hash(uint64_t key)$/;"	f
-__op_hash	test.c	/^static unsigned long __op_hash(uint64_t key)$/;"	f	file:
-arc_balock	arc.h	/^	pthread_mutex_t arc_balock;$/;"	m	struct:__arc
 arc_cache	lfs.1.h	/^	arc_t *arc_cache;$/;"	m	struct:lfs_info
-arc_cache	lfs.h	/^	arc_t *arc_cache;$/;"	m	struct:lfs_info
-arc_hash	lfs.c	/^uint64_t arc_hash(uint64_t id,uint64_t offset){$/;"	f
-arc_hash_init	arc.c	/^uint64_t arc_hash_init()$/;"	f
-arc_lock	arc.h	/^	pthread_mutex_t arc_lock;$/;"	m	struct:__arc
-arc_read_done	arc.c	/^inline void arc_read_done(struct __arc_object *obj){$/;"	f
-arc_stat	arc.h	/^typedef struct arc_stat{$/;"	s
-arc_stat_hit_update	arc.c	/^static inline void arc_stat_hit_update(struct __arc *cache){$/;"	f	file:
-arc_stat_t	arc.h	/^}arc_stat_t;$/;"	t	typeref:struct:arc_stat
-arc_stat_update	arc.c	/^static inline void arc_stat_update(struct __arc *cache){$/;"	f	file:
-arc_stats	arc.h	/^	arc_stat_t arc_stats;$/;"	m	struct:__arc
-arc_t	arc.h	/^}arc_t;$/;"	t	typeref:struct:__arc
-avl_add	avl.c	/^avl_add(avl_tree_t *tree, void *new_node)$/;"	f
+arc_hash	lfs.c	/^arc_hash (uint64_t id, uint64_t offset)$/;"	f
 avl_balance	avl_impl.h	/^	short avl_balance;		\/* balance value: -1, 0, +1 *\/$/;"	m	struct:avl_node
-avl_balance2child	avl.c	/^static const int  avl_balance2child[]	= {0, 0, 1};$/;"	v	file:
 avl_child	avl_impl.h	/^	struct avl_node *avl_child[2];	\/* left\/right children *\/$/;"	m	struct:avl_node	typeref:struct:avl_node::avl_node
 avl_child	avl_impl.h	/^	struct avl_node *avl_child[2];	\/* left\/right children nodes *\/$/;"	m	struct:avl_node	typeref:struct:avl_node::avl_node
-avl_child2balance	avl.c	/^static const int  avl_child2balance[2]	= {-1, 1};$/;"	v	file:
 avl_child_index	avl_impl.h	/^	unsigned short avl_child_index;	\/* my index in parent's avl_child[] *\/$/;"	m	struct:avl_node
 avl_compar	avl_impl.h	/^	int (*avl_compar)(const void *, const void *);$/;"	m	struct:avl_tree
-avl_create	avl.c	/^avl_create(avl_tree_t *tree, int (*compar) (const void *, const void *),$/;"	f
-avl_destroy	avl.c	/^avl_destroy(avl_tree_t *tree)$/;"	f
-avl_destroy_nodes	avl.c	/^avl_destroy_nodes(avl_tree_t *tree, void **cookie)$/;"	f
-avl_find	avl.c	/^avl_find(avl_tree_t *tree, const void *value, avl_index_t *where)$/;"	f
-avl_first	avl.c	/^avl_first(avl_tree_t *tree)$/;"	f
-avl_index_t	avl.h	/^typedef uintptr_t avl_index_t;$/;"	t
-avl_insert	avl.c	/^avl_insert(avl_tree_t *tree, void *new_data, avl_index_t where)$/;"	f
-avl_insert_here	avl.c	/^avl_insert_here($/;"	f
-avl_is_empty	avl.c	/^avl_is_empty(avl_tree_t *tree)$/;"	f
-avl_last	avl.c	/^avl_last(avl_tree_t *tree)$/;"	f
-avl_nearest	avl.c	/^avl_nearest(avl_tree_t *tree, avl_index_t where, int direction)$/;"	f
 avl_node	avl_impl.h	/^struct avl_node {$/;"	s
-avl_node_t	avl.h	/^typedef struct avl_node avl_node_t;$/;"	t	typeref:struct:avl_node
-avl_numnodes	avl.c	/^avl_numnodes(avl_tree_t *tree)$/;"	f
 avl_numnodes	avl_impl.h	/^	ulong_t avl_numnodes;		\/* number of nodes in the tree *\/$/;"	m	struct:avl_tree
 avl_offset	avl_impl.h	/^	size_t avl_offset;		\/* offsetof(type, avl_link_t field) *\/$/;"	m	struct:avl_tree
 avl_parent	avl_impl.h	/^	struct avl_node *avl_parent;	\/* this node's parent *\/$/;"	m	struct:avl_node	typeref:struct:avl_node::avl_node
 avl_pcb	avl_impl.h	/^	uintptr_t avl_pcb;		\/* parent, child_index, balance *\/$/;"	m	struct:avl_node
-avl_remove	avl.c	/^avl_remove(avl_tree_t *tree, void *data)$/;"	f
 avl_root	avl_impl.h	/^	struct avl_node *avl_root;	\/* root node in tree *\/$/;"	m	struct:avl_tree	typeref:struct:avl_tree::avl_node
-avl_rotation	avl.c	/^avl_rotation(avl_tree_t *tree, avl_node_t *node, int balance)$/;"	f	file:
 avl_size	avl_impl.h	/^	size_t avl_size;		\/* sizeof user type struct *\/$/;"	m	struct:avl_tree
 avl_tree	avl_impl.h	/^struct avl_tree {$/;"	s
-avl_tree_t	avl.h	/^typedef struct avl_tree avl_tree_t;$/;"	t	typeref:struct:avl_tree
-avl_update	avl.c	/^avl_update(avl_tree_t *t, void *obj)$/;"	f
-avl_update_gt	avl.c	/^avl_update_gt(avl_tree_t *t, void *obj)$/;"	f
-avl_update_lt	avl.c	/^avl_update_lt(avl_tree_t *t, void *obj)$/;"	f
-avl_walk	avl.c	/^avl_walk(avl_tree_t *tree, void	*oldnode, int left)$/;"	f
 block_device	lfs.1.h	/^	char *block_device;$/;"	m	struct:lfs_info
 block_device	lfs.h	/^	char *block_device;$/;"	m	struct:lfs_info
-boolean	avl.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	g
-boolean_t	avl.h	/^typedef enum boolean { B_FALSE, B_TRUE } boolean_t;$/;"	t	typeref:enum:boolean
-bucket	arc.h	/^    struct __arc_list *bucket;$/;"	m	struct:__arc_hash	typeref:struct:__arc_hash::__arc_list
-bufsize	lfs_cache.h	/^    size_t bufsize;$/;"	m	struct:__anon1
-c	arc.h	/^    uint64_t c, p;$/;"	m	struct:__arc
-cache_alloc	lfs_cache.c	/^void* cache_alloc(cache_t *cache) {$/;"	f
-cache_alloc	lfs_cache.h	9;"	d
-cache_constructor_t	lfs_cache.h	/^typedef int cache_constructor_t(void* obj, void* notused1, int notused2);$/;"	t
-cache_create	lfs_cache.c	/^cache_t* cache_create(const char *name, size_t bufsize, size_t align,$/;"	f
-cache_create	lfs_cache.h	11;"	d
-cache_destroy	lfs_cache.c	/^void cache_destroy(cache_t *cache) {$/;"	f
-cache_destroy	lfs_cache.h	12;"	d
-cache_destructor_t	lfs_cache.h	/^typedef void cache_destructor_t(void* obj, void* notused);$/;"	t
-cache_error	lfs_cache.c	/^int cache_error = 0;$/;"	v
-cache_free	lfs_cache.c	/^void cache_free(cache_t *cache, void *ptr) {$/;"	f
-cache_free	lfs_cache.h	10;"	d
-cache_t	lfs_cache.h	/^} cache_t;$/;"	t	typeref:struct:__anon1
-cache_t	lfs_cache.h	8;"	d
-cmp	arc.h	/^    int (*cmp) (struct __arc_object *obj, uint64_t id,uint64_t offset);$/;"	m	struct:__arc_ops
-constructor	lfs_cache.h	/^    cache_constructor_t* constructor;$/;"	m	struct:__anon1
-count	arc.h	/^	unsigned long count;$/;"	m	struct:__arc_state
-create	arc.h	/^    struct __arc_object *(*create) (uint64_t id,uint64_t offset);$/;"	m	struct:__arc_ops	typeref:struct:__arc_ops::create
-cur_usec	lfs_test.c	/^uint64_t cur_usec(void)$/;"	f
-cv	arc.h	/^	pthread_cond_t cv;$/;"	m	struct:__arc_object
-cv_broadcast	lfs_thread.c	/^inline void cv_broadcast(pthread_cond_t *cv){$/;"	f
-cv_destroy	lfs_thread.c	/^void cv_destroy(pthread_cond_t *cv)$/;"	f
-cv_signal	lfs_thread.c	/^inline void cv_signal(pthread_cond_t *cv){$/;"	f
-cv_wait	lfs_thread.c	/^inline void cv_wait(pthread_cond_t *cv,pthread_mutex_t *lock){$/;"	f
-data	lfs_ops.h	/^    char *data;$/;"	m	struct:object
-data	test.c	/^	void *data;$/;"	m	struct:object	file:
-destroy	arc.h	/^    void (*destroy) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
-destructor	lfs_cache.h	/^    cache_destructor_t* destructor;$/;"	m	struct:__anon1
-entry	lfs_ops.h	/^    struct __arc_object entry;$/;"	m	struct:object	typeref:struct:object::__arc_object
-entry	test.c	/^	struct __arc_object entry;$/;"	m	struct:object	typeref:struct:object::__arc_object	file:
-evict	arc.h	/^    void (*evict) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
 f_table	lfs.1.h	/^	file_entry_t *f_table;$/;"	m	struct:lfs_info
 f_table	lfs.h	/^	file_entry_t *f_table;$/;"	m	struct:lfs_info
 false	lfs.1.h	8;"	d
-false	lfs.h	7;"	d
+false	lfs.h	5;"	d
 fd	lfs.1.h	/^	int fd;$/;"	m	struct:lfs_info
 fd	lfs.h	/^	int fd;$/;"	m	struct:lfs_info
-fetch	arc.h	/^    int (*fetch) (struct __arc_object *obj);$/;"	m	struct:__arc_ops
-fetch_from_disk	arc.h	/^    int (*fetch_from_disk)(uint64_t id,uint64_t offset,struct __arc_object *obj);$/;"	m	struct:__arc_ops
-file_create	lfs_ops.c	/^int file_create(int size){$/;"	f
+fidx	lfs_format.c	/^int fidx = 0;$/;"	v
 file_entry	lfs.1.h	/^typedef struct file_entry{$/;"	s
 file_entry	lfs.h	/^typedef struct file_entry{$/;"	s
 file_entry_t	lfs.1.h	/^}file_entry_t;$/;"	t	typeref:struct:file_entry
 file_entry_t	lfs.h	/^}file_entry_t;$/;"	t	typeref:struct:file_entry
-file_open	lfs_ops.c	/^int file_open(int id,int flag){$/;"	f
-file_read	lfs_ops.c	/^int file_read(int id,char *buffer,uint32_t size,uint64_t offset){$/;"	f
-file_remove	lfs_ops.c	/^int file_remove(int id){$/;"	f
-file_write	lfs_ops.c	/^int file_write(int id,char *buffer,uint64_t size,uint64_t offset){$/;"	f
 filename	lfs.1.h	/^	char filename[8];$/;"	m	struct:file_entry
 filename	lfs.h	/^	char filename[8];$/;"	m	struct:file_entry
-fpos	lfs_test.c	/^	uint64_t fpos;$/;"	m	struct:test_unit	file:
-free_limit	lfs_cache.h	/^	uint64_t free_limit;$/;"	m	struct:__anon1
-freecurr	lfs_cache.h	/^    int freecurr;$/;"	m	struct:__anon1
 freemap	lfs.1.h	/^	uint64_t *freemap;$/;"	m	struct:lfs_info
 freemap	lfs.h	/^	uint64_t *freemap;$/;"	m	struct:lfs_info
-freetotal	lfs_cache.h	/^    int freetotal;$/;"	m	struct:__anon1
+freemap	lfs_format.c	/^uint64_t *freemap;$/;"	v
 fsize	lfs.1.h	/^	uint32_t fsize;$/;"	m	struct:file_entry
 fsize	lfs.h	/^	uint32_t fsize;$/;"	m	struct:file_entry
-getFilesize	lfs_format.c	/^uint64_t getFilesize(char *str){$/;"	f
-get_object	lfs_cache.c	/^static inline void* get_object(void *ptr) {$/;"	f	file:
-getdiskpos	lfs_ops.c	/^inline uint64_t getdiskpos(uint64_t offset){$/;"	f
-getdiskrpos	lfs_ops.c	/^inline uint64_t getdiskrpos(uint64_t offset){$/;"	f
-gethash_lock	arc.c	/^static inline unsigned long gethash_lock(struct __arc *cache,struct __arc_object *_obj){$/;"	f	file:
-getlocalp	lfs.c	/^uint64_t getlocalp(uint64_t id){$/;"	f
-getobj	lfs_ops.c	/^struct object *getobj(struct __arc_object *e){$/;"	f
-getphymemsize	lfs.c	/^uint64_t getphymemsize(){$/;"	f
-getphymemsize	lfs_format.c	/^uint64_t getphymemsize(){$/;"	f
-hash	arc.h	/^    struct __arc_hash hash;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_hash
-hash	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::
-hash	arc.h	/^    unsigned long (*hash) (uint64_t key);$/;"	m	struct:__arc_ops
-hash_mutexes	arc.h	/^	pthread_mutex_t hash_mutexes[ARC_MUTEXES+1];$/;"	m	struct:__arc_hash
-head	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::__arc_list
-head	arc.h	/^    struct __arc_list head;$/;"	m	struct:__arc_state	typeref:struct:__arc_state::__arc_list
-hits	arc.h	/^	uint64_t hits;$/;"	m	struct:arc_stat
-hm_mask	arc.h	/^	uint64_t hm_mask;$/;"	m	struct:__arc_hash
-ht_mask	arc.h	/^	uint64_t ht_mask;$/;"	m	struct:__arc_hash
-id	lfs_ops.h	/^    uint64_t id;$/;"	m	struct:object
-id	lfs_test.c	/^	int id;$/;"	m	struct:test_unit	file:
-id	test.c	/^	uint64_t id;$/;"	m	struct:object	file:
-initial_pool_size	lfs_cache.c	/^const int initial_pool_size = 64;$/;"	v
+getFilesize	lfs_format.c	/^getFilesize (char *str)$/;"	f
+getlocalp	lfs.c	/^getlocalp (uint64_t id)$/;"	f
+getmaxfiles	lfs_format.c	/^getmaxfiles ()$/;"	f
+getphymemsize	lfs.c	/^getphymemsize ()$/;"	f
+getphymemsize	lfs_format.c	/^getphymemsize ()$/;"	f
 is_free	lfs.1.h	/^	uint32_t is_free;   $/;"	m	struct:file_entry
 is_free	lfs.h	/^	uint32_t is_free;   $/;"	m	struct:file_entry
 kmutex	lfs.1.h	/^typedef struct kmutex {$/;"	s
 kmutex	lfs.h	/^typedef struct kmutex {$/;"	s
 kmutex_t	lfs.1.h	/^} kmutex_t;$/;"	t	typeref:struct:kmutex
 kmutex_t	lfs.h	/^} kmutex_t;$/;"	t	typeref:struct:kmutex
-lfs_arc_hash	arc.c	/^uint64_t lfs_arc_hash(uint64_t id,uint64_t offset){$/;"	f
-lfs_arc_init	lfs_ops.c	/^void lfs_arc_init(uint64_t arc_size){$/;"	f
-lfs_block_allocate	block_alloc.c	/^int lfs_block_allocate(int size,space_map_t *sm){$/;"	f
 lfs_cache	lfs.1.h	/^	cache_t *lfs_cache;$/;"	m	struct:lfs_info
-lfs_cache	lfs.h	/^	cache_t *lfs_cache;$/;"	m	struct:lfs_info
-lfs_getdlist	lfs_test.c	/^int lfs_getdlist(int *readfd){$/;"	f
+lfs_fini	tools.c	/^lfs_fini ()$/;"	f
+lfs_get_files	tools.c	/^void lfs_get_files(){$/;"	f
 lfs_info	lfs.1.h	/^typedef struct lfs_info{$/;"	s
 lfs_info	lfs.h	/^typedef struct lfs_info{$/;"	s
 lfs_info_t	lfs.1.h	/^}lfs_info_t;$/;"	t	typeref:struct:lfs_info
 lfs_info_t	lfs.h	/^}lfs_info_t;$/;"	t	typeref:struct:lfs_info
-lfs_mutex	lfs.c	/^void lfs_mutex(pthread_mutex_t *lock){$/;"	f
+lfs_init	tools.c	/^lfs_init ()$/;"	f
+lfs_mutex	lfs.c	/^lfs_mutex (pthread_mutex_t * lock)$/;"	f
+lfs_n	tools.c	/^lfs_info_t lfs_n;$/;"	v
 lfs_obj_cache	lfs.1.h	/^	cache_t *lfs_obj_cache;$/;"	m	struct:lfs_info
-lfs_obj_cache	lfs.h	/^	cache_t *lfs_obj_cache;$/;"	m	struct:lfs_info
-lfs_rw_enter	lfs_thread.c	/^void lfs_rw_enter(pthread_rwlock_t *lock,int rw){$/;"	f
-lfs_test_read	lfs_test.c	/^void *lfs_test_read(void *arg){$/;"	f
-lfs_test_streamread	lfs_test.c	/^int lfs_test_streamread(){$/;"	f
-lfs_test_write	lfs_test.c	/^int lfs_test_write(char *buffer){$/;"	f
-lfs_test_write_all	lfs_test.c	/^int lfs_test_write_all(char *buffer){$/;"	f
-lfs_unmutex	lfs.c	/^void lfs_unmutex(pthread_mutex_t *lock){$/;"	f
-list_destroy	arc.c	/^static inline void list_destroy(struct __arc_state *state,struct __arc *cache){$/;"	f	file:
+lfs_param	tools.c	/^lfs_param (char *argv[])$/;"	f
+lfs_unmutex	lfs.c	/^lfs_unmutex (pthread_mutex_t * lock)$/;"	f
 m_lock	lfs.1.h	/^	pthread_mutex_t	m_lock;$/;"	m	struct:kmutex
 m_lock	lfs.h	/^	pthread_mutex_t	m_lock;$/;"	m	struct:kmutex
 m_magic	lfs.1.h	/^	uint64_t	m_magic;$/;"	m	struct:kmutex
 m_magic	lfs.h	/^	uint64_t	m_magic;$/;"	m	struct:kmutex
 m_owner	lfs.1.h	/^	void		*m_owner;$/;"	m	struct:kmutex
 m_owner	lfs.h	/^	void		*m_owner;$/;"	m	struct:kmutex
-m_stat	lfs_cache.h	/^	uint64_t m_stat;$/;"	m	struct:__anon1
-main	lfs_format.c	/^main(int argc, char *argv[])$/;"	f
-main	test.c	/^int main(int argc, char *argv[])$/;"	f
+main	lfs_format.c	/^main (int argc, char *argv[])$/;"	f
+main	tools.c	/^main (int argc, char *argv[])$/;"	f
 max_files	lfs.1.h	/^	uint32_t max_files;$/;"	m	struct:lfs_info
 max_files	lfs.h	/^	uint32_t max_files;$/;"	m	struct:lfs_info
 meta_table	lfs.1.h	/^	uint64_t *meta_table;$/;"	m	struct:file_entry
 meta_table	lfs.h	/^	uint64_t *meta_table;$/;"	m	struct:file_entry
-metaslab_block_picker	block_alloc.c	/^metaslab_block_picker(avl_tree_t *t, uint64_t *cursor, uint64_t size)$/;"	f	file:
-metaslab_ff_alloc	block_alloc.c	/^metaslab_ff_alloc(space_map_t *sm, uint64_t size)$/;"	f	file:
-mfu	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
-mfug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
-mru	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
-mrug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_state
-mutex	lfs_cache.h	/^    pthread_mutex_t mutex;$/;"	m	struct:__anon1
-mutex_destroy	lfs_thread.c	/^void mutex_destroy(pthread_mutex_t *mp){$/;"	f
-mutex_enter	lfs_thread.c	/^void mutex_enter(pthread_mutex_t *mp,const char *str){$/;"	f
-mutex_exit	lfs_thread.c	/^void mutex_exit(pthread_mutex_t *mp,const char *str){$/;"	f
-mutex_init	lfs_thread.c	/^void mutex_init(pthread_mutex_t *mp){$/;"	f
-name	lfs_cache.h	/^    char *name;$/;"	m	struct:__anon1
-next	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::
-num_files	lfs_test.c	/^int num_files=0;$/;"	v
-obj_lock	arc.h	/^  	pthread_mutex_t obj_lock;$/;"	m	struct:__arc_object
-object	lfs_ops.h	/^struct object {$/;"	s
-object	test.c	/^struct object {$/;"	s	file:
-objname	test.c	/^unsigned char objname(struct __arc_object *entry)$/;"	f
 off	lfs.1.h	/^	uint64_t off;$/;"	m	struct:lfs_info
 off	lfs.h	/^	uint64_t off;$/;"	m	struct:lfs_info
-offset	lfs_ops.h	/^    uint64_t offset;$/;"	m	struct:object
-offset	test.c	/^	uint64_t offset;$/;"	m	struct:object	file:
-ops	arc.h	/^    struct __arc_ops *ops;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_ops
-ops	lfs_ops.c	/^static struct __arc_ops ops = {$/;"	v	typeref:struct:__arc_ops	file:
-ops	test.c	/^static struct __arc_ops ops = {$/;"	v	typeref:struct:__arc_ops	file:
-p	arc.h	/^    uint64_t c, p;$/;"	m	struct:__arc
-prev	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::__arc_list
-print_obj	arc.c	/^void print_obj(struct __arc_object *obj,char *str){$/;"	f
-print_state	arc.c	/^void print_state(struct __arc *cache){$/;"	f
-printsize	arc.c	/^void printsize(struct __arc *cache){$/;"	f
-ptr	lfs_cache.h	/^    void **ptr;$/;"	m	struct:__anon1
-read_state	arc.h	/^	int read_state;$/;"	m	struct:__arc_object
-read_test_fini	lfs_test.c	/^void read_test_fini(){$/;"	f
-read_test_init	lfs_test.c	/^void read_test_init(){$/;"	f
-readfd	lfs_test.c	/^int *readfd;$/;"	v
-redzone_pattern	lfs_cache.c	/^const uint64_t redzone_pattern = 0xdeadbeefcafebabe;$/;"	v
 root	lfs.1.h	/^	avl_tree_t *root;$/;"	m	struct:lfs_info
-root	lfs.h	/^	avl_tree_t *root;$/;"	m	struct:lfs_info
 sarc_cache	lfs.1.h	/^	sarc_t *sarc_cache;$/;"	m	struct:lfs_info
-sarc_cache	lfs.h	/^	sarc_t *sarc_cache;$/;"	m	struct:lfs_info
-size	arc.h	/^    uint64_t size;$/;"	m	struct:__arc_hash
-size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_object
-size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_state
-sm_loaded	block_alloc.h	/^	uint8_t		sm_loaded;	\/* map loaded? *\/$/;"	m	struct:space_map
-sm_loading	block_alloc.h	/^	uint8_t		sm_loading;	\/* map loading? *\/$/;"	m	struct:space_map
-sm_lock	block_alloc.h	/^	kmutex_t	*sm_lock;	\/* pointer to lock that protects map *\/$/;"	m	struct:space_map
-sm_pad	block_alloc.h	/^	uint8_t		sm_pad[3];	\/* unused *\/$/;"	m	struct:space_map
-sm_ppd	block_alloc.h	/^	void		*sm_ppd;	\/* picker-private data *\/$/;"	m	struct:space_map
-sm_root	block_alloc.h	/^	avl_tree_t	sm_root;	\/* AVL tree of map segments *\/$/;"	m	struct:space_map
-sm_shift	block_alloc.h	/^	uint8_t		sm_shift;	\/* unit shift *\/$/;"	m	struct:space_map
-sm_size	block_alloc.h	/^	uint64_t	sm_size;	\/* size of map *\/$/;"	m	struct:space_map
-sm_space	block_alloc.h	/^	uint64_t	sm_space;	\/* sum of all segments in the map *\/$/;"	m	struct:space_map
-sm_start	block_alloc.h	/^	uint64_t	sm_start;	\/* start of map *\/$/;"	m	struct:space_map
-space_map	block_alloc.h	/^typedef struct space_map {$/;"	s
-space_map_add	block_alloc.c	/^void space_map_add(space_map_t *sm, uint64_t start, uint64_t size)$/;"	f
-space_map_free	block_alloc.c	/^void space_map_free(space_map_t *sm, uint64_t start, uint64_t size)$/;"	f
-space_map_seg_compare	block_alloc.c	/^static int space_map_seg_compare(const void *x1, const void *x2)$/;"	f	file:
-space_map_t	block_alloc.h	/^} space_map_t;$/;"	t	typeref:struct:space_map
-space_seg	block_alloc.h	/^typedef struct space_seg {$/;"	s
-space_seg_t	block_alloc.h	/^}space_seg_t;$/;"	t	typeref:struct:space_seg
-ss_end	block_alloc.h	/^	uint64_t	ss_end;		\/* ending offset (non-inclusive) *\/$/;"	m	struct:space_seg
-ss_node	block_alloc.h	/^	avl_node_t	ss_node;	\/* AVL node *\/$/;"	m	struct:space_seg
-ss_pp_node	block_alloc.h	/^	avl_node_t	ss_pp_node;	\/* AVL picker-private node *\/$/;"	m	struct:space_seg
-ss_start	block_alloc.h	/^	uint64_t	ss_start;	\/* starting offset of this segment *\/$/;"	m	struct:space_seg
-stat_lock	arc.h	/^	pthread_mutex_t stat_lock;$/;"	m	struct:arc_stat
-state	arc.h	/^    struct __arc_state *state;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::__arc_state
-state	lfs_ops.h	/^	int state;$/;"	m	struct:object
-state_lock	arc.h	/^	pthread_mutex_t state_lock;$/;"	m	struct:__arc_state
-stats	test.c	/^static void stats(struct __arc *s)$/;"	f	file:
-test_create	lfs_test.c	/^int test_create(uint64_t size){$/;"	f
-test_read	lfs_test.c	/^int test_read(int id,char *buffer,uint64_t size,uint64_t offset){$/;"	f
-test_unit	lfs_test.c	/^typedef struct test_unit{$/;"	s	file:
-test_unit_t	lfs_test.c	/^}test_unit_t;$/;"	t	typeref:struct:test_unit	file:
-test_write	lfs_test.c	/^int test_write(int id,char *buffer,uint64_t size,uint64_t offset){$/;"	f
-tot_size	lfs_format.c	/^uint64_t tot_size=0;$/;"	v
-total	arc.h	/^	uint64_t total;$/;"	m	struct:arc_stat
+tot_size	lfs_format.c	/^uint64_t tot_size = 0;$/;"	v
 true	lfs.1.h	7;"	d
-true	lfs.h	6;"	d
+true	lfs.h	4;"	d
 uintptr_t	avl_impl.h	/^typedef unsigned long			uintptr_t;$/;"	t
 ulong_t	avl_impl.h	/^typedef unsigned long ulong_t;$/;"	t

@@ -36,12 +36,6 @@ check_right ()
     return true;
 }
 
-int
-LoadFileEntry1 ()
-{
-    printf ("load \n");
-    return 1;
-}
 
 int
 LoadFileEntry ()

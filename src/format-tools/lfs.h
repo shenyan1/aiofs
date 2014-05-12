@@ -6,7 +6,6 @@
 #include<unistd.h>
 #include<inttypes.h>
 #include<stdio.h>
-#include"lfs_cache.h"
 #include<assert.h>
 #include<stdlib.h>
 typedef struct file_entry{
@@ -22,8 +21,6 @@ typedef struct lfs_info{
 	file_entry_t *f_table;
 	char *block_device;
 	uint64_t *freemap;
-	cache_t *lfs_cache;
-	cache_t *lfs_obj_cache;
 	uint32_t max_files;
 }lfs_info_t;
 extern uint64_t getphymemsize(void);

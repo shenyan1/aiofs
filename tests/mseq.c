@@ -33,7 +33,7 @@ void *lfs_test_read(void *arg){
 
 	return NULL;
 }
-#define max_files 689
+#define max_files 227
 
 
 void read_test_fini(){

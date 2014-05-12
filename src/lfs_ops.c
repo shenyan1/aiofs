@@ -79,7 +79,7 @@ __op_fetch_disk (uint64_t id, uint64_t offset, struct __arc_object *_obj)
     item->offset = offset;
     item->fid = id;
     item->obj = _obj;
-    printf("readstate =%d",_obj->read_state);
+//    printf("readstate =%d",_obj->read_state);
     assert (_obj->read_state == READ_STATE);
 /*    pread (lfs_n.fd, obj->data, 1 << 20,
 	   offset + lfs_n.f_table[id].meta_table[0]);
