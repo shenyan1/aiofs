@@ -13,47 +13,50 @@
 #include<stdlib.h>
 #include<sys/time.h>
 #include"config.h"
-typedef struct file_entry{
-	char filename[8];
-	uint32_t fsize;
-	uint32_t is_free;   
-	uint64_t *meta_table;
-}file_entry_t;
+typedef struct file_entry
+{
+    char filename[8];
+    uint32_t fsize;
+    uint32_t is_free;
+    uint64_t *meta_table;
+} file_entry_t;
 
 #define FREELIST_LOCK lfs_n.cq_info.cqi_freelist_lock;
 #define RFS_CQ 	    lfs_n.cq
 #define IOCBQ_MUTEX lfs_n.cq_info.iocb_queue_mutex
 #define IOCBQUEUE lfs_n.cq_info.iocbq
-typedef struct lfs_info{
-	int fd;
-	uint64_t off;
-	file_entry_t *f_table;
-	char *block_device;
+typedef struct lfs_info
+{
+    int fd;
+    uint64_t off;
+    file_entry_t *f_table;
+    char *block_device;
 #ifdef USE_SARC
-	sarc_t *sarc_cache;
+    sarc_t *sarc_cache;
 #else
-	arc_t *arc_cache;
+    arc_t *arc_cache;
 #endif
-	uint64_t *freemap;
-	cache_t *lfs_cache;
-	cache_t *lfs_obj_cache;
-	CQ *cq;
-        io_queue_info_t cq_info;
-	uint32_t max_files;
+    uint64_t *freemap;
+    cache_t *lfs_cache;
+    cache_t *lfs_obj_cache;
+    CQ *cq;
+    io_queue_info_t cq_info;
+    uint32_t max_files;
 /* aio threads
  */
-        pthread_t rfs_receiver_th;
-	pthread_t rfs_worker_th;
-}lfs_info_t;
-extern uint64_t getphymemsize(void);
+    pthread_t rfs_receiver_th;
+    pthread_t rfs_worker_th;
+} lfs_info_t;
+extern uint64_t getphymemsize (void);
 
 /*
  * using pthread to mutex our avl and arc operations
  */
-typedef struct kmutex {
-	void		*m_owner;
-	uint64_t	m_magic;
-	pthread_mutex_t	m_lock;
+typedef struct kmutex
+{
+    void *m_owner;
+    uint64_t m_magic;
+    pthread_mutex_t m_lock;
 } kmutex_t;
 
 #define FSNAME "LFS"
@@ -89,9 +92,9 @@ typedef struct kmutex {
 
 #define LFS_BLKSIZE (1<<20)
 
-extern uint64_t cur_usec(void);
-extern uint64_t getlocalp(uint64_t id);
-extern uint64_t arc_hash_init(void);
-extern void lfs_mutex(pthread_mutex_t *lock);
-extern void lfs_unmutex(pthread_mutex_t *lock);
+extern uint64_t cur_usec (void);
+extern uint64_t getlocalp (uint64_t id);
+extern uint64_t arc_hash_init (void);
+extern void lfs_mutex (pthread_mutex_t * lock);
+extern void lfs_unmutex (pthread_mutex_t * lock);
 #endif

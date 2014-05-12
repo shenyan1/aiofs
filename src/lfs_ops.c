@@ -79,13 +79,13 @@ __op_fetch_disk (uint64_t id, uint64_t offset, struct __arc_object *_obj)
     item->offset = offset;
     item->fid = id;
     item->obj = _obj;
-
+    printf("readstate =%d",_obj->read_state);
     assert (_obj->read_state == READ_STATE);
 /*    pread (lfs_n.fd, obj->data, 1 << 20,
 	   offset + lfs_n.f_table[id].meta_table[0]);
 */    
     cq_push(lfs_n.cq,item);
-    mutex_enter(&_obj->obj_lock,__func__);
+    mutex_enter(&_obj->obj_lock,__func__,__LINE__);
     
     while(_obj->read_state == READ_STATE){
 	cv_wait(&_obj->cv,&_obj->obj_lock);
@@ -137,7 +137,7 @@ __op_destroy (struct __arc_object *e)
     if (e->state != &lfs_n.arc_cache->mrug
 	&& e->state != &lfs_n.arc_cache->mfug)
 	cache_free (lfs_n.lfs_cache, obj->data);
-    // free(obj);
+
     cache_free (lfs_n.lfs_obj_cache, obj);
 }
 

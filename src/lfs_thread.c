@@ -13,19 +13,25 @@ mutex_init (lmutex_t * mp)
       {
 	  printf ("pthread mutex init failed\n");
       }
+    mp->mp_owner = 0;
+    mp->func = 0;
+    mp->line = 0;
 }
 
 void
 mutex_destroy (lmutex_t * mp)
 {
     int ret = pthread_mutex_destroy (&mp->mutex);
-    if(ret!=0)
+    if(ret!=0){
+      perror("problemis");
       printf("mutex destroy failed=%d",ret);
+      printf("lock in %s,line=%d,owner=%d",mp->func,mp->line,mp->mp_owner);
+    }
     assert (ret == 0);
 }
 
 void
-mutex_enter (lmutex_t * mp, const char *str)
+mutex_enter (lmutex_t * mp, const char *str,int line)
 {
 
 #ifdef THREAD_DEBUG
@@ -34,6 +40,8 @@ mutex_enter (lmutex_t * mp, const char *str)
     assert (mp->mp_owner != current_thread ());
     pthread_mutex_lock (&mp->mutex);
     mp->mp_owner = current_thread ();
+    mp->func = str;
+    mp->line = line;
 }
 
 void
@@ -45,6 +53,8 @@ mutex_exit (lmutex_t * mp, const char *str)
 #endif
     pthread_mutex_unlock (&mp->mutex);
     mp->mp_owner = MUTEX_INIT;
+   // mp->line = 0;
+    mp->func = 0;
 }
 
 int
@@ -79,6 +89,10 @@ cv_destroy (pthread_cond_t * cv)
 {
     int ret;
     ret = pthread_cond_destroy (cv);
+    if(ret!=0){
+	perror("cv_destroy:");
+	printf("ret=%d",ret);
+    }
     assert (ret == 0);
 }
 /*

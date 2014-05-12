@@ -10,18 +10,20 @@
 #ifndef NANOSEC
 #define NANOSEC		1000000000
 typedef long long hrtime_t;
-hrtime_t gethrtime(void)
+hrtime_t
+gethrtime (void)
 {
-	struct timespec ts;
-	int rc;
+    struct timespec ts;
+    int rc;
 
-	rc = clock_gettime(CLOCK_MONOTONIC, &ts);
-	if (rc) {
-		fprintf(stderr, "Error: clock_gettime() = %d\n", rc);
-	        abort();
-	}
+    rc = clock_gettime (CLOCK_MONOTONIC, &ts);
+    if (rc)
+      {
+	  fprintf (stderr, "Error: clock_gettime() = %d\n", rc);
+	  abort ();
+      }
 
-	return (((u_int64_t)ts.tv_sec) * NANOSEC) + ts.tv_nsec;
+    return (((u_int64_t) ts.tv_sec) * NANOSEC) + ts.tv_nsec;
 }
 #endif
 

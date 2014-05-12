@@ -7,6 +7,7 @@
 #include "lfs_ops.h"
 #include "lfs_cache.h"
 
+extern lfs_info_t lfs_n;
 uint64_t
 lfs_arc_hash (uint64_t id, uint64_t offset)
 {
@@ -28,6 +29,21 @@ print_state (struct __arc *cache)
 	    &cache->mrug, &cache->mfug);
 }
 
+int
+get_state(struct __arc_state *p){
+
+  if(p==&lfs_n.arc_cache->mru)
+  	printf(":mru");
+  else if(p==&lfs_n.arc_cache->mfu)
+	printf(":mfu");
+  else if(p==&lfs_n.arc_cache->mfug)
+	printf(":mfug");	
+  else if(p==&lfs_n.arc_cache->mrug)
+  	printf(":mrug");
+  else 
+	printf("%p state",p);
+  return 1;
+}
 void
 printsize (struct __arc *cache)
 {
@@ -42,13 +58,13 @@ printsize (struct __arc *cache)
 }
 
 void
-print_obj (struct __arc_object *obj, char *str)
+print_obj (struct __arc_object *obj, const char *str)
 {
     struct object *objc;
     objc = getobj (obj);
 #ifdef LFS_DEBUG
-    printf ("%s: obj=%p offset=%" PRIu64 ",id=%" PRIu64 "\n", str, obj,
-	    objc->offset, objc->id);
+    printf ("%s: obj=%p offset=%" PRIu64 ",read_state =%d,id=%" PRIu64 "\n", str, obj,
+	    objc->offset,obj->read_state, objc->id);
 #endif
 }
 
@@ -120,7 +136,7 @@ __arc_hash_lookup (struct __arc *cache, uint64_t id, uint64_t offset,
     unsigned long hash = cache->ops->hash (key) & cache->hash.ht_mask;
     lmutex_t *hash_lock = &cache->hash.hash_mutexes[hash];
     *mem_lock = hash_lock;
-    mutex_enter (hash_lock, __func__);
+    mutex_enter (hash_lock, __func__,__LINE__);
     __arc_list_each (iter, &cache->hash.bucket[hash])
     {
 	struct __arc_object *obj =
@@ -183,7 +199,7 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 		  struct __arc_state *state2)
 {
     struct __arc_object *obj;
-    mutex_enter (&state1->state_lock, __func__);
+    mutex_enter (&state1->state_lock, __func__,__LINE__);
     obj = __arc_state_lru (state1);
     state1->size -= obj->size;
     state1->count--;
@@ -221,10 +237,15 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 	  hash_lock = &cache->hash.hash_mutexes[hash];
 
 	  /* The object is being removed from the cache, destroy it. */
-	  mutex_enter (hash_lock, __func__);
-	  __arc_list_remove (&obj->hash);
+	  mutex_enter (hash_lock, __func__,__LINE__);
 	  printf ("move to null list");
+
+	  get_state(obj->state);
+	  print_obj(obj,__func__);
+	  printf("obj's read state=%d",obj->read_state);
 	  cache->ops->destroy (obj);
+
+	  __arc_list_remove (&obj->hash);
 	  mutex_exit (hash_lock, __func__);
 	  return NULL;
       }
@@ -256,7 +277,7 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 		      /* If the fetch fails, put the object back to the list
 		       * it was in before. */
 		      assert (0);
-		      mutex_enter (&state1->state_lock, __func__);
+		      mutex_enter (&state1->state_lock, __func__,__LINE__);
 		      obj->state->size += obj->size;
 		      obj->state->count++;
 		      __arc_list_prepend (&obj->head, &obj->state->head);
@@ -266,7 +287,7 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 		      return NULL;
 		  }
 	    }
-	  mutex_enter (&state2->state_lock, __func__);
+	  mutex_enter (&state2->state_lock, __func__,__LINE__);
 	  __arc_list_prepend (&obj->head, &state2->head);
 	  obj->state = state2;
 	  obj->state->size += obj->size;
@@ -289,7 +310,7 @@ __arc_move (struct __arc *cache, struct __arc_object *obj,
     if (obj->state)
       {
 	  if (flag == OBJ_UNLOCK)
-	      mutex_enter (&obj->state->state_lock, __func__);
+	      mutex_enter (&obj->state->state_lock, __func__,__LINE__);
 	  obj->state->size -= obj->size;
 	  //printf("obj's size=%"PRIu64",state's size=%"PRIu64"\n",obj->size,obj->state->size);
 	  obj->state->count--;
@@ -323,7 +344,7 @@ __arc_move (struct __arc *cache, struct __arc_object *obj,
 	  hash_lock = &cache->hash.hash_mutexes[hash];
 
 	  /* The object is being removed from the cache, destroy it. */
-	  mutex_enter (hash_lock, __func__);
+	  mutex_enter (hash_lock, __func__,__LINE__);
 	  __arc_list_remove (&obj->hash);
 	  cache->ops->destroy (obj);
 	  mutex_exit (hash_lock, __func__);
@@ -360,7 +381,7 @@ __arc_move (struct __arc *cache, struct __arc_object *obj,
 		      /* If the fetch fails, put the object back to the list
 		       * it was in before. */
 		      assert (0);
-		      mutex_enter (&state->state_lock, __func__);
+		      mutex_enter (&state->state_lock, __func__,__LINE__);
 		      obj->state->size += obj->size;
 		      obj->state->count++;
 		      __arc_list_prepend (&obj->head, &obj->state->head);
@@ -372,7 +393,7 @@ __arc_move (struct __arc *cache, struct __arc_object *obj,
 		      return NULL;
 		  }
 	    }
-	  mutex_enter (&state->state_lock, __func__);
+	  mutex_enter (&state->state_lock, __func__,__LINE__);
 	  __arc_list_prepend (&obj->head, &state->head);
 	  obj->state = state;
 	  obj->state->size += obj->size;
@@ -595,7 +616,7 @@ __arc_destroy (struct __arc *cache)
 static inline void
 arc_stat_hit_update (struct __arc *cache)
 {
-    mutex_enter (&cache->arc_stats.stat_lock, __func__);
+    mutex_enter (&cache->arc_stats.stat_lock, __func__,__LINE__);
     cache->arc_stats.hits++;
     cache->arc_stats.total++;
     mutex_exit (&cache->arc_stats.stat_lock, __func__);
@@ -605,7 +626,7 @@ static inline void
 arc_stat_update (struct __arc *cache)
 {
 
-    mutex_enter (&cache->arc_stats.stat_lock, __func__);
+    mutex_enter (&cache->arc_stats.stat_lock, __func__,__LINE__);
     cache->arc_stats.total++;
     mutex_exit (&cache->arc_stats.stat_lock, __func__);
 }
@@ -613,7 +634,7 @@ arc_stat_update (struct __arc *cache)
 inline void
 arc_read_done (struct __arc_object *obj)
 {
-    mutex_enter (&obj->obj_lock, __func__);
+    mutex_enter (&obj->obj_lock, __func__,__LINE__);
     if (obj->read_state == READ_STATE)
       {
 	  obj->read_state = READ_HALF_FINISHED;
@@ -653,12 +674,12 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 		      __arc_move (cache, obj, &cache->mfu, OBJ_UNLOCK);
 		  }
 		mutex_exit (hash_lock, __func__);
-		print_obj (obj, "end in arc_lookup\n");
+		print_obj (obj, "end in arc_lookup");
 		return obj;
 	    }
 	  else if (obj->state == &cache->mrug)
 	    {
-		mutex_enter (&cache->arc_lock, __func__);
+		mutex_enter (&cache->arc_lock, __func__,__LINE__);
 		cache->p =
 		    MIN (cache->c,
 			 cache->p + MAX (cache->mfug.size / cache->mrug.size,
@@ -671,7 +692,7 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	    }
 	  else if (obj->state == &cache->mfug)
 	    {
-		mutex_enter (&cache->arc_lock, __func__);
+		mutex_enter (&cache->arc_lock, __func__,__LINE__);
 		cache->p =
 		    MAX (0,
 			 cache->p - MAX (cache->mrug.size / cache->mfug.size,
@@ -698,8 +719,6 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	    {
 		arc_stat_update (cache);
 		obj = cache->ops->create (id, offset);
-		printf ("going to insert hash arc_lookup\n");
-
 		__arc_hash_insert (cache, key, obj, hash_lock);
 		__arc_adjust (cache);	//obj->size
 
@@ -708,8 +727,9 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 		assert(obj);
 		obj = __arc_move (cache, obj, &cache->mru, OBJ_INIT);
 		assert (obj->state == &cache->mru);
-		mutex_enter(&obj->obj_lock,__func__);
+		mutex_enter(&obj->obj_lock,__func__,__LINE__);
 	  	obj->read_state = READ_FINISHED;
+		cv_broadcast(&obj->cv);
 		mutex_exit(&obj->obj_lock,__func__);
 		printf("first read,obj=%p,obj->state=%p,id=%"PRIu64",off=%"PRIu64"\n",obj,obj->state,id,offset);
 		return obj;
@@ -718,9 +738,9 @@ __arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)
 	    {
 		mutex_exit (hash_lock, __func__);
 
-		mutex_enter (&obj->obj_lock, __func__);
+		mutex_enter (&obj->obj_lock, __func__,100000);
 #ifdef LFS_DEBUG
-		printf ("going to wait\n");
+		printf ("going to wait in lookup\n");
 #endif
 
 		while (obj->read_state == READ_STATE || obj->read_state == READ_HALF_FINISHED)

@@ -26,7 +26,7 @@ extern int cache_error;
  * @param notused2 This parameter is currently not used.
  * @return you should return 0, but currently this is not checked
  */
-typedef int cache_constructor_t(void* obj, void* notused1, int notused2);
+typedef int cache_constructor_t (void *obj, void *notused1, int notused2);
 /**
  * Destructor used to clean up allocated objects before they are
  * returned to the operating system.
@@ -36,14 +36,15 @@ typedef int cache_constructor_t(void* obj, void* notused1, int notused2);
  * @param notused2 This parameter is currently not used.
  * @return you should return 0, but currently this is not checked
  */
-typedef void cache_destructor_t(void* obj, void* notused);
+typedef void cache_destructor_t (void *obj, void *notused);
 
 /**
  * Definition of the structure to keep track of the internal details of
  * the cache allocator. Touching any of these variables results in
  * undefined behavior.
  */
-typedef struct {
+typedef struct
+{
     /** Mutex to protect access to the structure */
     pthread_mutex_t mutex;
     /** Name of the cache objects in this cache (provided by the caller) */
@@ -56,12 +57,12 @@ typedef struct {
     int freetotal;
     /** The current number of free elements */
     int freecurr;
-	uint64_t free_limit;
-	uint64_t m_stat;
+    uint64_t free_limit;
+    uint64_t m_stat;
     /** The constructor to be called each time we allocate more memory */
-    cache_constructor_t* constructor;
+    cache_constructor_t *constructor;
     /** The destructor to be called each time before we release memory */
-    cache_destructor_t* destructor;
+    cache_destructor_t *destructor;
 } cache_t;
 
 /**
@@ -82,9 +83,9 @@ typedef struct {
  *                   to the os.
  * @return a handle to an object cache if successful, NULL otherwise.
  */
-cache_t* cache_create(const char* name, size_t bufsize, size_t align,
-                      cache_constructor_t* constructor,
-                      cache_destructor_t* destructor,uint64_t ulimit);
+cache_t *cache_create (const char *name, size_t bufsize, size_t align,
+		       cache_constructor_t * constructor,
+		       cache_destructor_t * destructor, uint64_t ulimit);
 /**
  * Destroy an object cache.
  *
@@ -94,7 +95,7 @@ cache_t* cache_create(const char* name, size_t bufsize, size_t align,
  *
  * @param handle the handle to the object cache to destroy.
  */
-void cache_destroy(cache_t* handle);
+void cache_destroy (cache_t * handle);
 /**
  * Allocate an object from the cache.
  *
@@ -102,7 +103,7 @@ void cache_destroy(cache_t* handle);
  * @return a pointer to an initialized object from the cache, or NULL if
  *         the allocation cannot be satisfied.
  */
-void* cache_alloc(cache_t* handle);
+void *cache_alloc (cache_t * handle);
 /**
  * Return an object back to the cache.
  *
@@ -112,8 +113,7 @@ void* cache_alloc(cache_t* handle);
  * @param handle handle to the object cache to return the object to
  * @param ptr pointer to the object to return.
  */
-void cache_free(cache_t* handle, void* ptr);
+void cache_free (cache_t * handle, void *ptr);
 #endif
 
 #endif
-

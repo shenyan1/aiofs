@@ -9,6 +9,6 @@ struct trace_entry
     CQ_ITEM *item;
 };
 
-extern void aio_init();
+extern void aio_init ();
 
 #endif

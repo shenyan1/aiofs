@@ -37,7 +37,8 @@
 #include <sys/types.h>
 
 #ifdef	__cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 
@@ -55,15 +56,16 @@ extern "C" {
  * Since they only need 3 bits, the last two fields are packed into the
  * bottom bits of the parent pointer on 64 bit machines to save on space.
  */
-typedef unsigned long			uintptr_t;
+    typedef unsigned long uintptr_t;
 #ifndef _LP64
 
-struct avl_node {
+    struct avl_node
+    {
 	struct avl_node *avl_child[2];	/* left/right children */
 	struct avl_node *avl_parent;	/* this node's parent */
 	unsigned short avl_child_index;	/* my index in parent's avl_child[] */
-	short avl_balance;		/* balance value: -1, 0, +1 */
-};
+	short avl_balance;	/* balance value: -1, 0, +1 */
+    };
 
 #define	AVL_XPARENT(n)		((n)->avl_parent)
 #define	AVL_SETPARENT(n, p)	((n)->avl_parent = (p))
@@ -74,7 +76,7 @@ struct avl_node {
 #define	AVL_XBALANCE(n)		((n)->avl_balance)
 #define	AVL_SETBALANCE(n, b)	((n)->avl_balance = (short)(b))
 
-#else /* _LP64 */
+#else				/* _LP64 */
 
 /*
  * for 64 bit machines, avl_pcb contains parent pointer, balance and child_index
@@ -87,10 +89,11 @@ struct avl_node {
  * |-------------------------------------|-----------------|-------------|
  *
  */
-struct avl_node {
+    struct avl_node
+    {
 	struct avl_node *avl_child[2];	/* left/right children nodes */
-	uintptr_t avl_pcb;		/* parent, child_index, balance */
-};
+	uintptr_t avl_pcb;	/* parent, child_index, balance */
+    };
 
 /*
  * macros to extract/set fields in avl_pcb
@@ -117,7 +120,7 @@ struct avl_node {
 #define	AVL_SETBALANCE(n, b)						\
 	((n)->avl_pcb = (uintptr_t)((((n)->avl_pcb & ~3) | ((b) + 1))))
 
-#endif /* _LP64 */
+#endif				/* _LP64 */
 
 
 
@@ -136,29 +139,30 @@ struct avl_node {
 #define	AVL_INDEX2NODE(x)	((avl_node_t *)((x) & ~1))
 #define	AVL_INDEX2CHILD(x)	((x) & 1)
 #define	AVL_MKINDEX(n, c)	((avl_index_t)(n) | (c))
-typedef unsigned long ulong_t;
+    typedef unsigned long ulong_t;
 
 /*
  * The tree structure. The fields avl_root, avl_compar, and avl_offset come
  * first since they are needed for avl_find().  We want them to fit into
  * a single 64 byte cache line to make avl_find() as fast as possible.
  */
-struct avl_tree {
+    struct avl_tree
+    {
 	struct avl_node *avl_root;	/* root node in tree */
-	int (*avl_compar)(const void *, const void *);
-	size_t avl_offset;		/* offsetof(type, avl_link_t field) */
-	ulong_t avl_numnodes;		/* number of nodes in the tree */
-	size_t avl_size;		/* sizeof user type struct */
-};
+	int (*avl_compar) (const void *, const void *);
+	size_t avl_offset;	/* offsetof(type, avl_link_t field) */
+	ulong_t avl_numnodes;	/* number of nodes in the tree */
+	size_t avl_size;	/* sizeof user type struct */
+    };
 
 
 /*
  * This will only by used via AVL_NEXT() or AVL_PREV()
  */
-extern void *avl_walk(struct avl_tree *, void *, int);
+    extern void *avl_walk (struct avl_tree *, void *, int);
 
 #ifdef	__cplusplus
 }
 #endif
 
-#endif	/* _AVL_IMPL_H */
+#endif				/* _AVL_IMPL_H */

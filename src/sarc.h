@@ -14,10 +14,11 @@ struct __arc_list {
     struct __arc_list *prev, *next;
 };
 */
-struct read_range{
-	int fileid;
-	uint64_t offset;
-	uint64_t size;
+struct read_range
+{
+    int fileid;
+    uint64_t offset;
+    uint64_t size;
 };
 typedef struct read_range range_t;
 #define __arc_list_entry(ptr, type, field) \
@@ -82,7 +83,8 @@ struct __arc_hash {
 /**********************************************************************
  * The arc state represents one of the m{r,f}u{g,} lists
  */
-struct __sarc_state {
+struct __sarc_state
+{
     unsigned long size;
     lmutex_t state_lock;
     struct __arc_list head;
@@ -92,7 +94,8 @@ struct __sarc_state {
 /* This structure represents an object that is stored in the cache. Consider
  * this structure private, don't access the fields directly. When creating
  * a new object, use the __arc_object_init() function to initialize it. */
-struct __sarc_object {
+struct __sarc_object
+{
     struct __sarc_state *state;
     struct __arc_list head, hash;
     unsigned long size;
@@ -103,31 +106,34 @@ struct __sarc_object {
     pthread_cond_t cv;
 };
 
-struct __sarc_ops {
+struct __sarc_ops
+{
     /* Return a hash value for the given key. */
     unsigned long (*hash) (uint64_t key);
 
     /* Compare the object with the key. */
-    int (*cmp) (struct __sarc_object *obj, uint64_t id,uint64_t offset);
+    int (*cmp) (struct __sarc_object * obj, uint64_t id, uint64_t offset);
 
     /* Create a new object. The size of the new object must be know at
      * this time. Use the __arc_object_init() function to initialize
      * the __arc_object structure. */
-    struct __sarc_object *(*create) (uint64_t id,uint64_t offset);
-    
+    struct __sarc_object *(*create) (uint64_t id, uint64_t offset);
+
     /* Fetch the data associated with the object. */
-    int (*fetch) (struct __sarc_object *obj);
-    
+    int (*fetch) (struct __sarc_object * obj);
+
     /* This function is called when the cache is full and we need to evict
      * objects from the cache. Free all data associated with the object. */
-    void (*evict) (struct __sarc_object *obj);
-	/* The function after create a object, it fetch data from disk.
+    void (*evict) (struct __sarc_object * obj);
+    /* The function after create a object, it fetch data from disk.
      */
-    int (*fetch_from_disk)(uint64_t id,uint64_t offset,struct __sarc_object *obj);
+    int (*fetch_from_disk) (uint64_t id, uint64_t offset,
+			    struct __sarc_object * obj);
     /* This function is called when the object is completely removed from
      * the cache directory. Free the object data and the object itself. */
-    void (*destroy) (struct __sarc_object *obj);
-    int (*prefetch_from_disk)(uint64_t id,uint64_t offset,struct __sarc_object *obj);
+    void (*destroy) (struct __sarc_object * obj);
+    int (*prefetch_from_disk) (uint64_t id, uint64_t offset,
+			       struct __sarc_object * obj);
 };
 /*
 typedef struct arc_stat{
@@ -137,11 +143,12 @@ typedef struct arc_stat{
 }arc_stat_t;
 */
 /* The actual cache. */
-typedef struct __sarc {
+typedef struct __sarc
+{
     struct __sarc_ops *ops;
     struct __arc_hash hash;
     double adapt;
-    double ratio;	   
+    double ratio;
     arc_stat_t arc_stats;
 /*  for adaptive 
  */
@@ -152,18 +159,19 @@ typedef struct __sarc {
     uint64_t c, p;
     lmutex_t arc_lock;
     lmutex_t arc_balock;
-    struct __sarc_state random,seq;
-}sarc_t;
+    struct __sarc_state random, seq;
+} sarc_t;
 /* Functions to create and destroy the cache. */
-struct __sarc *__sarc_create(struct __sarc_ops *ops, unsigned long c);
-void __sarc_destroy(struct __sarc *cache);
+struct __sarc *__sarc_create (struct __sarc_ops *ops, unsigned long c);
+void __sarc_destroy (struct __sarc *cache);
 
 /* Initialize a new object. To be used from the alloc() op function. */
-void __sarc_object_init(struct __sarc_object *obj,uint64_t offset,int id, unsigned long size);
+void __sarc_object_init (struct __sarc_object *obj, uint64_t offset, int id,
+			 unsigned long size);
 
 /* Lookup an object in the cache. The cache automatically allocates and
  * fetches the object if it does not exists yet. */
-struct __sarc_object *__sarc_lookup(struct __sarc *cache,uint64_t id,uint64_t offset);
+struct __sarc_object *__sarc_lookup (struct __sarc *cache, uint64_t id,
+				     uint64_t offset);
 
 #endif /* __SARC_H__ */
-
