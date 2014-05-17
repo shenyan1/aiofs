@@ -174,7 +174,7 @@ lfs_fini ()
 #else
     __arc_destroy (lfs_n.arc_cache);
 #endif
-    cache_destroy (lfs_n.lfs_cache);
+    cache_destroy_shm (lfs_n.lfs_cache);
     cache_destroy (lfs_n.lfs_obj_cache);
     for (i = 0; i < MAX_FILE_NO; i++)
 	free (lfs_n.f_table[i].meta_table);

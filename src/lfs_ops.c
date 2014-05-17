@@ -141,9 +141,10 @@ __op_destroy (struct __arc_object *e)
 //              printf("obj's offset=%"PRIu64"id=%"PRIu64"",obj->offset,obj->id);
     cv_destroy (&e->cv);
     if (e->state != &lfs_n.arc_cache->mrug
-	&& e->state != &lfs_n.arc_cache->mfug)
+	&& e->state != &lfs_n.arc_cache->mfug){
+	printf("evict to shm cache\n");
 	cache_free_shm (lfs_n.lfs_cache, obj->obj_data);
-
+    }
     cache_free (lfs_n.lfs_obj_cache, obj);
 }
 

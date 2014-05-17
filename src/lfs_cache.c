@@ -69,11 +69,8 @@ cache_destroy_shm (cache_t * cache)
     while (cache->freecurr > 0)
       {
 	  obj_data_t *ptr = (obj_data_t *)cache->ptr[--cache->freecurr];
-	  if (cache->destructor)
-	    {
-		cache->destructor (get_object (ptr), NULL);
-	    }
 
+	  printf("cache_destroy_shm\n");
 	  if(shmctl(ptr->shmid, IPC_RMID, NULL)==-1){
 		perror("shmctl RMID failed in cache_destroy");
 	  }
@@ -221,6 +218,23 @@ cache_free_shm (cache_t * cache, obj_data_t *obj_data)
       {
 	  cache->ptr[cache->freecurr++] = obj_data;
       }
+    else {
+        /* try to enlarge free connections array */
+        size_t newtotal = cache->freetotal * 2;
+        void **new_free = realloc(cache->ptr, sizeof(char *) * newtotal);
+        if (new_free) {
+            cache->freetotal = newtotal;
+            cache->ptr = new_free;
+            cache->ptr[cache->freecurr++] = obj_data;
+        } else {
+            if (cache->destructor) {
+                cache->destructor(obj_data, NULL);
+            }
+            free(obj_data);
+
+        }
+    }
+
 #ifdef LFS_DEBUG
     printf ("freetotal=%d,freecur=%d\n", cache->freetotal, cache->freecurr);
 #endif

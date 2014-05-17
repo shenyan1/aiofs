@@ -242,7 +242,7 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 
 	  get_state(obj->state);
 	  print_obj(obj,__func__);
-	  printf("obj's read state=%d",obj->read_state);
+//	  printf("obj's read state=%d",obj->read_state);
 	  cache->ops->destroy (obj);
 
 	  __arc_list_remove (&obj->hash);
@@ -634,7 +634,6 @@ arc_stat_update (struct __arc *cache)
 inline void
 arc_read_done (struct __arc_object *obj)
 {
-    struct object *objs=getobj(obj);
     mutex_enter (&obj->obj_lock, __func__,__LINE__);
     if (obj->read_state == READ_STATE)
       {
