@@ -8,9 +8,9 @@
 #ifndef NDEBUG
 #include <signal.h>
 #endif
-
+#include "lfs_ops.h"
 #include "lfs_cache.h"
-
+#include <sys/shm.h>
 #ifndef NDEBUG
 const uint64_t redzone_pattern = 0xdeadbeefcafebabe;
 int cache_error = 0;
@@ -55,11 +55,34 @@ static inline void *
 get_object (void *ptr)
 {
 #ifndef NDEBUG
+    printf("NDEBUG here");
     uint64_t *pre = ptr;
     return pre + 1;
 #else
     return ptr;
 #endif
+}
+
+void
+cache_destroy_shm (cache_t * cache)
+{
+    while (cache->freecurr > 0)
+      {
+	  obj_data_t *ptr = (obj_data_t *)cache->ptr[--cache->freecurr];
+	  if (cache->destructor)
+	    {
+		cache->destructor (get_object (ptr), NULL);
+	    }
+
+	  if(shmctl(ptr->shmid, IPC_RMID, NULL)==-1){
+		perror("shmctl RMID failed in cache_destroy");
+	  }
+	  assert (ptr != NULL);
+      }
+    free (cache->name);
+    free (cache->ptr);
+    pthread_mutex_destroy (&cache->mutex);
+    free (cache);
 }
 
 void
@@ -80,6 +103,63 @@ cache_destroy (cache_t * cache)
     pthread_mutex_destroy (&cache->mutex);
     free (cache);
 }
+obj_data_t* 
+cache_alloc_shm (cache_t * cache)
+{
+    void *ret;
+    obj_data_t *objdata;
+    pthread_mutex_lock (&cache->mutex);
+    if (cache->freecurr > 0)
+      {
+	  ret = cache->ptr[--cache->freecurr];
+	  objdata = get_object (ret);
+      }
+    else
+      {
+
+          objdata = (obj_data_t *)malloc(sizeof(obj_data_t));
+          if((objdata->shmid = shmget(IPC_PRIVATE,cache->bufsize,(SHM_R|SHM_W|IPC_CREAT)))<0){
+        	perror(__func__);
+          }
+	  objdata->data = ret = shmat(objdata->shmid, NULL, 0);
+
+	  assert(objdata->data!=0);
+	  cache->m_stat += cache->bufsize;
+#ifdef LFS_DEBUG
+	  printf ("used freecur=%d,cache->m_stat=%" PRIu64 "\n",
+		  cache->freecurr, cache->m_stat);
+#endif
+
+	  if (ret != NULL)
+	    {
+
+		if (cache->constructor != NULL &&
+		    cache->constructor (objdata, NULL, 0) != 0)
+		  {
+		      if(shmctl(objdata->shmid, IPC_RMID, NULL)==-1){
+			  perror("shmctl(IPC_RMID) failed");
+		      }
+		      objdata = NULL;
+		  }
+	    }
+      }
+    pthread_mutex_unlock (&cache->mutex);
+
+#ifndef NDEBUG
+    if (object != NULL)
+      {
+	  /* add a simple form of buffer-check */
+	  uint64_t *pre = ret;
+	  *pre = redzone_pattern;
+	  ret = pre + 1;
+	  memcpy (((char *) ret) + cache->bufsize -
+		  (2 * sizeof (redzone_pattern)), &redzone_pattern,
+		  sizeof (redzone_pattern));
+      }
+#endif
+    return objdata;
+}
+
 
 void *
 cache_alloc (cache_t * cache)
@@ -128,6 +208,23 @@ cache_alloc (cache_t * cache)
 #endif
 
     return object;
+}
+
+void
+cache_free_shm (cache_t * cache, obj_data_t *obj_data)
+{
+    pthread_mutex_lock (&cache->mutex);
+#ifdef LFS_DEBUG
+    printf ("free in cache_free");
+#endif
+    if (cache->freecurr < cache->freetotal)
+      {
+	  cache->ptr[cache->freecurr++] = obj_data;
+      }
+#ifdef LFS_DEBUG
+    printf ("freetotal=%d,freecur=%d\n", cache->freetotal, cache->freecurr);
+#endif
+    pthread_mutex_unlock (&cache->mutex);
 }
 
 void

@@ -238,7 +238,7 @@ file_read (int id, char *buffer, uint32_t size, uint64_t offset)
 	  entry = __arc_lookup (lfs_n.arc_cache, id, l_off);
 #endif
 	  obj = __arc_list_entry (entry, struct object, entry);
-	  memcpy (buffer, obj->data + (offset - l_off), size);
+	  memcpy (buffer, obj->obj_data->data + (offset - l_off), size);
 	  return 0;
       }
     /* the block is across only 1 block.
@@ -257,7 +257,7 @@ file_read (int id, char *buffer, uint32_t size, uint64_t offset)
 	  obj = __arc_list_entry (entry, struct object, entry);
 	  bufoff = offset - obj->offset;
 	  tocpy = (int) MIN (LFS_BLKSIZE - bufoff, size);
-	  memcpy (buffer, obj->data + bufoff, tocpy);
+	  memcpy (buffer, obj->obj_data->data + bufoff, tocpy);
 	  offset += tocpy;
 	  size -= tocpy;
 	  buffer = buffer + tocpy;

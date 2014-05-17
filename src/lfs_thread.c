@@ -25,7 +25,6 @@ mutex_destroy (lmutex_t * mp)
     if(ret!=0){
       perror("problemis");
       printf("mutex destroy failed=%d",ret);
-      printf("lock in %s,line=%d,owner=%d",mp->func,mp->line,mp->mp_owner);
     }
     assert (ret == 0);
 }

@@ -634,6 +634,7 @@ arc_stat_update (struct __arc *cache)
 inline void
 arc_read_done (struct __arc_object *obj)
 {
+    struct object *objs=getobj(obj);
     mutex_enter (&obj->obj_lock, __func__,__LINE__);
     if (obj->read_state == READ_STATE)
       {

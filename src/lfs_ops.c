@@ -47,11 +47,13 @@ static struct __arc_object *
 __op_create (uint64_t id, uint64_t offset)
 {
     struct object *obj = cache_alloc (lfs_n.lfs_obj_cache);
-    obj->data = cache_alloc (lfs_n.lfs_cache);
+
+    obj->obj_data = cache_alloc_shm (lfs_n.lfs_cache);
 #ifdef LFS_DEBUG
     printf ("\n1:cache_alloc obj=%p,id=%" PRIu64 ",offset=%" PRIu64 "",
 	    &obj->entry, id, offset);
 #endif
+    assert(obj->obj_data->data);
     if (offset < 0 || id < 0)
       {
 	  printf ("offset =%" PRIu64 ",id=%" PRIu64
@@ -102,7 +104,7 @@ __op_fetch (struct __arc_object *e)
     int ret;
     uint64_t offset, id;
     struct object *obj = __arc_list_entry (e, struct object, entry);
-    obj->data = cache_alloc (lfs_n.lfs_cache);
+    obj->obj_data = cache_alloc (lfs_n.lfs_cache);
 
     offset = obj->offset;
     id = obj->id;
@@ -111,7 +113,7 @@ __op_fetch (struct __arc_object *e)
 	    &obj->entry, id, offset);
 #endif
     ret =
-	pread (lfs_n.fd, obj->data, 1 << 20,
+	pread (lfs_n.fd, obj->obj_data->data, 1 << 20,
 	       offset + lfs_n.f_table[id].meta_table[0]);
     if (ret != 1 << 20)
 	return 1;
@@ -123,7 +125,11 @@ static void
 __op_evict (struct __arc_object *e)
 {
     struct object *obj = __arc_list_entry (e, struct object, entry);
-    cache_free (lfs_n.lfs_cache, obj->data);
+#ifndef CONFIG_SHMEM
+    cache_free (lfs_n.lfs_cache, obj->obj_data);
+#else
+    cache_free_shm(lfs_n.lfs_cache,obj->obj_data);
+#endif
 }
 
 static void
@@ -136,7 +142,7 @@ __op_destroy (struct __arc_object *e)
     cv_destroy (&e->cv);
     if (e->state != &lfs_n.arc_cache->mrug
 	&& e->state != &lfs_n.arc_cache->mfug)
-	cache_free (lfs_n.lfs_cache, obj->data);
+	cache_free_shm (lfs_n.lfs_cache, obj->obj_data);
 
     cache_free (lfs_n.lfs_obj_cache, obj);
 }

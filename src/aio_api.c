@@ -139,12 +139,11 @@ aio_completion_handler (void *thread_data)
 		      printf ("iocb is lost \n");
 		      exit (1);
 		  }
-
 		if (events[i].res != this_io->iocb.u.c.nbytes)
 		  {
-		      printf ("rw missed bytes expect % ld got % ld \n",
-			      this_io->iocb.u.c.nbytes, events[i].res);
-		      exit (1);
+		      printf ("rw missed bytes expect % ld,got % ld res2=%d \n",
+			      this_io->iocb.u.c.nbytes, events[i].res,events[i].res2);
+		     // exit (1);
 		  }
 		obj=this_io->item->obj;
 		arc_read_done (obj);
@@ -167,10 +166,10 @@ aio_completion_handler (void *thread_data)
 inline void prep_aio(struct iocb *this_iocb,const struct trace_entry *request){
 	struct object *obj = getobj(request->item->obj);
 	  if (request->rwType == 'R')
-	      io_prep_pread (this_iocb, lfs_n.fd, obj->data,
+	      io_prep_pread (this_iocb, lfs_n.fd, obj->obj_data->data,
 			     request->bytecount, request->startbyte);
 	  else
-	      io_prep_pwrite (this_iocb, lfs_n.fd, obj->data,
+	      io_prep_pwrite (this_iocb, lfs_n.fd, obj->obj_data->data,
 			      request->bytecount, request->startbyte);
 
 }

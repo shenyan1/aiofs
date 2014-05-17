@@ -14,6 +14,12 @@
 #define READ_STATE    1
 #define READ_HALF_FINISHED 2
 #define READ_FINISHED 3
+
+typedef struct object_data obj_data_t;
+struct object_data{
+    char *data;
+    int shmid;
+};
 struct object
 {
     uint64_t id;
@@ -23,7 +29,7 @@ struct object
 #else
     struct __arc_object entry;
 #endif
-    char *data;
+    obj_data_t *obj_data;
     int state;
 };
 

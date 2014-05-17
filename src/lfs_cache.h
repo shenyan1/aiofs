@@ -2,6 +2,7 @@
 #ifndef CACHE_H
 #define CACHE_H
 #include <pthread.h>
+#include "lfs_ops.h"
 
 #ifdef HAVE_UMEM_H
 #include <umem.h>
@@ -86,6 +87,9 @@ typedef struct
 cache_t *cache_create (const char *name, size_t bufsize, size_t align,
 		       cache_constructor_t * constructor,
 		       cache_destructor_t * destructor, uint64_t ulimit);
+void cache_destroy_shm (cache_t * cache);
+obj_data_t* cache_alloc_shm (cache_t * cache);
+
 /**
  * Destroy an object cache.
  *
@@ -114,6 +118,8 @@ void *cache_alloc (cache_t * handle);
  * @param ptr pointer to the object to return.
  */
 void cache_free (cache_t * handle, void *ptr);
+void cache_free_shm (cache_t * cache, obj_data_t *obj_data);
+
 #endif
 
 #endif

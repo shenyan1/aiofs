@@ -17,7 +17,7 @@ typedef struct lmutex
 {
     pthread_mutex_t mutex;
     mown_t mp_owner;
-    char *func;
+    const char *func;
     int line;
 } lmutex_t;
 typedef struct krwlock
