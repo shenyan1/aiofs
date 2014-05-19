@@ -6,7 +6,8 @@
 #include <sys/socket.h>
 
 #define MAX_SEND 1025
-#define UNIX_PATH "/tmp/sinfor"
+#define UNIX_PATH "/tmp/UNIX2.domain1"
+//#define UNIX_PATH "/tmp/sinfor"
 
 void dump_unix(int sock_fd)
 {
