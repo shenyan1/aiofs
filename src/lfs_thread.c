@@ -129,6 +129,17 @@ CQ_ITEM *cq_pop(CQ *cq) {
 
     return item;
 }
+
+void ioreq_init() {
+    
+    RFS_RQ = (CQ *)malloc(sizeof(CQ));
+    pthread_mutex_init(&RFS_RQ->lock, NULL);
+    pthread_cond_init(&RFS_RQ->cond, NULL);
+    RFS_RQ->head = NULL;
+    RFS_RQ->tail = NULL;
+}
+
+
 void cq_init() {
     
     RFS_CQ = (CQ *)malloc(sizeof(CQ));

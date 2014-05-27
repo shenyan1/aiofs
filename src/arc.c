@@ -238,9 +238,9 @@ __arc_move_state (struct __arc *cache, struct __arc_state *state1,
 
 	  /* The object is being removed from the cache, destroy it. */
 	  mutex_enter (hash_lock, __func__,__LINE__);
-	  printf ("move to null list");
+	  //printf ("move to null list");
 
-	  get_state(obj->state);
+	 // get_state(obj->state);
 	  print_obj(obj,__func__);
 //	  printf("obj's read state=%d",obj->read_state);
 	  cache->ops->destroy (obj);

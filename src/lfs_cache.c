@@ -70,7 +70,7 @@ cache_destroy_shm (cache_t * cache)
       {
 	  obj_data_t *ptr = (obj_data_t *)cache->ptr[--cache->freecurr];
 
-	  printf("cache_destroy_shm\n");
+	 // printf("cache_destroy_shm\n");
 	  if(shmctl(ptr->shmid, IPC_RMID, NULL)==-1){
 		perror("shmctl RMID failed in cache_destroy");
 	  }

@@ -142,7 +142,7 @@ __op_destroy (struct __arc_object *e)
     cv_destroy (&e->cv);
     if (e->state != &lfs_n.arc_cache->mrug
 	&& e->state != &lfs_n.arc_cache->mfug){
-	printf("evict to shm cache\n");
+	//printf("evict to shm cache\n");
 	cache_free_shm (lfs_n.lfs_cache, obj->obj_data);
     }
     cache_free (lfs_n.lfs_obj_cache, obj);

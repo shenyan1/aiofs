@@ -127,6 +127,7 @@ lfs_getdlist (int *readfd)
 		readfd[num_files++] = i;
 	    }
       }
+    num_files = 227;
     return 0;
 }
 
@@ -176,7 +177,7 @@ read_test_fini ()
     free (readfd);
 }
 
-#define THREAD_NUMS 300ull
+#define THREAD_NUMS 250ull
 int
 lfs_test_streamread ()
 {

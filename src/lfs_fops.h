@@ -1,7 +1,6 @@
 #ifndef __LFS_FOPS_H
 #define __LFS_FOPS_H
 
-#define _XOPEN_SOURCE 500
 #include<stdio.h>
 #include<unistd.h>
 #include"lfs.h"

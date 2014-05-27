@@ -58,9 +58,11 @@ struct conn_queue_item
     int fops;
     struct __arc_object *obj;
     uint64_t offset;
+    int clifd;
     CQ_ITEM *prev;
     CQ_ITEM *next;
 };
+
 
 typedef struct rfs_io_queue CQ;
 
@@ -91,6 +93,7 @@ extern CQ_ITEM *cq_pop (CQ * cq);
 
 extern CQ_ITEM *cqi_new (void);
 extern void cq_init (void);
+extern void ioreq_init(void);
 extern void cq_push (CQ * cq, CQ_ITEM * item);
 extern CQ_ITEM *cq_pop (CQ * cq);
 

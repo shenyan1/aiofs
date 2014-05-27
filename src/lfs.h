@@ -23,6 +23,7 @@ typedef struct file_entry
 
 #define FREELIST_LOCK lfs_n.cq_info.cqi_freelist_lock;
 #define RFS_CQ 	    lfs_n.cq
+#define RFS_RQ      lfs_n.req_queue
 #define IOCBQ_MUTEX lfs_n.cq_info.iocb_queue_mutex
 #define IOCBQUEUE lfs_n.cq_info.iocbq
 typedef struct lfs_info
@@ -39,9 +40,12 @@ typedef struct lfs_info
     uint64_t *freemap;
     cache_t *lfs_cache;
     cache_t *lfs_obj_cache;
+    cache_t *rq_cache;
     CQ *cq;
+    CQ *req_queue;
     io_queue_info_t cq_info;
     uint32_t max_files;
+    pthread_t rfs_dispatcher_th;
 /* aio threads
  */
     pthread_t rfs_receiver_th;
@@ -49,9 +53,6 @@ typedef struct lfs_info
 } lfs_info_t;
 extern uint64_t getphymemsize (void);
 
-/*
- * using pthread to mutex our avl and arc operations
- */
 typedef struct kmutex
 {
     void *m_owner;

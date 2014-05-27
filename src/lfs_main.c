@@ -1,3 +1,4 @@
+#define _GNU_SOURCE 
 #define _XOPEN_SOURCE 500
 #include<unistd.h>
 #include<stdlib.h>
@@ -16,6 +17,7 @@
 #include"lfs_fops.h"
 #include"lfs_cache.h"
 #include"aio_api.h"
+#include"eserver.h"
 lfs_info_t lfs_n;
 
 char *testbuffer;
@@ -67,7 +69,7 @@ LoadFileEntry ()
 	  lfs_n.f_table[i].fsize = fsize;
 	  lfs_n.off += sizeof (uint32_t);
 	  pread (lfs_n.fd, &isfree, sizeof (uint32_t), lfs_n.off);
-	  printf ("%d file is free %d\n", i, isfree);
+	//  printf ("%d file is free %d\n", i, isfree);
 	  lfs_n.f_table[i].is_free = isfree;
 	  lfs_n.off += sizeof (uint32_t);
 	  for (md_idx = 0; md_idx < FILE_ENTRYS; md_idx++)
@@ -128,12 +130,26 @@ LoadSpaceEntry ()
 #endif
     return true;
 }
+int ioserver_init(){
 
+    ioreq_init();
+    lfs_n.rq_cache = 
+	cache_create ("arc_cache", 1024, sizeof (char *), NULL, NULL,2000*1024);
+
+    if (pthread_create
+	(&lfs_n.rfs_dispatcher_th, NULL, lfs_dispatcher_thread_fn, (void *) NULL) != 0)
+      {
+	  printf ("Create lfs dispatcher thread error!\n");
+	  exit (1);
+      }
+
+    return 0;
+}
 int
 lfs_init ()
 {
     int i = 0;
-    lfs_n.fd = open (lfs_n.block_device, O_RDWR);
+    lfs_n.fd = open (lfs_n.block_device, O_RDWR| O_DIRECT);
     lfs_n.off = 0;
     check_right ();
     testbuffer = malloc (1 << 20);
@@ -157,8 +173,9 @@ lfs_init ()
 		      NULL, NULL, arc_size);
 	
     LoadFileEntry ();
-    print_lfstable ();
+ //   print_lfstable ();
     LoadSpaceEntry ();
+    ioserver_init();
     aio_init();
     return 0;
 }

@@ -13,7 +13,7 @@ typedef struct test_unit{
 int num_files=0;
 
 void *lfs_test_read(void *arg){
-	int i;
+	int i,ret;
 	int nums,size=200<<10;
 	char *rbuffer,buf[6];
 	nums = 1024;
@@ -22,7 +22,7 @@ void *lfs_test_read(void *arg){
 	uint64_t offset = 0;
 	
 	sprintf(buf,"f%d",id);
-        posix_memalign((void **)&rbuffer, 512, size);
+	rbuffer = malloc(size);
 	memset(rbuffer,0,size);
 	for(i=0;i<1024;i++){
 		nums = pread(id,rbuffer,size,offset);
@@ -36,9 +36,6 @@ void *lfs_test_read(void *arg){
 }
 #define max_files 227
 
-
-void read_test_fini(){
-}
 uint64_t cur_usec(void)
 {
     struct timeval __time;
@@ -62,17 +59,7 @@ int main(){
 	pthread_t tids[THREAD_NUMS];
 	srand(time(0));
 	uint64_t stime,ctime;
-	for(i=0;i<THREAD_NUMS;i++){
-		randfd[i] = rand() % max_files;
-		if(randfd[i]==0)
-			randfd[i]=1;
-		sprintf(buf,"/shenyan/f%d",randfd[i]);
-		printf("buf=%s\n",buf);
-		fd = open(buf,O_RDWR|O_DIRECT);
-		if(fd<0)
-			assert(0);
-		readfd[i]=fd;
-	}
+	readfd[0] = open("/dev/sdc",0666);
 	srand(time(0));
 
 	stime = cur_usec();	
@@ -91,6 +78,5 @@ int main(){
 	bw *= 1000000;
 	bw = bw / 1024;
 	printf("stat: bw = %"PRIu64" kB/s\n",bw);
-	read_test_fini();
 	return 1;
 }

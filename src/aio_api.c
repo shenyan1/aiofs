@@ -276,6 +276,7 @@ aio_init ()
 
     signal (SIGINT, sigint_handler);
     pthread_mutex_init (&IOCBQ_MUTEX, NULL);
+
     cq_init ();
     IOCBQUEUE = (struct io_queue *) malloc (sizeof (struct io_queue) * QUEUE_SIZE);
     if (IOCBQUEUE == NULL)
