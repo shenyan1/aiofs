@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC    = gcc$/;"	m
+CCFLAGS	Makefile	/^CCFLAGS = -g -Wall -O0$/;"	m
+LFS_BLKSIZE	xfstest.c	11;"	d	file:
+LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
+MAX_THREADS	xfstest.c	114;"	d	file:
+OBJ2S	Makefile	/^OBJ2S = ..\/lfs_sys.o xfstest.o$/;"	m
+OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
+PROGS	Makefile	/^PROGS = client$/;"	m
+SRCS	Makefile	/^SRCS  = $(wildcard *.c)$/;"	m
+TEST_BLKSIZE	xfstest.c	10;"	d	file:
+cur_usec	xfstest.c	/^uint64_t cur_usec (void)$/;"	f
+filebench	xfstest.c	/^filebench (char *argv[])$/;"	f
+lfs_test_read	xfstest.c	/^lfs_test_read (void *arg)$/;"	f
+lfs_test_streamread	xfstest.c	/^lfs_test_streamread (int num_files1, int threads)$/;"	f
+main	xfstest.c	/^main (int argc, char *argv[])$/;"	f
+max_files	xfstest.c	/^int max_files = 1000;$/;"	v
+num_files	xfstest.c	/^int num_files = 0;$/;"	v
+read_test_fini	xfstest.c	/^read_test_fini ()$/;"	f
+readfd	xfstest.c	/^int *readfd;$/;"	v
+show_time	xfstest.c	/^void show_time(int threads,uint64_t ctime,uint64_t stime){$/;"	f
