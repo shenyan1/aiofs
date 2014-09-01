@@ -27,7 +27,7 @@ static inline int ioreq_enqueue (char *socket_buf)
 
     CQ_ITEM *item = cqi_new ();
     sprintf (socket_buf, "%c%d%d%" PRIu64 "%d", item->fops, item->fid,
-		 item->shmid, item->offset, item->size);
+	     item->shmid, item->offset, item->size);
     item->fops = item->fops - '0';
 //    lfs_printf("readstate =%d",_obj->read_state);
     cq_push (lfs_n.req_queue, item);

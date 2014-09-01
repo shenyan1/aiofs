@@ -195,7 +195,7 @@ int lfs_init ()
     check_right ();		// 
     /* To create a arc cache with total memory / 2
      */
-    uint64_t arc_size = getphymemsize () * 2 / 4;
+    uint64_t arc_size = getphymemsize () * 3 / 4;
     lfs_arc_init (arc_size);	//
 
     lfs_n.lfs_cache =

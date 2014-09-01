@@ -209,21 +209,24 @@ static struct __arc_object *__arc_state_lru (struct __arc_state *state)
     return __arc_list_entry (head, struct __arc_object, head);
 }
 
-void print_stateinfo(struct __arc_state *state1){
+void print_stateinfo (struct __arc_state *state1)
+{
 //   lfs_printf_debug("count=%d, state size=%"PRIu64",head=%p\n",state1->count,state1->size,state1->head);
 }
+
 static struct __arc_object *__arc_move_state (struct __arc *cache,
 					      struct __arc_state *state1,
 					      struct __arc_state *state2)
 {
     struct __arc_object *obj;
     mutex_enter (&state1->state_lock, __func__, __LINE__);
-    if(state1 == &lfs_n.arc_cache->mfu){
-	print_stateinfo(state1);
-	
-    }
+    if (state1 == &lfs_n.arc_cache->mfu)
+      {
+	  print_stateinfo (state1);
+
+      }
     obj = __arc_state_lru (state1);
-    assert(obj->state == state1);
+    assert (obj->state == state1);
     state1->size -= obj->size;
     state1->count--;
     printsize (cache);
@@ -674,8 +677,8 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
     uint64_t key;
     id = item->fid;
     offset = item->offset;
-    offset = item->offset = P2ALIGN (offset,LFS_BLKSIZE);
-    
+    offset = item->offset = P2ALIGN (offset, LFS_BLKSIZE);
+
     key = lfs_arc_hash (id, offset);
 #ifdef LFS_DEBUG
 
@@ -686,7 +689,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
     obj = __arc_hash_lookup (cache, id, offset, &hash_lock);
     if (obj && obj->read_state == READ_FINISHED)
       {
-//	  lfs_printf_debug("find in arc\n");
+//        lfs_printf_debug("find in arc\n");
 	  arc_stat_hit_update (cache);
 	  if (obj->state == &cache->mru || obj->state == &cache->mfu)
 	    {
@@ -701,7 +704,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		  }
 		mutex_exit (hash_lock, __func__);
 		print_obj (obj, "end in arc_lookup");
-//		lfs_printf_debug ("cache hit\n");
+//              lfs_printf_debug ("cache hit\n");
 		return obj;
 	    }
 	  else if (obj->state == &cache->mrug)
@@ -760,7 +763,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		__arc_hash_insert (cache, key, obj, hash_lock);
 		__arc_adjust (cache);	//obj->size
 
-                print_obj (obj, "first insert");
+		print_obj (obj, "first insert");
 /*  wait I/O return
  */
 		pobj = pobject_create (item);
@@ -775,7 +778,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		       || obj->read_state == READ_HALF_FINISHED))
 	    {
 		mutex_exit (hash_lock, __func__);
-                print_obj (obj, __LINE__);
+		print_obj (obj, __LINE__);
 
 		pobj = pobject_create (item);
 		pending_hash_insert (pobj);

@@ -65,7 +65,7 @@ u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)
 
 void lfs_printf_debug (const char *fmt, ...)
 {
-  //  assert(0);
+    //  assert(0);
     va_list ap;
     char *ret;
     int err;

@@ -83,7 +83,7 @@ IDXLEAF	lfs_dirindex.c	29;"	d	file:
 IDXLIST	lfs_dirindex.c	27;"	d	file:
 IDXMAP	lfs_dirindex.c	32;"	d	file:
 IDXNEXTLEAF	lfs_dirindex.c	30;"	d	file:
-IN_MFUG	arc.c	671;"	d	file:
+IN_MFUG	arc.c	674;"	d	file:
 IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
 IOCBQUEUE	lfs.h	39;"	d
@@ -96,7 +96,7 @@ InitDirTree	lfs_dirindex.c	/^int InitDirTree ()$/;"	f
 InitIndexBlock	lfs_dirindex.c	/^dir_index_t *InitIndexBlock (offset_t _pos, hash_t _hash, offset_t _off,$/;"	f
 InitIndexLeaf	lfs_dirindex.c	/^offset_t InitIndexLeaf (inode_t _inode, int i)$/;"	f
 InitListNode	lfs_freemap.c	/^void InitListNode (free_node_t * _pnode, uint64_t _off, int _idx)$/;"	f
-Init_Dcache	lfs_dirindex.c	/^int Init_Dcache(inode_t _inode)$/;"	f
+Init_Dcache	lfs_dirindex.c	/^int Init_Dcache (inode_t _inode)$/;"	f
 Inode2dir_meta	lfs_dir.c	/^offset_t Inode2dir_meta (inode_t _inode)$/;"	f
 InsertIndex	lfs_dirindex.c	/^int InsertIndex (inode_t _inode, const char *_pname, offset_t _off)$/;"	f
 InsertListNode	lfs_freemap.c	/^void InsertListNode (uint64_t _off, int _idx)$/;"	f
@@ -649,7 +649,7 @@ print_lfstable	lfs_main.c	/^void print_lfstable ()$/;"	f
 print_obj	arc.c	/^void print_obj (struct __arc_object *obj, const char *str)$/;"	f
 print_obj	sarc.c	/^static void print_obj (struct __sarc_object *obj, char *str)$/;"	f	file:
 print_state	arc.c	/^void print_state (struct __arc *cache)$/;"	f
-print_stateinfo	arc.c	/^void print_stateinfo(struct __arc_state *state1){$/;"	f
+print_stateinfo	arc.c	/^void print_stateinfo (struct __arc_state *state1)$/;"	f
 printsize	arc.c	/^void printsize (struct __arc *cache)$/;"	f
 printsize	sarc.c	/^static void printsize (sarc_t * cache)$/;"	f	file:
 process_dirrequest	rfs_req.c	/^int process_dirrequest (char *buf, int clifd)$/;"	f

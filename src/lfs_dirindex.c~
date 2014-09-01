@@ -516,82 +516,82 @@ int Print_Index (inode_t _inode)
     int i = 0, j = 0;
     int cntIF = 0;
     int cntIB = 0;
-	if (IDXBLK == NULL)
-	{
-		if (DIRMETA_ARRAY[_inode].idx_blkptr_ == 0)
-		{
-			DEBUGER ("NO INDEX");
-			return 0;
-		}
-		LoadDirIndex (_inode);
-	}
-	for (i = 0; i < LFS_BLOCK_NO; ++i)
-	{
-		offset_t off = GetIndexDiskPos (_inode, i, -1);
-		ALERTER ("\t%lu %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
-		cntIB++;
-		LoadSingleLeaf (off);
+    if (IDXBLK == NULL)
+      {
+	  if (DIRMETA_ARRAY[_inode].idx_blkptr_ == 0)
+	    {
+		DEBUGER ("NO INDEX");
+		return 0;
+	    }
+	  LoadDirIndex (_inode);
+      }
+    for (i = 0; i < LFS_BLOCK_NO; ++i)
+      {
+	  offset_t off = GetIndexDiskPos (_inode, i, -1);
+	  ALERTER ("\t%lu %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
+	  cntIB++;
+	  LoadSingleLeaf (off);
 
-		if (IDXBLK[i].off_ == 0)
-			break;
-		if (IDXLEAF == NULL)
-			LoadLeafBlocks (IDXBLK + i);
-		for (j = 0; j < LFS_BLOCK_NO; ++j)
-		{
-			if (IDXLEAF[j].offset_ == 0)
-				continue;
-			off = GetIndexDiskPos (_inode, i, j);
-			ALERTER ("\t%lu %lu [IF(%d)]", IDXLEAF[j].hash_,
-					IDXLEAF[j].offset_, j);
-			cntIF++;
-			off = LoadSingleLeaf (off);
-			LoadDirEntry (off);
-		}
-		ALERTER ("STATISTIC %dIB %dIF", cntIB, cntIF);
-	}
-	return 0;
+	  if (IDXBLK[i].off_ == 0)
+	      break;
+	  if (IDXLEAF == NULL)
+	      LoadLeafBlocks (IDXBLK + i);
+	  for (j = 0; j < LFS_BLOCK_NO; ++j)
+	    {
+		if (IDXLEAF[j].offset_ == 0)
+		    continue;
+		off = GetIndexDiskPos (_inode, i, j);
+		ALERTER ("\t%lu %lu [IF(%d)]", IDXLEAF[j].hash_,
+			 IDXLEAF[j].offset_, j);
+		cntIF++;
+		off = LoadSingleLeaf (off);
+		LoadDirEntry (off);
+	    }
+	  ALERTER ("STATISTIC %dIB %dIF", cntIB, cntIF);
+      }
+    return 0;
 }
 
-int Init_Dcache(inode_t _inode)
+int Init_Dcache (inode_t _inode)
 {
     int i = 0, j = 0;
     int cntIF = 0;
     int cntIB = 0;
-	if (IDXBLK == NULL)
-	{
-		if (DIRMETA_ARRAY[_inode].idx_blkptr_ == 0)
-		{
-			DEBUGER ("NO INDEX");
-			return 0;
-		}
-		LoadDirIndex (_inode);
-	}
-	for (i = 0; i < LFS_BLOCK_NO; ++i)
-	{
-		offset_t off = GetIndexDiskPos (_inode, i, -1);
-		ALERTER ("\t%lu %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
-		cntIB++;
-		LoadSingleLeaf (off);
+    if (IDXBLK == NULL)
+      {
+	  if (DIRMETA_ARRAY[_inode].idx_blkptr_ == 0)
+	    {
+		DEBUGER ("NO INDEX");
+		return 0;
+	    }
+	  LoadDirIndex (_inode);
+      }
+    for (i = 0; i < LFS_BLOCK_NO; ++i)
+      {
+	  offset_t off = GetIndexDiskPos (_inode, i, -1);
+	  ALERTER ("\t%lu %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
+	  cntIB++;
+	  LoadSingleLeaf (off);
 
-		if (IDXBLK[i].off_ == 0)
-			break;
-		if (IDXLEAF == NULL)
-			LoadLeafBlocks (IDXBLK + i);
-		for (j = 0; j < LFS_BLOCK_NO; ++j)
-		{
-			if (IDXLEAF[j].offset_ == 0)
-				continue;
-			off = GetIndexDiskPos (_inode, i, j);
-			ALERTER ("\t%lu %lu [IF(%d)]", IDXLEAF[j].hash_,
-					IDXLEAF[j].offset_, j);
-			cntIF++;
-			off = LoadSingleLeaf (off);
-			LoadDirEntry (off);
+	  if (IDXBLK[i].off_ == 0)
+	      break;
+	  if (IDXLEAF == NULL)
+	      LoadLeafBlocks (IDXBLK + i);
+	  for (j = 0; j < LFS_BLOCK_NO; ++j)
+	    {
+		if (IDXLEAF[j].offset_ == 0)
+		    continue;
+		off = GetIndexDiskPos (_inode, i, j);
+		ALERTER ("\t%lu %lu [IF(%d)]", IDXLEAF[j].hash_,
+			 IDXLEAF[j].offset_, j);
+		cntIF++;
+		off = LoadSingleLeaf (off);
+		LoadDirEntry (off);
 
-		}
-		ALERTER ("STATISTIC %dIB %dIF", cntIB, cntIF);
-	}
-	return 0;
+	    }
+	  ALERTER ("STATISTIC %dIB %dIF", cntIB, cntIF);
+      }
+    return 0;
 }
 
 int DeleteIndex (inode_t _inode, char *_pname)
