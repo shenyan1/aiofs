@@ -140,6 +140,7 @@ int LoadDirMeta ()
     //inodelist_test ();
     ///init dirindex
     InitDirTree ();
+	Init_Dcache(0);
     return 1;
 }
 

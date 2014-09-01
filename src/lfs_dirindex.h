@@ -102,6 +102,7 @@ int DeleteIndex (inode_t inode, char *pname);
 
 dir_entry_t *LoadDirEntry (offset_t _off);
 int Print_Index (inode_t _inode);
+int Init_Dcache (inode_t _inode);
 void test_index ();
 
 #endif
