@@ -1,0 +1,4 @@
+1. ulimit -c unlimited 
+to debug segmentfault errors
+2. vim /etc/sysctl.conf
+kernel.shmmni = 8192

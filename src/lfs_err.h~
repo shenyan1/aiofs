@@ -1,0 +1,32 @@
+#ifndef __LFS_ERR_H
+#define __LFS_ERR_H
+
+#define LFS_SUCCESS  0
+#define LFS_EBIG     1
+#define LFS_EBOUND   2
+#define LFS_EOPEN    3
+#define LFS_ENOSPC   4
+#define LFS_EPM	     5
+#define LFS_INVALID  6
+#define LFS_EINCACHE 7
+#define LFS_PENDING  8
+#define LFS_CMISS    9
+
+
+/* operation commands are as followed.
+ */
+
+#define WRITE_COMMAND    1
+#define MKDIR_COMMAND    2
+#define GETFILES_COMMAND 3
+#define ISFREE_COMMAND   4
+#define STOP_FS 	 5
+#define READ_COMMAND     6
+#define RMDIR_COMMAND 7
+#define DIR2INODE_COMMAND 8
+#define LIST_COMMAND 9
+#define FALLOCATE_COMMAND 10
+#define MKFILE_COMMAND    11
+#define FOPEN_COMMAND DIR2INODE_COMMAND
+
+#endif

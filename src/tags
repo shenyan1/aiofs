@@ -4,223 +4,392 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AIO_BLKSIZE	aio_api.c	41;"	d	file:
-AIO_MAXIO	aio_api.c	42;"	d	file:
-ARC_MUTEXES	arc.h	69;"	d
+AIO_BLKSIZE	aio_api.c	43;"	d	file:
+AIO_INFO	lfs.h	104;"	d
+AIO_MAXIO	aio_api.c	44;"	d	file:
+ALERTER	lfs_define.h	17;"	d
+ARC_MUTEXES	arc.h	53;"	d
 ARC_MUTEXES	sarc.h	72;"	d
-ASSERT	lfs.h	86;"	d
-AVG_FSIZE	lfs.h	75;"	d
-BLKPTRSIZE	lfs_fops.c	55;"	d	file:
-BLKSHIFT	lfs.h	85;"	d
-BLOCK_SIZE	aio_api.c	26;"	d	file:
+ASSERT	lfs.h	138;"	d
+AVG_FSIZE	lfs.h	117;"	d
+AddDirEntry	lfs_dir.c	/^int AddDirEntry (inode_t _inode, const char *_pname)$/;"	f
+AddDirEntryFile	lfs_dir.c	/^int AddDirEntryFile (inode_t _inode, const char *_pname)$/;"	f
+BLKPTRSIZE	lfs_fops.c	17;"	d	file:
+BLKSHIFT	lfs.h	137;"	d
+BLOCK_SIZE	aio_api.c	28;"	d	file:
+BinaryBit	lfs_dirindex.c	/^int BinaryBit (char x)$/;"	f
 CACHE_H	lfs_cache.h	3;"	d
 CC	Makefile	/^CC    = gcc$/;"	m
 CCFLAGS	Makefile	/^CCFLAGS = -g -Wall -O0$/;"	m
-CHUNK_SIZE	aio_api.c	27;"	d	file:
+CHUNK_SIZE	aio_api.c	29;"	d	file:
 CONFIG_SHMEM	config.h	9;"	d
 CQ	lfs_thread.h	/^typedef struct rfs_io_queue CQ;$/;"	t	typeref:struct:rfs_io_queue
 CQ_ITEM	lfs_thread.h	/^typedef struct conn_queue_item CQ_ITEM;$/;"	t	typeref:struct:conn_queue_item
-FFLAG	lfs_fops.c	54;"	d	file:
-FILESIZE	lfs_fops.c	53;"	d	file:
-FILE_ENTRYS	lfs.h	77;"	d
-FNAMESIZE	lfs_fops.c	52;"	d	file:
-FREELIST_LOCK	lfs.h	24;"	d
-FSNAME	lfs.h	63;"	d
-IN_MFUG	arc.c	650;"	d	file:
-IN_MFUG	sarc.c	564;"	d	file:
+ChangeIndexBLK	lfs_dirindex.c	/^int ChangeIndexBLK (dir_index_t * _pidx, offset_t _pos, hash_t _hash,$/;"	f
+ChangeLeafBLK	lfs_dirindex.c	/^int ChangeLeafBLK (dir_index_leaf_t * _leaf, offset_t _pos, hash_t _hash,$/;"	f
+CreateFile	lfs_dir.c	/^int CreateFile (const char *_pname)$/;"	f
+DCACHE	lfs_dcache.h	26;"	d
+DCACHEMODE	lfs_define.h	40;"	d
+DEBUGER	lfs_define.h	11;"	d
+DEBUGER	lfs_define.h	8;"	d
+DEBUG_FUNC	lfs_define.h	13;"	d
+DEBUG_FUNC	lfs_define.h	7;"	d
+DEBUG_FUNC1	lfs_define.h	12;"	d
+DEBUG_FUNC1	lfs_define.h	6;"	d
+DIR2INODE_COMMAND	lfs_define.h	68;"	d
+DIRINODE_LIST	lfs_dir.c	29;"	d	file:
+DIRINODE_LIST	lfs_direntry.c	27;"	d	file:
+DIRMETADATA	lfs_dir.c	31;"	d	file:
+DIRMETA_ARRAY	lfs_dir.c	30;"	d	file:
+DIRMETA_ARRAY	lfs_direntry.c	28;"	d	file:
+DIRMETA_ARRAY	lfs_dirindex.c	31;"	d	file:
+DIR_META_BLKPTR_OFF	lfs_define.h	25;"	d
+DIR_META_SIZE	lfs_define.h	24;"	d
+DIR_UNIX_DOMAIN	lfs_dirserver.h	16;"	d
+DeleteIndex	lfs_dirindex.c	/^int DeleteIndex (inode_t _inode, char *_pname)$/;"	f
+Dir2Inode	lfs_dir.c	/^inode_t Dir2Inode (const char *_pdir)$/;"	f
+DirEntry	lfs_dir.h	/^struct DirEntry$/;"	s
+DirIndexEntry	lfs_dirindex.h	/^typedef struct DirIndexEntry$/;"	s
+DirIndexLeaf	lfs_dirindex.h	/^typedef struct DirIndexLeaf$/;"	s
+DirMetaData	lfs_dir.h	/^typedef struct DirMetaData$/;"	s
+ENTRY_DATA_SIZE	lfs_direntry.c	30;"	d	file:
+ENTRY_DATA_SIZE_TOT	lfs_direntry.c	31;"	d	file:
+EnableSize	lfs_dir.c	/^int EnableSize (offset_t _head, offset_t _last, int _len, int _size)$/;"	f
+Ext_mask_	lfs_dir.h	/^    uint32_t Ext_mask_;$/;"	m	struct:DirMetaData
+FALLOCATE_COMMAND	lfs_define.h	70;"	d
+FILESIZE	lfs_fops.c	16;"	d	file:
+FILE_ENTRYS	lfs.h	129;"	d
+FOPEN_COMMAND	lfs_define.h	73;"	d
+FREEBITMAP_SIZE	lfs_define.h	32;"	d
+FREELIST_LOCK	lfs.h	35;"	d
+FREEMAP_SIZE	lfs_define.h	33;"	d
+FSNAME	lfs.h	105;"	d
+FindIndex	lfs_dirindex.c	/^inode_t FindIndex (inode_t _inode, char *_pname)$/;"	f
+FindIndexOff	lfs_dirindex.c	/^offset_t FindIndexOff (inode_t _inode, char *_pname)$/;"	f
+FindSubdir	lfs_dir.c	/^inode_t FindSubdir (inode_t _pinode, const char *_pdir)$/;"	f
+First1	lfs_dirindex.c	/^int First1 (char x)$/;"	f
+FormatDirname	lfs_dir.c	/^char *FormatDirname (const char *_pname)$/;"	f
+FreeListNode	lfs_freemap.h	/^struct FreeListNode$/;"	s
+Free_Freemap	lfs_freemap.c	/^int Free_Freemap (offset_t _off)$/;"	f
+GETFILES_COMMAND	lfs_define.h	63;"	d
+GetDirEntryHead	lfs_dir.c	/^offset_t GetDirEntryHead (offset_t _off)$/;"	f
+GetFatherInode	lfs_dir.c	/^inode_t GetFatherInode (const char *_pdir)$/;"	f
+GetIndexDiskPos	lfs_dirindex.c	/^offset_t GetIndexDiskPos (inode_t _inode, int _i, int _j)$/;"	f
+GetNextDirEntry	lfs_direntry.c	/^dir_entry_t *GetNextDirEntry (dir_entry_t * _pe)$/;"	f
+GetfreePosByidx	lfs_freemap.c	/^offset_t GetfreePosByidx (int _idx)$/;"	f
+HASH_MOD	lfs_dirindex.h	10;"	d
+IDXBLK	lfs_dirindex.c	28;"	d	file:
+IDXLEAF	lfs_dirindex.c	29;"	d	file:
+IDXLIST	lfs_dirindex.c	27;"	d	file:
+IDXMAP	lfs_dirindex.c	32;"	d	file:
+IDXNEXTLEAF	lfs_dirindex.c	30;"	d	file:
+IN_MFUG	arc.c	671;"	d	file:
+IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
-IOCBQUEUE	lfs.h	28;"	d
-IOCBQ_MUTEX	lfs.h	27;"	d
-ITEMS_PER_ALLOC	lfs_thread.c	7;"	d	file:
+IOCBQUEUE	lfs.h	39;"	d
+IOCBQ_MUTEX	lfs.h	38;"	d
+ISFREE_COMMAND	lfs_define.h	64;"	d
+ITEMS_PER_ALLOC	lfs_thread.c	10;"	d	file:
+InitDirEntry	lfs_direntry.c	/^dir_entry_t *InitDirEntry (inode_t _inode, char _filetype, uint32_t _nextoff,$/;"	f
+InitDirIndex	lfs_dirindex.c	/^offset_t InitDirIndex (inode_t _inode)$/;"	f
+InitDirTree	lfs_dirindex.c	/^int InitDirTree ()$/;"	f
+InitIndexBlock	lfs_dirindex.c	/^dir_index_t *InitIndexBlock (offset_t _pos, hash_t _hash, offset_t _off,$/;"	f
+InitIndexLeaf	lfs_dirindex.c	/^offset_t InitIndexLeaf (inode_t _inode, int i)$/;"	f
+InitListNode	lfs_freemap.c	/^void InitListNode (free_node_t * _pnode, uint64_t _off, int _idx)$/;"	f
+Init_Dcache	lfs_dirindex.c	/^int Init_Dcache(inode_t _inode)$/;"	f
+Inode2dir_meta	lfs_dir.c	/^offset_t Inode2dir_meta (inode_t _inode)$/;"	f
+InsertIndex	lfs_dirindex.c	/^int InsertIndex (inode_t _inode, const char *_pname, offset_t _off)$/;"	f
+InsertListNode	lfs_freemap.c	/^void InsertListNode (uint64_t _off, int _idx)$/;"	f
+IsDirorFile	lfs_dir.c	/^int IsDirorFile (inode_t inode)$/;"	f
+IsEmptyDir	lfs_dir.c	/^int IsEmptyDir (inode_t _inode)$/;"	f
+IsFindTarget	lfs_dirindex.c	/^inode_t IsFindTarget (offset_t _off, char *_pname)$/;"	f
+IsIdleDirInode	lfs_dir.c	/^int IsIdleDirInode (offset_t * _pblks)$/;"	f
 LARGE_RATIO	sarc.c	14;"	d	file:
-LFS_BLKSIZE	lfs.h	94;"	d
-LFS_DATA_DOMAIN	lfs.h	73;"	d
-LFS_DATA_DOMAIN1	lfs.h	72;"	d
-LFS_EBIG	lfs_err.h	5;"	d
-LFS_EBOUND	lfs_err.h	6;"	d
-LFS_ENOSPC	lfs_err.h	8;"	d
-LFS_EOPEN	lfs_err.h	7;"	d
-LFS_EPM	lfs_err.h	9;"	d
-LFS_FILE_ENTRY	lfs.h	67;"	d
-LFS_FREE	lfs.h	79;"	d
-LFS_INVALID	lfs_err.h	10;"	d
-LFS_NFREE	lfs.h	81;"	d
-LFS_SPACE_ENTRY	lfs.h	69;"	d
-LFS_SUCCESS	lfs_err.h	4;"	d
-LFS_TIME_H	lfs_time.h	2;"	d
+LFS_BLKSIZE	lfs.h	146;"	d
+LFS_BLOCK_NO	lfs_dirindex.h	9;"	d
+LFS_CMISS	lfs_define.h	55;"	d
+LFS_DATA_DOMAIN	lfs.h	124;"	d
+LFS_DATA_DOMAIN1	lfs.h	122;"	d
+LFS_DIR_DOMAIN	lfs_define.h	38;"	d
+LFS_DIR_ENTRY	lfs_define.h	34;"	d
+LFS_DIR_INDEX_BITMAP	lfs.h	112;"	d
+LFS_DIR_INDEX_ENTRY	lfs.h	123;"	d
+LFS_DIR_META_POS	lfs_define.h	35;"	d
+LFS_EBIG	lfs_define.h	47;"	d
+LFS_EBOUND	lfs_define.h	48;"	d
+LFS_EINCACHE	lfs_define.h	53;"	d
+LFS_ENOSPC	lfs_define.h	50;"	d
+LFS_EOPEN	lfs_define.h	49;"	d
+LFS_EPM	lfs_define.h	51;"	d
+LFS_FAILED	lfs_define.h	75;"	d
+LFS_FILE_ENTRY	lfs_define.h	22;"	d
+LFS_FINODE_START	lfs.h	125;"	d
+LFS_FREE	lfs.h	131;"	d
+LFS_FREEBITMAP_ENTRY	lfs_define.h	30;"	d
+LFS_FREEMAP_ENTRY	lfs_define.h	31;"	d
+LFS_INDEXMAP_SIZE	lfs.h	121;"	d
+LFS_INDEX_BLOCK_SIZE	lfs.h	119;"	d
+LFS_INDEX_DOMAIN	lfs_dirindex.h	8;"	d
+LFS_INVALID	lfs_define.h	52;"	d
+LFS_LOG	lfs_define.h	19;"	d
+LFS_NFREE	lfs.h	133;"	d
+LFS_OK	lfs_define.h	76;"	d
+LFS_PENDING	lfs_define.h	54;"	d
+LFS_SPACE_ENTRY	lfs.h	111;"	d
+LFS_SUCCESS	lfs_define.h	46;"	d
 LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
-LIST_H	list.h	2;"	d
-LoadFileEntry	lfs_main.c	/^LoadFileEntry ()$/;"	f
-LoadSpaceEntry	lfs_main.c	/^LoadSpaceEntry ()$/;"	f
-MAX	lfs.h	91;"	d
-MAXSIZE	aio_api.c	30;"	d	file:
-MAX_CON	eserver.c	14;"	d	file:
+LIST_COMMAND	lfs_define.h	69;"	d
+LoadDirEntry	lfs_direntry.c	/^dir_entry_t *LoadDirEntry (offset_t _off)$/;"	f
+LoadDirIndex	lfs_dirindex.c	/^int LoadDirIndex (inode_t _inode \/*, offset_t _off *\/ )$/;"	f
+LoadDirMeta	lfs_dir.c	/^int LoadDirMeta ()$/;"	f
+LoadFileEntry	lfs_main.c	/^int LoadFileEntry ()$/;"	f
+LoadFreemapEntry	lfs_freemap.c	/^int LoadFreemapEntry ()$/;"	f
+LoadIndexBitMap	lfs_dirindex.c	/^int LoadIndexBitMap ()$/;"	f
+LoadLeafBlocks	lfs_dirindex.c	/^int LoadLeafBlocks (dir_index_t * _idxblk)$/;"	f
+LoadSingleLeaf	lfs_dirindex.c	/^offset_t LoadSingleLeaf (offset_t _pos)$/;"	f
+LoadSpaceEntry	lfs_main.c	/^int LoadSpaceEntry ()$/;"	f
+MAX	lfs.h	143;"	d
+MAXSIZE	aio_api.c	32;"	d	file:
+MAX_CON	eserver.c	17;"	d	file:
 MAX_CON	eserver.h	15;"	d
-MAX_FILES	lfs.h	68;"	d
-MAX_FILE_NO	lfs.h	65;"	d
-MAX_FSIZE	lfs.h	83;"	d
-MIN	lfs.h	90;"	d
+MAX_CON	lfs_dirserver.c	17;"	d	file:
+MAX_CON	lfs_dirserver.h	14;"	d
+MAX_DIR_NO	lfs_define.h	23;"	d
+MAX_FILES	lfs.h	109;"	d
+MAX_FILE_NO	lfs.h	107;"	d
+MAX_FSIZE	lfs.h	118;"	d
+MAX_FSIZE	lfs.h	135;"	d
+METASIZE_PERFILE	lfs_define.h	29;"	d
+MIN	lfs.h	142;"	d
+MKDIR_COMMAND	lfs_define.h	62;"	d
+MKFILE_COMMAND	lfs_define.h	71;"	d
 MTX_DEST	lfs_thread.h	5;"	d
 MTX_INIT	lfs_thread.h	4;"	d
 MTX_MAGIC	lfs_thread.h	3;"	d
 MUTEX_DEFAULT	lfs_thread.h	6;"	d
-MUTEX_INIT	lfs_thread.c	6;"	d	file:
-NANOSEC	lfs_time.h	11;"	d
+MUTEX_INIT	lfs_thread.c	9;"	d	file:
+MakeDir	lfs_dir.c	/^inode_t MakeDir (const char *_pname)$/;"	f
+MallocDirInode	lfs_dir.c	/^inode_t MallocDirInode ()$/;"	f
+MallocIndexSpace	lfs_dirindex.c	/^offset_t MallocIndexSpace ()$/;"	f
+Malloc_Freemap	lfs_freemap.c	/^offset_t Malloc_Freemap ()$/;"	f
 NDEBUG	lfs_cache.c	7;"	d	file:
+Name2DirEntry	lfs_dir.c	/^offset_t Name2DirEntry (const char *_pdir)$/;"	f
 OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 OBJ_INIT	lfs_thread.h	12;"	d
 OBJ_LOCK	lfs_thread.h	10;"	d
 OBJ_UNLOCK	lfs_thread.h	11;"	d
-P2ALIGN	lfs.h	71;"	d
-P2ROUNDUP	lfs.h	70;"	d
+O_DIRECT_MODE	lfs_define.h	41;"	d
+Open	lfs_dir.c	/^inode_t Open (const char *_pname)$/;"	f
+P2ALIGN	lfs.h	116;"	d
+P2ALIGN	lfs_dir.c	33;"	d	file:
+P2ROUNDUP	lfs.h	115;"	d
+P2ROUNDUP	lfs_dir.c	32;"	d	file:
+PQUEUE	lfs_waitqueue.h	33;"	d
 PREFETCH_LENGTH	config.h	8;"	d
 PROGS	Makefile	/^PROGS = lfs_load$/;"	m
-QUEUE_SIZE	aio_api.c	43;"	d	file:
-READ_COMMAND	lfs_thread.h	49;"	d
+PROTOCAL_SIZE	eserver.c	18;"	d	file:
+PROTOCAL_SIZE	lfs_dirserver.c	18;"	d	file:
+PopListNode	lfs_freemap.c	/^free_node_t *PopListNode (free_node_t * _phead)$/;"	f
+PrintDir	lfs_dir.c	/^int PrintDir (const char *_pdir)$/;"	f
+Print_Index	lfs_dirindex.c	/^int Print_Index (inode_t _inode)$/;"	f
+PushListNode	lfs_freemap.c	/^void PushListNode (free_node_t * pnode, uint64_t _off, int _idx)$/;"	f
+QUEUE_SIZE	aio_api.c	45;"	d	file:
+READ_COMMAND	lfs_define.h	66;"	d
 READ_FINISHED	lfs_ops.h	16;"	d
 READ_HALF_FINISHED	lfs_ops.h	15;"	d
 READ_STATE	lfs_ops.h	14;"	d
-REFERENCE_DISKS	aio_api.c	28;"	d	file:
-RFS_CQ	lfs.h	25;"	d
-RFS_RQ	lfs.h	26;"	d
+REFERENCE_DISKS	aio_api.c	30;"	d	file:
+RFS_AIOQ	lfs.h	36;"	d
+RFS_RQ	lfs.h	37;"	d
+RMDIR_COMMAND	lfs_define.h	67;"	d
+RMFILE_COMMAND	lfs_define.h	72;"	d
+RSHash	lfs_dirindex.c	/^hash_t RSHash (char *str)$/;"	f
 RW_DEFAULT	lfs_thread.h	13;"	d
 RW_READER	lfs_thread.h	8;"	d
 RW_WRITER	lfs_thread.h	9;"	d
+RemoveDir	lfs_dir.c	/^int RemoveDir (const char *_pdir)$/;"	f
+RemoveFile	rfs_req.c	/^int RemoveFile (char *fname)$/;"	f
 SRCS	Makefile	/^SRCS  = $(wildcard *.c)$/;"	m
-TEST_BLKSIZE	lfs_test.c	6;"	d	file:
-THREAD_NUMS	lfs_test.c	179;"	d	file:
-TOTALSIZE	lfs_fops.c	56;"	d	file:
-UNIX_DOMAIN	eserver.c	13;"	d	file:
+STOP_FS	lfs_define.h	65;"	d
+SYS_OUT	lfs_define.h	14;"	d
+SYS_OUT	lfs_define.h	9;"	d
+SetDirEntryHead	lfs_dir.c	/^void SetDirEntryHead (offset_t _blk, offset_t _data)$/;"	f
+SetFreeMapUsed	lfs_freemap.c	/^void SetFreeMapUsed (int _idx, offset_t _v)$/;"	f
+UNIX_DOMAIN	eserver.c	16;"	d	file:
 UNIX_DOMAIN	eserver.h	14;"	d
-VERIFY	lfs.h	88;"	d
-VERSION	lfs.h	64;"	d
-WRITE_COMMAND	lfs_thread.h	50;"	d
+VERIFY	lfs.h	140;"	d
+VERSION	lfs.h	106;"	d
+WRITE_COMMAND	lfs_define.h	61;"	d
+WriteDirEntry	lfs_direntry.c	/^int WriteDirEntry (dir_entry_t * _pe, offset_t _off)$/;"	f
+WriteDirEntryNext	lfs_direntry.c	/^int WriteDirEntryNext (uint32_t _nextlen, offset_t _off)$/;"	f
+WriteDirIndex	lfs_dirindex.c	/^int WriteDirIndex (offset_t _pos, hash_t _hash, uint32_t _off)$/;"	f
+WriteDirMeta	lfs_dir.c	/^int WriteDirMeta (inode_t _inode)$/;"	f
 _CONFIG_H	config.h	2;"	d
 _FILE_OFFSET_BITS	aio_api.c	1;"	d	file:
 _GNU_SOURCE	aio_api.c	2;"	d	file:
+_GNU_SOURCE	lfs.c	1;"	d	file:
+_GNU_SOURCE	lfs_dir.c	1;"	d	file:
+_GNU_SOURCE	lfs_direntry.c	1;"	d	file:
+_GNU_SOURCE	lfs_dirindex.c	1;"	d	file:
+_GNU_SOURCE	lfs_main.c	1;"	d	file:
+_LFS_DIRENTRY_H_	lfs_direntry.h	2;"	d
+_LFS_DIRINDEX_H_	lfs_dirindex.h	2;"	d
+_LFS_DIR_DEFINE_H_	lfs_define.h	2;"	d
+_LFS_DIR_H_	lfs_dir.h	2;"	d
+_LFS_FREEMAP_H_	lfs_freemap.h	2;"	d
 _LFS_H	lfs.h	2;"	d
 _LFS_OPS_H	lfs_ops.h	2;"	d
 _LFS_TEST_H	lfs_test.h	2;"	d
 _LFS_THREAD_H	lfs_thread.h	2;"	d
+_LoadDirEntry	lfs_direntry.c	/^void _LoadDirEntry (dir_entry_t ** ppentry, offset_t _off)$/;"	f
+_XOPEN_SOURCE	lfs.c	2;"	d	file:
+_XOPEN_SOURCE	lfs_direntry.c	2;"	d	file:
+_XOPEN_SOURCE	lfs_dirindex.c	2;"	d	file:
 _XOPEN_SOURCE	lfs_fops.c	1;"	d	file:
-_XOPEN_SOURCE	lfs_fops.h	4;"	d
-_XOPEN_SOURCE	lfs_main.c	1;"	d	file:
+_XOPEN_SOURCE	lfs_main.c	2;"	d	file:
 _XOPEN_SOURCE	lfs_ops.c	1;"	d	file:
 _XOPEN_SOURCE	lfs_sarc_ops.c	1;"	d	file:
 __ARC_H__	arc.h	2;"	d
+__DIRSERVER_H	lfs_dirserver.h	2;"	d
 __ESERVER_H	eserver.h	2;"	d
 __LFS_AIO_QUEUE	aio_api.h	2;"	d
-__LFS_ERR_H	lfs_err.h	2;"	d
+__LFS_DCACHE_H__	lfs_dcache.h	2;"	d
 __LFS_FOPS_H	lfs_fops.h	2;"	d
+__LFS_SYS_H	lfs_sys.h	2;"	d
+__PQUEUE_H__	lfs_waitqueue.h	2;"	d
+__RFS_REQ_H	rfs_req.h	2;"	d
 __SARC_H__	sarc.h	2;"	d
 __arc	arc.h	/^typedef struct __arc$/;"	s
-__arc_adjust	arc.c	/^__arc_adjust (struct __arc *cache)$/;"	f	file:
-__arc_create	arc.c	/^__arc_create (struct __arc_ops *ops, uint64_t c)$/;"	f
-__arc_destroy	arc.c	/^__arc_destroy (struct __arc *cache)$/;"	f
-__arc_hash	arc.h	/^struct __arc_hash$/;"	s
-__arc_hash_fini	arc.c	/^__arc_hash_fini (struct __arc *cache)$/;"	f	file:
-__arc_hash_fini	sarc.c	/^__arc_hash_fini (struct __sarc *cache)$/;"	f	file:
-__arc_hash_init	arc.c	/^__arc_hash_init (struct __arc *cache)$/;"	f	file:
+__arc_adjust	arc.c	/^static void __arc_adjust (struct __arc *cache)$/;"	f	file:
+__arc_create	arc.c	/^struct __arc *__arc_create (struct __arc_ops *ops, uint64_t c)$/;"	f
+__arc_destroy	arc.c	/^void __arc_destroy (struct __arc *cache)$/;"	f
+__arc_hash	arc.h	/^typedef struct __arc_hash$/;"	s
+__arc_hash_fini	arc.c	/^static void __arc_hash_fini (struct __arc *cache)$/;"	f	file:
+__arc_hash_fini	sarc.c	/^static void __arc_hash_fini (struct __sarc *cache)$/;"	f	file:
+__arc_hash_init	arc.c	/^static void __arc_hash_init (struct __arc *cache)$/;"	f	file:
 __arc_hash_insert	arc.c	/^__arc_hash_insert (struct __arc *cache, uint64_t key,$/;"	f	file:
-__arc_hash_lookup	arc.c	/^__arc_hash_lookup (struct __arc *cache, uint64_t id, uint64_t offset,$/;"	f	file:
+__arc_hash_lookup	arc.c	/^static struct __arc_object *__arc_hash_lookup (struct __arc *cache,$/;"	f	file:
 __arc_list	arc.h	/^struct __arc_list$/;"	s
 __arc_list_each	arc.h	20;"	d
+__arc_list_each	lfs_dcache.h	17;"	d
+__arc_list_each	lfs_waitqueue.h	25;"	d
 __arc_list_each	sarc.h	27;"	d
 __arc_list_each_prev	arc.h	23;"	d
+__arc_list_each_prev	lfs_dcache.h	20;"	d
+__arc_list_each_prev	lfs_waitqueue.h	28;"	d
 __arc_list_each_prev	sarc.h	30;"	d
 __arc_list_entry	arc.h	17;"	d
+__arc_list_entry	lfs_dcache.h	14;"	d
+__arc_list_entry	lfs_waitqueue.h	22;"	d
 __arc_list_entry	sarc.h	24;"	d
-__arc_list_init	arc.h	/^__arc_list_init (struct __arc_list *head)$/;"	f
-__arc_list_insert	arc.h	/^__arc_list_insert (struct __arc_list *list, struct __arc_list *prev,$/;"	f
-__arc_list_prepend	arc.h	/^__arc_list_prepend (struct __arc_list *head, struct __arc_list *list)$/;"	f
-__arc_list_remove	arc.h	/^__arc_list_remove (struct __arc_list *head)$/;"	f
+__arc_list_init	arc.h	/^static inline void __arc_list_init (struct __arc_list *head)$/;"	f
+__arc_list_insert	arc.c	/^__arc_list_insert (struct __arc_list *list, struct __arc_list *prev,$/;"	f
+__arc_list_prepend	arc.c	/^__arc_list_prepend (struct __arc_list *head, struct __arc_list *list)$/;"	f
+__arc_list_remove	arc.c	/^inline void __arc_list_remove (struct __arc_list *head)$/;"	f
 __arc_list_splice	arc.h	/^__arc_list_splice (struct __arc_list *prev, struct __arc_list *next)$/;"	f
-__arc_lookup	arc.c	/^__arc_lookup (struct __arc *cache, uint64_t id, uint64_t offset)$/;"	f
-__arc_move	arc.c	/^__arc_move (struct __arc *cache, struct __arc_object *obj,$/;"	f	file:
-__arc_move_state	arc.c	/^__arc_move_state (struct __arc *cache, struct __arc_state *state1,$/;"	f	file:
+__arc_lookup	arc.c	/^struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)$/;"	f
+__arc_move	arc.c	/^static struct __arc_object *__arc_move (struct __arc *cache,$/;"	f	file:
+__arc_move_state	arc.c	/^static struct __arc_object *__arc_move_state (struct __arc *cache,$/;"	f	file:
 __arc_object	arc.h	/^struct __arc_object$/;"	s
-__arc_object_init	arc.c	/^__arc_object_init (struct __arc_object *obj, unsigned long size)$/;"	f
+__arc_object_init	arc.c	/^void __arc_object_init (struct __arc_object *obj, unsigned long size)$/;"	f
 __arc_ops	arc.h	/^struct __arc_ops$/;"	s
-__arc_replace	arc.c	/^__arc_replace (struct __arc *cache, int ismfug)$/;"	f	file:
+__arc_replace	arc.c	/^static void __arc_replace (struct __arc *cache, int ismfug)$/;"	f	file:
 __arc_state	arc.h	/^struct __arc_state$/;"	s
-__arc_state_lru	arc.c	/^__arc_state_lru (struct __arc_state *state)$/;"	f	file:
-__arc_state_lru	sarc.c	/^__arc_state_lru (struct __sarc_state *state)$/;"	f	file:
-__op_compare	lfs_ops.c	/^__op_compare (struct __arc_object *e, uint64_t id, uint64_t offset)$/;"	f	file:
+__arc_state_lru	arc.c	/^static struct __arc_object *__arc_state_lru (struct __arc_state *state)$/;"	f	file:
+__arc_state_lru	sarc.c	/^static struct __sarc_object *__arc_state_lru (struct __sarc_state *state)$/;"	f	file:
+__op_compare	lfs_ops.c	/^static int __op_compare (struct __arc_object *e, uint64_t id, uint64_t offset)$/;"	f	file:
 __op_compare	lfs_sarc_ops.c	/^__op_compare (struct __sarc_object *e, uint64_t id, uint64_t offset)$/;"	f	file:
-__op_create	lfs_ops.c	/^__op_create (uint64_t id, uint64_t offset)$/;"	f	file:
-__op_create	lfs_sarc_ops.c	/^__op_create (uint64_t id, uint64_t offset)$/;"	f	file:
-__op_destroy	lfs_ops.c	/^__op_destroy (struct __arc_object *e)$/;"	f	file:
-__op_destroy	lfs_sarc_ops.c	/^__op_destroy (struct __sarc_object *e)$/;"	f	file:
-__op_evict	lfs_ops.c	/^__op_evict (struct __arc_object *e)$/;"	f	file:
-__op_evict	lfs_sarc_ops.c	/^__op_evict (struct __sarc_object *e)$/;"	f	file:
-__op_fetch	lfs_ops.c	/^__op_fetch (struct __arc_object *e)$/;"	f	file:
-__op_fetch	lfs_sarc_ops.c	/^__op_fetch (struct __sarc_object *e)$/;"	f	file:
+__op_create	lfs_ops.c	/^static struct __arc_object *__op_create (uint64_t id, uint64_t offset)$/;"	f	file:
+__op_create	lfs_sarc_ops.c	/^static struct __sarc_object *__op_create (uint64_t id, uint64_t offset)$/;"	f	file:
+__op_destroy	lfs_ops.c	/^static void __op_destroy (struct __arc_object *e)$/;"	f	file:
+__op_destroy	lfs_sarc_ops.c	/^static void __op_destroy (struct __sarc_object *e)$/;"	f	file:
+__op_evict	lfs_ops.c	/^static void __op_evict (struct __arc_object *e)$/;"	f	file:
+__op_evict	lfs_sarc_ops.c	/^static void __op_evict (struct __sarc_object *e)$/;"	f	file:
+__op_fetch	lfs_ops.c	/^static int __op_fetch (struct __arc_object *e)$/;"	f	file:
+__op_fetch	lfs_sarc_ops.c	/^static int __op_fetch (struct __sarc_object *e)$/;"	f	file:
 __op_fetch_disk	lfs_ops.c	/^__op_fetch_disk (uint64_t id, uint64_t offset, struct __arc_object *_obj)$/;"	f	file:
 __op_fetch_disk	lfs_sarc_ops.c	/^__op_fetch_disk (uint64_t id, uint64_t offset, struct __sarc_object *e)$/;"	f	file:
-__op_hash	lfs_ops.c	/^__op_hash (uint64_t key)$/;"	f
-__op_hash	lfs_sarc_ops.c	/^__op_hash (uint64_t key)$/;"	f
+__op_hash	lfs_ops.c	/^uint64_t __op_hash (uint64_t key)$/;"	f
+__op_hash	lfs_sarc_ops.c	/^uint64_t __op_hash (uint64_t key)$/;"	f
 __op_prefetch_disk	lfs_sarc_ops.c	/^__op_prefetch_disk (uint64_t id, uint64_t offset, struct __sarc_object *e)$/;"	f	file:
 __sarc	sarc.h	/^typedef struct __sarc$/;"	s
-__sarc_create	sarc.c	/^__sarc_create (struct __sarc_ops *ops, uint64_t c)$/;"	f
-__sarc_destroy	sarc.c	/^__sarc_destroy (struct __sarc *cache)$/;"	f
-__sarc_hash_init	sarc.c	/^__sarc_hash_init (struct __sarc *cache)$/;"	f	file:
+__sarc_create	sarc.c	/^struct __sarc *__sarc_create (struct __sarc_ops *ops, uint64_t c)$/;"	f
+__sarc_destroy	sarc.c	/^void __sarc_destroy (struct __sarc *cache)$/;"	f
+__sarc_hash_init	sarc.c	/^static void __sarc_hash_init (struct __sarc *cache)$/;"	f	file:
 __sarc_hash_insert	sarc.c	/^__sarc_hash_insert (struct __sarc *cache, uint64_t key,$/;"	f
-__sarc_hash_lookup	sarc.c	/^__sarc_hash_lookup (uint64_t offset, uint64_t id, lmutex_t ** mem_lock)$/;"	f
-__sarc_hash_lookup_nolock	sarc.c	/^__sarc_hash_lookup_nolock (uint64_t offset, uint64_t id)$/;"	f
-__sarc_lookup	sarc.c	/^__sarc_lookup (struct __sarc *cache, uint64_t id, uint64_t offset)$/;"	f
-__sarc_move	sarc.c	/^__sarc_move (struct __sarc *cache, struct __sarc_object *obj,$/;"	f	file:
+__sarc_hash_lookup	sarc.c	/^struct __sarc_object *__sarc_hash_lookup (uint64_t offset, uint64_t id,$/;"	f
+__sarc_hash_lookup_nolock	sarc.c	/^struct __sarc_object *__sarc_hash_lookup_nolock (uint64_t offset, uint64_t id)$/;"	f
+__sarc_lookup	sarc.c	/^struct __sarc_object *__sarc_lookup (struct __sarc *cache, uint64_t id,$/;"	f
+__sarc_move	sarc.c	/^static struct __sarc_object *__sarc_move (struct __sarc *cache,$/;"	f	file:
 __sarc_object	sarc.h	/^struct __sarc_object$/;"	s
 __sarc_object_init	sarc.c	/^__sarc_object_init (struct __sarc_object *obj, uint64_t offset, int id,$/;"	f
 __sarc_ops	sarc.h	/^struct __sarc_ops$/;"	s
 __sarc_state	sarc.h	/^struct __sarc_state$/;"	s
+_finode_sync	lfs_fops.c	/^int _finode_sync (int i, uint64_t off)$/;"	f
+_finode_syncfree	lfs_fops.c	/^int _finode_syncfree (int i, uint64_t off)$/;"	f
+_getdiskpos	lfs_fops.c	/^inline uint64_t _getdiskpos (uint64_t offset)$/;"	f
+_inode_free	rfs_req.c	/^int _inode_free (int id)$/;"	f
+_lfs_pread	lfs_dir.c	/^int _lfs_pread (int fd, void *_ptr, size_t _size, offset_t _pos)$/;"	f
+_lfs_pwrite	lfs_dir.c	/^int _lfs_pwrite (int fd, void *_ptr, size_t _size, offset_t _pos)$/;"	f
+_removeFile	lfs_fops.c	/^int _removeFile (inode_t id)$/;"	f
 adapt	sarc.h	/^    double adapt;$/;"	m	struct:__sarc
-aio_completion_handler	aio_api.c	/^aio_completion_handler (void *thread_data)$/;"	f
-aio_destroy	aio_api.c	/^int aio_destroy(){$/;"	f
-aio_init	aio_api.c	/^aio_init ()$/;"	f
-aio_start	aio_api.c	/^aio_start (void *p)$/;"	f
+aio_completion_handler	aio_api.c	/^void *aio_completion_handler (void *thread_data)$/;"	f
+aio_destroy	aio_api.c	/^int aio_destroy ()$/;"	f
+aio_init	aio_api.c	/^void aio_init ()$/;"	f
+aio_start	aio_api.c	/^void *aio_start (void *p)$/;"	f
+aioq	lfs.h	/^    CQ *aioq;$/;"	m	struct:lfs_info
+aioq_init	lfs_thread.c	/^void aioq_init ()$/;"	f
+aioreqs	lfs_thread.h	/^    int aioreqs;$/;"	m	struct:rfs_io_queue
 arc_balock	arc.h	/^    lmutex_t arc_balock;$/;"	m	struct:__arc
 arc_balock	sarc.h	/^    lmutex_t arc_balock;$/;"	m	struct:__sarc
 arc_cache	lfs.h	/^    arc_t *arc_cache;$/;"	m	struct:lfs_info
-arc_hash	lfs.c	/^arc_hash (uint64_t id, uint64_t offset)$/;"	f
-arc_hash_init	arc.c	/^arc_hash_init ()$/;"	f
+arc_hash	lfs.c	/^uint64_t arc_hash (uint64_t id, uint64_t offset)$/;"	f
+arc_hash_init	arc.c	/^uint64_t arc_hash_init ()$/;"	f
+arc_hash_t	arc.h	/^} arc_hash_t;$/;"	t	typeref:struct:__arc_hash
 arc_list_destroy	arc.c	/^arc_list_destroy (struct __arc_state *state, struct __arc *cache)$/;"	f	file:
 arc_lock	arc.h	/^    lmutex_t arc_lock;$/;"	m	struct:__arc
 arc_lock	sarc.h	/^    lmutex_t arc_lock;$/;"	m	struct:__sarc
 arc_ops	lfs_ops.c	/^struct __arc_ops arc_ops = {$/;"	v	typeref:struct:__arc_ops
-arc_read_done	arc.c	/^arc_read_done (struct __arc_object *obj)$/;"	f
+arc_read_done	arc.c	/^inline void arc_read_done (struct __arc_object *obj)$/;"	f
 arc_stat	arc.h	/^typedef struct arc_stat$/;"	s
-arc_stat_hit_update	arc.c	/^arc_stat_hit_update (struct __arc *cache)$/;"	f	file:
-arc_stat_hit_update	sarc.c	/^arc_stat_hit_update (struct __sarc *cache)$/;"	f	file:
+arc_stat_hit_update	arc.c	/^static inline void arc_stat_hit_update (struct __arc *cache)$/;"	f	file:
+arc_stat_hit_update	sarc.c	/^static inline void arc_stat_hit_update (struct __sarc *cache)$/;"	f	file:
 arc_stat_t	arc.h	/^} arc_stat_t;$/;"	t	typeref:struct:arc_stat
-arc_stat_update	arc.c	/^arc_stat_update (struct __arc *cache)$/;"	f	file:
-arc_stat_update	sarc.c	/^arc_stat_update (struct __sarc *cache)$/;"	f	file:
+arc_stat_update	arc.c	/^static inline void arc_stat_update (struct __arc *cache)$/;"	f	file:
+arc_stat_update	sarc.c	/^static inline void arc_stat_update (struct __sarc *cache)$/;"	f	file:
 arc_stats	arc.h	/^    arc_stat_t arc_stats;$/;"	m	struct:__arc
 arc_stats	sarc.h	/^    arc_stat_t arc_stats;$/;"	m	struct:__sarc
 arc_t	arc.h	/^} arc_t;$/;"	t	typeref:struct:__arc
+attribute	lfs_dir.h	/^    uint64_t attribute[3];$/;"	m	struct:DirMetaData
 block_device	lfs.h	/^    char *block_device;$/;"	m	struct:lfs_info
 bucket	arc.h	/^    struct __arc_list *bucket;$/;"	m	struct:__arc_hash	typeref:struct:__arc_hash::__arc_list
+bucket	lfs_waitqueue.h	/^    struct __arc_list *bucket;$/;"	m	struct:pend_hash	typeref:struct:pend_hash::__arc_list
+buf2id	lfs_sys.c	/^int buf2id (char *ptr)$/;"	f
 bufsize	lfs_cache.h	/^    size_t bufsize;$/;"	m	struct:__anon1
 bytecount	aio_api.h	/^    int bytecount;$/;"	m	struct:trace_entry
 c	arc.h	/^    uint64_t c, p;$/;"	m	struct:__arc
 c	sarc.h	/^    uint64_t c, p;$/;"	m	struct:__sarc
-cache_alloc	lfs_cache.c	/^cache_alloc (cache_t * cache)$/;"	f
+cache_alloc	lfs_cache.c	/^void *cache_alloc (cache_t * cache)$/;"	f
 cache_alloc	lfs_cache.h	10;"	d
-cache_alloc_shm	lfs_cache.c	/^cache_alloc_shm (cache_t * cache)$/;"	f
+cache_alloc_shm	lfs_cache.c	/^obj_data_t *cache_alloc_shm (cache_t * cache)$/;"	f
 cache_constructor_t	lfs_cache.h	/^typedef int cache_constructor_t (void *obj, void *notused1, int notused2);$/;"	t
-cache_create	lfs_cache.c	/^cache_create (const char *name, size_t bufsize, size_t align,$/;"	f
+cache_create	lfs_cache.c	/^cache_t *cache_create (const char *name, size_t bufsize, size_t align,$/;"	f
 cache_create	lfs_cache.h	12;"	d
-cache_destroy	lfs_cache.c	/^cache_destroy (cache_t * cache)$/;"	f
+cache_destroy	lfs_cache.c	/^void cache_destroy (cache_t * cache)$/;"	f
 cache_destroy	lfs_cache.h	13;"	d
-cache_destroy_shm	lfs_cache.c	/^cache_destroy_shm (cache_t * cache)$/;"	f
+cache_destroy_shm	lfs_cache.c	/^void cache_destroy_shm (cache_t * cache)$/;"	f
 cache_destructor_t	lfs_cache.h	/^typedef void cache_destructor_t (void *obj, void *notused);$/;"	t
 cache_error	lfs_cache.c	/^int cache_error = 0;$/;"	v
-cache_free	lfs_cache.c	/^cache_free (cache_t * cache, void *ptr)$/;"	f
+cache_free	lfs_cache.c	/^void cache_free (cache_t * cache, void *ptr)$/;"	f
 cache_free	lfs_cache.h	11;"	d
-cache_free_shm	lfs_cache.c	/^cache_free_shm (cache_t * cache, obj_data_t *obj_data)$/;"	f
+cache_free_shm	lfs_cache.c	/^void cache_free_shm (cache_t * cache, obj_data_t * obj_data)$/;"	f
 cache_t	lfs_cache.h	/^} cache_t;$/;"	t	typeref:struct:__anon1
 cache_t	lfs_cache.h	9;"	d
-check_right	lfs_main.c	/^check_right ()$/;"	f
+check_file_valid	lfs_fops.c	/^int check_file_valid (inode_t inode)$/;"	f
+check_right	lfs_main.c	/^int check_right ()$/;"	f
+checkbuf	lfs_cache.c	/^inline int checkbuf (char *ptr)$/;"	f
 clifd	lfs_thread.h	/^    int clifd;$/;"	m	struct:conn_queue_item
+clifd	lfs_waitqueue.h	/^    int clifd;$/;"	m	struct:pend_object
 cmp	arc.h	/^    int (*cmp) (struct __arc_object * obj, uint64_t id, uint64_t offset);$/;"	m	struct:__arc_ops
 cmp	sarc.h	/^    int (*cmp) (struct __sarc_object * obj, uint64_t id, uint64_t offset);$/;"	m	struct:__sarc_ops
 cond	lfs_thread.h	/^    pthread_cond_t cond;$/;"	m	struct:rfs_io_queue
@@ -228,98 +397,132 @@ conn_queue_item	lfs_thread.h	/^struct conn_queue_item$/;"	s
 constructor	lfs_cache.h	/^    cache_constructor_t *constructor;$/;"	m	struct:__anon1
 count	arc.h	/^    unsigned long count;$/;"	m	struct:__arc_state
 count	sarc.h	/^    unsigned long count;$/;"	m	struct:__sarc_state
-cq	lfs.h	/^    CQ *cq;$/;"	m	struct:lfs_info
 cq_info	lfs.h	/^    io_queue_info_t cq_info;$/;"	m	struct:lfs_info
-cq_init	lfs_thread.c	/^void cq_init() {$/;"	f
-cq_pop	lfs_thread.c	/^CQ_ITEM *cq_pop(CQ *cq) {$/;"	f
-cq_push	lfs_thread.c	/^void cq_push(CQ *cq, CQ_ITEM *item) {$/;"	f
-cqi_free	lfs_thread.c	/^void cqi_free(CQ_ITEM *item) {$/;"	f
+cq_pop	lfs_thread.c	/^CQ_ITEM *cq_pop (CQ * cq)$/;"	f
+cq_push	lfs_thread.c	/^void cq_push (CQ * cq, CQ_ITEM * item)$/;"	f
+cqi_free	lfs_thread.c	/^void cqi_free (CQ_ITEM * item)$/;"	f
 cqi_freelist	lfs_thread.h	/^    CQ_ITEM *cqi_freelist;$/;"	m	struct:io_queue_info
 cqi_freelist_lock	lfs_thread.h	/^    pthread_mutex_t cqi_freelist_lock;$/;"	m	struct:io_queue_info
-cqi_new	lfs_thread.c	/^CQ_ITEM *cqi_new(void) {$/;"	f
+cqi_new	lfs_thread.c	/^CQ_ITEM *cqi_new (void)$/;"	f
 create	arc.h	/^    struct __arc_object *(*create) (uint64_t id, uint64_t offset);$/;"	m	struct:__arc_ops	typeref:struct:__arc_ops::create
 create	sarc.h	/^    struct __sarc_object *(*create) (uint64_t id, uint64_t offset);$/;"	m	struct:__sarc_ops	typeref:struct:__sarc_ops::create
-cur_usec	lfs.c	/^uint64_t cur_usec(void)$/;"	f
-current_thread	lfs_thread.c	5;"	d	file:
+cur_size_	lfs_dir.h	/^    uint32_t cur_size_;$/;"	m	struct:DirMetaData
+cur_usec	lfs_sys.c	/^uint64_t cur_usec (void)$/;"	f
+current_thread	lfs_thread.c	8;"	d	file:
 cv	arc.h	/^    pthread_cond_t cv;$/;"	m	struct:__arc_object
 cv	sarc.h	/^    pthread_cond_t cv;$/;"	m	struct:__sarc_object
-cv_broadcast	lfs_thread.c	/^cv_broadcast (pthread_cond_t * cv)$/;"	f
-cv_destroy	lfs_thread.c	/^cv_destroy (pthread_cond_t * cv)$/;"	f
-cv_signal	lfs_thread.c	/^cv_signal (pthread_cond_t * cv)$/;"	f
-cv_wait	lfs_thread.c	/^cv_wait (pthread_cond_t * cv, lmutex_t * lock)$/;"	f
+cv_broadcast	lfs_thread.c	/^inline void cv_broadcast (pthread_cond_t * cv)$/;"	f
+cv_destroy	lfs_thread.c	/^void cv_destroy (pthread_cond_t * cv)$/;"	f
+cv_signal	lfs_thread.c	/^inline void cv_signal (pthread_cond_t * cv)$/;"	f
+cv_wait	lfs_thread.c	/^inline void cv_wait (pthread_cond_t * cv, lmutex_t * lock)$/;"	f
 data	lfs_ops.h	/^    char *data;$/;"	m	struct:object_data
-ddi_get_lbolt	lfs_time.h	3;"	d
+dcache	lfs.h	/^    dcache_hash_t dcache;$/;"	m	struct:lfs_info
+dcache_hash	lfs_dcache.c	/^static uint32_t dcache_hash (const char *str, int len)$/;"	f	file:
+dcache_hash_init	lfs_dcache.c	/^void dcache_hash_init ()$/;"	f
+dcache_hash_insert	lfs_dcache.c	/^int dcache_hash_insert (uint32_t key, dcache_object_t * obj)$/;"	f
+dcache_hash_t	lfs_dcache.h	/^typedef struct pend_hash dcache_hash_t;$/;"	t	typeref:struct:pend_hash
+dcache_insert	lfs_dcache.c	/^int dcache_insert (inode_t pinode, const char *fname, inode_t inode)$/;"	f
+dcache_lookup	lfs_dcache.c	/^inode_t dcache_lookup (inode_t pinode, const char *fname)$/;"	f
+dcache_object	lfs_dcache.h	/^struct dcache_object$/;"	s
+dcache_object_t	lfs_dcache.h	/^typedef struct dcache_object dcache_object_t;$/;"	t	typeref:struct:dcache_object
+dcache_remove	lfs_dcache.c	/^int dcache_remove (inode_t pinode, char *fname)$/;"	f
+decode_fallocateprotocol	rfs_req.c	/^int decode_fallocateprotocol (char *pro, int clifd)$/;"	f
+decode_readprotocol	rfs_req.c	/^int decode_readprotocol (char *pro, int clifd)$/;"	f
+decode_writeprotocol	rfs_req.c	/^int decode_writeprotocol (char *pro, int clifd)$/;"	f
+dentry_cache	lfs.h	/^    cache_t *dentry_cache;$/;"	m	struct:lfs_info
 desiredSeqListSize	sarc.h	/^    int desiredSeqListSize;$/;"	m	struct:__sarc
 destroy	arc.h	/^    void (*destroy) (struct __arc_object * obj);$/;"	m	struct:__arc_ops
 destroy	sarc.h	/^    void (*destroy) (struct __sarc_object * obj);$/;"	m	struct:__sarc_ops
 destructor	lfs_cache.h	/^    cache_destructor_t *destructor;$/;"	m	struct:__anon1
 devno	aio_api.h	/^    short devno;$/;"	m	struct:trace_entry
+dir_entry_t	lfs_dir.h	/^typedef struct DirEntry dir_entry_t;$/;"	t	typeref:struct:DirEntry
+dir_index_leaf_t	lfs_dirindex.h	/^} dir_index_leaf_t;$/;"	t	typeref:struct:DirIndexLeaf
+dir_index_t	lfs_dirindex.h	/^} dir_index_t;$/;"	t	typeref:struct:DirIndexEntry
+dir_inode_t	lfs_freemap.h	/^typedef struct FreeListNode dir_inode_t;$/;"	t	typeref:struct:FreeListNode
+dir_meta_t	lfs_dir.h	/^} dir_meta_t;$/;"	t	typeref:struct:DirMetaData
+dir_test	lfs_dir.c	/^void dir_test (char *_pname)$/;"	f
+enable_corefile	lfs_main.c	/^void enable_corefile ()$/;"	f
 entry	lfs_ops.h	/^    struct __arc_object entry;$/;"	m	struct:object	typeref:struct:object::__arc_object
 entry	lfs_ops.h	/^    struct __sarc_object entry;$/;"	m	struct:object	typeref:struct:object::__sarc_object
 events	eserver.c	/^static struct epoll_event *events;$/;"	v	typeref:struct:epoll_event	file:
+events	lfs_dirserver.c	/^static struct epoll_event *events;$/;"	v	typeref:struct:epoll_event	file:
 evict	arc.h	/^    void (*evict) (struct __arc_object * obj);$/;"	m	struct:__arc_ops
 evict	sarc.h	/^    void (*evict) (struct __sarc_object * obj);$/;"	m	struct:__sarc_ops
+ext_inode	lfs.h	/^    uint32_t ext_inode;$/;"	m	struct:file_entry
 f_table	lfs.h	/^    file_entry_t *f_table;$/;"	m	struct:lfs_info
-false	lfs.h	7;"	d
+false	lfs.h	6;"	d
 fd	lfs.h	/^    int fd;$/;"	m	struct:lfs_info
 fetch	arc.h	/^    int (*fetch) (struct __arc_object * obj);$/;"	m	struct:__arc_ops
 fetch	sarc.h	/^    int (*fetch) (struct __sarc_object * obj);$/;"	m	struct:__sarc_ops
 fetch_from_disk	arc.h	/^    int (*fetch_from_disk) (uint64_t id, uint64_t offset,$/;"	m	struct:__arc_ops
 fetch_from_disk	sarc.h	/^    int (*fetch_from_disk) (uint64_t id, uint64_t offset,$/;"	m	struct:__sarc_ops
 fid	lfs_thread.h	/^    int fid;$/;"	m	struct:conn_queue_item
-file_create	lfs_fops.c	/^file_create (int size)$/;"	f
-file_entry	lfs.h	/^typedef struct file_entry$/;"	s
-file_entry_t	lfs.h	/^} file_entry_t;$/;"	t	typeref:struct:file_entry
-file_open	lfs_fops.c	/^file_open (int id, int flag)$/;"	f
-file_read	lfs_fops.c	/^file_read (int id, char *buffer, uint32_t size, uint64_t offset)$/;"	f
-file_remove	lfs_fops.c	/^file_remove (int id)$/;"	f
-file_write	lfs_fops.c	/^file_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
+file_entry	lfs.h	/^struct file_entry$/;"	s
+file_entry_t	lfs.h	/^typedef struct file_entry file_entry_t;$/;"	t	typeref:struct:file_entry
+file_inode_t	lfs_freemap.h	/^typedef struct FreeListNode file_inode_t;$/;"	t	typeref:struct:FreeListNode
+file_load	lfs_main.c	/^int file_load (int i)$/;"	f
 fileid	sarc.h	/^    int fileid;$/;"	m	struct:read_range
-filename	lfs.h	/^    char filename[8];$/;"	m	struct:file_entry
-finalize	aio_api.c	/^finalize ()$/;"	f
+filetype_	lfs_dir.h	/^    char filetype_;$/;"	m	struct:DirEntry
+finalize	aio_api.c	/^int finalize ()$/;"	f
+finode_alloc	lfs_fops.c	/^inode_t finode_alloc ()$/;"	f
+finode_fallocate	lfs_fops.c	/^inode_t finode_fallocate (inode_t inode, uint64_t size)$/;"	f
+fname	lfs_dcache.h	/^    char *fname;$/;"	m	struct:dcache_object
 fops	lfs_thread.h	/^    int fops;$/;"	m	struct:conn_queue_item
-fpos	lfs_test.c	/^    uint64_t fpos;$/;"	m	struct:test_unit	file:
 free_limit	lfs_cache.h	/^    uint64_t free_limit;$/;"	m	struct:__anon1
+free_node_t	lfs_freemap.h	/^typedef struct FreeListNode free_node_t;$/;"	t	typeref:struct:FreeListNode
 freecurr	lfs_cache.h	/^    int freecurr;$/;"	m	struct:__anon1
-freemap	lfs.h	/^    uint64_t *freemap;$/;"	m	struct:lfs_info
+freemap_test	lfs_freemap.c	/^void freemap_test ()$/;"	f
 freetotal	lfs_cache.h	/^    int freetotal;$/;"	m	struct:__anon1
 fsize	lfs.h	/^    uint32_t fsize;$/;"	m	struct:file_entry
 func	lfs_thread.h	/^    const char *func;$/;"	m	struct:lmutex
-get_lfs_hashlock	sarc.c	/^get_lfs_hashlock (uint64_t offset, uint64_t id)$/;"	f
-get_object	lfs_cache.c	/^get_object (void *ptr)$/;"	f	file:
-get_state	arc.c	/^get_state(struct __arc_state *p){$/;"	f
-getdiskpos	lfs_fops.c	/^getdiskpos (uint64_t offset)$/;"	f
-getdiskrpos	lfs_fops.c	/^getdiskrpos (uint64_t offset)$/;"	f
-getfilemetadata	lfs_fops.c	/^getfilemetadata (int id)$/;"	f
-getfilesize	lfs_fops.c	/^getfilesize (int id)$/;"	f
+get_lfs_hashlock	sarc.c	/^inline lmutex_t *get_lfs_hashlock (uint64_t offset, uint64_t id)$/;"	f
+get_object	lfs_cache.c	/^static inline void *get_object (void *ptr)$/;"	f	file:
+get_state	arc.c	/^int get_state (struct __arc_state *p)$/;"	f
+getdiskrpos	lfs_fops.c	/^inline uint64_t getdiskrpos (uint64_t offset)$/;"	f
+getfiles	rfs_req.c	/^int getfiles (char *buf)$/;"	f
 gethash_lock	arc.c	/^gethash_lock (struct __arc *cache, struct __arc_object *_obj)$/;"	f	file:
 gethash_lock	sarc.c	/^gethash_lock (struct __sarc *cache, struct __sarc_object *_obj)$/;"	f	file:
-gethrtime	lfs_time.h	/^gethrtime (void)$/;"	f
-getlocalp	lfs.c	/^getlocalp (uint64_t id)$/;"	f
-getobj	lfs_ops.c	/^getobj (struct __arc_object *e)$/;"	f
-getphymemsize	lfs.c	/^getphymemsize ()$/;"	f
+getlocalp	lfs_sys.c	/^uint64_t getlocalp (uint64_t id)$/;"	f
+getobj	lfs_ops.c	/^struct object *getobj (struct __arc_object *e)$/;"	f
+getphymemsize	lfs_sys.c	/^uint64_t getphymemsize ()$/;"	f
+getplen	lfs_dirserver.c	/^int getplen (char *buf)$/;"	f
 hash	arc.h	/^    struct __arc_hash hash;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_hash
 hash	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::
 hash	arc.h	/^    unsigned long (*hash) (uint64_t key);$/;"	m	struct:__arc_ops
+hash	lfs_dcache.h	/^    struct __arc_list head, hash;$/;"	m	struct:dcache_object	typeref:struct:dcache_object::
+hash	lfs_waitqueue.h	/^    struct __arc_list head, hash;$/;"	m	struct:pend_object	typeref:struct:pend_object::
 hash	sarc.h	/^    struct __arc_hash hash;$/;"	m	struct:__sarc	typeref:struct:__sarc::__arc_hash
 hash	sarc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__sarc_object	typeref:struct:__sarc_object::
 hash	sarc.h	/^    unsigned long (*hash) (uint64_t key);$/;"	m	struct:__sarc_ops
+hash_	lfs_dirindex.h	/^    hash_t hash_;$/;"	m	struct:DirIndexEntry
+hash_	lfs_dirindex.h	/^    hash_t hash_;$/;"	m	struct:DirIndexLeaf
 hash_mutexes	arc.h	/^    lmutex_t hash_mutexes[ARC_MUTEXES + 1];$/;"	m	struct:__arc_hash
+hash_t	lfs_dirindex.h	/^typedef uint32_t hash_t;$/;"	t
 head	arc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__arc_object	typeref:struct:__arc_object::__arc_list
 head	arc.h	/^    struct __arc_list head;$/;"	m	struct:__arc_state	typeref:struct:__arc_state::__arc_list
+head	lfs_dcache.h	/^    struct __arc_list head, hash;$/;"	m	struct:dcache_object	typeref:struct:dcache_object::__arc_list
 head	lfs_thread.h	/^    CQ_ITEM *head;$/;"	m	struct:rfs_io_queue
+head	lfs_waitqueue.h	/^    struct __arc_list head, hash;$/;"	m	struct:pend_object	typeref:struct:pend_object::__arc_list
 head	sarc.h	/^    struct __arc_list head, hash;$/;"	m	struct:__sarc_object	typeref:struct:__sarc_object::__arc_list
 head	sarc.h	/^    struct __arc_list head;$/;"	m	struct:__sarc_state	typeref:struct:__sarc_state::__arc_list
 hits	arc.h	/^    uint64_t hits;$/;"	m	struct:arc_stat
 hm_mask	arc.h	/^    uint64_t hm_mask;$/;"	m	struct:__arc_hash
-hrtime_t	lfs_time.h	/^typedef long long hrtime_t;$/;"	t
+hm_mask	lfs_waitqueue.h	/^    uint64_t hm_mask;$/;"	m	struct:pend_hash
 ht_mask	arc.h	/^    uint64_t ht_mask;$/;"	m	struct:__arc_hash
-hz	lfs_time.h	4;"	d
+ht_mask	lfs_waitqueue.h	/^    uint64_t ht_mask;$/;"	m	struct:pend_hash
+id	lfs.h	/^    int id;$/;"	m	struct:read_entry
 id	lfs_ops.h	/^    uint64_t id;$/;"	m	struct:object
-id	lfs_test.c	/^    int id;$/;"	m	struct:test_unit	file:
-id2no	aio_api.c	/^id2no (unsigned int id)$/;"	f
+id	lfs_waitqueue.h	/^    uint64_t id;$/;"	m	struct:pend_object
+id2no	aio_api.c	/^short id2no (unsigned int id)$/;"	f
 id_list	aio_api.c	/^unsigned int id_list[] = {$/;"	v
+idx	lfs_freemap.h	/^    int idx;$/;"	m	struct:FreeListNode
+idx_blkptr_	lfs_dir.h	/^    offset_t idx_blkptr_;$/;"	m	struct:DirMetaData
 initial_pool_size	lfs_cache.c	/^const int initial_pool_size = 64;$/;"	v
+inode	lfs_dcache.h	/^    inode_t inode;$/;"	m	struct:dcache_object
+inode_	lfs_dir.h	/^    inode_t inode_;$/;"	m	struct:DirEntry
+inode_free	rfs_req.c	/^int inode_free (char *buf, int clifd)$/;"	f
+inode_t	lfs_define.h	/^typedef int inode_t;$/;"	t
+inodelist_test	lfs_dir.c	/^void inodelist_test ()$/;"	f
 io_queue	lfs_thread.h	/^struct io_queue$/;"	s
 io_queue_info	lfs_thread.h	/^typedef struct io_queue_info$/;"	s
 io_queue_info_t	lfs_thread.h	/^} io_queue_info_t;$/;"	t	typeref:struct:io_queue_info
@@ -328,10 +531,10 @@ iocb_queue_mutex	lfs_thread.h	/^    pthread_mutex_t iocb_queue_mutex;$/;"	m	stru
 iocbq	lfs_thread.h	/^    IOCBQ *iocbq;$/;"	m	struct:io_queue_info
 ioctx	aio_api.c	/^io_context_t ioctx;$/;"	v
 ioq	aio_api.c	/^struct io_queue *ioq;$/;"	v	typeref:struct:io_queue
-ioreq_init	lfs_thread.c	/^void ioreq_init() {$/;"	f
-ioserver_init	lfs_main.c	/^int ioserver_init(){$/;"	f
-is_free	lfs.h	/^    uint32_t is_free;$/;"	m	struct:file_entry
-isbottom	sarc.c	/^isbottom (struct __sarc_state *state, struct __sarc_object *obj)$/;"	f
+ioreq_init	lfs_thread.c	/^void ioreq_init ()$/;"	f
+ioserver_init	lfs_main.c	/^int ioserver_init ()$/;"	f
+is_free	lfs.h	/^    uint8_t is_free;$/;"	m	struct:file_entry
+isbottom	sarc.c	/^int isbottom (struct __sarc_state *state, struct __sarc_object *obj)$/;"	f
 item	aio_api.h	/^    CQ_ITEM *item;$/;"	m	struct:trace_entry
 item	lfs_thread.h	/^    CQ_ITEM *item;$/;"	m	struct:io_queue
 item_locks	lfs_thread.h	/^    pthread_mutex_t item_locks;$/;"	m	struct:io_queue_info
@@ -340,59 +543,31 @@ kmutex_t	lfs.h	/^} kmutex_t;$/;"	t	typeref:struct:kmutex
 krw_t	lfs_thread.h	/^typedef int krw_t;$/;"	t
 krwlock	lfs_thread.h	/^typedef struct krwlock$/;"	s
 krwlock_t	lfs_thread.h	/^} krwlock_t;$/;"	t	typeref:struct:krwlock
-lfs_arc_hash	arc.c	/^lfs_arc_hash (uint64_t id, uint64_t offset)$/;"	f
-lfs_arc_init	lfs_fops.c	/^lfs_arc_init (uint64_t arc_size)$/;"	f
+leaf_	lfs_dirindex.h	/^    dir_index_leaf_t *leaf_;$/;"	m	struct:DirIndexEntry
+len_	lfs_dir.h	/^    uint16_t len_;$/;"	m	struct:DirEntry
+lfs_arc_hash	arc.c	/^uint64_t lfs_arc_hash (uint64_t id, uint64_t offset)$/;"	f
+lfs_arc_init	lfs_fops.c	/^void lfs_arc_init (uint64_t arc_size)$/;"	f
 lfs_cache	lfs.h	/^    cache_t *lfs_cache;$/;"	m	struct:lfs_info
-lfs_dispatcher_thread_fn	eserver.c	/^lfs_dispatcher_thread_fn (void *arg)$/;"	f
-lfs_fini	lfs_main.c	/^lfs_fini ()$/;"	f
-lfs_getdlist	lfs_test.c	/^lfs_getdlist (int *readfd)$/;"	f
+lfs_dirworker_thread_fn	lfs_dirserver.c	/^void *lfs_dirworker_thread_fn (void *arg)$/;"	f
+lfs_dispatcher_thread_fn	eserver.c	/^void *lfs_dispatcher_thread_fn (void *arg)$/;"	f
+lfs_fini	lfs_main.c	/^int lfs_fini ()$/;"	f
+lfs_getshmptr	lfs.c	/^char *lfs_getshmptr (int shmid)$/;"	f
 lfs_info	lfs.h	/^typedef struct lfs_info$/;"	s
 lfs_info_t	lfs.h	/^} lfs_info_t;$/;"	t	typeref:struct:lfs_info
-lfs_init	lfs_main.c	/^lfs_init ()$/;"	f
-lfs_mutex	lfs.c	/^lfs_mutex (pthread_mutex_t * lock)$/;"	f
+lfs_init	lfs_main.c	/^int lfs_init ()$/;"	f
+lfs_malloc	lfs_dir.c	/^int lfs_malloc (void **_ptr, size_t _size)$/;"	f
+lfs_mutex	lfs.c	/^void lfs_mutex (pthread_mutex_t * lock)$/;"	f
 lfs_n	lfs_main.c	/^lfs_info_t lfs_n;$/;"	v
 lfs_obj_cache	lfs.h	/^    cache_t *lfs_obj_cache;$/;"	m	struct:lfs_info
-lfs_test	lfs_main.c	/^lfs_test (char *argv[])$/;"	f
-lfs_test_read	lfs_test.c	/^lfs_test_read (void *arg)$/;"	f
-lfs_test_streamread	lfs_test.c	/^lfs_test_streamread ()$/;"	f
-lfs_test_write	lfs_test.c	/^lfs_test_write (char *buffer)$/;"	f
-lfs_test_write_all	lfs_test.c	/^lfs_test_write_all (char *buffer)$/;"	f
-lfs_unmutex	lfs.c	/^lfs_unmutex (pthread_mutex_t * lock)$/;"	f
+lfs_printf	lfs_sys.c	/^void lfs_printf (const char *fmt, ...)$/;"	f
+lfs_printf_debug	lfs_sys.c	/^void lfs_printf_debug (const char *fmt, ...)$/;"	f
+lfs_reopen	lfs.c	/^void lfs_reopen ()$/;"	f
+lfs_rworker_thread_fn	eserver.c	/^void *lfs_rworker_thread_fn (void *arg)$/;"	f
+lfs_unmutex	lfs.c	/^void lfs_unmutex (pthread_mutex_t * lock)$/;"	f
+lfs_wait	lfs_main.c	/^int lfs_wait ()$/;"	f
+lfsgetblk	lfs_sys.c	/^u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)$/;"	f
 line	lfs_thread.h	/^    int line;$/;"	m	struct:lmutex
-list	list.h	/^typedef struct list$/;"	s
-list_create	list.c	/^list_create (list_t * list, size_t size, size_t offset)$/;"	f
-list_d2l	list.c	32;"	d	file:
-list_destroy	list.c	/^list_destroy (list_t * list)$/;"	f
 list_destroy	sarc.c	/^list_destroy (struct __sarc_state *state, struct __sarc *cache)$/;"	f	file:
-list_empty	list.c	34;"	d	file:
-list_head	list.c	/^list_head (list_t * list)$/;"	f
-list_head	list.h	/^    struct list_node list_head;$/;"	m	struct:list	typeref:struct:list::list_node
-list_insert_after	list.c	/^list_insert_after (list_t * list, void *object, void *nobject)$/;"	f
-list_insert_after_node	list.c	36;"	d	file:
-list_insert_before	list.c	/^list_insert_before (list_t * list, void *object, void *nobject)$/;"	f
-list_insert_before_node	list.c	44;"	d	file:
-list_insert_head	list.c	/^list_insert_head (list_t * list, void *object)$/;"	f
-list_insert_tail	list.c	/^list_insert_tail (list_t * list, void *object)$/;"	f
-list_is_empty	list.c	/^list_is_empty (list_t * list)$/;"	f
-list_link_active	list.c	/^list_link_active (list_node_t * ln)$/;"	f
-list_link_init	list.c	/^list_link_init (list_node_t * ln)$/;"	f
-list_link_replace	list.c	/^list_link_replace (list_node_t * lold, list_node_t * lnew)$/;"	f
-list_move_tail	list.c	/^list_move_tail (list_t * dst, list_t * src)$/;"	f
-list_next	list.c	/^list_next (list_t * list, void *object)$/;"	f
-list_next	list.h	/^    struct list_node *list_next;$/;"	m	struct:list_node	typeref:struct:list_node::list_node
-list_node	list.h	/^typedef struct list_node$/;"	s
-list_node_t	list.h	/^} list_node_t;$/;"	t	typeref:struct:list_node
-list_object	list.c	33;"	d	file:
-list_offset	list.h	/^    size_t list_offset;$/;"	m	struct:list
-list_prev	list.c	/^list_prev (list_t * list, void *object)$/;"	f
-list_prev	list.h	/^    struct list_node *list_prev;$/;"	m	struct:list_node	typeref:struct:list_node::list_node
-list_remove	list.c	/^list_remove (list_t * list, void *object)$/;"	f
-list_remove_head	list.c	/^list_remove_head (list_t * list)$/;"	f
-list_remove_node	list.c	52;"	d	file:
-list_remove_tail	list.c	/^list_remove_tail (list_t * list)$/;"	f
-list_size	list.h	/^    size_t list_size;$/;"	m	struct:list
-list_t	list.h	/^} list_t;$/;"	t	typeref:struct:list
-list_tail	list.c	/^list_tail (list_t * list)$/;"	f
 lmutex	lfs_thread.h	/^typedef struct lmutex$/;"	s
 lmutex_t	lfs_thread.h	/^} lmutex_t;$/;"	t	typeref:struct:lmutex
 lock	lfs_thread.h	/^    pthread_mutex_t lock;$/;"	m	struct:rfs_io_queue
@@ -400,9 +575,9 @@ m_lock	lfs.h	/^    pthread_mutex_t m_lock;$/;"	m	struct:kmutex
 m_magic	lfs.h	/^    uint64_t m_magic;$/;"	m	struct:kmutex
 m_owner	lfs.h	/^    void *m_owner;$/;"	m	struct:kmutex
 m_stat	lfs_cache.h	/^    uint64_t m_stat;$/;"	m	struct:__anon1
-main	lfs_main.c	/^main (int argc, char *argv[])$/;"	f
+main	lfs_main.c	/^int main (int argc, char *argv[])$/;"	f
 max_files	lfs.h	/^    uint32_t max_files;$/;"	m	struct:lfs_info
-meta_table	lfs.h	/^    uint64_t *meta_table;$/;"	m	struct:file_entry
+meta_table	lfs.h	/^    uint64_t meta_table[57];$/;"	m	struct:file_entry
 mfu	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
 mfug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::
 mown_t	lfs_thread.h	/^typedef pthread_t mown_t;$/;"	t
@@ -411,16 +586,17 @@ mru	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	type
 mrug	arc.h	/^    struct __arc_state mrug, mru, mfu, mfug;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_state
 mutex	lfs_cache.h	/^    pthread_mutex_t mutex;$/;"	m	struct:__anon1
 mutex	lfs_thread.h	/^    pthread_mutex_t mutex;$/;"	m	struct:lmutex
-mutex_destroy	lfs_thread.c	/^mutex_destroy (lmutex_t * mp)$/;"	f
-mutex_enter	lfs_thread.c	/^mutex_enter (lmutex_t * mp, const char *str,int line)$/;"	f
-mutex_exit	lfs_thread.c	/^mutex_exit (lmutex_t * mp, const char *str)$/;"	f
-mutex_held	lfs_thread.c	/^mutex_held (lmutex_t * mp)$/;"	f
-mutex_init	lfs_thread.c	/^mutex_init (lmutex_t * mp)$/;"	f
+mutex_destroy	lfs_thread.c	/^void mutex_destroy (lmutex_t * mp)$/;"	f
+mutex_enter	lfs_thread.c	/^void mutex_enter (lmutex_t * mp, const char *str, int line)$/;"	f
+mutex_exit	lfs_thread.c	/^void mutex_exit (lmutex_t * mp, const char *str)$/;"	f
+mutex_held	lfs_thread.c	/^int mutex_held (lmutex_t * mp)$/;"	f
+mutex_init	lfs_thread.c	/^void mutex_init (lmutex_t * mp)$/;"	f
 name	lfs_cache.h	/^    char *name;$/;"	m	struct:__anon1
-need_lock_neighbor	sarc.c	/^need_lock_neighbor (uint64_t offset, uint64_t id)$/;"	f
+need_lock_neighbor	sarc.c	/^inline int need_lock_neighbor (uint64_t offset, uint64_t id)$/;"	f
 next	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::
+next	lfs_freemap.h	/^    struct FreeListNode *next;$/;"	m	struct:FreeListNode	typeref:struct:FreeListNode::FreeListNode
 next	lfs_thread.h	/^    CQ_ITEM *next;$/;"	m	struct:conn_queue_item
-num_files	lfs_test.c	/^int num_files = 0;$/;"	v
+nextoff_	lfs_dir.h	/^    uint32_t nextoff_;$/;"	m	struct:DirEntry
 number	sarc.h	/^    unsigned long number;$/;"	m	struct:__sarc_object
 obj	lfs_thread.h	/^    struct __arc_object *obj;$/;"	m	struct:conn_queue_item	typeref:struct:conn_queue_item::__arc_object
 obj_data	lfs_ops.h	/^    obj_data_t *obj_data;$/;"	m	struct:object
@@ -428,46 +604,79 @@ obj_data_t	lfs_ops.h	/^typedef struct object_data obj_data_t;$/;"	t	typeref:stru
 obj_lock	arc.h	/^    lmutex_t obj_lock;$/;"	m	struct:__arc_object
 obj_lock	sarc.h	/^    lmutex_t obj_lock;$/;"	m	struct:__sarc_object
 object	lfs_ops.h	/^struct object$/;"	s
-object_data	lfs_ops.h	/^struct object_data{$/;"	s
+object_data	lfs_ops.h	/^struct object_data$/;"	s
 off	lfs.h	/^    uint64_t off;$/;"	m	struct:lfs_info
+off	lfs_waitqueue.h	/^    uint64_t off;$/;"	m	struct:pend_object
+off_	lfs_dirindex.h	/^    offset_t off_;$/;"	m	struct:DirIndexEntry
 offs	aio_api.c	/^uint64_t offs[MAXSIZE];$/;"	v
+offset	lfs.h	/^    uint64_t offset;$/;"	m	struct:read_entry
+offset	lfs_freemap.h	/^    uint64_t offset;$/;"	m	struct:FreeListNode
 offset	lfs_ops.h	/^    uint64_t offset;$/;"	m	struct:object
 offset	lfs_thread.h	/^    uint64_t offset;$/;"	m	struct:conn_queue_item
 offset	sarc.h	/^    uint64_t offset;$/;"	m	struct:read_range
+offset_	lfs_dirindex.h	/^    uint32_t offset_;$/;"	m	struct:DirIndexLeaf
+offset_t	lfs_define.h	/^typedef uint64_t offset_t;$/;"	t
 ops	arc.h	/^    struct __arc_ops *ops;$/;"	m	struct:__arc	typeref:struct:__arc::__arc_ops
 ops	sarc.h	/^    struct __sarc_ops *ops;$/;"	m	struct:__sarc	typeref:struct:__sarc::__sarc_ops
 p	arc.h	/^    uint64_t c, p;$/;"	m	struct:__arc
 p	sarc.h	/^    uint64_t c, p;$/;"	m	struct:__sarc
 pcount	sarc.h	/^    int pcount;$/;"	m	struct:__sarc_object
+pdirinodelist	lfs.h	/^    dir_inode_t *pdirinodelist;$/;"	m	struct:lfs_info
+pdirmarray	lfs.h	/^    dir_meta_t *pdirmarray;$/;"	m	struct:lfs_info
+pend_hash	lfs_waitqueue.h	/^struct pend_hash$/;"	s
+pend_hash_init	lfs_waitqueue.c	/^void pend_hash_init ()$/;"	f
+pend_hash_t	lfs_waitqueue.h	/^typedef struct pend_hash pend_hash_t;$/;"	t	typeref:struct:pend_hash
+pend_object	lfs_waitqueue.h	/^struct pend_object$/;"	s
+pend_object_t	lfs_waitqueue.h	/^typedef struct pend_object pend_object_t;$/;"	t	typeref:struct:pend_object
+pending_hash	lfs_waitqueue.c	/^static uint64_t pending_hash (uint64_t off, int id)$/;"	f	file:
+pending_hash_insert	lfs_waitqueue.c	/^inline void pending_hash_insert (pend_object_t * obj)$/;"	f
+pending_hash_remove	lfs_waitqueue.c	/^inline int pending_hash_remove (struct object *obj)$/;"	f
+pending_queue	lfs.h	/^    pend_hash_t pending_queue;$/;"	m	struct:lfs_info
+pfileinodelist	lfs.h	/^    file_inode_t *pfileinodelist;$/;"	m	struct:lfs_info
+pfreelist	lfs.h	/^    free_node_t *pfreelist;$/;"	m	struct:lfs_info
+phash_mutexes	lfs_waitqueue.h	/^    lmutex_t phash_mutexes[ARC_MUTEXES + 1];$/;"	m	struct:pend_hash
+pindexlist	lfs.h	/^    dir_index_t **pindexlist;$/;"	m	struct:lfs_info
+pindexmap	lfs.h	/^    char *pindexmap;$/;"	m	struct:lfs_info
+pinode	lfs_dcache.h	/^    inode_t pinode;$/;"	m	struct:dcache_object
+pname_	lfs_dir.h	/^    char *pname_;$/;"	m	struct:DirEntry
+pobject_create	lfs_waitqueue.c	/^pend_object_t *pobject_create (CQ_ITEM * item)$/;"	f
 prefetch	arc.h	/^    int prefetch;$/;"	m	struct:__arc_object
 prefetch_from_disk	sarc.h	/^    int (*prefetch_from_disk) (uint64_t id, uint64_t offset,$/;"	m	struct:__sarc_ops
-prep_aio	aio_api.c	/^inline void prep_aio(struct iocb *this_iocb,const struct trace_entry *request){$/;"	f
+prep_aio	aio_api.c	/^prep_aio (struct iocb *this_iocb, const struct trace_entry *request)$/;"	f
 prev	arc.h	/^    struct __arc_list *prev, *next;$/;"	m	struct:__arc_list	typeref:struct:__arc_list::__arc_list
 prev	lfs_thread.h	/^    CQ_ITEM *prev;$/;"	m	struct:conn_queue_item
-print_lfstable	lfs_main.c	/^print_lfstable ()$/;"	f
-print_obj	arc.c	/^print_obj (struct __arc_object *obj, const char *str)$/;"	f
-print_obj	sarc.c	/^print_obj (struct __sarc_object *obj, char *str)$/;"	f	file:
-print_state	arc.c	/^print_state (struct __arc *cache)$/;"	f
-printsize	arc.c	/^printsize (struct __arc *cache)$/;"	f
-printsize	sarc.c	/^printsize (sarc_t * cache)$/;"	f	file:
+print_lfstable	lfs_main.c	/^void print_lfstable ()$/;"	f
+print_obj	arc.c	/^void print_obj (struct __arc_object *obj, const char *str)$/;"	f
+print_obj	sarc.c	/^static void print_obj (struct __sarc_object *obj, char *str)$/;"	f	file:
+print_state	arc.c	/^void print_state (struct __arc *cache)$/;"	f
+print_stateinfo	arc.c	/^void print_stateinfo(struct __arc_state *state1){$/;"	f
+printsize	arc.c	/^void printsize (struct __arc *cache)$/;"	f
+printsize	sarc.c	/^static void printsize (sarc_t * cache)$/;"	f	file:
+process_dirrequest	rfs_req.c	/^int process_dirrequest (char *buf, int clifd)$/;"	f
+process_request	rfs_req.c	/^int process_request (char *buf, int clifd)$/;"	f
 ptr	lfs_cache.h	/^    void **ptr;$/;"	m	struct:__anon1
 raid_fd	aio_api.c	/^int raid_fd;$/;"	v
 random	sarc.h	/^    struct __sarc_state random, seq;$/;"	m	struct:__sarc	typeref:struct:__sarc::__sarc_state
 range_t	sarc.h	/^typedef struct read_range range_t;$/;"	t	typeref:struct:read_range
 ratio	sarc.h	/^    double ratio;$/;"	m	struct:__sarc
+read_entry	lfs.h	/^typedef struct read_entry$/;"	s
+read_entry_t	lfs.h	/^} read_entry_t;$/;"	t	typeref:struct:read_entry
 read_range	sarc.h	/^struct read_range$/;"	s
 read_state	arc.h	/^    int read_state;$/;"	m	struct:__arc_object
 read_state	sarc.h	/^    int read_state;$/;"	m	struct:__sarc_object
-read_test_fini	lfs_test.c	/^read_test_fini ()$/;"	f
-read_test_init	lfs_test.c	/^read_test_init ()$/;"	f
-readandmru	sarc.c	/^readandmru (uint64_t id, uint64_t offset)$/;"	f
-readfd	lfs_test.c	/^int *readfd;$/;"	v
+readandmru	sarc.c	/^void readandmru (uint64_t id, uint64_t offset)$/;"	f
 redzone_pattern	lfs_cache.c	/^const uint64_t redzone_pattern = 0xdeadbeefcafebabe;$/;"	v
 ref_cnt	lfs_thread.h	/^    int ref_cnt;$/;"	m	struct:io_queue
 req_queue	lfs.h	/^    CQ *req_queue;$/;"	m	struct:lfs_info
+response_client	eserver.c	/^int response_client (int clifd, int value)$/;"	f
+rfs_dirworker_th	lfs.h	/^    pthread_t rfs_dirworker_th;$/;"	m	struct:lfs_info
 rfs_dispatcher_th	lfs.h	/^    pthread_t rfs_dispatcher_th;$/;"	m	struct:lfs_info
 rfs_io_queue	lfs_thread.h	/^struct rfs_io_queue$/;"	s
+rfs_ioread	eserver.c	/^int rfs_ioread (CQ_ITEM * item)$/;"	f
+rfs_iowrite	eserver.c	/^int rfs_iowrite (CQ_ITEM * item)$/;"	f
 rfs_receiver_th	lfs.h	/^    pthread_t rfs_receiver_th;$/;"	m	struct:lfs_info
+rfs_reqworker_th	lfs.h	/^    pthread_t rfs_reqworker_th;$/;"	m	struct:lfs_info
+rfs_return_data	lfs.c	/^int rfs_return_data (char *proto, int len, int clifd)$/;"	f
 rfs_worker_th	lfs.h	/^    pthread_t rfs_worker_th;$/;"	m	struct:lfs_info
 rq_cache	lfs.h	/^    cache_t *rq_cache;$/;"	m	struct:lfs_info
 rwType	aio_api.h	/^    char rwType;$/;"	m	struct:trace_entry
@@ -475,23 +684,28 @@ rw_lock	lfs_thread.h	/^    pthread_rwlock_t rw_lock;$/;"	m	struct:krwlock
 rw_owner	lfs_thread.h	/^    void *rw_owner;$/;"	m	struct:krwlock
 rw_readers	lfs_thread.h	/^    int rw_readers;$/;"	m	struct:krwlock
 rw_wr_owner	lfs_thread.h	/^    void *rw_wr_owner;$/;"	m	struct:krwlock
+s_blkptr_	lfs_dir.h	/^    offset_t s_blkptr_[5];$/;"	m	struct:DirMetaData
 sarc_cache	lfs.h	/^    sarc_t *sarc_cache;$/;"	m	struct:lfs_info
-sarc_getobj	lfs_sarc_ops.c	/^sarc_getobj (struct __sarc_object *e)$/;"	f
-sarc_move_state	sarc.c	/^sarc_move_state (struct __sarc_object *obj)$/;"	f
+sarc_getobj	lfs_sarc_ops.c	/^struct object *sarc_getobj (struct __sarc_object *e)$/;"	f
+sarc_move_state	sarc.c	/^void sarc_move_state (struct __sarc_object *obj)$/;"	f
 sarc_ops	lfs_sarc_ops.c	/^struct __sarc_ops sarc_ops = {$/;"	v	typeref:struct:__sarc_ops
-sarc_read_done	sarc.c	/^sarc_read_done (struct __sarc_object *obj)$/;"	f
+sarc_read_done	sarc.c	/^inline void sarc_read_done (struct __sarc_object *obj)$/;"	f
 sarc_t	sarc.h	/^} sarc_t;$/;"	t	typeref:struct:__sarc
 seq	sarc.h	/^    struct __sarc_state random, seq;$/;"	m	struct:__sarc	typeref:struct:__sarc::
 seqMiss	sarc.h	/^    unsigned int seqMiss;$/;"	m	struct:__sarc
 seqThreshold	sarc.h	/^    int seqThreshold;$/;"	m	struct:__sarc
+shmid	lfs.h	/^    int shmid;$/;"	m	struct:read_entry
 shmid	lfs_ops.h	/^    int shmid;$/;"	m	struct:object_data
 shmid	lfs_thread.h	/^    int shmid;$/;"	m	struct:conn_queue_item
 should_stop	aio_api.c	/^int should_stop = 0;$/;"	v
-sigint_handler	aio_api.c	/^sigint_handler (int f)$/;"	f	file:
+sigint_handler	aio_api.c	/^static void sigint_handler (int f)$/;"	f	file:
+sigpipe_handler	lfs_main.c	/^static void sigpipe_handler (int f)$/;"	f	file:
 size	arc.h	/^    uint64_t size;$/;"	m	struct:__arc_hash
 size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_object
 size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_state
+size	lfs.h	/^    uint64_t size;$/;"	m	struct:read_entry
 size	lfs_thread.h	/^    int size;$/;"	m	struct:conn_queue_item
+size	lfs_waitqueue.h	/^    uint64_t size;$/;"	m	struct:pend_hash
 size	sarc.h	/^    uint64_t size;$/;"	m	struct:read_range
 size	sarc.h	/^    unsigned long size;$/;"	m	struct:__sarc_object
 size	sarc.h	/^    unsigned long size;$/;"	m	struct:__sarc_state
@@ -502,15 +716,14 @@ state	lfs_ops.h	/^    int state;$/;"	m	struct:object
 state	sarc.h	/^    struct __sarc_state *state;$/;"	m	struct:__sarc_object	typeref:struct:__sarc_object::__sarc_state
 state_lock	arc.h	/^    lmutex_t state_lock;$/;"	m	struct:__arc_state
 state_lock	sarc.h	/^    lmutex_t state_lock;$/;"	m	struct:__sarc_state
+stop_cv	lfs.h	/^    pthread_cond_t stop_cv;$/;"	m	struct:lfs_info
+stopfs	lfs.h	/^    int stopfs;$/;"	m	struct:lfs_info
+stopfs	rfs_req.c	/^int stopfs (void)$/;"	f
 tail	lfs_thread.h	/^    CQ_ITEM *tail;$/;"	m	struct:rfs_io_queue
 tail_stat	sarc.h	/^    int tail_stat;$/;"	m	struct:__sarc
-test_create	lfs_test.c	/^test_create (uint64_t size)$/;"	f
-test_read	lfs_test.c	/^test_read (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
-test_unit	lfs_test.c	/^typedef struct test_unit$/;"	s	file:
-test_unit_t	lfs_test.c	/^} test_unit_t;$/;"	t	typeref:struct:test_unit	file:
-test_write	lfs_test.c	/^test_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
-testbuffer	lfs_main.c	/^char *testbuffer;$/;"	v
 total	arc.h	/^    uint64_t total;$/;"	m	struct:arc_stat
 trace_entry	aio_api.h	/^struct trace_entry$/;"	s
-trace_nextrequest	aio_api.c	/^trace_nextrequest (struct trace_entry *req)$/;"	f	file:
-true	lfs.h	6;"	d
+trace_nextrequest	aio_api.c	/^static int trace_nextrequest (struct trace_entry *req)$/;"	f	file:
+true	lfs.h	5;"	d
+u64	lfs_sys.h	/^typedef uint64_t u64;$/;"	t
+write_done	rfs_req.c	/^void write_done (int clifd, int res)$/;"	f

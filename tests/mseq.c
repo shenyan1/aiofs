@@ -52,39 +52,46 @@ uint64_t cur_usec(void)
     return cur_usec;
 }
 
-#define THREAD_NUMS 1ull
+#define THREAD_NUMS 500ull
 int readfd[THREAD_NUMS];
-int main(){
-	int i=0,randfd[THREAD_NUMS];
+int main(int argc,char *argv[]){
+	int files,thdnums,i=0,randfd[THREAD_NUMS];
 	uint64_t bw;
 	int fd;
 	char buf[10];
 	pthread_t tids[THREAD_NUMS];
 	srand(time(0));
+	if(argv[1]==0){
+		printf("usage:threads+files");
+		exit(1);
+        }
+        thdnums = atoi(argv[1]);
+        files = atoi(argv[2]);
+        printf("files=%d,thdnums=%d",files,thdnums);
+
 	uint64_t stime,ctime;
-	for(i=0;i<THREAD_NUMS;i++){
-		randfd[i] = rand() % max_files;
+	for(i=0;i<thdnums;i++){
+		randfd[i] = rand() % files;
 		if(randfd[i]==0)
 			randfd[i]=1;
 		sprintf(buf,"/shenyan/f%d",randfd[i]);
 		printf("buf=%s\n",buf);
-		fd = open(buf,O_RDWR|O_DIRECT);
+		fd = open(buf,O_RDWR);
 		if(fd<0)
 			assert(0);
 		readfd[i]=fd;
 	}
 	srand(time(0));
-
-	stime = cur_usec();	
-	for(i=0;i<THREAD_NUMS;i++){
+        	stime = cur_usec();	
+	for(i=0;i<thdnums;i++){
     		pthread_create(&tids[i],NULL,lfs_test_read,(void *)readfd[i]);
 	}
-	for(i=0;i<THREAD_NUMS;i++){
+	for(i=0;i<thdnums;i++){
     		pthread_join(tids[i],NULL);
 	}
 
 	ctime = cur_usec();
-	bw = THREAD_NUMS*(200<<20);
+	bw = thdnums*(200<<20);
 	bw = bw / (ctime - stime);
 	printf("bw=%"PRIu64"",bw);
 

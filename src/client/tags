@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BLKPTRSIZE	lfs_format.c	122;"	d	file:
+CC	Makefile	/^CC    = gcc$/;"	m
+CCFLAGS	Makefile	/^CCFLAGS = -g -Wall -O0$/;"	m
+FormatAttributeTime	lfs_formatfile.c	/^FormatAttributeTime (int fd, int inode)$/;"	f
+FormatBlkptr	lfs_formatfile.c	/^FormatBlkptr (int fd, int inode, uint64_t ptr)$/;"	f
+FormatDirEntry	lfs_format_dir.c	/^FormatDirEntry (int _fd)$/;"	f
+FormatDirIndex	lfs_format_dir.c	/^FormatDirIndex (int _fd)$/;"	f
+FormatFSinformation	lfs_format.c	/^FormatFSinformation (int fd)$/;"	f
+FormatFileEntry	lfs_format.c	/^FormatFileEntry (int fd)$/;"	f
+FormatSpaceEntry	lfs_format.c	/^FormatSpaceEntry (int fd)$/;"	f
+ISALIGNED	rfsio.h	26;"	d
+InitRootDir	lfs_format_dir.c	/^InitRootDir (int _fd, uint64_t _off)$/;"	f
+LFS_FAILED	rfsio.h	41;"	d
+LFS_OK	rfsio.h	40;"	d
+LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
+MAX_THREADS	iotool.c	235;"	d	file:
+OBJ1S	Makefile	/^OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o ..\/lfs_sys.o$/;"	m
+OBJ2S	Makefile	/^OBJ2S = ..\/lfs_sys.o iotool.o rfsio.o $/;"	m
+OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
+P2ALIGN	rfsio.h	25;"	d
+PROGS	Makefile	/^PROGS = client$/;"	m
+READ_SIZE	rfsio.c	15;"	d	file:
+READ_SIZE	rfsio.h	8;"	d
+SRCS	Makefile	/^SRCS  = $(wildcard *.c)$/;"	m
+TEST_BLKSIZE	iotool.c	9;"	d	file:
+_LFS_FORMAT_DIR_H_	lfs_format_dir.h	2;"	d
+_LFS_FORMAT_FILE_H	lfs_formatfile.h	2;"	d
+__RFSIO_H	rfsio.h	4;"	d
+_rfs_send_dirrequest	rfsio.c	/^_rfs_send_dirrequest (char *proto, int len)$/;"	f
+_rfs_send_request	rfsio.c	/^_rfs_send_request (char *proto, int len)$/;"	f
+_tem	rfsio.c	/^_tem (char *ptr)$/;"	f
+blockaligned	rfsio.c	/^blockaligned (uint64_t p)$/;"	f
+curmax_files	rfsio.c	/^curmax_files (int fsid)$/;"	f
+fdisfree	rfsio.c	/^fdisfree (int fid)$/;"	f
+fidx	lfs_format.c	/^int fidx = 0;$/;"	v
+filebench	iotool.c	/^filebench (char *argv[])$/;"	f
+freemap	lfs_format.c	/^uint64_t *freemap;$/;"	v
+funcbench	iotool.c	/^funcbench ()$/;"	f
+getFilesize	lfs_format.c	/^getFilesize (char *str)$/;"	f
+getbufptr	rfsio.c	/^getbufptr (uint64_t offset, uint64_t size, char *buf)$/;"	f
+getdiskpos	rfsio.c	/^getdiskpos (uint64_t offset)$/;"	f
+getmaxfiles	lfs_format.c	/^getmaxfiles ()$/;"	f
+getshmptr	mytest.c	/^getshmptr (int shmid)$/;"	f
+getshmptr	rfsio.c	/^getshmptr (int shmid)$/;"	f
+id2protocol	rfsio.c	/^id2protocol (int shmid)$/;"	f
+idlist2protocol	rfsio.c	/^idlist2protocol (int *array, int len)$/;"	f
+lfs_memcpy	rfsio.c	/^void lfs_memcpy(char *dstbuf,char *srcbuf,uint64_t off,uint64_t size){$/;"	f
+lfs_tell	lfs_formatfile.c	/^lfs_tell (int file)$/;"	f
+lfs_test_read	iotool.c	/^lfs_test_read (void *arg)$/;"	f
+lfs_test_streamread	iotool.c	/^lfs_test_streamread (int num_files1, int threads)$/;"	f
+lfs_test_write_all	iotool.c	/^lfs_test_write_all (char *buffer)$/;"	f
+lsfs	iotool.c	/^lsfs (char **argv)$/;"	f
+main	iotool.c	/^main (int argc, char *argv[])$/;"	f
+main	lfs_format.c	/^main (int argc, char *argv[])$/;"	f
+main	mytest.c	/^main(){$/;"	f
+num_files	iotool.c	/^int num_files = 0;$/;"	v
+read_test_fini	iotool.c	/^read_test_fini ()$/;"	f
+readfd	iotool.c	/^int *readfd;$/;"	v
+rfs_create	rfsio.c	/^rfs_create (char *fname)$/;"	f
+rfs_fallocate	rfsio.c	/^rfs_fallocate (char *fname, int filesize)$/;"	f
+rfs_mkdir	rfsio.c	/^rfs_mkdir (char *fname)$/;"	f
+rfs_open	rfsio.c	/^rfs_open (char *fname)$/;"	f
+rfs_read	rfsio.c	/^rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
+rfs_remove	rfsio.c	/^rfs_remove (char *fname)$/;"	f
+rfs_rmdir	rfsio.c	/^rfs_rmdir (char *fname)$/;"	f
+rfs_write	rfsio.c	/^rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
+shm_malloc	rfsio.c	/^shm_malloc (int size)$/;"	f
+show_time	iotool.c	/^show_time (int threads, uint64_t ctime, uint64_t stime)$/;"	f
+stopfs	iotool.c	/^stopfs ()$/;"	f
+test_create	iotool.c	/^test_create (char *fname)$/;"	f
+test_read	iotool.c	/^test_read (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
+test_write	iotool.c	/^test_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
+tot_size	lfs_format.c	/^uint64_t tot_size = 0;$/;"	v
+wait_io	rfsio.c	/^wait_io (int clifd)$/;"	f
+wait_res	rfsio.c	/^wait_res (int connfd)$/;"	f
