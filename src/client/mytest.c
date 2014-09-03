@@ -10,6 +10,6 @@ getshmptr (int shmid)
 
 main ()
 {
-    char *buf = getshmptr (1637287492);
+    char *buf = getshmptr (1315282943);
     printf ("%s\n", buf);
 }

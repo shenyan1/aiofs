@@ -554,6 +554,7 @@ int Print_Index (inode_t _inode)
 
 int Init_Dcache (inode_t _inode)
 {
+#ifdef DCACHEMODE	
     int i = 0, j = 0;
     int cntIF = 0;
     int cntIB = 0;
@@ -586,11 +587,17 @@ int Init_Dcache (inode_t _inode)
 			 IDXLEAF[j].offset_, j);
 		cntIF++;
 		off = LoadSingleLeaf (off);
-		LoadDirEntry (off);
-
+		dir_entry_t * pdir = LoadDirEntry (off);
+		int iRet = dcache_lookup(_inode, pdir->pname_);
+		if(iRet != 0){
+		}
+		else {
+			dcache_insert(_inode, pdir->pname_, pdir->inode_);
+		}
 	    }
 	  ALERTER ("STATISTIC %dIB %dIF", cntIB, cntIF);
       }
+#endif
     return 0;
 }
 
