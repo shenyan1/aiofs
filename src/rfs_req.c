@@ -1,6 +1,7 @@
 #include"eserver.h"
 #include"lfs.h"
 #include<assert.h>
+#include<sys/shm.h>
 #include"lfs_sys.h"
 #include"lfs_fops.h"
 #include "lfs_dir.h"
@@ -41,7 +42,7 @@ int decode_writeprotocol (char *pro, int clifd)
     assert (op == WRITE_COMMAND);
     item->fops = op;
     item->size = ptr->size;
-    item->fid = ptr->id - 1;
+    item->fid = ptr->id - 1 - LFS_FINODE_START;
     assert (item->fid >= 0);
     item->offset = ptr->offset;
     item->clifd = clifd;
@@ -61,12 +62,20 @@ int getfiles (char *buf)
     return lfs_n.max_files;
 }
 
-void write_done (int clifd, int res)
+void write_done (CQ_ITEM *item, int res)
 {
+    int ret ,clifd = item->clifd;
+//    printf("clifd = %d\n",clifd);
     if (clifd <= 0)
 	res = -1;
     else
       {
+	 ret = shmdt(item->_ptr);
+	  printf("ret =%d\n",ret);
+	  if(ret== -1){
+		lfs_printf_err("write call back failed to detach the share memory\n");
+		assert(0);
+	  }
 	  lfs_printf ("write has been done\n");
 	  response_client (clifd, res);
       }

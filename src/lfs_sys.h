@@ -9,6 +9,7 @@ uint64_t getphymemsize ();
 int buf2id (char *ptr);
 void lfs_printf (const char *fmt, ...);
 void lfs_printf_debug (const char *fmt, ...);
+void lfs_printf_err (const char *fmt, ...);
 typedef uint64_t u64;
 u64 lfsgetblk (lfs_info_t * plfs, inode_t inode, u64 offset);
 #endif

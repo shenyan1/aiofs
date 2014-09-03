@@ -326,13 +326,13 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
     memset (pro, 0, 1 + sizeof (read_entry_t));
     if (!buffer)
       {
-	  lfs_printf ("error malloc");
+	  printf ("error malloc");
 	  return -1;
       }
     shmid = shmget (IPC_PRIVATE, size, (SHM_R | SHM_W | IPC_CREAT));
     if (shmid <= 0)
       {
-	  lfs_printf ("allocate shm error!\n");
+	  printf ("allocate shm error!\n");
 	  return -1;
       }
     buf = shmat (shmid, NULL, 0);
@@ -347,12 +347,12 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
     prt->size = size;
     prt->shmid = shmid;
 
-    lfs_printf ("write op=%d,id=%d off=%d,size=%d\n", WRITE_COMMAND, id,
+    printf ("write op=%d,id=%d off=%d,size=%d\n", WRITE_COMMAND, id,
 		offset, size);
     connfd = _rfs_send_request (ptr, sizeof (read_entry_t) + 1);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  printf ("create conn socket failed");
 	  return -1;
       }
     lfs_printf ("issue write\n");
@@ -365,9 +365,10 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
 	  lfs_printf ("rfs write failed\n");
 	  assert (0);
       }
-    if (shmctl (shmid, IPC_RMID, NULL) == -1)
+    if (shmctl (shmid, IPC_RMID, NULL) <0)
       {
 	  perror ("shmctl RMID failed in rfs_write\n");
+	  assert(0);
       }
     return LFS_SUCCESS;
 }

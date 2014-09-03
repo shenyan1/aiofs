@@ -76,7 +76,17 @@ void lfs_printf_debug (const char *fmt, ...)
     printf (ret);
 //#endif
 }
+void lfs_printf_err (const char *fmt, ...)
+{
 
+    va_list ap;
+    char *ret;
+    int err;
+    va_start (ap, fmt);
+    err = vasprintf (&ret, fmt, ap);
+    va_end (ap);
+    printf (ret);
+}
 void lfs_printf (const char *fmt, ...)
 {
 
