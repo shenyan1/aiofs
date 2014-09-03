@@ -56,7 +56,7 @@ int AddDirEntryFile (inode_t, const char *);
 /* print all things in this dir
  * @1  dir name eg. /aaa/aa/a/
  */
-int PrintDir (const char *);
+char *PrintDir (const char *);
 
 inode_t Open (const char *);
 

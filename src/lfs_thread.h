@@ -56,7 +56,7 @@ struct conn_queue_item
     struct __arc_object *obj;
     uint64_t offset;
     int clifd;
-    char *_ptr; // store shm ptr
+    char *_ptr;			// store shm ptr
     CQ_ITEM *prev;
     CQ_ITEM *next;
 };

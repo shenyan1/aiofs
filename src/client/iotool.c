@@ -354,11 +354,6 @@ stopfs ()
     return true;
 }
 
-int
-lsfs (char **argv)
-{
-
-}
 
 int
 funcbench ()

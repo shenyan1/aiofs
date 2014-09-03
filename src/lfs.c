@@ -11,7 +11,6 @@
 #include<fcntl.h>
 #include"lfs.h"
 #include"arc.h"
-#include"lfs_test.h"
 #include"lfs_thread.h"
 #include"lfs_ops.h"
 #include"lfs_fops.h"

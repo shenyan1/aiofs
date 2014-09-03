@@ -14,16 +14,16 @@ FormatDirIndex	lfs_format_dir.c	/^FormatDirIndex (int _fd)$/;"	f
 FormatFSinformation	lfs_format.c	/^FormatFSinformation (int fd)$/;"	f
 FormatFileEntry	lfs_format.c	/^FormatFileEntry (int fd)$/;"	f
 FormatSpaceEntry	lfs_format.c	/^FormatSpaceEntry (int fd)$/;"	f
-ISALIGNED	rfsio.h	26;"	d
+ISALIGNED	rfsio.h	27;"	d
 InitRootDir	lfs_format_dir.c	/^InitRootDir (int _fd, uint64_t _off)$/;"	f
-LFS_FAILED	rfsio.h	41;"	d
-LFS_OK	rfsio.h	40;"	d
+LFS_FAILED	rfsio.h	42;"	d
+LFS_OK	rfsio.h	41;"	d
 LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
-MAX_THREADS	iotool.c	235;"	d	file:
+MAX_THREADS	iotool.c	237;"	d	file:
 OBJ1S	Makefile	/^OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o ..\/lfs_sys.o$/;"	m
 OBJ2S	Makefile	/^OBJ2S = ..\/lfs_sys.o iotool.o rfsio.o $/;"	m
 OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
-P2ALIGN	rfsio.h	25;"	d
+P2ALIGN	rfsio.h	26;"	d
 PROGS	Makefile	/^PROGS = client$/;"	m
 READ_SIZE	rfsio.c	15;"	d	file:
 READ_SIZE	rfsio.h	8;"	d
@@ -50,15 +50,15 @@ getshmptr	mytest.c	/^getshmptr (int shmid)$/;"	f
 getshmptr	rfsio.c	/^getshmptr (int shmid)$/;"	f
 id2protocol	rfsio.c	/^id2protocol (int shmid)$/;"	f
 idlist2protocol	rfsio.c	/^idlist2protocol (int *array, int len)$/;"	f
-lfs_memcpy	rfsio.c	/^void lfs_memcpy(char *dstbuf,char *srcbuf,uint64_t off,uint64_t size){$/;"	f
+lfs_memcpy	rfsio.c	/^lfs_memcpy (char *dstbuf, char *srcbuf, uint64_t off, uint64_t size)$/;"	f
 lfs_tell	lfs_formatfile.c	/^lfs_tell (int file)$/;"	f
 lfs_test_read	iotool.c	/^lfs_test_read (void *arg)$/;"	f
 lfs_test_streamread	iotool.c	/^lfs_test_streamread (int num_files1, int threads)$/;"	f
-lfs_test_write_all	iotool.c	/^lfs_test_write_all (char *buffer)$/;"	f
-lsfs	iotool.c	/^lsfs (char **argv)$/;"	f
+lfs_test_write_all	iotool.c	/^lfs_test_write_all (int files,char *buffer)$/;"	f
+lsfs	rfsio.c	/^lsfs (char **argv)$/;"	f
 main	iotool.c	/^main (int argc, char *argv[])$/;"	f
 main	lfs_format.c	/^main (int argc, char *argv[])$/;"	f
-main	mytest.c	/^main(){$/;"	f
+main	mytest.c	/^main ()$/;"	f
 num_files	iotool.c	/^int num_files = 0;$/;"	v
 read_test_fini	iotool.c	/^read_test_fini ()$/;"	f
 readfd	iotool.c	/^int *readfd;$/;"	v
@@ -78,4 +78,5 @@ test_read	iotool.c	/^test_read (int id, char *buffer, uint64_t size, uint64_t of
 test_write	iotool.c	/^test_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
 tot_size	lfs_format.c	/^uint64_t tot_size = 0;$/;"	v
 wait_io	rfsio.c	/^wait_io (int clifd)$/;"	f
+wait_io_str	rfsio.c	/^wait_io_str (int clifd)$/;"	f
 wait_res	rfsio.c	/^wait_res (int connfd)$/;"	f

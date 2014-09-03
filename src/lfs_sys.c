@@ -30,6 +30,47 @@ uint64_t cur_usec (void)
     return cur_usec;
 }
 
+int lfs_log (int fd, char *str)
+{
+    if (fd < 0)
+	return -1;
+    else
+	write (fd, str, sizeof (str));
+    return LFS_OK;
+}
+
+int response_client_str (int clifd, char *ptr, int len)
+{
+
+    if (clifd < 0)
+	lfs_printf ("client socket is invalid\n");
+    if (write (clifd, ptr, len) < 0)
+      {
+	  perror ("response to client failed with -1");
+	  return -1;
+
+      }
+    return LFS_SUCCESS;
+
+}
+
+int response_client (int clifd, int value)
+{
+    char num[5];
+    int *ptr;
+    ptr = (int *) num;
+    *ptr = value;
+    if (clifd < 0)
+	lfs_printf ("client socket is invalid\n");
+    if (write (clifd, num, 5 * sizeof (char)) < 0)
+      {
+	  perror ("response to client failed with -1");
+	  return -1;
+
+      }
+    return LFS_SUCCESS;
+}
+
 uint64_t getphymemsize ()
 {
     return sysconf (_SC_PHYS_PAGES) * sysconf (_SC_PAGESIZE);
@@ -76,6 +117,7 @@ void lfs_printf_debug (const char *fmt, ...)
     printf (ret);
 //#endif
 }
+
 void lfs_printf_err (const char *fmt, ...)
 {
 
@@ -87,6 +129,7 @@ void lfs_printf_err (const char *fmt, ...)
     va_end (ap);
     printf (ret);
 }
+
 void lfs_printf (const char *fmt, ...)
 {
 

@@ -11,7 +11,6 @@
 #include<fcntl.h>
 #include"lfs.h"
 #include"arc.h"
-#include"lfs_test.h"
 #include"lfs_thread.h"
 #include"lfs_ops.h"
 #include"lfs_fops.h"
@@ -391,10 +390,12 @@ inode_t IsFindTarget (offset_t _off, char *_pname)
     if (strcmp (pdir->pname_, _pname) == 0)
       {
 	  inode = pdir->inode_;
-	  free (pdir);
+	  if (pdir != NULL)
+	      free (pdir);
 	  return inode;
       }
-    free (pdir);
+    if (pdir != NULL)
+	free (pdir);
     return 1;
 }
 
@@ -588,6 +589,7 @@ int Init_Dcache (inode_t _inode)
 		cntIF++;
 		off = LoadSingleLeaf (off);
 		dir_entry_t *pdir = LoadDirEntry (off);
+		assert(pdir!=NULL);
 		int iRet = dcache_lookup (_inode, pdir->pname_);
 		if (iRet != 0)
 		  {
