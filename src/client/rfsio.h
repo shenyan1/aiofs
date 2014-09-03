@@ -22,6 +22,7 @@ int curmax_files (int fsid);
 
 int wait_res (int connfd);
 
+int lsfs (char **argv);
 #define P2ALIGN(x, align)	((x) & -(align))
 #define ISALIGNED(v,a)      ((((intptr_t)(v)) & ((uintptr_t)(a) - 1)) == 0)
 /* create rfs file.

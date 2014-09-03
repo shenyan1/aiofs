@@ -11,5 +11,8 @@ void lfs_printf (const char *fmt, ...);
 void lfs_printf_debug (const char *fmt, ...);
 void lfs_printf_err (const char *fmt, ...);
 typedef uint64_t u64;
+int response_client (int clifd, int value);
+int response_client_str (int clifd, char *ptr, int len);
 u64 lfsgetblk (lfs_info_t * plfs, inode_t inode, u64 offset);
+#define OUTPUT_MAXSIZE 819200
 #endif

@@ -37,12 +37,12 @@ DEBUG_FUNC	lfs_define.h	7;"	d
 DEBUG_FUNC1	lfs_define.h	12;"	d
 DEBUG_FUNC1	lfs_define.h	6;"	d
 DIR2INODE_COMMAND	lfs_define.h	68;"	d
-DIRINODE_LIST	lfs_dir.c	29;"	d	file:
-DIRINODE_LIST	lfs_direntry.c	27;"	d	file:
-DIRMETADATA	lfs_dir.c	31;"	d	file:
-DIRMETA_ARRAY	lfs_dir.c	30;"	d	file:
-DIRMETA_ARRAY	lfs_direntry.c	28;"	d	file:
-DIRMETA_ARRAY	lfs_dirindex.c	31;"	d	file:
+DIRINODE_LIST	lfs_dir.c	28;"	d	file:
+DIRINODE_LIST	lfs_direntry.c	26;"	d	file:
+DIRMETADATA	lfs_dir.c	30;"	d	file:
+DIRMETA_ARRAY	lfs_dir.c	29;"	d	file:
+DIRMETA_ARRAY	lfs_direntry.c	27;"	d	file:
+DIRMETA_ARRAY	lfs_dirindex.c	30;"	d	file:
 DIR_META_BLKPTR_OFF	lfs_define.h	25;"	d
 DIR_META_SIZE	lfs_define.h	24;"	d
 DIR_UNIX_DOMAIN	lfs_dirserver.h	16;"	d
@@ -52,8 +52,8 @@ DirEntry	lfs_dir.h	/^struct DirEntry$/;"	s
 DirIndexEntry	lfs_dirindex.h	/^typedef struct DirIndexEntry$/;"	s
 DirIndexLeaf	lfs_dirindex.h	/^typedef struct DirIndexLeaf$/;"	s
 DirMetaData	lfs_dir.h	/^typedef struct DirMetaData$/;"	s
-ENTRY_DATA_SIZE	lfs_direntry.c	30;"	d	file:
-ENTRY_DATA_SIZE_TOT	lfs_direntry.c	31;"	d	file:
+ENTRY_DATA_SIZE	lfs_direntry.c	29;"	d	file:
+ENTRY_DATA_SIZE_TOT	lfs_direntry.c	30;"	d	file:
 EnableSize	lfs_dir.c	/^int EnableSize (offset_t _head, offset_t _last, int _len, int _size)$/;"	f
 Ext_mask_	lfs_dir.h	/^    uint32_t Ext_mask_;$/;"	m	struct:DirMetaData
 FALLOCATE_COMMAND	lfs_define.h	70;"	d
@@ -78,12 +78,12 @@ GetIndexDiskPos	lfs_dirindex.c	/^offset_t GetIndexDiskPos (inode_t _inode, int _
 GetNextDirEntry	lfs_direntry.c	/^dir_entry_t *GetNextDirEntry (dir_entry_t * _pe)$/;"	f
 GetfreePosByidx	lfs_freemap.c	/^offset_t GetfreePosByidx (int _idx)$/;"	f
 HASH_MOD	lfs_dirindex.h	10;"	d
-IDXBLK	lfs_dirindex.c	28;"	d	file:
-IDXLEAF	lfs_dirindex.c	29;"	d	file:
-IDXLIST	lfs_dirindex.c	27;"	d	file:
-IDXMAP	lfs_dirindex.c	32;"	d	file:
-IDXNEXTLEAF	lfs_dirindex.c	30;"	d	file:
-IN_MFUG	arc.c	674;"	d	file:
+IDXBLK	lfs_dirindex.c	27;"	d	file:
+IDXLEAF	lfs_dirindex.c	28;"	d	file:
+IDXLIST	lfs_dirindex.c	26;"	d	file:
+IDXMAP	lfs_dirindex.c	31;"	d	file:
+IDXNEXTLEAF	lfs_dirindex.c	29;"	d	file:
+IN_MFUG	arc.c	675;"	d	file:
 IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
 IOCBQUEUE	lfs.h	39;"	d
@@ -132,6 +132,7 @@ LFS_INDEX_BLOCK_SIZE	lfs.h	119;"	d
 LFS_INDEX_DOMAIN	lfs_dirindex.h	8;"	d
 LFS_INVALID	lfs_define.h	52;"	d
 LFS_LOG	lfs_define.h	19;"	d
+LFS_LOG_FNAME	lfs_define.h	79;"	d
 LFS_NFREE	lfs.h	133;"	d
 LFS_OK	lfs_define.h	76;"	d
 LFS_PENDING	lfs_define.h	54;"	d
@@ -178,19 +179,20 @@ OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 OBJ_INIT	lfs_thread.h	12;"	d
 OBJ_LOCK	lfs_thread.h	10;"	d
 OBJ_UNLOCK	lfs_thread.h	11;"	d
+OUTPUT_MAXSIZE	lfs_sys.h	17;"	d
 O_DIRECT_MODE	lfs_define.h	41;"	d
 Open	lfs_dir.c	/^inode_t Open (const char *_pname)$/;"	f
 P2ALIGN	lfs.h	116;"	d
-P2ALIGN	lfs_dir.c	33;"	d	file:
+P2ALIGN	lfs_dir.c	32;"	d	file:
 P2ROUNDUP	lfs.h	115;"	d
-P2ROUNDUP	lfs_dir.c	32;"	d	file:
+P2ROUNDUP	lfs_dir.c	31;"	d	file:
 PQUEUE	lfs_waitqueue.h	33;"	d
 PREFETCH_LENGTH	config.h	8;"	d
 PROGS	Makefile	/^PROGS = lfs_load$/;"	m
 PROTOCAL_SIZE	eserver.c	18;"	d	file:
 PROTOCAL_SIZE	lfs_dirserver.c	18;"	d	file:
 PopListNode	lfs_freemap.c	/^free_node_t *PopListNode (free_node_t * _phead)$/;"	f
-PrintDir	lfs_dir.c	/^int PrintDir (const char *_pdir)$/;"	f
+PrintDir	lfs_dir.c	/^char *PrintDir (const char *_pdir)$/;"	f
 Print_Index	lfs_dirindex.c	/^int Print_Index (inode_t _inode)$/;"	f
 PushListNode	lfs_freemap.c	/^void PushListNode (free_node_t * pnode, uint64_t _off, int _idx)$/;"	f
 QUEUE_SIZE	aio_api.c	45;"	d	file:
@@ -239,7 +241,6 @@ _LFS_DIR_H_	lfs_dir.h	2;"	d
 _LFS_FREEMAP_H_	lfs_freemap.h	2;"	d
 _LFS_H	lfs.h	2;"	d
 _LFS_OPS_H	lfs_ops.h	2;"	d
-_LFS_TEST_H	lfs_test.h	2;"	d
 _LFS_THREAD_H	lfs_thread.h	2;"	d
 _LoadDirEntry	lfs_direntry.c	/^void _LoadDirEntry (dir_entry_t ** ppentry, offset_t _off)$/;"	f
 _XOPEN_SOURCE	lfs.c	2;"	d	file:
@@ -331,6 +332,7 @@ _getdiskpos	lfs_fops.c	/^inline uint64_t _getdiskpos (uint64_t offset)$/;"	f
 _inode_free	rfs_req.c	/^int _inode_free (int id)$/;"	f
 _lfs_pread	lfs_dir.c	/^int _lfs_pread (int fd, void *_ptr, size_t _size, offset_t _pos)$/;"	f
 _lfs_pwrite	lfs_dir.c	/^int _lfs_pwrite (int fd, void *_ptr, size_t _size, offset_t _pos)$/;"	f
+_ptr	lfs_thread.h	/^    char *_ptr;			\/\/ store shm ptr$/;"	m	struct:conn_queue_item
 _removeFile	lfs_fops.c	/^int _removeFile (inode_t id)$/;"	f
 adapt	sarc.h	/^    double adapt;$/;"	m	struct:__sarc
 aio_completion_handler	aio_api.c	/^void *aio_completion_handler (void *thread_data)$/;"	f
@@ -555,12 +557,14 @@ lfs_getshmptr	lfs.c	/^char *lfs_getshmptr (int shmid)$/;"	f
 lfs_info	lfs.h	/^typedef struct lfs_info$/;"	s
 lfs_info_t	lfs.h	/^} lfs_info_t;$/;"	t	typeref:struct:lfs_info
 lfs_init	lfs_main.c	/^int lfs_init ()$/;"	f
+lfs_log	lfs_sys.c	/^int lfs_log(int fd,char *str){$/;"	f
 lfs_malloc	lfs_dir.c	/^int lfs_malloc (void **_ptr, size_t _size)$/;"	f
 lfs_mutex	lfs.c	/^void lfs_mutex (pthread_mutex_t * lock)$/;"	f
 lfs_n	lfs_main.c	/^lfs_info_t lfs_n;$/;"	v
 lfs_obj_cache	lfs.h	/^    cache_t *lfs_obj_cache;$/;"	m	struct:lfs_info
 lfs_printf	lfs_sys.c	/^void lfs_printf (const char *fmt, ...)$/;"	f
 lfs_printf_debug	lfs_sys.c	/^void lfs_printf_debug (const char *fmt, ...)$/;"	f
+lfs_printf_err	lfs_sys.c	/^void lfs_printf_err (const char *fmt, ...)$/;"	f
 lfs_reopen	lfs.c	/^void lfs_reopen ()$/;"	f
 lfs_rworker_thread_fn	eserver.c	/^void *lfs_rworker_thread_fn (void *arg)$/;"	f
 lfs_unmutex	lfs.c	/^void lfs_unmutex (pthread_mutex_t * lock)$/;"	f
@@ -668,7 +672,8 @@ readandmru	sarc.c	/^void readandmru (uint64_t id, uint64_t offset)$/;"	f
 redzone_pattern	lfs_cache.c	/^const uint64_t redzone_pattern = 0xdeadbeefcafebabe;$/;"	v
 ref_cnt	lfs_thread.h	/^    int ref_cnt;$/;"	m	struct:io_queue
 req_queue	lfs.h	/^    CQ *req_queue;$/;"	m	struct:lfs_info
-response_client	eserver.c	/^int response_client (int clifd, int value)$/;"	f
+response_client	lfs_sys.c	/^int response_client (int clifd, int value)$/;"	f
+response_client_str	lfs_sys.c	/^int response_client_str (int clifd, char *ptr, int len)$/;"	f
 rfs_dirworker_th	lfs.h	/^    pthread_t rfs_dirworker_th;$/;"	m	struct:lfs_info
 rfs_dispatcher_th	lfs.h	/^    pthread_t rfs_dispatcher_th;$/;"	m	struct:lfs_info
 rfs_io_queue	lfs_thread.h	/^struct rfs_io_queue$/;"	s
@@ -726,4 +731,4 @@ trace_entry	aio_api.h	/^struct trace_entry$/;"	s
 trace_nextrequest	aio_api.c	/^static int trace_nextrequest (struct trace_entry *req)$/;"	f	file:
 true	lfs.h	5;"	d
 u64	lfs_sys.h	/^typedef uint64_t u64;$/;"	t
-write_done	rfs_req.c	/^void write_done (int clifd, int res)$/;"	f
+write_done	rfs_req.c	/^void write_done (CQ_ITEM * item, int res)$/;"	f

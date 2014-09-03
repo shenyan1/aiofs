@@ -12,7 +12,6 @@
 #include<fcntl.h>
 #include"lfs.h"
 #include"arc.h"
-#include"lfs_test.h"
 #include"lfs_thread.h"
 #include"lfs_ops.h"
 #include"lfs_fops.h"
@@ -62,14 +61,14 @@ int _lfs_pread (int fd, void *_ptr, size_t _size, offset_t _pos)
     offset_t begin = P2ALIGN (_pos, 512);
     offset_t end = P2ROUNDUP (_pos + _size, 512);
     int csize = end - begin;
-    lfs_printf ("pos = %llo %llo %llo\n", _pos, begin, end);
+//    lfs_printf ("pos = %llo %llo %llo\n", _pos, begin, end);
     char *buf;
     lfs_malloc ((void **) &buf, csize);
     memset (buf, 0, csize);
     eRet = pread (fd, buf, end - begin, begin);
     memcpy (_ptr, (void *) buf + _pos - begin, _size);
-    DEBUG_FUNC (buf);
-    DEBUG_FUNC (_ptr);
+//    DEBUG_FUNC (buf);
+//    DEBUG_FUNC (_ptr);
     free (buf);
 #else
     eRet = pread (fd, _ptr, _size, _pos);
@@ -92,8 +91,8 @@ int _lfs_pwrite (int fd, void *_ptr, size_t _size, offset_t _pos)
 	return eRet;
     memcpy (buf + _pos - begin, _ptr, _size);
     eRet = pwrite (fd, buf, csize, begin);
-    DEBUG_FUNC (buf);
-    DEBUG_FUNC (_ptr);
+    //DEBUG_FUNC (buf);
+ //   DEBUG_FUNC (_ptr);
     free (buf);
 #else
     eRet = pwrite (fd, _ptr, _size, _pos);
@@ -611,12 +610,21 @@ inode_t MallocDirInode ()
     return (inode_t) iRet;
 }
 
-int PrintDir (const char *_pdir)
+char *PrintDir (const char *_pdir)
 {
     int len = strlen (_pdir);
-    int i = 0;
+    int i = 0, _len;
     int cnt = 0;
     inode_t inode = 0;
+    char *ptr, *outptr;
+    ptr = malloc (OUTPUT_MAXSIZE);
+    memset(ptr,0,OUTPUT_MAXSIZE);
+    if (ptr == NULL)
+      {
+	  DEBUGER ("malloc failed in %s", __func__);
+	  return NULL;
+      }
+    outptr = ptr;
     if (_pdir[0] != '/')
       {
 	  ALERTER ("%s is invalid dir name", _pdir);
@@ -639,14 +647,14 @@ int PrintDir (const char *_pdir)
 
     if (IsDirorFile (inode) != 1)
       {
-	  SYS_OUT ("No such dir");
-	  return 0;
+	  sprintf (ptr, "No such dir\n");
+	  return ptr;
       }
     if (_pdir[0] != '/' || len != 1)
       {
 	  if (inode == 0)
 	    {
-		SYS_OUT ("No such dir");
+		sprintf (ptr, "No such dir\n");
 		return 0;
 	    }
       }
@@ -661,22 +669,27 @@ int PrintDir (const char *_pdir)
 	  if (off == 0)
 	      continue;
 	  pdir_e = LoadDirEntry (off);
-	  SYS_OUT ("%s:[inode]%d type %s", pdir_e->pname_, pdir_e->inode_,
-		   pdir_e->filetype_ == 1 ? "dir" : "file");
+	  sprintf (ptr, "%s:[inode]%d type %s\n", pdir_e->pname_,
+		   pdir_e->inode_, pdir_e->filetype_ == 1 ? "dir" : "file");
 	  cnt++;
+	  _len = strlen (ptr);
 	  for (; pdir_e != NULL && pdir_e->nextoff_ != 0;)
 	    {
+		ptr += _len;
 		pdir_e = GetNextDirEntry (pdir_e);
-		SYS_OUT ("%s:[inode]%d type %s", pdir_e->pname_,
+		sprintf (ptr, "%s:[inode]%d type %s\n", pdir_e->pname_,
 			 pdir_e->inode_,
 			 pdir_e->filetype_ == 1 ? "dir" : "file");
+		_len = strlen (ptr);
 		cnt++;
 	    }
       }
-    SYS_OUT ("%d entries have been list", cnt);
+    ptr += _len;
+    sprintf (ptr, "%d entries have been list\n", cnt);
+
     if (pdir_e != NULL)
 	free (pdir_e);
-    return 1;
+    return outptr;
 }
 
 int IsEmptyDir (inode_t _inode)

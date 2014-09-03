@@ -17,6 +17,22 @@
 /*dir protocol:
  * OP|len|content
  */
+/* return ptr: get buffer from clifd.
+ */
+char *
+wait_io_str (int clifd)
+{
+    int ret;
+    
+    char *ptr;
+    ptr = malloc(OUTPUT_MAXSIZE); 
+    memset (ptr, 0, OUTPUT_MAXSIZE);
+    read (clifd, ptr, OUTPUT_MAXSIZE);
+    close (clifd);
+    return ptr;
+}
+
+
 char *
 getshmptr (int shmid)
 {
@@ -76,6 +92,41 @@ wait_res (int connfd)
       }
     lfs_printf ("return res:shmid = %d\n", num);
     return num;
+}
+int
+lsfs (char **argv)
+{
+    int ret, connfd, len;
+    char *pro, *ptr,*_output,*fname;
+    fname = *argv;
+    if (strlen (fname) == 0 || fname == NULL)
+	return -1;
+    len = strlen (fname);
+
+    len = 1 + 1 + len;
+    pro = malloc (len);
+    memset (pro, 0, len);
+    ptr = pro;
+    *pro = LIST_COMMAND;
+    pro = pro + 1;
+    *pro = strlen (fname);
+    pro = pro + 1;
+    strcpy (pro, fname);
+
+    connfd = _rfs_send_dirrequest (ptr, len);
+    if (connfd < 0)
+      {
+	  lfs_printf ("create conn socket failed");
+	  return LFS_FAILED;
+      }
+    _output = wait_io_str (connfd);
+    if(_output!=NULL){
+	printf("%s",_output);
+        ret = LFS_OK;
+    }
+    else ret = -1;
+    return ret;
+   
 }
 
 int
@@ -179,7 +230,6 @@ fdisfree (int fid)
     free (pt);
     return isfree;
 }
-
 
 
 

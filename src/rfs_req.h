@@ -3,7 +3,7 @@
 
 
 
-void write_done (CQ_ITEM *item, int res);
+void write_done (CQ_ITEM * item, int res);
 int process_request (char *buf, int clifd);
 int process_dirrequest (char *buf, int clifd);
 #endif

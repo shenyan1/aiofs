@@ -74,6 +74,10 @@ typedef uint64_t offset_t;
 
 #define LFS_FAILED -1
 #define LFS_OK 0
+
+//#define LFS_DAEMON 0
+#define LFS_LOG_FNAME "/tmp/rfs_logs"
+
 //#define _LFS_DEBUG 1
 /*
 

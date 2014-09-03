@@ -21,40 +21,7 @@
  */
 extern lfs_info_t lfs_n;
 static struct epoll_event *events;
-#if 0
-static inline int ioreq_enqueue (char *socket_buf)
-{
 
-    CQ_ITEM *item = cqi_new ();
-    sprintf (socket_buf, "%c%d%d%" PRIu64 "%d", item->fops, item->fid,
-	     item->shmid, item->offset, item->size);
-    item->fops = item->fops - '0';
-//    lfs_printf("readstate =%d",_obj->read_state);
-    cq_push (lfs_n.req_queue, item);
-
-    return 1;
-}
-#endif
-
-
-/* this method is used for N(blocks) <= 1.
- */
-int response_client (int clifd, int value)
-{
-    char num[5];
-    int *ptr;
-    ptr = num;
-    *ptr = value;
-    if (clifd < 0)
-	lfs_printf ("client socket is invalid\n");
-    if (write (clifd, num, 5 * sizeof (char)) < 0)
-      {
-	  perror ("response to client failed with -1");
-	  return -1;
-
-      }
-    return LFS_SUCCESS;
-}
 
 /* rfs_iowrite put the item into aio_req.
  */

@@ -11,7 +11,6 @@
 #include<fcntl.h>
 #include"lfs.h"
 #include"arc.h"
-#include"lfs_test.h"
 #include"lfs_thread.h"
 #include"lfs_ops.h"
 #include"lfs_fops.h"
@@ -69,12 +68,15 @@ dir_entry_t *LoadDirEntry (offset_t _off)
 {
     if (_off < LFS_DATA_DOMAIN)
       {				//error off
-	  DEBUGER ("Error off%lu", _off);
+	  printf ("Error off%lu\n", _off);
 	  return NULL;
       }
     dir_entry_t *pentry = (dir_entry_t *) malloc (sizeof (dir_entry_t));
 //    printf("pentry=%p before \n",pentry);
+    if(pentry==NULL)
+	return NULL;
 #ifdef O_DIRECT_MODE
+   
     _lfs_pread (lfs_n.fd, pentry, ENTRY_DATA_SIZE, _off);
 #else
     pread (lfs_n.fd, pentry, ENTRY_DATA_SIZE, _off);
@@ -122,7 +124,8 @@ dir_entry_t *GetNextDirEntry (dir_entry_t * _pe)
 	  return NULL;
       }
     dir_entry_t *pRet = LoadDirEntry ((offset_t) _pe->nextoff_);
-    free (_pe->pname_);
+    if (_pe->pname_ != NULL)
+	free (_pe->pname_);
     free (_pe);
     return pRet;
 }

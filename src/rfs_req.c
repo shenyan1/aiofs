@@ -62,20 +62,22 @@ int getfiles (char *buf)
     return lfs_n.max_files;
 }
 
-void write_done (CQ_ITEM *item, int res)
+void write_done (CQ_ITEM * item, int res)
 {
-    int ret ,clifd = item->clifd;
+    int ret, clifd = item->clifd;
 //    printf("clifd = %d\n",clifd);
     if (clifd <= 0)
 	res = -1;
     else
       {
-	 ret = shmdt(item->_ptr);
-	  printf("ret =%d\n",ret);
-	  if(ret== -1){
-		lfs_printf_err("write call back failed to detach the share memory\n");
-		assert(0);
-	  }
+	  ret = shmdt (item->_ptr);
+	  printf ("ret =%d\n", ret);
+	  if (ret == -1)
+	    {
+		lfs_printf_err
+		    ("write call back failed to detach the share memory\n");
+		assert (0);
+	    }
 	  lfs_printf ("write has been done\n");
 	  response_client (clifd, res);
       }
@@ -145,8 +147,8 @@ int RemoveFile (char *fname)
 int process_dirrequest (char *buf, int clifd)
 {
 
-    int len;
-    char *fname, op;
+    int len, _len;
+    char *fname, op, *outptr;
 //    lfs_printf ("in the process_dir request\n");
     op = *buf;
     len = *(buf + 1);
@@ -173,8 +175,10 @@ int process_dirrequest (char *buf, int clifd)
 	  break;
       case LIST_COMMAND:
 	  lfs_printf ("list dir\n");
-	  iRes = PrintDir (fname);;
-	  response_client (clifd, iRes);
+	  outptr = PrintDir (fname);
+	  _len = strlen (outptr);
+	  response_client_str (clifd, outptr, _len);
+	  free(outptr);
 	  break;
       case RMFILE_COMMAND:
 	  lfs_printf ("remove a file\n");

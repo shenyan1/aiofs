@@ -112,8 +112,8 @@ static int trace_nextrequest (struct trace_entry *req)
 	  lfs_printf ("req->startbyte =%d,offset=%d,meta_table[0]=%d\n",
 		      req->startbyte, item->offset,
 		      lfs_n.f_table[fid].meta_table[0]);
-//	  lfs_printf ("req's data=%c%c\n", *getshmptr (item->shmid),
-//		      *(getshmptr (item->shmid) + 1));
+//        lfs_printf ("req's data=%c%c\n", *getshmptr (item->shmid),
+//                    *(getshmptr (item->shmid) + 1));
       }
     if (req->bytecount < 0)
       {
@@ -170,7 +170,7 @@ void *aio_completion_handler (void *thread_data)
 		  {
 		      obj = this_io->item->obj;
 		      arc_read_done (obj);
-		      printf("whats up");
+		      printf ("whats up");
 		  }
 		else if (this_io->item->fops == WRITE_COMMAND)
 		  {

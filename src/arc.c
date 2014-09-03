@@ -84,7 +84,7 @@ void print_obj (struct __arc_object *obj, const char *str)
     struct object *objc;
     objc = getobj (obj);
     printf ("%s: obj=%p offset=%" PRIu64 ",read_state =%d,id=%" PRIu64
-		"\n", str, obj, objc->offset, obj->read_state, objc->id);
+	    "\n", str, obj, objc->offset, obj->read_state, objc->id);
 }
 
 uint64_t arc_hash_init ()
@@ -657,8 +657,8 @@ inline void arc_read_done (struct __arc_object *obj)
     assert (obj->state == &lfs_n.arc_cache->mru);
 
     mutex_enter (&obj->obj_lock, __func__, __LINE__);
-    if(obj->read_state != READ_STATE)
-	print_obj(obj,__func__);
+    if (obj->read_state != READ_STATE)
+	print_obj (obj, __func__);
     assert (obj->read_state == READ_STATE);
     obj->read_state = READ_FINISHED;
 
@@ -700,11 +700,11 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		    (obj->state == &cache->mfu
 		     && (&obj->head != cache->mfu.head.next)))
 		  {
-//		      print_obj (obj, "move to mfu in lookup");
+//                    print_obj (obj, "move to mfu in lookup");
 		      __arc_move (cache, obj, &cache->mfu, OBJ_UNLOCK);
 		  }
 		mutex_exit (hash_lock, __func__);
-//		print_obj (obj, "end in arc_lookup");
+//              print_obj (obj, "end in arc_lookup");
 //              lfs_printf_debug ("cache hit\n");
 		return obj;
 	    }
@@ -764,7 +764,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		__arc_hash_insert (cache, key, obj, hash_lock);
 		__arc_adjust (cache);	//obj->size
 
-//		print_obj (obj, "first insert");
+//              print_obj (obj, "first insert");
 /*  wait I/O return
  */
 		pobj = pobject_create (item);
@@ -779,7 +779,7 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		       || obj->read_state == READ_HALF_FINISHED))
 	    {
 		mutex_exit (hash_lock, __func__);
-//		print_obj (obj, __LINE__);
+//              print_obj (obj, __LINE__);
 
 		pobj = pobject_create (item);
 		pending_hash_insert (pobj);
