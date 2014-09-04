@@ -669,7 +669,7 @@ char *PrintDir (const char *_pdir)
 	  if (off == 0)
 	      continue;
 	  pdir_e = LoadDirEntry (off);
-	  sprintf (ptr, "%s:[inode]%d type %s\n", pdir_e->pname_,
+	  sprintf (ptr, "%s: %d %s\n", pdir_e->pname_,
 		   pdir_e->inode_, pdir_e->filetype_ == 1 ? "dir" : "file");
 	  cnt++;
 	  _len = strlen (ptr);
@@ -677,7 +677,7 @@ char *PrintDir (const char *_pdir)
 	    {
 		ptr += _len;
 		pdir_e = GetNextDirEntry (pdir_e);
-		sprintf (ptr, "%s:[inode]%d type %s\n", pdir_e->pname_,
+		sprintf (ptr, "%s: %d %s\n", pdir_e->pname_,
 			 pdir_e->inode_,
 			 pdir_e->filetype_ == 1 ? "dir" : "file");
 		_len = strlen (ptr);

@@ -14,5 +14,5 @@ typedef uint64_t u64;
 int response_client (int clifd, int value);
 int response_client_str (int clifd, char *ptr, int len);
 u64 lfsgetblk (lfs_info_t * plfs, inode_t inode, u64 offset);
-#define OUTPUT_MAXSIZE 819200
+#define OUTPUT_MAXSIZE 1819200
 #endif
