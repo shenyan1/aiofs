@@ -48,9 +48,10 @@ int rfs_ioread (CQ_ITEM * item)
     offset = item->offset;
     size = item->size;
     id = item->fid;
-    l_off = getdiskpos (offset);
-    r_off = getdiskpos (offset + size);
-    nblks = (getdiskrpos (offset + size) - getdiskpos (offset)) >> 20;
+    l_off = P2ALIGN (offset, LFS_BLKSIZE);
+    r_off = P2ALIGN (offset + size, LFS_BLKSIZE);
+    nblks =
+	(getdiskrpos (offset + size) - P2ALIGN (offset, LFS_BLKSIZE)) >> 20;
     bufoff = offset - l_off;
     tocpy = LFS_BLKSIZE - offset + bufoff;
     if (id < 0 || id > lfs_n.max_files)

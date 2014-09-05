@@ -83,17 +83,6 @@ _rfs_send_dirrequest (char *proto, int len)
 }
 
 
-char *
-getshmptr (int shmid)
-{
-    char *ptr = 0;
-    if (shmid > 0)
-	ptr = shmat (shmid, NULL, 0);
-    if (ptr == -1)
-	perror ("what's wrong\n");
-    return ptr;
-}
-
 inline uint64_t
 getdiskpos (uint64_t offset)
 {

@@ -86,7 +86,6 @@ inline int pending_hash_remove (struct object *obj)
     iter = list_head->next;
     for (ptr = iter->next; iter != list_head; ptr = ptr->next)
       {
-	  char *bptr;
 	  lfs_printf ("iter=%p\n", iter);
 	  struct pend_object *_obj =
 	      __arc_list_entry (iter, pend_object_t, hash);
@@ -94,8 +93,7 @@ inline int pending_hash_remove (struct object *obj)
 	    {
 		__arc_list_remove (&_obj->hash);
 		lfs_printf ("remove data in hash,line:%d\n", __LINE__);
-		bptr = id2protocol (obj->obj_data->shmid);
-		rfs_return_data (bptr, sizeof (int) + 1, _obj->clifd);
+		response_client (_obj->clifd, obj->obj_data->shmid);
 	    }
 	  iter = ptr;
       }

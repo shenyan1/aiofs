@@ -17,6 +17,7 @@
 #include"lfs_cache.h"
 #include"aio_api.h"
 #include"lfs_sys.h"
+#include<stdarg.h>
 #include<sys/resource.h>
 #include<signal.h>
 #include<sys/shm.h>
@@ -168,4 +169,76 @@ void daemonize (const char *cmd)
     fd0 = open ("/dev/null", O_RDWR);
     fd1 = dup (0);
     fd2 = dup (0);
+}
+
+void lfs_printf_debug (const char *fmt, ...)
+{
+    //  assert(0);
+    va_list ap;
+    char *ret;
+    int err;
+    va_start (ap, fmt);
+    err = vasprintf (&ret, fmt, ap);
+    va_end (ap);
+//#ifdef _LFS_DEBUG
+    printf ("%s", ret);
+//#endif
+}
+
+void lfs_printf_err (const char *fmt, ...)
+{
+
+    va_list ap;
+    char *ret;
+    int err;
+    va_start (ap, fmt);
+    err = vasprintf (&ret, fmt, ap);
+    va_end (ap);
+    printf (ret);
+}
+
+void lfs_printf (const char *fmt, ...)
+{
+
+#ifdef _LFS_DEBUG
+    va_list ap;
+    char *ret;
+    int err;
+    va_start (ap, fmt);
+    err = vasprintf (&ret, fmt, ap);
+    va_end (ap);
+    printf (ret);
+#endif
+}
+
+int response_client_str (int clifd, char *ptr, int len)
+{
+
+    if (clifd < 0)
+	lfs_printf ("client socket is invalid\n");
+    if (write (clifd, ptr, len) < 0)
+      {
+	  perror ("response to client failed with -1");
+	  return -1;
+
+      }
+    return LFS_SUCCESS;
+
+}
+
+int response_client (int clifd, int value)
+{
+    char num[5];
+    int *ptr;
+    ptr = (int *) num;
+    *ptr = value;
+    if (clifd < 0)
+	lfs_printf ("client socket is invalid\n");
+    if (write (clifd, num, 5 * sizeof (char)) < 0)
+      {
+	  perror ("response to client failed with -1");
+	  return -1;
+
+      }
+    return LFS_SUCCESS;
 }

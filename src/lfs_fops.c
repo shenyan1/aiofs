@@ -169,9 +169,9 @@ inline uint64_t getdiskrpos (uint64_t offset)
 
     if (offset % LFS_BLKSIZE == 0)
       {
-	  return getdiskpos (offset);
+	  return P2ALIGN (offset, LFS_BLKSIZE);
       }
-    return getdiskpos (offset) + (1 << 20);
+    return P2ALIGN (offset, LFS_BLKSIZE) + (1 << 20);
 
 }
 

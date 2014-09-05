@@ -4,11 +4,13 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include<assert.h>
+#include<sys/types.h>
 #include<sys/time.h>
 #include<stdarg.h>
 #include<signal.h>
 #include"lfs.h"
 #include"lfs_sys.h"
+#include<sys/shm.h>
 #include<sys/resource.h>
 uint64_t getlocalp (uint64_t id)
 {
@@ -41,37 +43,7 @@ int lfs_log (int fd, char *str)
     return LFS_OK;
 }
 
-int response_client_str (int clifd, char *ptr, int len)
-{
 
-    if (clifd < 0)
-	lfs_printf ("client socket is invalid\n");
-    if (write (clifd, ptr, len) < 0)
-      {
-	  perror ("response to client failed with -1");
-	  return -1;
-
-      }
-    return LFS_SUCCESS;
-
-}
-
-int response_client (int clifd, int value)
-{
-    char num[5];
-    int *ptr;
-    ptr = (int *) num;
-    *ptr = value;
-    if (clifd < 0)
-	lfs_printf ("client socket is invalid\n");
-    if (write (clifd, num, 5 * sizeof (char)) < 0)
-      {
-	  perror ("response to client failed with -1");
-	  return -1;
-
-      }
-    return LFS_SUCCESS;
-}
 
 uint64_t getphymemsize ()
 {
@@ -106,45 +78,6 @@ u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)
     return blkptr;
 }
 
-void lfs_printf_debug (const char *fmt, ...)
-{
-    //  assert(0);
-    va_list ap;
-    char *ret;
-    int err;
-    va_start (ap, fmt);
-    err = vasprintf (&ret, fmt, ap);
-    va_end (ap);
-//#ifdef _LFS_DEBUG
-    printf (ret);
-//#endif
-}
-
-void lfs_printf_err (const char *fmt, ...)
-{
-
-    va_list ap;
-    char *ret;
-    int err;
-    va_start (ap, fmt);
-    err = vasprintf (&ret, fmt, ap);
-    va_end (ap);
-    printf (ret);
-}
-
-void lfs_printf (const char *fmt, ...)
-{
-
-#ifdef _LFS_DEBUG
-    va_list ap;
-    char *ret;
-    int err;
-    va_start (ap, fmt);
-    err = vasprintf (&ret, fmt, ap);
-    va_end (ap);
-    printf (ret);
-#endif
-}
 
 
 int lfs_trylock_fd (int fd)
@@ -168,4 +101,14 @@ int lfs_unlock_fd (int fd)
     if (fcntl (fd, F_SETLK, &fl) == -1)
 	return -1;
     return LFS_OK;
+}
+
+char *getshmptr (int shmid)
+{
+    char *ptr = 0;
+    if (shmid > 0)
+	ptr = shmat (shmid, NULL, 0);
+    if (ptr == -1)
+	perror ("what's wrong\n");
+    return ptr;
 }
