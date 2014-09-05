@@ -19,7 +19,7 @@ char *id2protocol (int shmid);
  * fsid is reserved for future.
  */
 int curmax_files (int fsid);
-
+int stopfs();
 int wait_res (int connfd);
 
 int lsfs (char **argv);

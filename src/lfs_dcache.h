@@ -37,6 +37,8 @@ struct dcache_object
 typedef struct dcache_object dcache_object_t;
 inline int dcache_hash_insert (uint32_t key, dcache_object_t * obj);
 void dcache_hash_init ();
+uint32_t dcache_hash (const char *str, int len);
+
 int dcache_insert (inode_t pinode, const char *fname, inode_t inode);
 int dcache_remove (inode_t pinode, char *fname);
 inode_t dcache_lookup (inode_t pinode, const char *fname);

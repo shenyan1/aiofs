@@ -40,7 +40,7 @@ FormatBlkptr (int fd, int inode, uint64_t ptr)
     uint64_t pos = getlocalp (inode);
     pos += 3 * 8;
     pos += 4 + 1 + 4;
-    lfs_printf ("format blkptr=%" PRIu64 ",off=%d\n", ptr, pos);
+    printf ("format blkptr=%" PRIu64 ",off=%d\n", ptr, pos);
     pwrite (fd, &ptr, sizeof (uint64_t), pos);
     // format 56 small block.
     pwrite (fd, buf, 56 * sizeof (uint64_t), pos + 8);

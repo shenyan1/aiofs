@@ -37,7 +37,7 @@ FormatFSinformation (int fd)
 {
     int n;
     n = sizeof (FSNAME) + sizeof (VERSION);
-    lfs_printf ("n=%d", n);
+    printf ("n=%d", n);
     write (fd, FSNAME, sizeof (FSNAME));
     write (fd, VERSION, sizeof (VERSION));
     freemap = malloc (16 << 20);
@@ -70,12 +70,12 @@ FormatFileEntry (int fd)
     memset (buffer, 0, FILE_ENTRYS * 8);
     uint64_t disk_off, tmpoff;
     uint64_t offset = LFS_DATA_DOMAIN;
-    lfs_printf ("data domain%llu %llu\n", LFS_DIR_INDEX_ENTRY, offset);
+    printf ("data domain%llu %llu\n", LFS_DIR_INDEX_ENTRY, offset);
     max_files = getmaxfiles ();
     disk_off = LFS_FILE_ENTRY;
     tmpoff = offset;
     lseek (fd, disk_off, SEEK_SET);
-    lfs_printf ("disk_off =%d\n", disk_off);
+    printf ("disk_off =%d\n", disk_off);
     for (i = 0; i < MAX_FILE_NO; i++)
       {
 	  if (i < max_files)
@@ -144,7 +144,7 @@ void FormatDirEntry(int _fd)
 																		    }
 											    free(buffer);
 												    DEBUG_FUNC("format dir_meta succeeded");
-													    lfs_printf(" Format Dir_Meta succeeded @%s: %d\n", __FILE__, __LINE__);
+													    printf(" Format Dir_Meta succeeded @%s: %d\n", __FILE__, __LINE__);
 														}
 														
 														void InitRootDir(int _fd, uint64_t _off){
@@ -160,14 +160,14 @@ FormatSpaceEntry (int fd)
 
     offset = LFS_DATA_DOMAIN;
     size = tot_size - offset;
-    lfs_printf ("off=%" PRIu64 ",size=%" PRIu64 "\n", offset, size);
+    printf ("off=%" PRIu64 ",size=%" PRIu64 "\n", offset, size);
 
     if (size % AVG_FSIZE == 0)
 	r_sizes = 0;
     else
 	r_sizes = size - max_files * AVG_FSIZE;
     r_sizes /= (1024 * 1024);
-    lfs_printf ("It can contains %d 200M files,and reserves %" PRIu64
+    printf ("It can contains %d 200M files,and reserves %" PRIu64
 		"M size \n", max_files, r_sizes);
     pwrite (fd, &max_files, sizeof (uint32_t), sizeof (uint64_t));
 ///
@@ -180,13 +180,13 @@ FormatSpaceEntry (int fd)
 ///
 // format the root_director 
 //
-    lfs_printf ("freemap %" PRIu64 "\n", freemap[0]);
+    printf ("freemap %" PRIu64 "\n", freemap[0]);
     InitRootDir (fd, freemap[0]);
     freemap[0] = 0;		// set the freemap is not free     
     pwrite (fd, freemap, 16 << 20, LFS_SPACE_ENTRY);
-    lfs_printf ("freemap %" PRIu64 "\n", freemap[0]);
+    printf ("freemap %" PRIu64 "\n", freemap[0]);
 //      for (i = 0; i < 1024; i++)
-//              lfs_printf ("%d free is %" PRIu64 "\n", i, freemap[i]);
+//              printf ("%d free is %" PRIu64 "\n", i, freemap[i]);
 //      pwrite (fd, &ptr, sizeof (uint64_t), LFS_SPACE_ENTRY + fidx * BLKPTRSIZE);
     /// format the space_entry
     //by geners 2014-07-29 
@@ -200,14 +200,14 @@ main (int argc, char *argv[])
 {
     int fd;
     int flag = O_WRONLY | O_CREAT;
-    lfs_printf ("Going to Format LFS now\n");
-    lfs_printf ("the totoal memsize is %" PRIu64 "\n", getphymemsize ());
-//      lfs_printf ("test");
+    printf ("Going to Format LFS now\n");
+    printf ("the totoal memsize is %" PRIu64 "\n", getphymemsize ());
+//      printf ("test");
     tot_size = getFilesize (argv[1]);
-    lfs_printf ("totsize=%" PRIu64 "\n", tot_size);
+    printf ("totsize=%" PRIu64 "\n", tot_size);
     if (argv[1] == NULL)
       {
-	  lfs_printf ("The LFS request a block device\n ");
+	  printf ("The LFS request a block device\n ");
 	  exit (1);
       }
     fd = open (argv[1], flag, 0666);

@@ -83,7 +83,7 @@ void write_done (CQ_ITEM * item, int res)
       }
 }
 
-int stopfs (void)
+static int stopfs (void)
 {
     lfs_n.stopfs = true;
     cv_broadcast (&lfs_n.stop_cv);
@@ -178,7 +178,7 @@ int process_dirrequest (char *buf, int clifd)
 	  outptr = PrintDir (fname);
 	  _len = strlen (outptr);
 	  response_client_str (clifd, outptr, _len);
-	  free(outptr);
+	  free (outptr);
 	  break;
       case RMFILE_COMMAND:
 	  lfs_printf ("remove a file\n");

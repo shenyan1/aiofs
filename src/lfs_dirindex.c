@@ -589,7 +589,7 @@ int Init_Dcache (inode_t _inode)
 		cntIF++;
 		off = LoadSingleLeaf (off);
 		dir_entry_t *pdir = LoadDirEntry (off);
-		assert(pdir!=NULL);
+		assert (pdir != NULL);
 		int iRet = dcache_lookup (_inode, pdir->pname_);
 		if (iRet != 0)
 		  {

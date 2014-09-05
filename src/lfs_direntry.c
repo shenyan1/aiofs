@@ -73,10 +73,10 @@ dir_entry_t *LoadDirEntry (offset_t _off)
       }
     dir_entry_t *pentry = (dir_entry_t *) malloc (sizeof (dir_entry_t));
 //    printf("pentry=%p before \n",pentry);
-    if(pentry==NULL)
+    if (pentry == NULL)
 	return NULL;
 #ifdef O_DIRECT_MODE
-   
+
     _lfs_pread (lfs_n.fd, pentry, ENTRY_DATA_SIZE, _off);
 #else
     pread (lfs_n.fd, pentry, ENTRY_DATA_SIZE, _off);
