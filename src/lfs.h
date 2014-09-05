@@ -32,17 +32,18 @@ typedef struct read_entry
     int shmid;
 } read_entry_t;
 
+struct loginfo
+{
+    int fd;
+    char *logfile;
+};
+typedef struct loginfo loginfo_t;
 struct lfs_instance
 {
     char fname[20];		// /dev/sdf11
     int fd;
 };
 typedef struct lfs_instance lfs_instance_t;
-#define FREELIST_LOCK lfs_n.cq_info.cqi_freelist_lock;
-#define RFS_AIOQ    lfs_n.aioq
-#define RFS_RQ      lfs_n.req_queue
-#define IOCBQ_MUTEX lfs_n.cq_info.iocb_queue_mutex
-#define IOCBQUEUE lfs_n.cq_info.iocbq
 typedef struct lfs_info
 {
     int fd;
@@ -98,6 +99,7 @@ typedef struct lfs_info
     pthread_t rfs_receiver_th;
     pthread_t rfs_worker_th;
     lfs_instance_t instance;
+    loginfo_t log;
 } lfs_info_t;
 extern uint64_t getphymemsize (void);
 void lfs_reopen ();
@@ -108,52 +110,9 @@ typedef struct kmutex
     pthread_mutex_t m_lock;
 } kmutex_t;
 
-#define AIO_INFO lfs_n.cq_info
-#define FSNAME "LFS"
-#define VERSION "01"
-#define MAX_FILE_NO (10<<10)
+int response_client (int clifd, int value);
+int response_client_str (int clifd, char *ptr, int len);
 
-#define MAX_FILES (10<<10)
-
-#define LFS_SPACE_ENTRY LFS_FREEMAP_ENTRY
-#define LFS_DIR_INDEX_BITMAP (LFS_FREEMAP_ENTRY + (1<<20)* 2 * sizeof(uint64_t))
-//(LFS_FILE_ENTRY+(2*sizeof(uint32_t)+sizeof(uint64_t)+57*sizeof(uint64_t))*MAX_FILES)
-
-#define P2ROUNDUP(x, align)	(-(-(x) & -(align)))
-#define P2ALIGN(x, align)	((x) & -(align))
-#define AVG_FSIZE (200<<20)
-#define MAX_FSIZE (256<<20)
-#define LFS_INDEX_BLOCK_SIZE (4<<10)
-
-#define LFS_INDEXMAP_SIZE (25 * (1<<9))
-#define LFS_DATA_DOMAIN1  ( LFS_DIR_INDEX_BITMAP + LFS_INDEXMAP_SIZE )
-#define LFS_DIR_INDEX_ENTRY P2ROUNDUP(LFS_DATA_DOMAIN1,1<<9)
-#define LFS_DATA_DOMAIN  (LFS_DIR_INDEX_ENTRY + 2*AVG_FSIZE)
-#define LFS_FINODE_START 100000
-
-
-
-#define FILE_ENTRYS 57
-
-#define LFS_FREE 0
-
-#define LFS_NFREE 1
-
-#define MAX_FSIZE (256<<20)
-
-#define BLKSHIFT 20
-#define ASSERT assert
-
-#define VERIFY assert
-
-#define MIN(a, b)       ((a) < (b) ? (a) : (b))
-#define MAX(a, b)       ((a) < (b) ? (b) : (a))
-
-
-#define LFS_BLKSIZE (1<<20)
-/* rfs_return_data: return the protocol (error code or data) to client.
- * 
- */
 int rfs_return_data (char *proto, int len, int clifd);
 
 uint64_t cur_usec (void);
@@ -164,4 +123,8 @@ int buf2id (char *ptr);
 extern void lfs_unmutex (pthread_mutex_t * lock);
 char *getshmptr (int shmid);
 int lfs_genflock (char *filename);
+void lfs_printf (const char *fmt, ...);
+void lfs_printf_debug (const char *fmt, ...);
+void lfs_printf_err (const char *fmt, ...);
+
 #endif
