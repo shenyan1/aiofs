@@ -9,8 +9,8 @@ CCFLAGS = -g -Wall -O0
 LIBS  = -lpthread -laio
 lfs_format:$(OBJ1S)
 	$(CC) -o $@ $^
-all: client
-client:$(OBJ2S)
+all: iotool
+iotool:$(OBJ2S)
 	$(CC) $^ -g -o $@ $(LIBS)
 %.o:%.c
 	$(CC) -c $< $(CCFLAGS)

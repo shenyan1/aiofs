@@ -32,6 +32,12 @@ typedef struct read_entry
     int shmid;
 } read_entry_t;
 
+struct lfs_instance
+{
+    char fname[20];		// /dev/sdf11
+    int fd;
+};
+typedef struct lfs_instance lfs_instance_t;
 #define FREELIST_LOCK lfs_n.cq_info.cqi_freelist_lock;
 #define RFS_AIOQ    lfs_n.aioq
 #define RFS_RQ      lfs_n.req_queue
@@ -91,6 +97,7 @@ typedef struct lfs_info
  */
     pthread_t rfs_receiver_th;
     pthread_t rfs_worker_th;
+    lfs_instance_t instance;
 } lfs_info_t;
 extern uint64_t getphymemsize (void);
 void lfs_reopen ();
@@ -156,4 +163,5 @@ extern void lfs_mutex (pthread_mutex_t * lock);
 int buf2id (char *ptr);
 extern void lfs_unmutex (pthread_mutex_t * lock);
 char *getshmptr (int shmid);
+int lfs_genflock (char *filename);
 #endif

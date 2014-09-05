@@ -1,0 +1,1568 @@
+execve("/usr/bin/killall", ["killall", "lfs_load"], [/* 22 vars */]) = 0
+brk(0)                                  = 0xa21000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186778000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=56490, ...}) = 0
+mmap(NULL, 56490, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676a000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240\355\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1596808, ...}) = 0
+mmap(NULL, 3704840, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fb1861d2000
+mprotect(0x7fb186351000, 2097152, PROT_NONE) = 0
+mmap(0x7fb186551000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x17f000) = 0x7fb186551000
+mmap(0x7fb186556000, 18440, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fb186556000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186769000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186768000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186767000
+arch_prctl(ARCH_SET_FS, 0x7fb186768700) = 0
+mprotect(0x7fb186551000, 16384, PROT_READ) = 0
+mprotect(0x604000, 4096, PROT_READ)     = 0
+mprotect(0x7fb18677a000, 4096, PROT_READ) = 0
+munmap(0x7fb18676a000, 56490)           = 0
+brk(0)                                  = 0xa21000
+brk(0xa42000)                           = 0xa42000
+open("/usr/lib/locale/locale-archive", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/locale.alias", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2570, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186777000
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2570
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7fb186777000, 4096)            = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_IDENTIFICATION", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_IDENTIFICATION", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=373, ...}) = 0
+mmap(NULL, 373, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186777000
+close(3)                                = 0
+open("/usr/lib/gconv/gconv-modules.cache", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=26048, ...}) = 0
+mmap(NULL, 26048, PROT_READ, MAP_SHARED, 3, 0) = 0x7fb186770000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MEASUREMENT", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MEASUREMENT", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=23, ...}) = 0
+mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676f000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_TELEPHONE", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_TELEPHONE", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=59, ...}) = 0
+mmap(NULL, 59, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676e000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_ADDRESS", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_ADDRESS", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=155, ...}) = 0
+mmap(NULL, 155, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676d000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_NAME", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_NAME", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=77, ...}) = 0
+mmap(NULL, 77, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676c000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_PAPER", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_PAPER", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34, ...}) = 0
+mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676b000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MESSAGES", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MESSAGES", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+close(3)                                = 0
+open("/usr/lib/locale/en_US.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=57, ...}) = 0
+mmap(NULL, 57, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb18676a000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_MONETARY", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_MONETARY", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=286, ...}) = 0
+mmap(NULL, 286, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186766000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_COLLATE", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_COLLATE", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1170770, ...}) = 0
+mmap(NULL, 1170770, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186648000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_TIME", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_TIME", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2454, ...}) = 0
+mmap(NULL, 2454, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186647000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_NUMERIC", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_NUMERIC", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=54, ...}) = 0
+mmap(NULL, 54, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186646000
+close(3)                                = 0
+open("/usr/lib/locale/en_US.UTF-8/LC_CTYPE", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/lib/locale/en_US.utf8/LC_CTYPE", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=256324, ...}) = 0
+mmap(NULL, 256324, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fb186607000
+close(3)                                = 0
+stat("/proc/self/stat", {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+getpid()                                = 10186
+open("/proc", O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = 3
+fcntl(3, F_GETFD)                       = 0x1 (flags FD_CLOEXEC)
+getdents(3, /* 264 entries */, 32768)   = 6744
+getdents(3, /* 0 entries */, 32768)     = 0
+close(3)                                = 0
+open("/proc/1/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1 (init) S 0 1 1 0 -1 4202752 94"..., 1024) = 250
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/2/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "2 (kthreadd) S 0 0 0 0 -1 214961"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/3/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "3 (migration/0) S 2 0 0 0 -1 221"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/4/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "4 (ksoftirqd/0) S 2 0 0 0 -1 221"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/5/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "5 (watchdog/0) S 2 0 0 0 -1 2216"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/6/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "6 (migration/1) S 2 0 0 0 -1 221"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/7/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "7 (ksoftirqd/1) S 2 0 0 0 -1 221"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/8/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "8 (watchdog/1) S 2 0 0 0 -1 2216"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9/stat", O_RDONLY)          = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9 (migration/2) S 2 0 0 0 -1 221"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/10/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "10 (ksoftirqd/2) S 2 0 0 0 -1 22"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/11/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "11 (watchdog/2) S 2 0 0 0 -1 221"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/12/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "12 (migration/3) S 2 0 0 0 -1 22"..., 1024) = 164
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/13/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "13 (ksoftirqd/3) S 2 0 0 0 -1 22"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/14/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "14 (watchdog/3) S 2 0 0 0 -1 221"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/15/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "15 (events/0) S 2 0 0 0 -1 22167"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/16/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "16 (events/1) S 2 0 0 0 -1 22167"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/17/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "17 (events/2) S 2 0 0 0 -1 22167"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/18/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "18 (events/3) S 2 0 0 0 -1 22167"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/19/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "19 (cpuset) S 2 0 0 0 -1 2149613"..., 1024) = 156
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/20/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "20 (khelper) S 2 0 0 0 -1 214961"..., 1024) = 157
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/21/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "21 (async/mgr) S 2 0 0 0 -1 2149"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/22/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "22 (pm) S 2 0 0 0 -1 2149580864 "..., 1024) = 152
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/24/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "24 (sync_supers) S 2 0 0 0 -1 21"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/25/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "25 (bdi-default) S 2 0 0 0 -1 21"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/26/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "26 (kintegrityd/0) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/27/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "27 (kintegrityd/1) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/28/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "28 (kintegrityd/2) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/29/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "29 (kintegrityd/3) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/30/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "30 (kblockd/0) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/31/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "31 (kblockd/1) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/32/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "32 (kblockd/2) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/33/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "33 (kblockd/3) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/34/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "34 (kacpid) S 2 0 0 0 -1 2149613"..., 1024) = 156
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/35/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "35 (kacpi_notify) S 2 0 0 0 -1 2"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/36/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "36 (kacpi_hotplug) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/37/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "37 (ata/0) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/38/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "38 (ata/1) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/39/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "39 (ata/2) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/40/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "40 (ata/3) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/41/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "41 (ata_aux) S 2 0 0 0 -1 214961"..., 1024) = 157
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/42/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "42 (ksuspend_usbd) S 2 0 0 0 -1 "..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/43/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "43 (khubd) S 2 0 0 0 -1 21495811"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/44/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "44 (kseriod) S 2 0 0 0 -1 214958"..., 1024) = 157
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/45/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "45 (kmmcd) S 2 0 0 0 -1 21496136"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/50/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "50 (khungtaskd) S 2 0 0 0 -1 214"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/51/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "51 (kswapd0) S 2 0 0 0 -1 215823"..., 1024) = 157
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/52/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "52 (ksmd) S 2 0 0 0 -1 214961363"..., 1024) = 154
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/53/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "53 (aio/0) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/54/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "54 (aio/1) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/55/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "55 (aio/2) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/56/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "56 (aio/3) S 2 0 0 0 -1 22167224"..., 1024) = 155
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/57/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "57 (ecryptfs-kthrea) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/57/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/58/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "58 (crypto/0) S 2 0 0 0 -1 22167"..., 1024) = 158
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/59/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "59 (crypto/1) S 2 0 0 0 -1 22167"..., 1024) = 158
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/60/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "60 (crypto/2) S 2 0 0 0 -1 22167"..., 1024) = 158
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/61/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "61 (crypto/3) S 2 0 0 0 -1 22167"..., 1024) = 158
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/72/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "72 (scsi_eh_0) S 2 0 0 0 -1 2149"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/73/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "73 (scsi_eh_1) S 2 0 0 0 -1 2149"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/76/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "76 (scsi_eh_2) S 2 0 0 0 -1 2149"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/77/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "77 (scsi_eh_3) S 2 0 0 0 -1 2149"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/80/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "80 (kstriped) S 2 0 0 0 -1 21496"..., 1024) = 158
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/81/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "81 (kmpathd/0) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/82/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "82 (kmpathd/1) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/83/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "83 (kmpathd/2) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/84/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "84 (kmpathd/3) S 2 0 0 0 -1 2216"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/85/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "85 (kmpath_handlerd) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/85/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/86/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "86 (ksnapd) S 2 0 0 0 -1 2149613"..., 1024) = 156
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/87/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "87 (kondemand/0) S 2 0 0 0 -1 22"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/88/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "88 (kondemand/1) S 2 0 0 0 -1 22"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/89/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "89 (kondemand/2) S 2 0 0 0 -1 22"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/90/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "90 (kondemand/3) S 2 0 0 0 -1 22"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/91/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "91 (kconservative/0) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/91/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/92/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "92 (kconservative/1) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/92/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/93/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "93 (kconservative/2) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/93/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/94/stat", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "94 (kconservative/3) S 2 0 0 0 -"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/94/cmdline", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/327/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "327 (scsi_eh_4) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/346/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "346 (scsi_eh_5) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/351/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "351 (scsi_eh_6) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/354/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "354 (scsi_eh_7) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/357/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "357 (scsi_eh_8) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/358/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "358 (scsi_eh_9) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/359/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "359 (scsi_eh_10) S 2 0 0 0 -1 21"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/360/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "360 (scsi_eh_11) S 2 0 0 0 -1 21"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/363/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "363 (usbhid_resumer) S 2 0 0 0 -"..., 1024) = 166
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/364/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "364 (mpt_poll_0) S 2 0 0 0 -1 21"..., 1024) = 163
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/365/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "365 (mpt/0) S 2 0 0 0 -1 2149613"..., 1024) = 157
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/380/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "380 (jbd2/sda5-8) S 2 0 0 0 -1 2"..., 1024) = 165
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/381/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "381 (ext4-dio-unwrit) S 2 0 0 0 "..., 1024) = 167
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/381/cmdline", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/382/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "382 (ext4-dio-unwrit) S 2 0 0 0 "..., 1024) = 167
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/382/cmdline", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/383/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "383 (ext4-dio-unwrit) S 2 0 0 0 "..., 1024) = 167
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/383/cmdline", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/384/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "384 (ext4-dio-unwrit) S 2 0 0 0 "..., 1024) = 167
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/384/cmdline", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/418/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "418 (flush-8:0) S 2 0 0 0 -1 215"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/448/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "448 (upstart-udev-br) S 1 446 44"..., 1024) = 247
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/448/cmdline", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "upstart-udev-bridge\0--daemon\0", 1024) = 29
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/450/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "450 (udevd) S 1 450 450 0 -1 420"..., 1024) = 249
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/606/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "606 (udevd) S 450 450 450 0 -1 4"..., 1024) = 257
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/710/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "710 (udevd) S 450 450 450 0 -1 4"..., 1024) = 248
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/791/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "791 (portmap) S 1 791 791 0 -1 4"..., 1024) = 219
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/845/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "845 (kpsmoused) S 2 0 0 0 -1 214"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/927/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "927 (sshd) S 1 927 927 0 -1 4202"..., 1024) = 248
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/932/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "932 (rsyslogd) S 1 911 911 0 -1 "..., 1024) = 232
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/949/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "949 (dbus-daemon) S 1 949 949 0 "..., 1024) = 250
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/957/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "957 (avahi-daemon) S 1 956 956 0"..., 1024) = 232
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/958/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "958 (NetworkManager) S 1 958 958"..., 1024) = 236
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/959/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "959 (avahi-daemon) S 957 959 959"..., 1024) = 229
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/961/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "961 (modem-manager) S 1 949 949 "..., 1024) = 231
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/968/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "968 (rpc.statd) S 1 968 968 0 -1"..., 1024) = 227
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/992/stat", O_RDONLY)        = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "992 (gdm-binary) S 1 992 992 0 -"..., 1024) = 230
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1009/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1009 (console-kit-dae) S 1 949 9"..., 1024) = 243
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1009/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/sbin/console-kit-daemon\0--n"..., 1024) = 41
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1084/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1084 (gdm-simple-slav) S 992 992"..., 1024) = 240
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1084/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gdm/gdm-simple-slave\0--"..., 1024) = 78
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1093/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1093 (wpa_supplicant) S 1 949 94"..., 1024) = 236
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1109/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1109 (getty) S 1 1109 1109 1028 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1113/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1113 (getty) S 1 1113 1113 1029 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1120/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1120 (getty) S 1 1120 1120 1026 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1121/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1121 (getty) S 1 1121 1121 1027 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1124/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1124 (getty) S 1 1124 1124 1030 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1128/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1128 (acpid) S 1 1128 1128 0 -1 "..., 1024) = 224
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1130/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1130 (irqbalance) S 1 1130 1130 "..., 1024) = 229
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1143/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1143 (cron) S 1 1143 1143 0 -1 4"..., 1024) = 231
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1144/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1144 (atd) S 1 1144 1144 0 -1 42"..., 1024) = 219
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1145/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1145 (rpciod/0) S 2 0 0 0 -1 221"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1146/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1146 (rpciod/1) S 2 0 0 0 -1 221"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1147/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1147 (rpciod/2) S 2 0 0 0 -1 221"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1148/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1148 (rpciod/3) S 2 0 0 0 -1 221"..., 1024) = 162
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1179/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1179 (lockd) S 2 0 0 0 -1 214958"..., 1024) = 161
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1180/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1180 (nfsd4) S 2 0 0 0 -1 214961"..., 1024) = 159
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1181/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1181 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1182/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1182 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1183/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1183 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1184/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1184 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1185/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1185 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1186/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1186 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1187/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1187 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1188/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1188 (nfsd) S 2 0 0 0 -1 2150629"..., 1024) = 160
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1192/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1192 (rpc.mountd) S 1 1192 1192 "..., 1024) = 230
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1223/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1223 (cupsd) S 1 1223 1223 0 -1 "..., 1024) = 241
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1225/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1225 (Xorg) S 1084 1225 1225 103"..., 1024) = 247
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1328/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1328 (getty) S 1 1328 1328 1025 "..., 1024) = 222
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1337/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1337 (gdm-session-wor) S 1084 99"..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1337/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gdm/gdm-session-worker\0", 1024) = 32
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1346/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1346 (gnome-session) S 1337 1346"..., 1024) = 244
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1383/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1383 (ssh-agent) S 1346 1383 138"..., 1024) = 248
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1386/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1386 (dbus-launch) S 1 1346 1346"..., 1024) = 231
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1387/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1387 (dbus-daemon) S 1 1387 1387"..., 1024) = 250
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1390/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1390 (gconfd-2) S 1 1387 1387 0 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1396/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1396 (gnome-keyring-d) S 1 1346 "..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1396/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/bin/gnome-keyring-daemon\0--"..., 1024) = 55
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1399/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1399 (gnome-settings-) S 1 1399 "..., 1024) = 246
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1399/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gnome-settings-daemon/g"..., 1024) = 53
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1401/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1401 (gvfsd) S 1 1387 1387 0 -1 "..., 1024) = 225
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1406/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1406 (gvfs-fuse-daemo) S 1 1406 "..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1406/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gvfs//gvfs-fuse-daemon\0"..., 1024) = 49
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1413/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1413 (polkit-gnome-au) S 1346 13"..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1413/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/policykit-1-gnome/polki"..., 1024) = 63
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1415/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1415 (bluetooth-apple) S 1346 13"..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1415/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "bluetooth-applet\0", 1024)     = 17
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1416/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1416 (gnome-power-man) S 1346 13"..., 1024) = 239
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1416/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "gnome-power-manager\0", 1024)  = 20
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1418/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1418 (pulseaudio) S 1 1418 1418 "..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1420/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1420 (rtkit-daemon) S 1 949 949 "..., 1024) = 227
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1421/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1421 (gnome-panel) S 1346 1346 1"..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1422/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1422 (metacity) S 1346 1346 1346"..., 1024) = 244
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1426/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1426 (nautilus) S 1346 1346 1346"..., 1024) = 233
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1429/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1429 (polkitd) S 1 949 949 0 -1 "..., 1024) = 224
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1431/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1431 (nm-applet) S 1346 1346 134"..., 1024) = 238
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1438/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1438 (upowerd) S 1 949 949 0 -1 "..., 1024) = 223
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1447/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1447 (gconf-helper) S 1418 1418 "..., 1024) = 232
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1458/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1458 (gvfsd-trash) S 1 1387 1387"..., 1024) = 228
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1462/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1462 (bonobo-activati) S 1 1462 "..., 1024) = 236
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1462/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/bonobo-activation/bonob"..., 1024) = 85
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1465/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1465 (gvfs-gdu-volume) S 1 1387 "..., 1024) = 236
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1465/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gvfs/gvfs-gdu-volume-mo"..., 1024) = 38
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1468/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1468 (udisks-daemon) S 1 949 949"..., 1024) = 247
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1469/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1469 (udisks-daemon) S 1468 949 "..., 1024) = 227
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1484/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1484 (wnck-applet) S 1 1462 1462"..., 1024) = 236
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1489/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1489 (trashapplet) S 1 1462 1462"..., 1024) = 230
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1526/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1526 (gvfs-gphoto2-vo) S 1 1387 "..., 1024) = 231
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1526/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gvfs/gvfs-gphoto2-volum"..., 1024) = 42
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1530/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1530 (gvfs-afc-volume) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1530/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gvfs/gvfs-afc-volume-mo"..., 1024) = 38
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1531/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1531 (hald) S 1 1531 1531 0 -1 4"..., 1024) = 230
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1532/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1532 (hald-runner) S 1531 1531 1"..., 1024) = 240
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1563/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1563 (hald-addon-inpu) S 1532 15"..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1563/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "hald-addon-input: Listening on /"..., 1024) = 84
+read(3, "", 1024)                       = 0
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1586/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1586 (hald-addon-cpuf) S 1532 15"..., 1024) = 238
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1586/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/hal/hald-addon-cpufreq\0", 1024) = 32
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1587/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1587 (hald-addon-acpi) S 1532 15"..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1587/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "hald-addon-acpi: listening on ac"..., 1024) = 64
+read(3, "", 1024)                       = 0
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1589/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1589 (clock-applet) S 1 1462 146"..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1591/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1591 (indicator-apple) S 1 1462 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1591/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-applet/indica"..., 1024) = 115
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1594/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1594 (notification-ar) S 1 1462 "..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1594/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gnome-panel/notificatio"..., 1024) = 125
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1595/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1595 (indicator-apple) S 1 1462 "..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1595/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-applet/indica"..., 1024) = 128
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1598/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1598 (gvfsd-metadata) S 1 1387 1"..., 1024) = 230
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1600/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1600 (indicator-sessi) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1600/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-session/indic"..., 1024) = 53
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1602/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1602 (indicator-me-se) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1602/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-me/indicator-"..., 1024) = 43
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1605/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1605 (indicator-sound) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1605/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-sound/indicat"..., 1024) = 49
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1607/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1607 (indicator-appli) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1607/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-application/i"..., 1024) = 61
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1609/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1609 (indicator-messa) S 1 1387 "..., 1024) = 234
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1609/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/indicator-messages/indi"..., 1024) = 55
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1613/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1613 (gvfsd-burn) S 1 1387 1387 "..., 1024) = 226
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1614/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1614 (scsi_eh_12) S 2 0 0 0 -1 2"..., 1024) = 164
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1688/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1688 (gnome-screensav) S 1 1688 "..., 1024) = 239
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1688/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "gnome-screensaver\0", 1024)    = 18
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1694/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1694 (gdu-notificatio) S 1346 13"..., 1024) = 239
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1694/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/gnome-disk-utility/gdu-"..., 1024) = 52
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1706/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1706 (python) S 1346 1346 1346 0"..., 1024) = 232
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1707/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1707 (evolution-alarm) S 1346 13"..., 1024) = 237
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1707/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/lib/evolution/2.28/evolutio"..., 1024) = 47
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1715/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1715 (notify-osd) S 1 1387 1387 "..., 1024) = 231
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1751/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1751 (update-notifier) S 1346 13"..., 1024) = 249
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1751/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "update-notifier\0", 1024)      = 16
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1757/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "1757 (system-service-) S 1 949 9"..., 1024) = 235
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/1757/cmdline", O_RDONLY)    = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "/usr/bin/python\0/usr/lib/system-"..., 1024) = 57
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/4279/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "4279 (update-manager) S 1 1346 1"..., 1024) = 251
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9220/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9220 (sshd) S 927 9220 9220 0 -1"..., 1024) = 255
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9380/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9380 (bash) S 9220 9380 9380 348"..., 1024) = 256
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9611/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9611 (sshd) S 927 9611 9611 0 -1"..., 1024) = 254
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9768/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9768 (bash) S 9611 9768 9768 348"..., 1024) = 256
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/9988/stat", O_RDONLY)       = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "9988 (lfs_load) S 1 9987 9987 0 "..., 1024) = 232
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+kill(9988, SIGTERM)                     = 0
+open("/proc/10001/stat", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "10001 (sshd) S 927 10001 10001 0"..., 1024) = 257
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/10158/stat", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "10158 (bash) S 10001 10158 10158"..., 1024) = 255
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/10182/stat", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "10182 (flush-8:80) S 2 0 0 0 -1 "..., 1024) = 169
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+open("/proc/10185/stat", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fb186606000
+read(3, "10185 (strace) S 9768 10185 9768"..., 1024) = 240
+close(3)                                = 0
+munmap(0x7fb186606000, 4096)            = 0
+exit_group(0)                           = ?

@@ -17,6 +17,8 @@
 #include"lfs_cache.h"
 #include"aio_api.h"
 #include"lfs_sys.h"
+#include<sys/resource.h>
+#include<signal.h>
 #include<sys/shm.h>
 #include"lfs_fops.h"
 /* To get the dnode's metadata's location
@@ -100,4 +102,70 @@ char *lfs_getshmptr (int shmid)
     if (shmid > 0)
 	ptr = shmat (shmid, NULL, 0);
     return ptr;
+}
+
+
+int lfs_genflock (char *filename)
+{
+    int len;
+    len = strlen (filename);
+    char *ptr = malloc (14);
+    memset (ptr, 0, 14);
+    memset (lfs_n.instance.fname, 0, 20);
+
+    sprintf (ptr, "/tmp/rfs%d.lock", dcache_hash (filename, len) % 1024);
+    memcpy (lfs_n.instance.fname, ptr, strlen (ptr));
+    if (access (lfs_n.instance.fname, F_OK) == 0)
+      {
+	  printf ("RFS filesystem instance is already running\n");
+	  exit (0);
+      }
+    lfs_n.instance.fd = open (lfs_n.instance.fname, O_RDWR | O_CREAT, 0600);
+    if (lfs_n.instance.fd < 0)
+      {
+	  perror ("create pidfile failed");
+      }
+    return LFS_OK;
+}
+
+void daemonize (const char *cmd)
+{
+    int i, fd0, fd1, fd2;
+    pid_t pid;
+    struct rlimit r1;
+    struct sigaction sa;
+    if (getrlimit (RLIMIT_NOFILE, &r1) < 0)
+      {
+	  perror ("can't get file limit\n");
+      }
+
+    if ((pid = fork ()) < 0)
+	perror ("can't fork");
+    else if (pid != 0)
+	exit (0);
+    setsid ();
+    sa.sa_handler = SIG_IGN;
+    sigemptyset (&sa.sa_mask);
+    sa.sa_flags = 0;
+    if (sigaction (SIGHUP, &sa, NULL) < 0)
+	perror ("can't ignore SIGHUP");
+
+    if ((pid = fork ()) < 0)
+	perror (" can't fork");
+    else if (pid != 0)
+	exit (0);
+    if (chdir ("/") < 0)
+	perror (" can't change directory to /");
+
+    if (r1.rlim_max == RLIM_INFINITY)
+	r1.rlim_max = 2048;
+
+    lfs_genflock (cmd);
+/* close stdin/stdout.
+ */
+    for (i = 0; i < r1.rlim_max; i++)
+	close (i);
+    fd0 = open ("/dev/null", O_RDWR);
+    fd1 = dup (0);
+    fd2 = dup (0);
 }

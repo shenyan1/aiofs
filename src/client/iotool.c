@@ -20,7 +20,7 @@ test_create (char *fname)
     int id;
     if ((id = rfs_create (fname)) == LFS_FAILED)
       {
-	  lfs_printf ("create failed\n");
+	  _cli_printf ("create failed\n");
 	  return -1;
       }
     return id;
@@ -33,7 +33,7 @@ test_write (int id, char *buffer, uint64_t size, uint64_t offset)
 
     if (rfs_write (id, buffer, size, offset))
       {
-	  lfs_printf ("write failed id=%d,size=%" PRIu64 ",offset=%" PRIu64
+	  _cli_printf ("write failed id=%d,size=%" PRIu64 ",offset=%" PRIu64
 		      "", id, size, offset);
 	  exit (1);
       }
@@ -45,7 +45,7 @@ test_read (int id, char *buffer, uint64_t size, uint64_t offset)
 {
     if (rfs_read (id, buffer, size, offset))	//file_read (id, buffer, size, offset))
       {
-	  lfs_printf ("read failed id=%d,size=%" PRIu64 ",offset=%" PRIu64 "",
+	  _cli_printf ("read failed id=%d,size=%" PRIu64 ",offset=%" PRIu64 "",
 		      id, size, offset);
 	  return -1;
       }
@@ -66,17 +66,17 @@ lfs_test_write_all (int files,char *buffer)
 
 	  memset (filename, 0, 25);
 	  sprintf (filename, "/t111%d", i);
-	  lfs_printf ("create file %s\n", filename);
+	  _cli_printf ("create file %s\n", filename);
 	  res = test_create (filename);
 	  if (res == -1)
 	    {
-		lfs_printf ("create failed\n");
+		_cli_printf ("create failed\n");
 	    }
 
 	  id = rfs_open (filename);
 	  if (id == LFS_FAILED || id == 0)
 	    {
-		lfs_printf ("test write failed\n");
+		_cli_printf ("test write failed\n");
 		return -1;
 	    }
 	  printf ("fname=%s,inode=%d\n", filename, id);
@@ -115,7 +115,7 @@ lfs_test_inode_read (void *arg)
 
 	  offset += size;
       }
-    lfs_printf ("rbuffer=%c%c%c\n", rbuffer[0], rbuffer[1], rbuffer[2]);
+    _cli_printf ("rbuffer=%c%c%c\n", rbuffer[0], rbuffer[1], rbuffer[2]);
     free (rbuffer);
     return NULL;
 }
@@ -139,7 +139,7 @@ lfs_test_read (void *arg)
     inode = rfs_open (fname);
     if (inode <= 0)
       {
-	  lfs_printf ("test_read failed\n");
+	  _cli_printf ("test_read failed\n");
 	  return 0;
       }
     for (i = 0; i < 800; i++)
@@ -154,35 +154,6 @@ lfs_test_read (void *arg)
     return NULL;
 }
 
-#if 0
-int
-lfs_getdlist (int *readfd)
-{
-    int i;
-    int max_files = curmax_files (0);
-    lfs_printf ("max_files=%d\n", max_files);
-    for (i = 0; i < max_files; i++)
-      {
-	  if (!fdisfree (i))
-	    {
-		readfd[num_files++] = i;
-	    }
-      }
-    lfs_printf ("lfs_getdlist is over\n");
-    //num_files = 227;
-    return 0;
-}
-
-void
-read_test_init ()
-{
-
-    readfd = malloc ((10 << 10) * sizeof (int));
-    lfs_getdlist (readfd);
-
-}
-
-#endif
 #if 0
 int
 lfs_test_randread ()
@@ -247,7 +218,7 @@ lfs_test_streamread (int num_files1, int threads)
     uint64_t stime, ctime;
     if (num_files < num_files1)
       {
-	  lfs_printf ("num_files=%d %d numfiles < requested file nums\n",
+	  _cli_printf ("num_files=%d %d numfiles < requested file nums\n",
 		      num_files, num_files1);
       }
     for (i = 0; i < threads; i++)
@@ -261,7 +232,7 @@ lfs_test_streamread (int num_files1, int threads)
     stime = cur_usec ();
     for (i = 0; i < threads; i++)
       {
-	  lfs_printf ("going to read %d,", randfd[i]);
+	  _cli_printf ("going to read %d,", randfd[i]);
 	  pthread_create (&tids[i], NULL, lfs_test_read, (void *) randfd[i]);
 //        pthread_create (&tids[i], NULL, lfs_test_inode_read, (void *) randfd[i]);
 
@@ -287,7 +258,7 @@ filebench (char *argv[])
     char fname[10];
     if (argv[0] == NULL || argv[1] == NULL)
       {
-	  lfs_printf ("usage:./rfstool filebench r/w [threads] [files]\n");
+	  _cli_printf ("usage:./rfstool filebench r/w [threads] [files]\n");
 	  return;
       }
     testbuffer = malloc (LFS_BLKSIZE);
@@ -300,7 +271,7 @@ filebench (char *argv[])
       {
 	  if (argv[2] == 0)
 	    {
-		lfs_printf ("usage: ./client filebench fallocate [files]\n");
+		_cli_printf ("usage: ./client filebench fallocate [files]\n");
 		return;
 	    }
 	  files = atoi (argv[2]);
@@ -310,14 +281,14 @@ filebench (char *argv[])
 		memset (fname, 0, 10);
 		sprintf (fname, "/t%d", i);
 		if (rfs_fallocate (fname, size) == LFS_FAILED)
-		    lfs_printf ("no space in rfs when allocate %s\n", fname);
+		    _cli_printf ("no space in rfs when allocate %s\n", fname);
 	    }
       }
     else if (strcmp (argv[1], "r") == 0)
       {
 	  if (argv[2] == NULL || argv[3] == NULL)
 	    {
-		lfs_printf
+		_cli_printf
 		    ("usage:./rfstool filebench r/w [threads] [files]\n");
 		return;
 	    }
@@ -338,20 +309,8 @@ filebench (char *argv[])
 	  lfs_test_write_all (files,testbuffer);
       }
     else
-	lfs_printf ("invalid args\n");
+	_cli_printf ("invalid args\n");
 
-}
-
-int
-stopfs ()
-{
-    int sock;
-    char ch[10] = { 0 };
-    ch[0] = STOP_FS;
-    sock = _rfs_send_request (ch, 1);
-    sleep (1);
-    close (sock);
-    return true;
 }
 
 
@@ -387,14 +346,14 @@ main (int argc, char *argv[])
       {
 	  if (rfs_rmdir (argv[2]) == -1)
 	    {
-		lfs_printf ("rm dir %s failed\n", argv[2]);
+		_cli_printf ("rm dir %s failed\n", argv[2]);
 	    }
       }
     else if (strncmp (argv[1], "mkdir", strlen ("mkdir")) == 0)
       {
 	  if (rfs_mkdir (argv[2]) == -1)
 	    {
-		lfs_printf ("create dir %s failed\n", argv[2]);
+		_cli_printf ("create dir %s failed\n", argv[2]);
 	    }
 
       }
@@ -418,7 +377,7 @@ main (int argc, char *argv[])
       {
 	  if (rfs_remove (argv[2]) == -1)
 	    {
-		lfs_printf ("remove a file failed\n");
+		_cli_printf ("remove a file failed\n");
 	    }
       }
     return 0;

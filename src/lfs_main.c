@@ -171,6 +171,20 @@ int ioserver_init ()
     return 0;
 }
 
+#ifndef _LFS_DAEMON
+static void sigterm_handler (int f)
+{
+    printf ("find sigterm\n");
+}
+#else
+static void sigterm_handler (int f)
+{
+    int ret;
+    printf ("sigterm_ignored\n");
+    lfs_fini ();
+    exit (0);
+}
+#endif
 static void sigpipe_handler (int f)
 {
     lfs_printf ("broke pipe, from client\n");
@@ -186,7 +200,7 @@ void enable_corefile ()
       }
 }
 
-int lfs_init ()
+int lfs_init (char *bdev)
 {
     lfs_n.fd = open (lfs_n.block_device, O_RDWR);
     lfs_n.stopfs = false;
@@ -219,6 +233,8 @@ int lfs_init ()
     ioserver_init ();
     lfs_reopen ();
     signal (SIGPIPE, sigpipe_handler);
+    signal (SIGTERM, sigterm_handler);
+
     return 0;
 }
 
@@ -240,6 +256,8 @@ int lfs_fini ()
     cache_destroy_shm (lfs_n.lfs_cache);
     cache_destroy (lfs_n.lfs_obj_cache);
     free (lfs_n.f_table);
+    close (lfs_n.instance.fd);
+    unlink (lfs_n.instance.fname);
     return 0;
 }
 
@@ -273,12 +291,14 @@ int main (int argc, char *argv[])
 	  lfs_printf ("lfs require a block device\n");
 	  exit (1);
       }
-    lfs_init ();
+#ifdef _LFS_DAEMON
+    daemonize (argv[1]);
+#endif
+    lfs_init (argv[1]);
     freemap_test ();
 //    lfs_test_init ();
 //    dir_test (argv[2]);
     lfs_wait ();
     lfs_fini ();
-    lfs_printf ("Congratulations,the lfs filesystem V2 run success\n");
     return 0;
 }

@@ -79,6 +79,8 @@ typedef uint64_t offset_t;
 #define LFS_LOG_FNAME "/tmp/rfs_logs"
 
 #define _LFS_DEBUG 1
+
+#define _LFS_DAEMON 1
 /*
 
 inline void DEBUG_FUNC(const char * _info){

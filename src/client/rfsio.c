@@ -9,10 +9,30 @@
 #include"../lfs_thread.h"
 #include"../lfs_define.h"
 #include"../lfs_sys.h"
+#include<stdarg.h>
 #include<sys/shm.h>
 #include<sys/socket.h>
 #include"rfsio.h"
 #define READ_SIZE (sizeof(char)+sizeof(int)+sizeof(int)+sizeof(uint64_t)+sizeof(uint64_t)+1)
+#define _CLI_DEBUG
+void _cli_printf (const char *fmt, ...)
+{
+#ifdef _CLI_DEBUG
+    va_list ap;
+    char *ret;
+    int err;
+    va_start (ap, fmt);
+    err = vasprintf (&ret, fmt, ap);
+    va_end (ap);
+    printf (ret);
+#endif
+}
+
+
+
+
+
+
 /*READ protocol: READ(1B)     |Inode(4B)  |SHMID(4B)  |offset(8B)      |size(8B)*/
 /*dir protocol:
  * OP|len|content
@@ -22,7 +42,6 @@
 char *
 wait_io_str (int clifd)
 {
-    int ret;
     
     char *ptr;
     ptr = malloc(OUTPUT_MAXSIZE); 
@@ -30,6 +49,37 @@ wait_io_str (int clifd)
     read (clifd, ptr, OUTPUT_MAXSIZE);
     close (clifd);
     return ptr;
+}
+
+int
+_rfs_send_dirrequest (char *proto, int len)
+{
+    int rcvbuf,optlen,rcv_size = OUTPUT_MAXSIZE,conn_sock = socket (AF_LOCAL, SOCK_STREAM, 0);
+    if (conn_sock == -1)
+      {
+	  perror ("socket fail ");
+	  exit (1);
+	  return -1;
+      }
+    struct sockaddr_un addr;
+    bzero (&addr, sizeof (addr));
+    addr.sun_family = AF_LOCAL;
+    strcpy ((void *) &addr.sun_path, DIR_UNIX_DOMAIN);
+    optlen = sizeof(rcvbuf);
+    if(setsockopt(conn_sock,SOL_SOCKET,SO_RCVBUF,(const char*)&rcv_size,sizeof(int))==-1)
+	return -1;  
+    if (connect (conn_sock, (struct sockaddr *) &addr, sizeof (addr)) < 0)
+      {
+	  perror ("connect fail ");
+	  return -1;
+      }
+    if (write (conn_sock, proto, len) < 0)
+      {
+	  _cli_printf ("write error:send_request\n");
+	  return (-1);
+
+      }
+    return conn_sock;
 }
 
 
@@ -87,10 +137,10 @@ wait_res (int connfd)
     len = read (connfd, &num, sizeof (num));
     if (len <= 0)
       {
-	  lfs_printf ("err read\n");
+	  _cli_printf ("err read\n");
 	  exit (1);
       }
-    lfs_printf ("return res:shmid = %d\n", num);
+    _cli_printf ("return res:shmid = %d\n", num);
     return num;
 }
 int
@@ -116,7 +166,7 @@ lsfs (char **argv)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     _output = wait_io_str (connfd);
@@ -129,34 +179,6 @@ lsfs (char **argv)
    
 }
 
-int
-_rfs_send_dirrequest (char *proto, int len)
-{
-
-    int conn_sock = socket (AF_LOCAL, SOCK_STREAM, 0);
-    if (conn_sock == -1)
-      {
-	  perror ("socket fail ");
-	  exit (1);
-	  return -1;
-      }
-    struct sockaddr_un addr;
-    bzero (&addr, sizeof (addr));
-    addr.sun_family = AF_LOCAL;
-    strcpy ((void *) &addr.sun_path, DIR_UNIX_DOMAIN);
-    if (connect (conn_sock, (struct sockaddr *) &addr, sizeof (addr)) < 0)
-      {
-	  perror ("connect fail ");
-	  return -1;
-      }
-    if (write (conn_sock, proto, len) < 0)
-      {
-	  lfs_printf ("write error:send_request\n");
-	  return (-1);
-
-      }
-    return conn_sock;
-}
 
 int
 _rfs_send_request (char *proto, int len)
@@ -180,7 +202,7 @@ _rfs_send_request (char *proto, int len)
       }
     if (write (conn_sock, proto, len) < 0)
       {
-	  lfs_printf ("write error:send_request\n");
+	  _cli_printf ("write error:send_request\n");
 	  return (-1);
 
       }
@@ -200,10 +222,10 @@ curmax_files (int fsid)
     *(int *) ptr = fsid;
     connfd = _rfs_send_request (pt, strlen (pt));
     maxfiles = wait_res (connfd);
-    lfs_printf ("close fd\n");
+    _cli_printf ("close fd\n");
     close (connfd);
     free (pt);
-    lfs_printf ("finished curmax_files\n");
+    _cli_printf ("finished curmax_files\n");
     return maxfiles;
 }
 
@@ -225,7 +247,7 @@ fdisfree (int fid)
     *(int *) ptr = fid;
     connfd = _rfs_send_request (pt, strlen (pt));
     isfree = wait_res (connfd);
-    lfs_printf ("id=%d\n", fid);
+    _cli_printf ("id=%d\n", fid);
     close (connfd);
     free (pt);
     return isfree;
@@ -244,7 +266,7 @@ wait_io (int clifd)
     read (clifd, num, sizeof (num));
     ptr = num;
     ret = *(int *) ptr;
-    lfs_printf ("ret value = %d\n", ret);
+    _cli_printf ("ret value = %d\n", ret);
     close (clifd);
     return ret;
 }
@@ -317,7 +339,7 @@ rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
     memset (pro, 0, READ_SIZE);
     if (!buffer)
       {
-	  lfs_printf ("error malloc");
+	  _cli_printf ("error malloc");
 	  exit (1);
       }
     ptr = pro;
@@ -328,21 +350,21 @@ rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
     prt->offset = offset;
     prt->size = size;
     prt->shmid = 0;
-    lfs_printf ("op=%d,id=%d off=%d,size=%d\n", READ_COMMAND, id, offset,
+    _cli_printf ("op=%d,id=%d off=%d,size=%d\n", READ_COMMAND, id, offset,
 		size);
     connfd = _rfs_send_request (ptr, sizeof (read_entry_t) + 1);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  exit (-1);
 	  return -1;
       }
-    lfs_printf ("issue read\n");
+    _cli_printf ("issue read\n");
     shmid = wait_io (connfd);
     buf = getshmptr (shmid);
     if (buf == NULL)
       {
-	  lfs_printf ("shm buffer error when rfs_read\n");
+	  _cli_printf ("shm buffer error when rfs_read\n");
 	  return -1;
       }
 //    buffer = getbufptr (offset, size, buf);
@@ -352,7 +374,7 @@ rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
 	  perror ("shmdt failed:");
 	  return -1;
       }
-//    lfs_printf ("read buf=%c%c%c", buffer[0], buffer[1], buffer[2]);
+//    _cli_printf ("read buf=%c%c%c", buffer[0], buffer[1], buffer[2]);
     return 0;
 }
 
@@ -405,14 +427,14 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
 	  printf ("create conn socket failed");
 	  return -1;
       }
-    lfs_printf ("issue write\n");
+    _cli_printf ("issue write\n");
     res = wait_io (connfd);
-//    lfs_printf ("write buf=%c%c%c", buffer[0], buffer[1], buffer[2]);
+//    _cli_printf ("write buf=%c%c%c", buffer[0], buffer[1], buffer[2]);
     if (res == LFS_SUCCESS)
-	lfs_printf ("write success");
+	_cli_printf ("write success");
     else
       {
-	  lfs_printf ("rfs write failed\n");
+	  _cli_printf ("rfs write failed\n");
 	  assert (0);
       }
     if (shmctl (shmid, IPC_RMID, NULL) <0)
@@ -451,11 +473,11 @@ rfs_open (char *fname)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     inode = wait_io (connfd);
-    lfs_printf ("op=open,fname=%s,ino=%d\n", fname, inode);
+    _cli_printf ("op=open,fname=%s,ino=%d\n", fname, inode);
     return inode;
 }
 
@@ -485,7 +507,7 @@ rfs_mkdir (char *fname)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     ret = wait_io (connfd);
@@ -508,7 +530,7 @@ rfs_create (char *fname)
     char *pro, *ptr;
     if (strlen (fname) == 0 || fname == NULL)
       {
-	  lfs_printf ("func:%s,invalied fname\n", __func__);
+	  _cli_printf ("func:%s,invalied fname\n", __func__);
 	  return LFS_FAILED;
       }
     len = strlen (fname);
@@ -524,18 +546,18 @@ rfs_create (char *fname)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     res = wait_io (connfd);
     if (res == 0)
       {
-	  lfs_printf ("create file failed:%s\n", fname);
+	  _cli_printf ("create file failed:%s\n", fname);
 	  return LFS_FAILED;
       }
     else if (res >= 1)
       {
-	  lfs_printf ("create file success:%s\n", fname);
+	  _cli_printf ("create file success:%s\n", fname);
       }
     return res;
 }
@@ -564,16 +586,16 @@ rfs_fallocate (char *fname, int filesize)
 	  if (inode == LFS_FAILED)	/*failed again. */
 	      return LFS_FAILED;
 	  else
-	      lfs_printf ("%s=>%d\n", fname, inode);
+	      _cli_printf ("%s=>%d\n", fname, inode);
       }
     //   inode = rfs_open(fname);
     if (inode == 0)
       {
-	  lfs_printf ("inode can't be 0\n");
+	  _cli_printf ("inode can't be 0\n");
 	  exit (1);
 	  return LFS_FAILED;
       }
-    lfs_printf ("inode=%d in fallocate\n", inode);
+    _cli_printf ("inode=%d in fallocate\n", inode);
     if (strlen (fname) == 0 || fname == NULL)
 	return LFS_FAILED;
     len = sizeof (inode_t) + sizeof (int) + 1;
@@ -588,14 +610,14 @@ rfs_fallocate (char *fname, int filesize)
     connfd = _rfs_send_request (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     res = wait_io (connfd);
-    lfs_printf ("op=fallocate,fname=%s\n", fname);
+    _cli_printf ("op=fallocate,fname=%s\n", fname);
     if (res == LFS_FAILED)
       {
-	  lfs_printf ("fallocate failed\n");
+	  _cli_printf ("fallocate failed\n");
 	  close (connfd);
 	  return LFS_FAILED;
       }
@@ -629,20 +651,20 @@ rfs_remove (char *fname)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     res = wait_io (connfd);
 
-    lfs_printf ("rm a file.op=%d,fname=%s\n", RMFILE_COMMAND, fname);
+    _cli_printf ("rm a file.op=%d,fname=%s\n", RMFILE_COMMAND, fname);
     if (res == 0)
       {
 	  close (connfd);
-	  lfs_printf ("remove failed\n");
+	  _cli_printf ("remove failed\n");
 	  return LFS_FAILED;
       }
     else if (res == 1)
-	lfs_printf ("remove success\n");
+	_cli_printf ("remove success\n");
     close (connfd);
     return LFS_OK;
 }
@@ -674,20 +696,33 @@ rfs_rmdir (char *fname)
     connfd = _rfs_send_dirrequest (ptr, len);
     if (connfd < 0)
       {
-	  lfs_printf ("create conn socket failed");
+	  _cli_printf ("create conn socket failed");
 	  return LFS_FAILED;
       }
     res = wait_io (connfd);
 
-    lfs_printf ("rm a dir.op=%d,fname=%s\n", RMDIR_COMMAND, fname);
+    _cli_printf ("rm a dir.op=%d,fname=%s\n", RMDIR_COMMAND, fname);
     if (res == 0)
       {
 	  close (connfd);
-	  lfs_printf ("rmdir failed\n");
+	  _cli_printf ("rmdir failed\n");
 	  return LFS_FAILED;
       }
     else if (res == 1)
-	lfs_printf ("rmdir success\n");
+	_cli_printf ("rmdir success\n");
     close (connfd);
     return LFS_OK;
 }
+int
+stopfs ()
+{
+    int sock;
+    char ch[10] = { 0 };
+    ch[0] = STOP_FS;
+    sock = _rfs_send_request (ch, 1);
+    sleep (1);
+    close (sock);
+    return true;
+}
+
+

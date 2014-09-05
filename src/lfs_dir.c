@@ -92,7 +92,7 @@ int _lfs_pwrite (int fd, void *_ptr, size_t _size, offset_t _pos)
     memcpy (buf + _pos - begin, _ptr, _size);
     eRet = pwrite (fd, buf, csize, begin);
     //DEBUG_FUNC (buf);
- //   DEBUG_FUNC (_ptr);
+    //   DEBUG_FUNC (_ptr);
     free (buf);
 #else
     eRet = pwrite (fd, _ptr, _size, _pos);
@@ -618,7 +618,7 @@ char *PrintDir (const char *_pdir)
     inode_t inode = 0;
     char *ptr, *outptr;
     ptr = malloc (OUTPUT_MAXSIZE);
-    memset(ptr,0,OUTPUT_MAXSIZE);
+    memset (ptr, 0, OUTPUT_MAXSIZE);
     if (ptr == NULL)
       {
 	  DEBUGER ("malloc failed in %s", __func__);
@@ -689,6 +689,7 @@ char *PrintDir (const char *_pdir)
 
     if (pdir_e != NULL)
 	free (pdir_e);
+    printf ("%s", outptr);
     return outptr;
 }
 

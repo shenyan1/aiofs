@@ -11,7 +11,7 @@
 #include "lfs_sys.h"
 extern lfs_info_t lfs_n;
 
-static uint32_t dcache_hash (const char *str, int len)
+uint32_t dcache_hash (const char *str, int len)
 {
     int32_t h = 0;
     int32_t i = 0;

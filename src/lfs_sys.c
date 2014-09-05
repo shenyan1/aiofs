@@ -147,39 +147,25 @@ void lfs_printf (const char *fmt, ...)
 }
 
 
-void daemonize(const char *cmd){
-int i,fd0,fd1,fd2;
-pid_t pid;
- struct rlimit r1;
- struct sigaction sa;
- if(getrlimit(RLIMIT_NOFILE,&r1) < 0){
-	perror("can't get file limit\n");
- }
- 
- if((pid = fork()) < 0)
-	perror("can't fork");
- else if(pid != 0)
-	exit(0);
- setsid();
- sa.sa_handler = SIG_IGN;
- sigemptyset(&sa.sa_mask);
- sa.sa_flags = 0;
- if(sigaction(SIGHUP, &sa, NULL) < 0)
-	perror("can't ignore SIGHUP");
+int lfs_trylock_fd (int fd)
+{
+    struct flock fl;
+    memset (&fl, 0, sizeof (struct flock));
+    fl.l_type = F_WRLCK;
+    fl.l_whence = SEEK_SET;
+    if (fcntl (fd, F_SETLK, &fl) == -1)
+	return -1;
+    return LFS_OK;
+}
 
- if((pid = fork())<0)
-   perror(" can't fork");
- else if(pid != 0)
-	exit(0);
- if(chdir("/") < 0)
-	perror(" can't change directory to /");
- if(r1.rlim_max == RLIM_INFINITY)
-	r1.rlim_max = 2048;
- for (i=0;i<r1.rlim_max;i++)
-	close(i);
-/* close stdin/stdout.
- */
- fd0 = open("/dev/null",O_RDWR);
- fd1 = dup(0);
- fd2 = dup(0);
+
+int lfs_unlock_fd (int fd)
+{
+    struct flock fl;
+    memset (&fl, 0, sizeof (struct flock));
+    fl.l_type = F_UNLCK;
+    fl.l_whence = SEEK_SET;
+    if (fcntl (fd, F_SETLK, &fl) == -1)
+	return -1;
+    return LFS_OK;
 }
