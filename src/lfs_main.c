@@ -234,7 +234,7 @@ int lfs_init (char *bdev)
     lfs_reopen ();
     signal (SIGPIPE, sigpipe_handler);
     signal (SIGTERM, sigterm_handler);
-
+    lfs_log_init ();
     return 0;
 }
 
@@ -258,6 +258,7 @@ int lfs_fini ()
     free (lfs_n.f_table);
     close (lfs_n.instance.fd);
     unlink (lfs_n.instance.fname);
+    close (lfs_n.log.fd);
     return 0;
 }
 

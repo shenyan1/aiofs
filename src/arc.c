@@ -83,8 +83,8 @@ void print_obj (struct __arc_object *obj, const char *str)
 {
     struct object *objc;
     objc = getobj (obj);
-    printf ("%s: obj=%p offset=%" PRIu64 ",read_state =%d,id=%" PRIu64
-	    "\n", str, obj, objc->offset, obj->read_state, objc->id);
+    lfs_printf ("%s: obj=%p offset=%" PRIu64 ",read_state =%d,id=%" PRIu64
+		"\n", str, obj, objc->offset, obj->read_state, objc->id);
 }
 
 uint64_t arc_hash_init ()
@@ -657,9 +657,11 @@ inline void arc_read_done (struct __arc_object *obj)
     assert (obj->state == &lfs_n.arc_cache->mru);
 
     mutex_enter (&obj->obj_lock, __func__, __LINE__);
-    if (obj->read_state != READ_STATE)
-	print_obj (obj, __func__);
-    assert (obj->read_state == READ_STATE);
+    if (obj->read_state != READ_STATE && obj->read_state != READ_GHOST)
+      {
+	  lfs_printf ("Ooops! readstate =%d\n", obj->read_state);
+	  exit (-11);
+      }
     obj->read_state = READ_FINISHED;
 
     mutex_exit (&obj->obj_lock, __func__);
@@ -688,7 +690,9 @@ struct __arc_object *__arc_lookup (struct __arc *cache, CQ_ITEM * item)
 		(unsigned int) tid);
 #endif
     obj = __arc_hash_lookup (cache, id, offset, &hash_lock);
-    if (obj && obj->read_state == READ_FINISHED)
+    if (obj
+	&& (obj->read_state == READ_FINISHED
+	    || obj->read_state == READ_GHOST))
       {
 //        lfs_printf_debug("find in arc\n");
 	  arc_stat_hit_update (cache);

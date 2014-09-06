@@ -255,7 +255,7 @@ wait_io (int clifd)
     read (clifd, num, sizeof (num));
     ptr = num;
     ret = *(int *) ptr;
-    _cli_printf ("ret value = %d\n", ret);
+//  _cli_printf ("ret value = %d\n", ret);
     close (clifd);
     return ret;
 }
@@ -502,9 +502,10 @@ rfs_mkdir (char *fname)
     ret = wait_io (connfd);
     if (ret == 0)
 	ret = -1;
-    else
+    else{
 	assert (ret == 1);
-    ret = LFS_OK;
+        ret = LFS_OK;
+    }
     return ret;
 }
 

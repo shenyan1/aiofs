@@ -102,6 +102,7 @@ static int __op_fetch (struct __arc_object *e)
     item->offset = offset;
     item->fid = id;
     item->obj = e;
+    lfs_printf (" 2ci fetch begin id=%d\n", id);
     if (id < 0 || id > lfs_n.max_files)
 	return -1;
     cq_push (RFS_AIOQ, item);
@@ -145,9 +146,12 @@ static void __op_evict (struct __arc_object *e)
     struct object *obj = __arc_list_entry (e, struct object, entry);
 #ifndef CONFIG_SHMEM
     cache_free (lfs_n.lfs_cache, obj->obj_data);
+    e->read_state = 10;
 #else
+    e->read_state = 10;
     cache_free_shm (lfs_n.lfs_cache, obj->obj_data);
 #endif
+    lfs_printf ("evict happend!\n");
 }
 
 static void __op_destroy (struct __arc_object *e)
@@ -163,6 +167,7 @@ static void __op_destroy (struct __arc_object *e)
 	  //lfs_printf("evict to shm cache\n");
 	  cache_free_shm (lfs_n.lfs_cache, obj->obj_data);
       }
+    e->read_state = 0;
     cache_free (lfs_n.lfs_obj_cache, obj);
 }
 

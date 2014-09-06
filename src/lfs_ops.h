@@ -14,6 +14,7 @@
 #define READ_STATE    1
 #define READ_HALF_FINISHED 2
 #define READ_FINISHED 3
+#define READ_GHOST    10
 
 typedef struct object_data obj_data_t;
 struct object_data
