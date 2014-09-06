@@ -83,7 +83,7 @@ IDXLEAF	lfs_dirindex.c	28;"	d	file:
 IDXLIST	lfs_dirindex.c	26;"	d	file:
 IDXMAP	lfs_dirindex.c	31;"	d	file:
 IDXNEXTLEAF	lfs_dirindex.c	29;"	d	file:
-IN_MFUG	arc.c	675;"	d	file:
+IN_MFUG	arc.c	676;"	d	file:
 IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
 IOCBQUEUE	lfs_define.h	94;"	d
@@ -199,6 +199,7 @@ PushListNode	lfs_freemap.c	/^void PushListNode (free_node_t * pnode, uint64_t _o
 QUEUE_SIZE	aio_api.c	45;"	d	file:
 READ_COMMAND	lfs_define.h	66;"	d
 READ_FINISHED	lfs_ops.h	16;"	d
+READ_GHOST	lfs_ops.h	17;"	d
 READ_HALF_FINISHED	lfs_ops.h	15;"	d
 READ_STATE	lfs_ops.h	14;"	d
 REFERENCE_DISKS	aio_api.c	30;"	d	file:
@@ -420,7 +421,7 @@ cv_broadcast	lfs_thread.c	/^inline void cv_broadcast (pthread_cond_t * cv)$/;"	f
 cv_destroy	lfs_thread.c	/^void cv_destroy (pthread_cond_t * cv)$/;"	f
 cv_signal	lfs_thread.c	/^inline void cv_signal (pthread_cond_t * cv)$/;"	f
 cv_wait	lfs_thread.c	/^inline void cv_wait (pthread_cond_t * cv, lmutex_t * lock)$/;"	f
-daemonize	lfs.c	/^void daemonize (const char *cmd)$/;"	f
+daemonize	lfs.c	/^void daemonize (char *cmd)$/;"	f
 data	lfs_ops.h	/^    char *data;$/;"	m	struct:object_data
 dcache	lfs.h	/^    dcache_hash_t dcache;$/;"	m	struct:lfs_info
 dcache_hash	lfs_dcache.c	/^uint32_t dcache_hash (const char *str, int len)$/;"	f
@@ -459,7 +460,7 @@ f_table	lfs.h	/^    file_entry_t *f_table;$/;"	m	struct:lfs_info
 false	lfs.h	6;"	d
 fd	lfs.h	/^    int fd;$/;"	m	struct:lfs_info
 fd	lfs.h	/^    int fd;$/;"	m	struct:lfs_instance
-fd	lfs.h	/^   int fd;$/;"	m	struct:loginfo
+fd	lfs.h	/^    int fd;$/;"	m	struct:loginfo
 fetch	arc.h	/^    int (*fetch) (struct __arc_object * obj);$/;"	m	struct:__arc_ops
 fetch	sarc.h	/^    int (*fetch) (struct __sarc_object * obj);$/;"	m	struct:__sarc_ops
 fetch_from_disk	arc.h	/^    int (*fetch_from_disk) (uint64_t id, uint64_t offset,$/;"	m	struct:__arc_ops
@@ -570,6 +571,7 @@ lfs_init	lfs_main.c	/^int lfs_init (char *bdev)$/;"	f
 lfs_instance	lfs.h	/^struct lfs_instance$/;"	s
 lfs_instance_t	lfs.h	/^typedef struct lfs_instance lfs_instance_t;$/;"	t	typeref:struct:lfs_instance
 lfs_log	lfs_sys.c	/^int lfs_log (int fd, char *str)$/;"	f
+lfs_log_init	lfs.c	/^int lfs_log_init ()$/;"	f
 lfs_malloc	lfs_dir.c	/^int lfs_malloc (void **_ptr, size_t _size)$/;"	f
 lfs_mutex	lfs.c	/^void lfs_mutex (pthread_mutex_t * lock)$/;"	f
 lfs_n	lfs_main.c	/^lfs_info_t lfs_n;$/;"	v
@@ -590,8 +592,8 @@ lmutex	lfs_thread.h	/^typedef struct lmutex$/;"	s
 lmutex_t	lfs_thread.h	/^} lmutex_t;$/;"	t	typeref:struct:lmutex
 lock	lfs_thread.h	/^    pthread_mutex_t lock;$/;"	m	struct:rfs_io_queue
 log	lfs.h	/^    loginfo_t log;$/;"	m	struct:lfs_info
-logfile	lfs.h	/^   char *logfile;$/;"	m	struct:loginfo
-loginfo	lfs.h	/^struct loginfo{$/;"	s
+logfile	lfs.h	/^    char *logfile;$/;"	m	struct:loginfo
+loginfo	lfs.h	/^struct loginfo$/;"	s
 loginfo_t	lfs.h	/^typedef struct loginfo loginfo_t;$/;"	t	typeref:struct:loginfo
 m_lock	lfs.h	/^    pthread_mutex_t m_lock;$/;"	m	struct:kmutex
 m_magic	lfs.h	/^    uint64_t m_magic;$/;"	m	struct:kmutex

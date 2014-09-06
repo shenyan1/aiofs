@@ -159,7 +159,13 @@ int process_dirrequest (char *buf, int clifd)
     switch (op)
       {
       case MKDIR_COMMAND:
-	  iRes = MakeDir (fname);
+	  if (strcmp (fname, "/") == 0)
+	    {
+		lfs_printf ("client try to make a /");
+		iRes = 0;
+	    }
+	  else
+	      iRes = MakeDir (fname);
 	  lfs_printf ("make dir\n");
 	  response_client (clifd, iRes);
 	  break;

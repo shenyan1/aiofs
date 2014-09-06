@@ -11,9 +11,6 @@
 int *readfd;
 int num_files = 0;
 
-
-
-
 int
 test_create (char *fname)
 {
@@ -198,7 +195,7 @@ show_time (int threads, uint64_t ctime, uint64_t stime)
     bw = (200 << 20);
     bw *= threads;
     bw = bw / (ctime - stime);
-    printf ("bw=%" PRIu64 "", bw);
+//    printf ("bw=%" PRIu64 "", bw);
 
     bw *= 1000000;
     bw = bw / 1024;

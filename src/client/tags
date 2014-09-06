@@ -19,19 +19,21 @@ InitRootDir	lfs_format_dir.c	/^InitRootDir (int _fd, uint64_t _off)$/;"	f
 LFS_FAILED	rfsio.h	42;"	d
 LFS_OK	rfsio.h	41;"	d
 LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
-MAX_THREADS	iotool.c	237;"	d	file:
+MAX_THREADS	iotool.c	205;"	d	file:
 OBJ1S	Makefile	/^OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o ..\/lfs_sys.o$/;"	m
 OBJ2S	Makefile	/^OBJ2S = ..\/lfs_sys.o iotool.o rfsio.o $/;"	m
 OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 P2ALIGN	rfsio.h	26;"	d
 PROGS	Makefile	/^PROGS = client$/;"	m
-READ_SIZE	rfsio.c	15;"	d	file:
+READ_SIZE	rfsio.c	16;"	d	file:
 READ_SIZE	rfsio.h	8;"	d
 SRCS	Makefile	/^SRCS  = $(wildcard *.c)$/;"	m
 TEST_BLKSIZE	iotool.c	9;"	d	file:
+_CLI_DEBUG	rfsio.c	17;"	d	file:
 _LFS_FORMAT_DIR_H_	lfs_format_dir.h	2;"	d
 _LFS_FORMAT_FILE_H	lfs_formatfile.h	2;"	d
 __RFSIO_H	rfsio.h	4;"	d
+_cli_printf	rfsio.c	/^void _cli_printf (const char *fmt, ...)$/;"	f
 _rfs_send_dirrequest	rfsio.c	/^_rfs_send_dirrequest (char *proto, int len)$/;"	f
 _rfs_send_request	rfsio.c	/^_rfs_send_request (char *proto, int len)$/;"	f
 _tem	rfsio.c	/^_tem (char *ptr)$/;"	f
@@ -47,7 +49,6 @@ getbufptr	rfsio.c	/^getbufptr (uint64_t offset, uint64_t size, char *buf)$/;"	f
 getdiskpos	rfsio.c	/^getdiskpos (uint64_t offset)$/;"	f
 getmaxfiles	lfs_format.c	/^getmaxfiles ()$/;"	f
 getshmptr	mytest.c	/^getshmptr (int shmid)$/;"	f
-getshmptr	rfsio.c	/^getshmptr (int shmid)$/;"	f
 id2protocol	rfsio.c	/^id2protocol (int shmid)$/;"	f
 idlist2protocol	rfsio.c	/^idlist2protocol (int *array, int len)$/;"	f
 lfs_memcpy	rfsio.c	/^lfs_memcpy (char *dstbuf, char *srcbuf, uint64_t off, uint64_t size)$/;"	f
@@ -72,7 +73,7 @@ rfs_rmdir	rfsio.c	/^rfs_rmdir (char *fname)$/;"	f
 rfs_write	rfsio.c	/^rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
 shm_malloc	rfsio.c	/^shm_malloc (int size)$/;"	f
 show_time	iotool.c	/^show_time (int threads, uint64_t ctime, uint64_t stime)$/;"	f
-stopfs	iotool.c	/^stopfs ()$/;"	f
+stopfs	rfsio.c	/^stopfs ()$/;"	f
 test_create	iotool.c	/^test_create (char *fname)$/;"	f
 test_read	iotool.c	/^test_read (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f
 test_write	iotool.c	/^test_write (int id, char *buffer, uint64_t size, uint64_t offset)$/;"	f

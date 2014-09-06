@@ -108,7 +108,10 @@ static int trace_nextrequest (struct trace_entry *req)
 		req->bytecount = AIO_BLKSIZE;
 		req->rwType = 'W';
 	    }
-
+	  else
+	    {
+		response_client (item->clifd, -1);
+	    }
 	  lfs_printf ("req->startbyte =%d,offset=%d,meta_table[0]=%d\n",
 		      req->startbyte, item->offset,
 		      lfs_n.f_table[fid].meta_table[0]);

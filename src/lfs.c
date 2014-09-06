@@ -129,7 +129,7 @@ int lfs_genflock (char *filename)
     return LFS_OK;
 }
 
-void daemonize (const char *cmd)
+void daemonize (char *cmd)
 {
     int i, fd0, fd1, fd2;
     pid_t pid;
@@ -181,7 +181,7 @@ void lfs_printf_debug (const char *fmt, ...)
     err = vasprintf (&ret, fmt, ap);
     va_end (ap);
 //#ifdef _LFS_DEBUG
-    printf ("%s", ret);
+    write (lfs_n.log.fd, ret, strlen (ret));
 //#endif
 }
 
@@ -194,7 +194,7 @@ void lfs_printf_err (const char *fmt, ...)
     va_start (ap, fmt);
     err = vasprintf (&ret, fmt, ap);
     va_end (ap);
-    printf (ret);
+    write (lfs_n.log.fd, ret, strlen (ret));
 }
 
 void lfs_printf (const char *fmt, ...)
@@ -207,7 +207,7 @@ void lfs_printf (const char *fmt, ...)
     va_start (ap, fmt);
     err = vasprintf (&ret, fmt, ap);
     va_end (ap);
-    printf (ret);
+    write (lfs_n.log.fd, ret, strlen (ret));
 #endif
 }
 
@@ -241,4 +241,17 @@ int response_client (int clifd, int value)
 
       }
     return LFS_SUCCESS;
+}
+
+int lfs_log_init ()
+{
+    int fd;
+    fd = open (LFS_LOG_FNAME, O_CREAT | O_WRONLY | O_APPEND, 0600);
+    if (fd < 0)
+      {
+	  perror ("lfs log failed\n");
+	  exit (0);
+      }
+    lfs_n.log.fd = fd;
+    return 0;
 }

@@ -126,5 +126,5 @@ int lfs_genflock (char *filename);
 void lfs_printf (const char *fmt, ...);
 void lfs_printf_debug (const char *fmt, ...);
 void lfs_printf_err (const char *fmt, ...);
-
+int lfs_log_init ();
 #endif

@@ -10,7 +10,7 @@ int buf2id (char *ptr);
 typedef uint64_t u64;
 u64 lfsgetblk (lfs_info_t * plfs, inode_t inode, u64 offset);
 
-void daemonize (const char *cmd);
+void daemonize (char *cmd);
 
 int lfs_trylock_fd (int fd);
 int lfs_unlock_fd (int fd);
