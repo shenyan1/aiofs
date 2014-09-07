@@ -29,6 +29,10 @@ int rfs_iowrite (CQ_ITEM * item)
 {
     assert (item != NULL);
     assert (item->shmid > 0);
+    if (item->offset + size <= AVG_FSIZE)
+      {
+
+      }
     cq_push (RFS_AIOQ, item);
     return true;
 }

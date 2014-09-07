@@ -143,7 +143,8 @@ int RemoveFile (char *fname)
       }
     return iRes;
 }
-
+/* the typical protocal is OP|len|string
+ */
 int process_dirrequest (char *buf, int clifd)
 {
 
@@ -196,6 +197,10 @@ int process_dirrequest (char *buf, int clifd)
 	  iRes = CreateFile (fname);
 	  response_client (clifd, iRes);
 	  break;
+      case CLOSE_COMMAND:
+	  lfs_printf("close a file\n");
+	  inode = *(int *)(buf+1);
+	  iRes = CloseFile(inode);
       }
     return 0;
 }

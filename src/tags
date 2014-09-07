@@ -83,7 +83,7 @@ IDXLEAF	lfs_dirindex.c	28;"	d	file:
 IDXLIST	lfs_dirindex.c	26;"	d	file:
 IDXMAP	lfs_dirindex.c	31;"	d	file:
 IDXNEXTLEAF	lfs_dirindex.c	29;"	d	file:
-IN_MFUG	arc.c	676;"	d	file:
+IN_MFUG	arc.c	677;"	d	file:
 IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
 IOCBQUEUE	lfs_define.h	94;"	d
