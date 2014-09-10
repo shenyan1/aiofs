@@ -132,6 +132,7 @@ lfs_test_inode_read (void *arg)
 #endif
 /* simulate applications' workload:256KB stream reads.
  */
+//#define _LFS_TEST_MULTBLOCK 1
 void *
 lfs_test_read (void *arg)
 {
@@ -152,14 +153,21 @@ lfs_test_read (void *arg)
 	  _cli_printf ("test_read failed\n");
 	  return 0;
       }
+#ifdef _LFS_TEST_MULTBLOCK
+    offset = LFS_BLKSIZE - (128<<10) ;
+    test_read(inode , rbuffer, size, offset);
+    printf("rbuffer=%s\n",rbuffer);
+    free(rbuffer);
+    return 0;
+#endif
     for (i = 0; i < 800; i++)
       {
 	  if (test_read (inode, rbuffer, size, offset))
 	      break;
 
+//          printf ("rbuffer=%c%c%c\n", rbuffer[0], rbuffer[1], rbuffer[2]);
 	  offset += size;
       }
-//    printf ("rbuffer=%c%c%c\n", rbuffer[0], rbuffer[1], rbuffer[2]);
     free (rbuffer);
     return NULL;
 }

@@ -372,23 +372,29 @@ _rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
 
 
 int rfs_read (int id, char *buffer, uint64_t size, uint64_t offset){
+
       uint64_t off,end;
       int i,nblks=0,tocpy,bufoff;
+
       end = offset + size;
       end = P2ROUNDUP(end,LFS_BLKSIZE);
       off = P2ALIGN(offset,LFS_BLKSIZE);
       nblks = (end - off) / LFS_BLKSIZE;
-      if(nblks == 0)
-	return _rfs_read(id,buffer,size,offset);
+
+      if(nblks <= 0)
+		return -1;
       else{
-	for(i=0;i<nblks;i++){
+	for(i=0;i < nblks;i++){
 		bufoff = offset - P2ALIGN(offset,LFS_BLKSIZE);
  		tocpy = MIN(LFS_BLKSIZE - bufoff,size);
 		_rfs_read(id,buffer,tocpy,offset);
 		offset += tocpy;
+		buffer += tocpy;
+		size   -= tocpy;
         }
 
 	}
+      return 0;
 }
 int
 shm_malloc (int size)
