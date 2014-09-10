@@ -47,7 +47,7 @@ DIRMETA_ARRAY	lfs_direntry.c	27;"	d	file:
 DIRMETA_ARRAY	lfs_dirindex.c	30;"	d	file:
 DIR_META_BLKPTR_OFF	lfs_define.h	25;"	d
 DIR_META_SIZE	lfs_define.h	24;"	d
-DIR_UNIX_DOMAIN	lfs_define.h	142;"	d
+DIR_UNIX_DOMAIN	lfs_define.h	143;"	d
 DeleteIndex	lfs_dirindex.c	/^int DeleteIndex (inode_t _inode, char *_pname)$/;"	f
 Dir2Inode	lfs_dir.c	/^inode_t Dir2Inode (const char *_pdir)$/;"	f
 DirEntry	lfs_dir.h	/^struct DirEntry$/;"	s
@@ -107,7 +107,7 @@ IsEmptyDir	lfs_dir.c	/^int IsEmptyDir (inode_t _inode)$/;"	f
 IsFindTarget	lfs_dirindex.c	/^inode_t IsFindTarget (offset_t _off, char *_pname)$/;"	f
 IsIdleDirInode	lfs_dir.c	/^int IsIdleDirInode (offset_t * _pblks)$/;"	f
 LARGE_RATIO	sarc.c	14;"	d	file:
-LFS_BLKSIZE	lfs_define.h	137;"	d
+LFS_BLKSIZE	lfs_define.h	138;"	d
 LFS_BLOCK_NO	lfs_dirindex.h	9;"	d
 LFS_CMISS	lfs_define.h	55;"	d
 LFS_DATA_DOMAIN	lfs_define.h	115;"	d
@@ -154,7 +154,7 @@ LoadSpaceEntry	lfs_main.c	/^int LoadSpaceEntry ()$/;"	f
 MAKE	Makefile	/^MAKE  = make iotool$/;"	m
 MAX	lfs_define.h	134;"	d
 MAXSIZE	aio_api.c	32;"	d	file:
-MAX_CON	eserver.c	17;"	d	file:
+MAX_CON	eserver.c	16;"	d	file:
 MAX_CON	eserver.h	15;"	d
 MAX_CON	lfs_dirserver.c	17;"	d	file:
 MAX_CON	lfs_dirserver.h	14;"	d
@@ -182,7 +182,6 @@ OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 OBJ_INIT	lfs_thread.h	12;"	d
 OBJ_LOCK	lfs_thread.h	10;"	d
 OBJ_UNLOCK	lfs_thread.h	11;"	d
-OUTPUT_MAXSIZE	lfs_sys.h	19;"	d
 O_DIRECT_MODE	lfs_define.h	41;"	d
 Open	lfs_dir.c	/^inode_t Open (const char *_pname)$/;"	f
 P2ALIGN	lfs_define.h	107;"	d
@@ -192,7 +191,7 @@ P2ROUNDUP	lfs_dir.c	31;"	d	file:
 PQUEUE	lfs_waitqueue.h	33;"	d
 PREFETCH_LENGTH	config.h	8;"	d
 PROGS	Makefile	/^PROGS = lfs_load$/;"	m
-PROTOCAL_SIZE	eserver.c	18;"	d	file:
+PROTOCAL_SIZE	eserver.c	17;"	d	file:
 PROTOCAL_SIZE	lfs_dirserver.c	18;"	d	file:
 PopListNode	lfs_freemap.c	/^free_node_t *PopListNode (free_node_t * _phead)$/;"	f
 PrintDir	lfs_dir.c	/^char *PrintDir (const char *_pdir)$/;"	f
@@ -221,8 +220,8 @@ SYS_OUT	lfs_define.h	14;"	d
 SYS_OUT	lfs_define.h	9;"	d
 SetDirEntryHead	lfs_dir.c	/^void SetDirEntryHead (offset_t _blk, offset_t _data)$/;"	f
 SetFreeMapUsed	lfs_freemap.c	/^void SetFreeMapUsed (int _idx, offset_t _v)$/;"	f
-UNIX_DOMAIN	eserver.c	16;"	d	file:
 UNIX_DOMAIN	eserver.h	14;"	d
+UNIX_DOMAIN	lfs_define.h	137;"	d
 VERIFY	lfs_define.h	131;"	d
 VERSION	lfs_define.h	98;"	d
 WRITE_COMMAND	lfs_define.h	61;"	d
@@ -415,7 +414,6 @@ cqi_new	lfs_thread.c	/^CQ_ITEM *cqi_new (void)$/;"	f
 create	arc.h	/^    struct __arc_object *(*create) (uint64_t id, uint64_t offset);$/;"	m	struct:__arc_ops	typeref:struct:__arc_ops::create
 create	sarc.h	/^    struct __sarc_object *(*create) (uint64_t id, uint64_t offset);$/;"	m	struct:__sarc_ops	typeref:struct:__sarc_ops::create
 cur_size_	lfs_dir.h	/^    uint32_t cur_size_;$/;"	m	struct:DirMetaData
-cur_usec	lfs_sys.c	/^uint64_t cur_usec (void)$/;"	f
 current_thread	lfs_thread.c	8;"	d	file:
 cv	arc.h	/^    pthread_cond_t cv;$/;"	m	struct:__arc_object
 cv	sarc.h	/^    pthread_cond_t cv;$/;"	m	struct:__sarc_object
@@ -524,7 +522,7 @@ hm_mask	arc.h	/^    uint64_t hm_mask;$/;"	m	struct:__arc_hash
 hm_mask	lfs_waitqueue.h	/^    uint64_t hm_mask;$/;"	m	struct:pend_hash
 ht_mask	arc.h	/^    uint64_t ht_mask;$/;"	m	struct:__arc_hash
 ht_mask	lfs_waitqueue.h	/^    uint64_t ht_mask;$/;"	m	struct:pend_hash
-id	lfs.h	/^    int id;$/;"	m	struct:read_entry
+id	lfs_define.h	/^    int id;$/;"	m	struct:read_entry
 id	lfs_ops.h	/^    uint64_t id;$/;"	m	struct:object
 id	lfs_waitqueue.h	/^    uint64_t id;$/;"	m	struct:pend_object
 id2no	aio_api.c	/^short id2no (unsigned int id)$/;"	f
@@ -636,7 +634,7 @@ off	lfs.h	/^    uint64_t off;$/;"	m	struct:lfs_info
 off	lfs_waitqueue.h	/^    uint64_t off;$/;"	m	struct:pend_object
 off_	lfs_dirindex.h	/^    offset_t off_;$/;"	m	struct:DirIndexEntry
 offs	aio_api.c	/^uint64_t offs[MAXSIZE];$/;"	v
-offset	lfs.h	/^    uint64_t offset;$/;"	m	struct:read_entry
+offset	lfs_define.h	/^    uint64_t offset;$/;"	m	struct:read_entry
 offset	lfs_freemap.h	/^    uint64_t offset;$/;"	m	struct:FreeListNode
 offset	lfs_ops.h	/^    uint64_t offset;$/;"	m	struct:object
 offset	lfs_thread.h	/^    uint64_t offset;$/;"	m	struct:conn_queue_item
@@ -686,8 +684,8 @@ raid_fd	aio_api.c	/^int raid_fd;$/;"	v
 random	sarc.h	/^    struct __sarc_state random, seq;$/;"	m	struct:__sarc	typeref:struct:__sarc::__sarc_state
 range_t	sarc.h	/^typedef struct read_range range_t;$/;"	t	typeref:struct:read_range
 ratio	sarc.h	/^    double ratio;$/;"	m	struct:__sarc
-read_entry	lfs.h	/^typedef struct read_entry$/;"	s
-read_entry_t	lfs.h	/^} read_entry_t;$/;"	t	typeref:struct:read_entry
+read_entry	lfs_define.h	/^typedef struct read_entry$/;"	s
+read_entry_t	lfs_define.h	/^} read_entry_t;$/;"	t	typeref:struct:read_entry
 read_range	sarc.h	/^struct read_range$/;"	s
 read_state	arc.h	/^    int read_state;$/;"	m	struct:__arc_object
 read_state	sarc.h	/^    int read_state;$/;"	m	struct:__sarc_object
@@ -722,7 +720,7 @@ sarc_t	sarc.h	/^} sarc_t;$/;"	t	typeref:struct:__sarc
 seq	sarc.h	/^    struct __sarc_state random, seq;$/;"	m	struct:__sarc	typeref:struct:__sarc::
 seqMiss	sarc.h	/^    unsigned int seqMiss;$/;"	m	struct:__sarc
 seqThreshold	sarc.h	/^    int seqThreshold;$/;"	m	struct:__sarc
-shmid	lfs.h	/^    int shmid;$/;"	m	struct:read_entry
+shmid	lfs_define.h	/^    int shmid;$/;"	m	struct:read_entry
 shmid	lfs_ops.h	/^    int shmid;$/;"	m	struct:object_data
 shmid	lfs_thread.h	/^    int shmid;$/;"	m	struct:conn_queue_item
 should_stop	aio_api.c	/^int should_stop = 0;$/;"	v
@@ -732,7 +730,7 @@ sigterm_handler	lfs_main.c	/^static void sigterm_handler (int f)$/;"	f	file:
 size	arc.h	/^    uint64_t size;$/;"	m	struct:__arc_hash
 size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_object
 size	arc.h	/^    unsigned long size;$/;"	m	struct:__arc_state
-size	lfs.h	/^    uint64_t size;$/;"	m	struct:read_entry
+size	lfs_define.h	/^    uint64_t size;$/;"	m	struct:read_entry
 size	lfs_thread.h	/^    int size;$/;"	m	struct:conn_queue_item
 size	lfs_waitqueue.h	/^    uint64_t size;$/;"	m	struct:pend_hash
 size	sarc.h	/^    uint64_t size;$/;"	m	struct:read_range

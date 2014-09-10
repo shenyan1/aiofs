@@ -22,18 +22,6 @@ uint64_t getlocalp (uint64_t id)
     return lp;
 }
 
-uint64_t cur_usec (void)
-{
-    struct timeval _time;
-    unsigned long long cur_usec;
-
-    gettimeofday (&_time, NULL);
-    cur_usec = _time.tv_sec;
-    cur_usec *= 1000000;
-    cur_usec += _time.tv_usec;
-
-    return cur_usec;
-}
 
 int lfs_log (int fd, char *str)
 {

@@ -3,7 +3,9 @@
 #include<stdlib.h>
 #include<inttypes.h>
 #include<sys/stat.h>
-#include"../lfs_sys.h"
+#include<assert.h>
+#include<lfs_define.h>
+#include"rfsio.h"
 /* File Time Attribute: ctime,atime,mtime(3*8B),size,extflags
  * struct file_entry
 {
@@ -13,12 +15,21 @@
     uint64_t meta_table[57];
 }
  */
+uint64_t _getlocalp (uint64_t id)
+{
+    uint64_t lp;
+    assert (id >= 0);
+    lp = LFS_FILE_ENTRY;
+    lp += id * METASIZE_PERFILE;
+    return lp;
+}
+
 int
 FormatAttributeTime (int fd, int inode)
 {
     char buf[4096];
     memset (buf, 0, 4096);
-    uint64_t pos = getlocalp (inode);
+    uint64_t pos = _getlocalp (inode);
     pwrite (fd, buf, 8 * 3 + 4 + 1 + 4, pos);
     return 1;
 }

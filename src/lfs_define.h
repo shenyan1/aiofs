@@ -141,4 +141,12 @@ inline void DEBUG_FUNC(const char * _info){
  */
 
 #define DIR_UNIX_DOMAIN "/tmp/dirserver.domain1"
+typedef struct read_entry
+{
+    uint64_t offset;
+    int id;
+    uint64_t size;
+    int shmid;
+} read_entry_t;
+
 #endif

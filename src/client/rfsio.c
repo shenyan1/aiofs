@@ -1,12 +1,10 @@
 /* The method to read/write for user
  */
-//#include"../lfs.h"
 #include<assert.h>
 #include<inttypes.h>
 //#include"../eserver.h"
 //#include"../lfs_dirserver.h"
-//#include"../lfs_define.h"
-#include"../lfs_sys.h"
+#include<lfs_define.h>
 #include<string.h>
 #include<stdarg.h>
 #include<unistd.h>
@@ -34,6 +32,28 @@ void _cli_printf (const char *fmt, ...)
     va_end (ap);
     printf (ret);
 #endif
+}
+char *getshmptr (int shmid)
+{
+    char *ptr = 0;
+    if (shmid > 0)
+	ptr = shmat (shmid, NULL, 0);
+    if (ptr == -1)
+	perror ("what's wrong\n");
+    return ptr;
+}
+
+uint64_t cur_usec (void)
+{
+    struct timeval _time;
+    unsigned long long cur_usec;
+
+    gettimeofday (&_time, NULL);
+    cur_usec = _time.tv_sec;
+    cur_usec *= 1000000;
+    cur_usec += _time.tv_usec;
+
+    return cur_usec;
 }
 
 /*READ protocol: READ(1B)     |Inode(4B)  |SHMID(4B)  |offset(8B)      |size(8B)*/

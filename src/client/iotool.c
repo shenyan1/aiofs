@@ -1,6 +1,5 @@
 //#include"../lfs.h"
 //#include"../lfs_ops.h"
-#include"../lfs_sys.h"
 #include<pthread.h>
 #include <sys/time.h>
 #include "rfsio.h"
@@ -8,6 +7,7 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<lfs_define.h>
+#include<stdlib.h>
 #define TEST_BLKSIZE (200<<10)
 
 int *readfd;
