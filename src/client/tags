@@ -19,7 +19,7 @@ InitRootDir	lfs_format_dir.c	/^InitRootDir (int _fd, uint64_t _off)$/;"	f
 LFS_FAILED	rfsio.h	42;"	d
 LFS_OK	rfsio.h	41;"	d
 LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
-MAX_THREADS	iotool.c	205;"	d	file:
+MAX_THREADS	iotool.c	216;"	d	file:
 OBJ1S	Makefile	/^OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o ..\/lfs_sys.o$/;"	m
 OBJ2S	Makefile	/^OBJ2S = ..\/lfs_sys.o iotool.o rfsio.o $/;"	m
 OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m

@@ -70,6 +70,7 @@ typedef uint64_t offset_t;
 #define FALLOCATE_COMMAND 10
 #define MKFILE_COMMAND    11
 #define RMFILE_COMMAND    12
+#define CLOSE_COMMAND    13
 #define FOPEN_COMMAND DIR2INODE_COMMAND
 
 #define LFS_FAILED -1
@@ -133,9 +134,11 @@ inline void DEBUG_FUNC(const char * _info){
 #define MAX(a, b)       ((a) < (b) ? (b) : (a))
 
 
+#define UNIX_DOMAIN "/tmp/UNIX2.domain1"
 #define LFS_BLKSIZE (1<<20)
 /* rfs_return_data: return the protocol (error code or data) to client.
  * 
  */
 
+#define DIR_UNIX_DOMAIN "/tmp/dirserver.domain1"
 #endif

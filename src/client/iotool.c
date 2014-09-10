@@ -1,11 +1,13 @@
-#include"../lfs.h"
-#include"../lfs_ops.h"
+//#include"../lfs.h"
+//#include"../lfs_ops.h"
 #include"../lfs_sys.h"
 #include<pthread.h>
 #include <sys/time.h>
 #include "rfsio.h"
 #include<sys/un.h>
+#include<stdio.h>
 #include<unistd.h>
+#include<lfs_define.h>
 #define TEST_BLKSIZE (200<<10)
 
 int *readfd;
@@ -55,7 +57,7 @@ int
 lfs_test_write_all (int files,char *buffer)
 {
     inode_t id;
-    int res, i = 0, j;
+    int res, i = 0, j,size=256<<10;
     uint64_t offset;
     char filename[25];
     for (i = 1; i <= files; i++)
@@ -64,7 +66,7 @@ lfs_test_write_all (int files,char *buffer)
 	  memset (filename, 0, 25);
 	  sprintf (filename, "/t111%d", i);
 	  _cli_printf ("create file %s\n", filename);
-	  res = test_create (filename);
+	  res = rfs_create (filename);
 	  if (res == -1)
 	    {
 		_cli_printf ("create failed\n");
@@ -79,6 +81,7 @@ lfs_test_write_all (int files,char *buffer)
 	  printf ("fname=%s,inode=%d\n", filename, id);
 	  offset = 0;
 	 // continue;
+#if LFS_TEST
 	  for (j = 0; j < 200; j++)
 	    {
 		if(rfs_write (id, buffer, LFS_BLKSIZE, offset)==-1){
@@ -87,6 +90,16 @@ lfs_test_write_all (int files,char *buffer)
 	        }
 		offset += LFS_BLKSIZE;
 	    }
+#else
+	  for (j = 0; j < 840; j++)
+	    {
+		if(rfs_write (id, buffer, size, offset)==-1){
+			printf("error rfs write return -1\n");
+			exit(-1);
+	        }
+		offset += size;
+	    }
+#endif
 	  printf ("finish create %d,", id);
       }
 
@@ -319,7 +332,7 @@ funcbench ()
     rfs_mkdir ("/shenyan");
     rfs_fallocate ("a.doc", 200 << 20);
     rfs_fallocate ("a1.doc", 256 << 20);
-    return true;
+    return 0;
 }
 
 int
@@ -377,5 +390,8 @@ main (int argc, char *argv[])
 		_cli_printf ("remove a file failed\n");
 	    }
       }
+    else if(strcmp(argv[1],"funcbench")==0){
+	 funcbench();
+    }
     return 0;
 }

@@ -5,28 +5,30 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 AIO_BLKSIZE	aio_api.c	43;"	d	file:
-AIO_INFO	lfs_define.h	95;"	d
+AIO_INFO	lfs_define.h	96;"	d
 AIO_MAXIO	aio_api.c	44;"	d	file:
 ALERTER	lfs_define.h	17;"	d
 ARC_MUTEXES	arc.h	53;"	d
 ARC_MUTEXES	sarc.h	72;"	d
-ASSERT	lfs_define.h	128;"	d
-AVG_FSIZE	lfs_define.h	107;"	d
+ASSERT	lfs_define.h	129;"	d
+AVG_FSIZE	lfs_define.h	108;"	d
 AddDirEntry	lfs_dir.c	/^int AddDirEntry (inode_t _inode, const char *_pname)$/;"	f
 AddDirEntryFile	lfs_dir.c	/^int AddDirEntryFile (inode_t _inode, const char *_pname)$/;"	f
 BLKPTRSIZE	lfs_fops.c	17;"	d	file:
-BLKSHIFT	lfs_define.h	127;"	d
+BLKSHIFT	lfs_define.h	128;"	d
 BLOCK_SIZE	aio_api.c	28;"	d	file:
 BinaryBit	lfs_dirindex.c	/^int BinaryBit (char x)$/;"	f
 CACHE_H	lfs_cache.h	3;"	d
 CC	Makefile	/^CC    = gcc$/;"	m
 CCFLAGS	Makefile	/^CCFLAGS = -g -Wall -O0$/;"	m
 CHUNK_SIZE	aio_api.c	29;"	d	file:
+CLOSE_COMMAND	lfs_define.h	73;"	d
 CONFIG_SHMEM	config.h	9;"	d
 CQ	lfs_thread.h	/^typedef struct rfs_io_queue CQ;$/;"	t	typeref:struct:rfs_io_queue
 CQ_ITEM	lfs_thread.h	/^typedef struct conn_queue_item CQ_ITEM;$/;"	t	typeref:struct:conn_queue_item
 ChangeIndexBLK	lfs_dirindex.c	/^int ChangeIndexBLK (dir_index_t * _pidx, offset_t _pos, hash_t _hash,$/;"	f
 ChangeLeafBLK	lfs_dirindex.c	/^int ChangeLeafBLK (dir_index_leaf_t * _leaf, offset_t _pos, hash_t _hash,$/;"	f
+CloseFile	lfs_fops.c	/^int CloseFile (inode_t id)$/;"	f
 CreateFile	lfs_dir.c	/^int CreateFile (const char *_pname)$/;"	f
 DCACHE	lfs_dcache.h	26;"	d
 DCACHEMODE	lfs_define.h	40;"	d
@@ -45,7 +47,7 @@ DIRMETA_ARRAY	lfs_direntry.c	27;"	d	file:
 DIRMETA_ARRAY	lfs_dirindex.c	30;"	d	file:
 DIR_META_BLKPTR_OFF	lfs_define.h	25;"	d
 DIR_META_SIZE	lfs_define.h	24;"	d
-DIR_UNIX_DOMAIN	lfs_dirserver.h	16;"	d
+DIR_UNIX_DOMAIN	lfs_define.h	142;"	d
 DeleteIndex	lfs_dirindex.c	/^int DeleteIndex (inode_t _inode, char *_pname)$/;"	f
 Dir2Inode	lfs_dir.c	/^inode_t Dir2Inode (const char *_pdir)$/;"	f
 DirEntry	lfs_dir.h	/^struct DirEntry$/;"	s
@@ -58,12 +60,12 @@ EnableSize	lfs_dir.c	/^int EnableSize (offset_t _head, offset_t _last, int _len,
 Ext_mask_	lfs_dir.h	/^    uint32_t Ext_mask_;$/;"	m	struct:DirMetaData
 FALLOCATE_COMMAND	lfs_define.h	70;"	d
 FILESIZE	lfs_fops.c	16;"	d	file:
-FILE_ENTRYS	lfs_define.h	119;"	d
-FOPEN_COMMAND	lfs_define.h	73;"	d
+FILE_ENTRYS	lfs_define.h	120;"	d
+FOPEN_COMMAND	lfs_define.h	74;"	d
 FREEBITMAP_SIZE	lfs_define.h	32;"	d
-FREELIST_LOCK	lfs_define.h	90;"	d
+FREELIST_LOCK	lfs_define.h	91;"	d
 FREEMAP_SIZE	lfs_define.h	33;"	d
-FSNAME	lfs_define.h	96;"	d
+FSNAME	lfs_define.h	97;"	d
 FindIndex	lfs_dirindex.c	/^inode_t FindIndex (inode_t _inode, char *_pname)$/;"	f
 FindIndexOff	lfs_dirindex.c	/^offset_t FindIndexOff (inode_t _inode, char *_pname)$/;"	f
 FindSubdir	lfs_dir.c	/^inode_t FindSubdir (inode_t _pinode, const char *_pdir)$/;"	f
@@ -86,8 +88,8 @@ IDXNEXTLEAF	lfs_dirindex.c	29;"	d	file:
 IN_MFUG	arc.c	677;"	d	file:
 IN_MFUG	sarc.c	548;"	d	file:
 IOCBQ	lfs_thread.h	/^typedef struct io_queue IOCBQ;$/;"	t	typeref:struct:io_queue
-IOCBQUEUE	lfs_define.h	94;"	d
-IOCBQ_MUTEX	lfs_define.h	93;"	d
+IOCBQUEUE	lfs_define.h	95;"	d
+IOCBQ_MUTEX	lfs_define.h	94;"	d
 ISFREE_COMMAND	lfs_define.h	64;"	d
 ITEMS_PER_ALLOC	lfs_thread.c	10;"	d	file:
 InitDirEntry	lfs_direntry.c	/^dir_entry_t *InitDirEntry (inode_t _inode, char _filetype, uint32_t _nextoff,$/;"	f
@@ -105,15 +107,15 @@ IsEmptyDir	lfs_dir.c	/^int IsEmptyDir (inode_t _inode)$/;"	f
 IsFindTarget	lfs_dirindex.c	/^inode_t IsFindTarget (offset_t _off, char *_pname)$/;"	f
 IsIdleDirInode	lfs_dir.c	/^int IsIdleDirInode (offset_t * _pblks)$/;"	f
 LARGE_RATIO	sarc.c	14;"	d	file:
-LFS_BLKSIZE	lfs_define.h	136;"	d
+LFS_BLKSIZE	lfs_define.h	137;"	d
 LFS_BLOCK_NO	lfs_dirindex.h	9;"	d
 LFS_CMISS	lfs_define.h	55;"	d
-LFS_DATA_DOMAIN	lfs_define.h	114;"	d
-LFS_DATA_DOMAIN1	lfs_define.h	112;"	d
+LFS_DATA_DOMAIN	lfs_define.h	115;"	d
+LFS_DATA_DOMAIN1	lfs_define.h	113;"	d
 LFS_DIR_DOMAIN	lfs_define.h	38;"	d
 LFS_DIR_ENTRY	lfs_define.h	34;"	d
-LFS_DIR_INDEX_BITMAP	lfs_define.h	102;"	d
-LFS_DIR_INDEX_ENTRY	lfs_define.h	113;"	d
+LFS_DIR_INDEX_BITMAP	lfs_define.h	103;"	d
+LFS_DIR_INDEX_ENTRY	lfs_define.h	114;"	d
 LFS_DIR_META_POS	lfs_define.h	35;"	d
 LFS_EBIG	lfs_define.h	47;"	d
 LFS_EBOUND	lfs_define.h	48;"	d
@@ -121,22 +123,22 @@ LFS_EINCACHE	lfs_define.h	53;"	d
 LFS_ENOSPC	lfs_define.h	50;"	d
 LFS_EOPEN	lfs_define.h	49;"	d
 LFS_EPM	lfs_define.h	51;"	d
-LFS_FAILED	lfs_define.h	75;"	d
+LFS_FAILED	lfs_define.h	76;"	d
 LFS_FILE_ENTRY	lfs_define.h	22;"	d
-LFS_FINODE_START	lfs_define.h	115;"	d
-LFS_FREE	lfs_define.h	121;"	d
+LFS_FINODE_START	lfs_define.h	116;"	d
+LFS_FREE	lfs_define.h	122;"	d
 LFS_FREEBITMAP_ENTRY	lfs_define.h	30;"	d
 LFS_FREEMAP_ENTRY	lfs_define.h	31;"	d
-LFS_INDEXMAP_SIZE	lfs_define.h	111;"	d
-LFS_INDEX_BLOCK_SIZE	lfs_define.h	109;"	d
+LFS_INDEXMAP_SIZE	lfs_define.h	112;"	d
+LFS_INDEX_BLOCK_SIZE	lfs_define.h	110;"	d
 LFS_INDEX_DOMAIN	lfs_dirindex.h	8;"	d
 LFS_INVALID	lfs_define.h	52;"	d
 LFS_LOG	lfs_define.h	19;"	d
-LFS_LOG_FNAME	lfs_define.h	79;"	d
-LFS_NFREE	lfs_define.h	123;"	d
-LFS_OK	lfs_define.h	76;"	d
+LFS_LOG_FNAME	lfs_define.h	80;"	d
+LFS_NFREE	lfs_define.h	124;"	d
+LFS_OK	lfs_define.h	77;"	d
 LFS_PENDING	lfs_define.h	54;"	d
-LFS_SPACE_ENTRY	lfs_define.h	101;"	d
+LFS_SPACE_ENTRY	lfs_define.h	102;"	d
 LFS_SUCCESS	lfs_define.h	46;"	d
 LIBS	Makefile	/^LIBS  = -lpthread -laio$/;"	m
 LIST_COMMAND	lfs_define.h	69;"	d
@@ -150,19 +152,19 @@ LoadLeafBlocks	lfs_dirindex.c	/^int LoadLeafBlocks (dir_index_t * _idxblk)$/;"	f
 LoadSingleLeaf	lfs_dirindex.c	/^offset_t LoadSingleLeaf (offset_t _pos)$/;"	f
 LoadSpaceEntry	lfs_main.c	/^int LoadSpaceEntry ()$/;"	f
 MAKE	Makefile	/^MAKE  = make iotool$/;"	m
-MAX	lfs_define.h	133;"	d
+MAX	lfs_define.h	134;"	d
 MAXSIZE	aio_api.c	32;"	d	file:
 MAX_CON	eserver.c	17;"	d	file:
 MAX_CON	eserver.h	15;"	d
 MAX_CON	lfs_dirserver.c	17;"	d	file:
 MAX_CON	lfs_dirserver.h	14;"	d
 MAX_DIR_NO	lfs_define.h	23;"	d
-MAX_FILES	lfs_define.h	100;"	d
-MAX_FILE_NO	lfs_define.h	98;"	d
-MAX_FSIZE	lfs_define.h	108;"	d
-MAX_FSIZE	lfs_define.h	125;"	d
+MAX_FILES	lfs_define.h	101;"	d
+MAX_FILE_NO	lfs_define.h	99;"	d
+MAX_FSIZE	lfs_define.h	109;"	d
+MAX_FSIZE	lfs_define.h	126;"	d
 METASIZE_PERFILE	lfs_define.h	29;"	d
-MIN	lfs_define.h	132;"	d
+MIN	lfs_define.h	133;"	d
 MKDIR_COMMAND	lfs_define.h	62;"	d
 MKFILE_COMMAND	lfs_define.h	71;"	d
 MTX_DEST	lfs_thread.h	5;"	d
@@ -180,12 +182,12 @@ OBJS	Makefile	/^OBJS  = $(SRCS:.c=.o)$/;"	m
 OBJ_INIT	lfs_thread.h	12;"	d
 OBJ_LOCK	lfs_thread.h	10;"	d
 OBJ_UNLOCK	lfs_thread.h	11;"	d
-OUTPUT_MAXSIZE	lfs_sys.h	20;"	d
+OUTPUT_MAXSIZE	lfs_sys.h	19;"	d
 O_DIRECT_MODE	lfs_define.h	41;"	d
 Open	lfs_dir.c	/^inode_t Open (const char *_pname)$/;"	f
-P2ALIGN	lfs_define.h	106;"	d
+P2ALIGN	lfs_define.h	107;"	d
 P2ALIGN	lfs_dir.c	32;"	d	file:
-P2ROUNDUP	lfs_define.h	105;"	d
+P2ROUNDUP	lfs_define.h	106;"	d
 P2ROUNDUP	lfs_dir.c	31;"	d	file:
 PQUEUE	lfs_waitqueue.h	33;"	d
 PREFETCH_LENGTH	config.h	8;"	d
@@ -203,8 +205,8 @@ READ_GHOST	lfs_ops.h	17;"	d
 READ_HALF_FINISHED	lfs_ops.h	15;"	d
 READ_STATE	lfs_ops.h	14;"	d
 REFERENCE_DISKS	aio_api.c	30;"	d	file:
-RFS_AIOQ	lfs_define.h	91;"	d
-RFS_RQ	lfs_define.h	92;"	d
+RFS_AIOQ	lfs_define.h	92;"	d
+RFS_RQ	lfs_define.h	93;"	d
 RMDIR_COMMAND	lfs_define.h	67;"	d
 RMFILE_COMMAND	lfs_define.h	72;"	d
 RSHash	lfs_dirindex.c	/^hash_t RSHash (char *str)$/;"	f
@@ -221,8 +223,8 @@ SetDirEntryHead	lfs_dir.c	/^void SetDirEntryHead (offset_t _blk, offset_t _data)
 SetFreeMapUsed	lfs_freemap.c	/^void SetFreeMapUsed (int _idx, offset_t _v)$/;"	f
 UNIX_DOMAIN	eserver.c	16;"	d	file:
 UNIX_DOMAIN	eserver.h	14;"	d
-VERIFY	lfs_define.h	130;"	d
-VERSION	lfs_define.h	97;"	d
+VERIFY	lfs_define.h	131;"	d
+VERSION	lfs_define.h	98;"	d
 WRITE_COMMAND	lfs_define.h	61;"	d
 WriteDirEntry	lfs_direntry.c	/^int WriteDirEntry (dir_entry_t * _pe, offset_t _off)$/;"	f
 WriteDirEntryNext	lfs_direntry.c	/^int WriteDirEntryNext (uint32_t _nextlen, offset_t _off)$/;"	f
@@ -236,8 +238,8 @@ _GNU_SOURCE	lfs_dir.c	1;"	d	file:
 _GNU_SOURCE	lfs_direntry.c	1;"	d	file:
 _GNU_SOURCE	lfs_dirindex.c	1;"	d	file:
 _GNU_SOURCE	lfs_main.c	1;"	d	file:
-_LFS_DAEMON	lfs_define.h	83;"	d
-_LFS_DEBUG	lfs_define.h	81;"	d
+_LFS_DAEMON	lfs_define.h	84;"	d
+_LFS_DEBUG	lfs_define.h	82;"	d
 _LFS_DIRENTRY_H_	lfs_direntry.h	2;"	d
 _LFS_DIRINDEX_H_	lfs_dirindex.h	2;"	d
 _LFS_DIR_DEFINE_H_	lfs_define.h	2;"	d
@@ -493,6 +495,7 @@ getfiles	rfs_req.c	/^int getfiles (char *buf)$/;"	f
 gethash_lock	arc.c	/^gethash_lock (struct __arc *cache, struct __arc_object *_obj)$/;"	f	file:
 gethash_lock	sarc.c	/^gethash_lock (struct __sarc *cache, struct __sarc_object *_obj)$/;"	f	file:
 getlocalp	lfs_sys.c	/^uint64_t getlocalp (uint64_t id)$/;"	f
+getnblks	eserver.c	/^int getnblks (uint64_t off)$/;"	f
 getobj	lfs_ops.c	/^struct object *getobj (struct __arc_object *e)$/;"	f
 getphymemsize	lfs_sys.c	/^uint64_t getphymemsize ()$/;"	f
 getplen	lfs_dirserver.c	/^int getplen (char *buf)$/;"	f
@@ -585,7 +588,7 @@ lfs_trylock_fd	lfs_sys.c	/^int lfs_trylock_fd (int fd)$/;"	f
 lfs_unlock_fd	lfs_sys.c	/^int lfs_unlock_fd (int fd)$/;"	f
 lfs_unmutex	lfs.c	/^void lfs_unmutex (pthread_mutex_t * lock)$/;"	f
 lfs_wait	lfs_main.c	/^int lfs_wait ()$/;"	f
-lfsgetblk	lfs_sys.c	/^u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)$/;"	f
+lfsgetblk	lfs.c	/^u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)$/;"	f
 line	lfs_thread.h	/^    int line;$/;"	m	struct:lmutex
 list_destroy	sarc.c	/^list_destroy (struct __sarc_state *state, struct __sarc *cache)$/;"	f	file:
 lmutex	lfs_thread.h	/^typedef struct lmutex$/;"	s
@@ -751,5 +754,5 @@ total	arc.h	/^    uint64_t total;$/;"	m	struct:arc_stat
 trace_entry	aio_api.h	/^struct trace_entry$/;"	s
 trace_nextrequest	aio_api.c	/^static int trace_nextrequest (struct trace_entry *req)$/;"	f	file:
 true	lfs.h	5;"	d
-u64	lfs_sys.h	/^typedef uint64_t u64;$/;"	t
+u64	lfs.h	/^typedef uint64_t u64;$/;"	t
 write_done	rfs_req.c	/^void write_done (CQ_ITEM * item, int res)$/;"	f

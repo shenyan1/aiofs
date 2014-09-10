@@ -1,20 +1,28 @@
 /* The method to read/write for user
  */
-#include"../lfs.h"
+//#include"../lfs.h"
 #include<assert.h>
 #include<inttypes.h>
-#include"../eserver.h"
-#include"../lfs_dirserver.h"
-#include"../lfs_fops.h"
-#include"../lfs_thread.h"
-#include"../lfs_define.h"
+//#include"../eserver.h"
+//#include"../lfs_dirserver.h"
+//#include"../lfs_define.h"
 #include"../lfs_sys.h"
+#include<string.h>
 #include<stdarg.h>
+#include<unistd.h>
+#include<net/if.h>
+#include<stdio.h>
+#include<sys/un.h>
+#include<fcntl.h>
+#include<stdlib.h>
 #include<sys/shm.h>
+#include<ifaddrs.h>
+#include<sys/types.h>
 #include<sys/socket.h>
 #include"rfsio.h"
 #define READ_SIZE (sizeof(char)+sizeof(int)+sizeof(int)+sizeof(uint64_t)+sizeof(uint64_t)+1)
 #define _CLI_DEBUG
+#define true 1
 void _cli_printf (const char *fmt, ...)
 {
 #ifdef _CLI_DEBUG
@@ -27,11 +35,6 @@ void _cli_printf (const char *fmt, ...)
     printf (ret);
 #endif
 }
-
-
-
-
-
 
 /*READ protocol: READ(1B)     |Inode(4B)  |SHMID(4B)  |offset(8B)      |size(8B)*/
 /*dir protocol:
@@ -173,6 +176,7 @@ int
 _rfs_send_request (char *proto, int len)
 {
 
+    struct sockaddr_un addr;
     int conn_sock = socket (AF_LOCAL, SOCK_STREAM, 0);
     if (conn_sock == -1)
       {
@@ -180,7 +184,6 @@ _rfs_send_request (char *proto, int len)
 	  exit (1);
 	  return -1;
       }
-    struct sockaddr_un addr;
     bzero (&addr, sizeof (addr));
     addr.sun_family = AF_LOCAL;
     strcpy ((void *) &addr.sun_path, UNIX_DOMAIN);
@@ -319,7 +322,7 @@ lfs_memcpy (char *dstbuf, char *srcbuf, uint64_t off, uint64_t size)
    	   0 means success
 */
 int
-rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
+_rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
 {
     int shmid, connfd;
     read_entry_t *prt;
@@ -367,6 +370,26 @@ rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
     return 0;
 }
 
+
+int rfs_read (int id, char *buffer, uint64_t size, uint64_t offset){
+      uint64_t off,end;
+      int i,nblks=0,tocpy,bufoff;
+      end = offset + size;
+      end = P2ROUNDUP(end,LFS_BLKSIZE);
+      off = P2ALIGN(offset,LFS_BLKSIZE);
+      nblks = (end - off) / LFS_BLKSIZE;
+      if(nblks == 0)
+	return _rfs_read(id,buffer,size,offset);
+      else{
+	for(i=0;i<nblks;i++){
+		bufoff = offset - P2ALIGN(offset,LFS_BLKSIZE);
+ 		tocpy = MIN(LFS_BLKSIZE - bufoff,size);
+		_rfs_read(id,buffer,tocpy,offset);
+		offset += tocpy;
+        }
+
+	}
+}
 int
 shm_malloc (int size)
 {
@@ -424,12 +447,13 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
     else
       {
 	  _cli_printf ("rfs write failed\n");
-	  assert (0);
+	  return -1;
+//	  assert (0);
       }
     if (shmctl (shmid, IPC_RMID, NULL) <0)
       {
 	  perror ("shmctl RMID failed in rfs_write\n");
-	  assert(0);
+	  return -1;
       }
     return LFS_SUCCESS;
 }

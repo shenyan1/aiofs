@@ -529,7 +529,7 @@ int Print_Index (inode_t _inode)
     for (i = 0; i < LFS_BLOCK_NO; ++i)
       {
 	  offset_t off = GetIndexDiskPos (_inode, i, -1);
-	  ALERTER ("\t%lu %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
+	  ALERTER ("\t%u %lu [IB(%d)]", IDXBLK[i].hash_, IDXBLK[i].off_, i);
 	  cntIB++;
 	  LoadSingleLeaf (off);
 

@@ -255,3 +255,22 @@ int lfs_log_init ()
     lfs_n.log.fd = fd;
     return 0;
 }
+
+u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset)
+{
+    int nblks;
+    u64 blkptr = 0, rel_blkptr = 0;
+    if (inode < 0 || inode > plfs_n->max_files)
+	return 0;
+    assert (plfs_n->f_table[inode].is_free == LFS_NFREE);
+    if (offset < AVG_FSIZE)
+	blkptr = plfs_n->f_table[inode].meta_table[0] + offset;
+    else
+      {
+	  rel_blkptr = (offset - AVG_FSIZE) % LFS_BLKSIZE;
+	  nblks = (offset - AVG_FSIZE) / LFS_BLKSIZE;
+	  blkptr = plfs_n->f_table[inode].meta_table[1 + nblks] + rel_blkptr;
+      }
+
+    return blkptr;
+}

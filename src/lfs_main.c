@@ -27,6 +27,23 @@
 lfs_info_t lfs_n;
 
 
+int lfs_fini ()
+{
+    close (lfs_n.fd);
+    lfs_printf ("going to free the lfs\n");
+#ifdef USE_SARC
+    __sarc_destroy (lfs_n.arc_cache);
+#else
+    __arc_destroy (lfs_n.arc_cache);
+#endif
+    cache_destroy_shm (lfs_n.lfs_cache);
+    cache_destroy (lfs_n.lfs_obj_cache);
+    free (lfs_n.f_table);
+    close (lfs_n.instance.fd);
+    unlink (lfs_n.instance.fname);
+    close (lfs_n.log.fd);
+    return 0;
+}
 
 int check_right ()
 {
@@ -179,7 +196,6 @@ static void sigterm_handler (int f)
 #else
 static void sigterm_handler (int f)
 {
-    int ret;
     printf ("sigterm_ignored\n");
     lfs_fini ();
     exit (0);
@@ -244,23 +260,6 @@ int lfs_test_init ()
     ioserver_init ();
 }
 #endif
-int lfs_fini ()
-{
-    close (lfs_n.fd);
-    lfs_printf ("going to free the lfs\n");
-#ifdef USE_SARC
-    __sarc_destroy (lfs_n.arc_cache);
-#else
-    __arc_destroy (lfs_n.arc_cache);
-#endif
-    cache_destroy_shm (lfs_n.lfs_cache);
-    cache_destroy (lfs_n.lfs_obj_cache);
-    free (lfs_n.f_table);
-    close (lfs_n.instance.fd);
-    unlink (lfs_n.instance.fname);
-    close (lfs_n.log.fd);
-    return 0;
-}
 
 int lfs_wait ()
 {

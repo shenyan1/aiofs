@@ -13,7 +13,6 @@
 #include "lfs.h"
 #define MAX_CON (1200)
 
-#define DIR_UNIX_DOMAIN "/tmp/dirserver.domain1"
 int response_client (int clifd, int shmid);
 void *lfs_dirworker_thread_fn (void *arg);
 #endif
