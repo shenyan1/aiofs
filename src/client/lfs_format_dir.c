@@ -6,11 +6,12 @@
 #include <inttypes.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <fcntl.h>
-#include "../lfs.h"
-#include "../lfs_define.h"
+//#include "../lfs.h"
+#include <lfs_define.h>
 #include "lfs_format_dir.h"
 
 void

@@ -24,13 +24,7 @@ struct file_entry
     uint64_t meta_table[57];
 } __attribute__ ((__packed__));
 typedef struct file_entry file_entry_t;
-typedef struct read_entry
-{
-    uint64_t offset;
-    int id;
-    uint64_t size;
-    int shmid;
-} read_entry_t;
+
 
 struct loginfo
 {
@@ -114,7 +108,7 @@ int response_client (int clifd, int value);
 int response_client_str (int clifd, char *ptr, int len);
 
 int rfs_return_data (char *proto, int len, int clifd);
-
+typedef uint64_t u64;
 uint64_t cur_usec (void);
 extern uint64_t getlocalp (uint64_t id);
 extern uint64_t arc_hash_init (void);
@@ -123,6 +117,7 @@ int buf2id (char *ptr);
 extern void lfs_unmutex (pthread_mutex_t * lock);
 char *getshmptr (int shmid);
 int lfs_genflock (char *filename);
+u64 lfsgetblk (lfs_info_t * plfs_n, inode_t inode, u64 offset);
 void lfs_printf (const char *fmt, ...);
 void lfs_printf_debug (const char *fmt, ...);
 void lfs_printf_err (const char *fmt, ...);

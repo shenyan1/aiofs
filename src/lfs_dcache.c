@@ -6,7 +6,7 @@
 #include "lfs_thread.h"
 #include "arc.h"
 #include "lfs.h"
-#include "client/rfsio.h"
+//#include "client/rfsio.h"
 #include "lfs_dcache.h"
 #include "lfs_sys.h"
 extern lfs_info_t lfs_n;

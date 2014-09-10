@@ -2,17 +2,32 @@ CC    = gcc
 PROGS = client
 SRCS  = $(wildcard *.c)
 OBJS  = $(SRCS:.c=.o)
-OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o ../lfs_sys.o
-OBJ2S = ../lfs_sys.o iotool.o rfsio.o 
-OBJS  += ../lfs_sys.o
-CCFLAGS = -g -Wall -O0
-LIBS  = -lpthread -laio
+LIBNAME = librfsio.so
+CFLAGS := -Wall -I. -g -O2 -fPIC
+SO_CFLAGS= -shared $(CFLAGS)
+OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o
+OBJ2S = iotool.o rfsio.o 
+SOOBJ = rfsio.o
+CCFLAGS = -g -Wall -O0 -fomit-frame-pointer -fPIC
+LIBS  = -lpthread -laio -lrfsio
 lfs_format:$(OBJ1S)
 	$(CC) -o $@ $^
-all: iotool
+all: rfsio install iotool
+
+rfsio:
+	$(CC) $(CFLAGS) -c rfsio.c
+	$(CC) $(SO_CFLAGS) -o $(LIBNAME) rfsio.o
+
+install:
+	install -D -m 755 $(LIBNAME) /usr/lib/$(LIBNAME)
+#	ln -sf $(LIBNAME) /usr/lib/
+
 iotool:$(OBJ2S)
-	$(CC) $^ -g -o $@ $(LIBS)
+	$(CC) iotool.c -g -o iotool $(LIBS)
+
 %.o:%.c
 	$(CC) -c $< $(CCFLAGS)
+
 clean:
 	rm *.o
+

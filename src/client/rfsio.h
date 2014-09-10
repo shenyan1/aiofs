@@ -2,9 +2,11 @@
  */
 #ifndef __RFSIO_H
 #define __RFSIO_H
-#include"../lfs.h"
+//#include"../lfs.h"
+
 #include<assert.h>
 #include<inttypes.h>
+#include<lfs_define.h>
 #define READ_SIZE (sizeof(char)+sizeof(int)+sizeof(int)+sizeof(uint64_t)+sizeof(uint64_t)+1)
 /*READ protocol: READ(1B)     |Inode(4B)  |SHMID(4B)  |offset(8B)      |size(8B)*/
 int decode_readprotocol (char *pro);
@@ -38,6 +40,8 @@ int rfs_rmdir (char *fname);
 inode_t rfs_open (char *fname);
 int rfs_remove (char *fname);
 int rfs_mkdir (char *dirname);
+
+void _cli_printf (const char *fmt, ...);
 #define LFS_OK 0
 #define LFS_FAILED -1
 #endif

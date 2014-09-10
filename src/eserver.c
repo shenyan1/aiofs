@@ -13,7 +13,6 @@
 #include "lfs_sys.h"
 #include "rfs_req.h"
 #include <sys/stat.h>
-#define UNIX_DOMAIN "/tmp/UNIX2.domain1"
 #define MAX_CON (1200)
 #define PROTOCAL_SIZE (1+4+4+8+4)
 /*
@@ -21,17 +20,56 @@
  */
 extern lfs_info_t lfs_n;
 static struct epoll_event *events;
+/*  return 0: <=AVG_FSIZE
+ *  
+ */
+int getnblks (uint64_t off)
+{
 
+    int nblks;
+    off = P2ROUNDUP (off, LFS_BLKSIZE);
+    if (off <= AVG_FSIZE)
+	nblks = 0;
+    else
+	nblks = (off - AVG_FSIZE) / LFS_BLKSIZE;
+    lfs_printf ("getnblks =%d\n", nblks);
+    return nblks;
+}
 
 /* rfs_iowrite put the item into aio_req.
+ * 
  */
 int rfs_iowrite (CQ_ITEM * item)
 {
+    int fid, i, nblks, cur_max, rnblks, lnblks;
+    uint64_t off;
+    fid = item->fid;
+    if (fid < 0 || fid > lfs_n.max_files)
+      {
+	  lfs_printf ("invalid fid in rfs_iowrite\n");
+	  response_client (item->clifd, -1);
+	  return -1;
+      }
+    off = item->offset;
     assert (item != NULL);
     assert (item->shmid > 0);
-    if (item->offset + size <= AVG_FSIZE)
+    cur_max = lfs_n.f_table[item->fid].fsize;
+    if (off > cur_max)
       {
-
+	  if (item->clifd < 0 || off + item->size > MAX_FSIZE)
+	      lfs_printf ("rfs_iowrite failed \n");
+	  response_client (item->clifd, -1);
+	  return -1;
+      }
+    lnblks = getnblks (cur_max);
+    rnblks = getnblks (off + item->size);
+    if (rnblks > lnblks)
+      {
+	  nblks = rnblks - lnblks;
+      }
+    for (i = lnblks; i <= rnblks; i++)
+      {
+	  lfs_n.f_table[fid].meta_table[i] = Malloc_Freemap ();
       }
     cq_push (RFS_AIOQ, item);
     return true;
@@ -136,7 +174,8 @@ void *lfs_rworker_thread_fn (void *arg)
 	    }
 	  else if (item->fops == WRITE_COMMAND)
 	    {
-		rfs_iowrite (item);
+		ret = rfs_iowrite (item);
+
 	    }
 	  else
 	    {

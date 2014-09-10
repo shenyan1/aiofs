@@ -46,4 +46,5 @@ inode_t finode_fallocate (int inode, uint64_t size);
 int _removeFile (inode_t inode);
 extern struct __sarc_ops sarc_ops;
 extern void lfs_arc_init (uint64_t arc_size);
+int CloseFile (inode_t id);
 #endif

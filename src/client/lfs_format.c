@@ -201,8 +201,6 @@ main (int argc, char *argv[])
     int fd;
     int flag = O_WRONLY | O_CREAT;
     printf ("Going to Format LFS now\n");
-    printf ("the totoal memsize is %" PRIu64 "\n", getphymemsize ());
-//      printf ("test");
     tot_size = getFilesize (argv[1]);
     printf ("totsize=%" PRIu64 "\n", tot_size);
     if (argv[1] == NULL)

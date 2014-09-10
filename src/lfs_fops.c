@@ -231,22 +231,28 @@ void lfs_arc_init (uint64_t arc_size)
       }
 
 }
-int CloseFile(inode_t id){
+
+int CloseFile (inode_t id)
+{
     uint64_t off;
-    if(id <= LFS_FINODE_START){
-	lfs_printf("id =%d is not a valid file ,so close failed\n",id);
-	return -1;
-}   
+    if (id <= LFS_FINODE_START)
+      {
+	  lfs_printf ("id =%d is not a valid file ,so close failed\n", id);
+	  return -1;
+      }
     id = id - LFS_FINODE_START;
-    if(id<0 || id > lfs_n.max_files){
-	lfs_printf("invalid inode =%d,close failed\n",id);
-	return -1;
-    }
-    if(lfs_n.f_table[i].is_free == LFS_FREE){
-	lfs_printf("Close a free file inode=%d,close failed\n",id);
-	return -1;
-    }
-    off = getlocalp(id);
-    off += 3*8;
-    fsync_inode(id,off);
+    if (id < 0 || id > lfs_n.max_files)
+      {
+	  lfs_printf ("invalid inode =%d,close failed\n", id);
+	  return -1;
+      }
+    if (lfs_n.f_table[id].is_free == LFS_FREE)
+      {
+	  lfs_printf ("Close a free file inode=%d,close failed\n", id);
+	  return -1;
+      }
+    off = getlocalp (id);
+    off += 3 * 8;
+    _finode_sync (id, off);
+    return 0;
 }
