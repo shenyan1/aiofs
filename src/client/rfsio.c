@@ -13,6 +13,7 @@
 #include<sys/un.h>
 #include<fcntl.h>
 #include<stdlib.h>
+#include<sys/time.h>
 #include<sys/shm.h>
 #include<ifaddrs.h>
 #include<sys/types.h>
@@ -221,6 +222,28 @@ _rfs_send_request (char *proto, int len)
     return conn_sock;
 }
 
+/* rfs_close(): close a valid file.
+ */
+int
+rfs_close (int fid)
+{
+    char *ptr, *pt;
+    int res, connfd, maxfiles;
+
+    ptr = malloc (sizeof (int) + sizeof (char));
+    pt = ptr;
+    *ptr = (char) CLOSE_COMMAND;
+    ptr = ptr + 1;
+    *(int *) ptr = fid;
+    connfd = _rfs_send_dirrequest (pt, strlen (pt));
+    res = wait_io (connfd);
+    _cli_printf ("close fd\n");
+    close (connfd);
+    free (pt);
+    _cli_printf ("close file finished\n");
+    return res;
+}
+
 int
 curmax_files (int fsid)
 {
@@ -362,8 +385,9 @@ _rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
     prt->offset = offset;
     prt->size = size;
     prt->shmid = 0;
-    _cli_printf ("op=%d,id=%d off=%d,size=%d\n", READ_COMMAND, id, offset,
+/*    _cli_printf ("op=%d,id=%d off=%d,size=%d\n", READ_COMMAND, id, offset,
 		size);
+*/
     connfd = _rfs_send_request (ptr, sizeof (read_entry_t) + 1);
     if (connfd < 0)
       {
@@ -371,7 +395,7 @@ _rfs_read (int id, char *buffer, uint64_t size, uint64_t offset)
 	  exit (-1);
 	  return -1;
       }
-    _cli_printf ("issue read\n");
+//  _cli_printf ("issue read\n");
     shmid = wait_io (connfd);
     buf = getshmptr (shmid);
     if (buf == NULL)
@@ -457,8 +481,9 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
     prt->size = size;
     prt->shmid = shmid;
 
-    printf ("write op=%d,id=%d off=%d,size=%d\n", WRITE_COMMAND, id,
+/*    printf ("write op=%d,id=%d off=%d,size=%d\n", WRITE_COMMAND, id,
 		offset, size);
+*/
     connfd = _rfs_send_request (ptr, sizeof (read_entry_t) + 1);
     if (connfd < 0)
       {
@@ -516,7 +541,7 @@ rfs_open (char *fname)
 	  return LFS_FAILED;
       }
     inode = wait_io (connfd);
-    _cli_printf ("op=open,fname=%s,ino=%d\n", fname, inode);
+//    _cli_printf ("op=open,fname=%s,ino=%d\n", fname, inode);
     return inode;
 }
 
@@ -654,7 +679,7 @@ rfs_fallocate (char *fname, int filesize)
 	  return LFS_FAILED;
       }
     res = wait_io (connfd);
-    _cli_printf ("op=fallocate,fname=%s\n", fname);
+//    _cli_printf ("op=fallocate,fname=%s\n", fname);
     if (res == LFS_FAILED)
       {
 	  _cli_printf ("fallocate failed\n");

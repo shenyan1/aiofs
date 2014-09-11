@@ -81,7 +81,7 @@ lfs_test_write_all (int files,char *buffer)
 	  printf ("fname=%s,inode=%d\n", filename, id);
 	  offset = 0;
 	 // continue;
-#if LFS_TEST
+#if 0
 	  for (j = 0; j < 200; j++)
 	    {
 		if(rfs_write (id, buffer, LFS_BLKSIZE, offset)==-1){
@@ -91,7 +91,7 @@ lfs_test_write_all (int files,char *buffer)
 		offset += LFS_BLKSIZE;
 	    }
 #else
-	  for (j = 0; j < 840; j++)
+	  for (j = 800; j < 840; j++)
 	    {
 		if(rfs_write (id, buffer, size, offset)==-1){
 			printf("error rfs write return -1\n");
@@ -217,7 +217,7 @@ show_time (int threads, uint64_t ctime, uint64_t stime)
     bw *= threads;
     bw = bw / (ctime - stime);
 //    printf ("bw=%" PRIu64 "", bw);
-
+    printf("ctime = %"PRIu64",stime=%"PRIu64"\n",ctime,stime);
     bw *= 1000000;
     bw = bw / 1024;
     printf ("stat: bw = %" PRIu64 " kB/s\n", bw);

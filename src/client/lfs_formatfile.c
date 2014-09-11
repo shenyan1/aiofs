@@ -5,6 +5,7 @@
 #include<sys/stat.h>
 #include<assert.h>
 #include<lfs_define.h>
+#include<string.h>
 #include"rfsio.h"
 /* File Time Attribute: ctime,atime,mtime(3*8B),size,extflags
  * struct file_entry
@@ -48,7 +49,7 @@ FormatBlkptr (int fd, int inode, uint64_t ptr)
     char buf[4096];
     memset (buf, 0, 4096);
     // format LargeBlock block.
-    uint64_t pos = getlocalp (inode);
+    uint64_t pos = _getlocalp (inode);
     pos += 3 * 8;
     pos += 4 + 1 + 4;
     printf ("format blkptr=%" PRIu64 ",off=%d\n", ptr, pos);

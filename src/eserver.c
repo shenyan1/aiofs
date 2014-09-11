@@ -31,7 +31,7 @@ int getnblks (uint64_t off)
     if (off <= AVG_FSIZE)
 	nblks = 0;
     else
-	nblks = (off - AVG_FSIZE) / LFS_BLKSIZE;
+	nblks = ((off - AVG_FSIZE) / LFS_BLKSIZE ) + 1;
     lfs_printf ("getnblks =%d\n", nblks);
     return nblks;
 }
@@ -67,8 +67,13 @@ int rfs_iowrite (CQ_ITEM * item)
       {
 	  nblks = rnblks - lnblks;
       }
+    
     for (i = lnblks; i <= rnblks; i++)
       {
+	  if (lnblks <= 0){
+		response_client(item->clifd,-1);
+		return -1;
+	  }
 	  lfs_n.f_table[fid].meta_table[i] = Malloc_Freemap ();
       }
     cq_push (RFS_AIOQ, item);
