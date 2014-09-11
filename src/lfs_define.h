@@ -149,4 +149,5 @@ typedef struct read_entry
     int shmid;
 } read_entry_t;
 
+#define OUTPUT_MAXSIZE 1819200
 #endif
