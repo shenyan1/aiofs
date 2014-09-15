@@ -27,11 +27,10 @@ int getnblks (uint64_t off)
 {
 
     int nblks;
-    off = P2ROUNDUP (off, LFS_BLKSIZE);
     if (off <= AVG_FSIZE)
 	nblks = 0;
     else
-	nblks = ((off - AVG_FSIZE) / LFS_BLKSIZE ) + 1;
+	nblks = ((off - AVG_FSIZE) / LFS_BLKSIZE) + 1;
     lfs_printf ("getnblks =%d\n", nblks);
     return nblks;
 }
@@ -42,7 +41,7 @@ int getnblks (uint64_t off)
 int rfs_iowrite (CQ_ITEM * item)
 {
     int fid, i, nblks, cur_max, rnblks, lnblks;
-    uint64_t off;
+    uint64_t off, _off;
     fid = item->fid;
     if (fid < 0 || fid > lfs_n.max_files)
       {
@@ -54,28 +53,48 @@ int rfs_iowrite (CQ_ITEM * item)
     assert (item != NULL);
     assert (item->shmid > 0);
     cur_max = lfs_n.f_table[item->fid].fsize;
-    if (off > cur_max)
+    if (off > cur_max || off + item->size > MAX_FSIZE)
       {
-	  if (item->clifd < 0 || off + item->size > MAX_FSIZE)
-	      lfs_printf ("rfs_iowrite failed \n");
+	  lfs_printf ("rfs_iowrite failed! off > current filesize \n");
+	  if (off + item->size > MAX_FSIZE)
+	      lfs_printf ("rfs_iowrite exceed max limited! \n");
 	  response_client (item->clifd, -1);
 	  return -1;
       }
     lnblks = getnblks (cur_max);
+    lfs_printf("offset=%"PRIu64"\n",off + item->size);
     rnblks = getnblks (off + item->size);
+    if (rnblks <= lnblks)
+      {
+	  lfs_printf ("do not need to allocate space\n");
+	  lfs_n.f_table[fid].fsize = off + item->size;
+	  goto pushcq;
+      }
+
     if (rnblks > lnblks)
       {
 	  nblks = rnblks - lnblks;
+	  lfs_n.f_table[fid].fsize = off + item->size;
       }
-    
-    for (i = lnblks; i <= rnblks; i++)
+
+    for (i = lnblks + 1; i <= rnblks; i++)
       {
-	  if (lnblks <= 0){
-		response_client(item->clifd,-1);
+	  if (i <= 0)
+	    {
+		response_client (item->clifd, -1);
 		return -1;
-	  }
-	  lfs_n.f_table[fid].meta_table[i] = Malloc_Freemap ();
+	    }
+	  _off = Malloc_Freemap ();
+	  if (_off == 0)
+	    {
+		lfs_printf ("can not allocate more space\n");
+		response_client (item->clifd, -1);
+		return -1;
+	    }
+	  lfs_printf ("alloc: fid=%d i=%d,off=%" PRIu64 "\n", fid, i, _off);
+	  lfs_n.f_table[fid].meta_table[i] = _off;
       }
+  pushcq:
     cq_push (RFS_AIOQ, item);
     return true;
 }

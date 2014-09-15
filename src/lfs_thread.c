@@ -106,7 +106,7 @@ void cq_push (CQ * cq, CQ_ITEM * item)
     else
 	cq->tail->next = item;
     cq->tail = item;
-    lfs_printf ("push cq :cq=%p,cq->head=%p\n", cq, cq->head);
+//    lfs_printf ("push cq :cq=%p,cq->head=%p\n", cq, cq->head);
     pthread_cond_signal (&cq->cond);
     pthread_mutex_unlock (&cq->lock);
 }
@@ -121,9 +121,9 @@ CQ_ITEM *cq_pop (CQ * cq)
     CQ_ITEM *item;
 
     pthread_mutex_lock (&cq->lock);
-    lfs_printf ("pop a elem,RFSRQ=%p,cq=%p\n", RFS_RQ, cq);
-    if ((item = cq->head) == NULL)
-	lfs_printf ("head is null\n");
+//    lfs_printf ("pop a elem,RFSRQ=%p,cq=%p\n", RFS_RQ, cq);
+//    if ((item = cq->head) == NULL)
+//      lfs_printf ("head is null\n");
     while ((item = cq->head) == NULL)
 	pthread_cond_wait (&cq->cond, &cq->lock);
     if (NULL != item)

@@ -230,7 +230,7 @@ rfs_close (int fid)
     char *ptr, *pt;
     int res, connfd, maxfiles;
 
-    ptr = malloc (sizeof (int) + sizeof (char));
+    ptr = malloc (sizeof (int) + sizeof (char)+1);
     pt = ptr;
     *ptr = (char) CLOSE_COMMAND;
     ptr = ptr + 1;

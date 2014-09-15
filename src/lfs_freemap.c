@@ -115,8 +115,6 @@ void SetFreeMapUsed (int _idx, offset_t _v)
     _lfs_pwrite (lfs_n.fd, &pos, sizeof (uint64_t), off);
 }
 
-
-
 int Free_Freemap (offset_t _off)
 {
     DEBUGER ("this is not implement");
@@ -133,12 +131,36 @@ offset_t Malloc_Freemap ()
       }
     lfs_n.pfreelist = pfree->next;
     iRet = pfree->offset;
-    SetFreeMapUsed (pfree->idx, 0);
-    uint32_t buff = 0;
     DEBUGER ("%llu", iRet);
+#ifdef FREEMAP_SYNC
+    pfree->next = lfs_n.pfreesync;
+    lfs_n.pfreesync = pfree;
+#else
+    uint32_t buff = 0;
+    SetFreeMapUsed (pfree->idx, 0);
     _lfs_pwrite (lfs_n.fd, &buff, sizeof (uint32_t), iRet);
     free (pfree);
+#endif
     return iRet;
+}
+
+int Sync_Freemap ()
+{
+    free_node_t *pnode = NULL;
+    for (pnode = lfs_n.pfreesync; pnode; pnode = pnode->next)
+      {
+	  SetFreeMapUsed (pnode->idx, 0);
+	  uint32_t buff = 0;
+	  _lfs_pwrite (lfs_n.fd, &buff, sizeof (uint32_t), pnode->offset);
+      }
+    free_node_t *pnow = NULL;
+    for (pnode = lfs_n.pfreesync; pnode;)
+      {
+	  pnow = pnode;
+	  pnode = pnode->next;
+	  free (pnow);
+      }
+    return 1;
 }
 
 void freemap_test ()

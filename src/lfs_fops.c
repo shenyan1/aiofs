@@ -35,7 +35,6 @@ int _finode_syncfree (int i, uint64_t off)
 int _finode_sync (int i, uint64_t off)
 {
     _lfs_pwrite (lfs_n.fd, &lfs_n.f_table[i], sizeof (file_entry_t), off);
-    fsync (lfs_n.fd);
     return 0;
 }
 

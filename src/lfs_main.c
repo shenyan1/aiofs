@@ -23,6 +23,7 @@
 #include "lfs_define.h"
 #include "lfs_dir.h"
 #include"lfs_sys.h"
+#include"config.h"
 #include"lfs_dirserver.h"
 lfs_info_t lfs_n;
 
@@ -191,7 +192,9 @@ int ioserver_init ()
 #ifndef _LFS_DAEMON
 static void sigterm_handler (int f)
 {
-    printf ("find sigterm\n");
+    printf ("find sigterm or segmentfault\n");
+    lfs_fini ();
+    exit (0);
 }
 #else
 static void sigterm_handler (int f)
@@ -250,6 +253,7 @@ int lfs_init (char *bdev)
     lfs_reopen ();
     signal (SIGPIPE, sigpipe_handler);
     signal (SIGTERM, sigterm_handler);
+  //  signal (SIGSEGV, sigterm_handler);
     lfs_log_init ();
     return 0;
 }
@@ -295,9 +299,10 @@ int main (int argc, char *argv[])
     daemonize (argv[1]);
 #endif
     lfs_init (argv[1]);
+
     freemap_test ();
 //    lfs_test_init ();
-//    dir_test (argv[2]);
+//      dir_test (argv[2]);
     lfs_wait ();
     lfs_fini ();
     return 0;
