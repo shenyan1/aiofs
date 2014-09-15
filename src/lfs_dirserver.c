@@ -17,17 +17,19 @@
 #define MAX_CON (1200)
 #define PROTOCAL_SIZE (1+4+4+8+4)
 
-/*
- * FOPS:1B Inodeid:4B shmid:4B,offset:8B,size:4B
- */
 extern lfs_info_t lfs_n;
 static struct epoll_event *events;
 
 int getplen (char *buf)
 {
+    char op;
     int len = *(buf + 1);
-    return len + 2;
+    op = *buf;
+    if(op == CLOSE_COMMAND){
 
+	return 1 + sizeof(int);
+    }
+    return len + 2;
 }
 
 void *lfs_dirworker_thread_fn (void *arg)

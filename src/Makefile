@@ -6,7 +6,7 @@ OBJS  = $(SRCS:.c=.o)
 #OBJS += client/rfsio.o
 CCFLAGS = -g -Wall -O0
 LIBS  = -lpthread -laio
-all: lfs_load iotool lfs_sys.a install
+all: install lfs_load iotool lfs_sys.a
 lfs_load:$(OBJS)
 	cp lfs_define.h /usr/include/lfs_define.h
 	$(CC) $^ -g -o $@ $(LIBS)

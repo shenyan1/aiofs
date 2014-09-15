@@ -91,7 +91,8 @@ lfs_test_write_all (int files,char *buffer)
 		offset += LFS_BLKSIZE;
 	    }
 #else
-	  for (j = 800; j < 840; j++)
+	printf("going to write file");
+	  for (j = 1; j <= 840; j++)
 	    {
 		if(rfs_write (id, buffer, size, offset)==-1){
 			printf("error rfs write return -1\n");
@@ -100,7 +101,8 @@ lfs_test_write_all (int files,char *buffer)
 		offset += size;
 	    }
 #endif
-	  printf ("finish create %d,", id);
+	  printf ("finish create %d\n", id);
+	  rfs_close(id);
       }
 
 }

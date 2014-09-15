@@ -60,7 +60,7 @@ offset_t Malloc_Freemap ();
 
 int Free_Freemap (offset_t);
 
-int Sync_Freemap();
+int Sync_Freemap ();
 
 void freemap_test ();
 

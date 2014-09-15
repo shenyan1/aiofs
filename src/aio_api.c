@@ -105,16 +105,16 @@ static int trace_nextrequest (struct trace_entry *req)
 	  if (blkptr != 0)
 	    {
 		req->startbyte = blkptr;;
-		req->bytecount = AIO_BLKSIZE;
+		req->bytecount = item->size;
 		req->rwType = 'W';
 	    }
 	  else
 	    {
 		response_client (item->clifd, -1);
 	    }
-	  lfs_printf ("req->startbyte =%d,offset=%d,meta_table[0]=%d\n",
-		      req->startbyte, item->offset,
-		      lfs_n.f_table[fid].meta_table[0]);
+	  lfs_printf ("req->startbyte =%" PRIu64 ",offset=%" PRIu64
+		      ",meta_table[0]=%" PRIu64 "\n", req->startbyte,
+		      item->offset, lfs_n.f_table[fid].meta_table[0]);
 //        lfs_printf ("req's data=%c%c\n", *getshmptr (item->shmid),
 //                    *(getshmptr (item->shmid) + 1));
       }

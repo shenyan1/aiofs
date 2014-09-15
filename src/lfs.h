@@ -58,7 +58,7 @@ typedef struct lfs_info
      */
     dir_inode_t *pdirinodelist;
     file_inode_t *pfileinodelist;
-	free_node_t *pfreesync;
+    free_node_t *pfreesync;
     free_node_t *pfreelist;
     dir_meta_t *pdirmarray;
     //free_node_t *pdirinode_list;

@@ -50,8 +50,9 @@ int decode_writeprotocol (char *pro, int clifd)
     assert (lfs_n.f_table[item->fid].is_free == LFS_NFREE);
     assert (lfs_n.f_table[item->fid].meta_table[0] != 0);
     lfs_printf ("size =%" PRIu64 ",offset=%" PRIu64
-		",id=%d,op=%d,metatable=%d\n", item->size, item->offset,
-		item->fid, op, lfs_n.f_table[item->fid].meta_table[0]);
+		",id=%d,op=%d,metatable=%" PRIu64 "\n", item->size,
+		item->offset, item->fid, op,
+		lfs_n.f_table[item->fid].meta_table[0]);
     cq_push (lfs_n.req_queue, item);
     return true;
 }
@@ -202,6 +203,7 @@ int process_dirrequest (char *buf, int clifd)
 	  lfs_printf ("close a file\n");
 	  inode = *(int *) (buf + 1);
 	  iRes = CloseFile (inode);
+	  response_client(clifd,iRes);
       }
     return 0;
 }

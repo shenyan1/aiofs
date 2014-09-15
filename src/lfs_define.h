@@ -34,7 +34,6 @@
 #define LFS_DIR_ENTRY (sizeof(uint64_t)+ sizeof(uint32_t))
 #define LFS_DIR_META_POS(x) (LFS_DIR_ENTRY + (x)*DIR_META_SIZE)
 
-// who know the sucks 
 #define LFS_DIR_DOMAIN 100000
 
 #define DCACHEMODE 1
@@ -77,11 +76,6 @@ typedef uint64_t offset_t;
 #define LFS_OK 0
 
 //#define LFS_DAEMON 0
-#define LFS_LOG_FNAME "/tmp/rfs_logs"
-
-#define _LFS_DEBUG 1
-
-#define _LFS_DAEMON 1
 /*
 
 inline void DEBUG_FUNC(const char * _info){
