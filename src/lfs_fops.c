@@ -239,7 +239,7 @@ int CloseFile (inode_t id)
 	  lfs_printf ("id =%d is not a valid file ,so close failed\n", id);
 	  return -1;
       }
-    id = id - LFS_FINODE_START;
+    id = id - LFS_FINODE_START-1;
     if (id < 0 || id > lfs_n.max_files)
       {
 	  lfs_printf ("invalid inode =%d,close failed\n", id);
