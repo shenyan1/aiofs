@@ -655,7 +655,7 @@ char *PrintDir (const char *_pdir)
 	  if (inode == 0)
 	    {
 		sprintf (ptr, "No such dir\n");
-		return 0;
+		return ptr;
 	    }
       }
 

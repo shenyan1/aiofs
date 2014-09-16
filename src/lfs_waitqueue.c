@@ -26,7 +26,7 @@ inline void pending_hash_insert (pend_object_t * obj)
     hash_lock = &PQUEUE.phash_mutexes[hash & (ARC_MUTEXES - 1)];
     mutex_enter (hash_lock, __func__, __LINE__);
     __arc_list_prepend (&obj->hash, &PQUEUE.bucket[hash]);
-    lfs_printf ("&obj->hash next=%p\n", (&obj->hash)->next);
+//  lfs_printf ("&obj->hash next=%p\n", (&obj->hash)->next);
     mutex_exit (hash_lock, __func__);
 }
 
@@ -92,7 +92,7 @@ inline int pending_hash_remove (struct object *obj)
 	  if (_obj->id == id && _obj->off == off)
 	    {
 		__arc_list_remove (&_obj->hash);
-		lfs_printf ("remove data in hash,line:%d\n", __LINE__);
+//		lfs_printf ("remove data in hash,line:%d\n", __LINE__);
 		response_client (_obj->clifd, obj->obj_data->shmid);
 	    }
 	  iter = ptr;

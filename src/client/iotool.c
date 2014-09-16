@@ -326,7 +326,11 @@ filebench (char *argv[])
 		return ;
 	  }
 	  files = atoi(argv[2]);
+	  uint64_t stime,ctime;
+          stime = cur_usec ();
 	  lfs_test_write_all (files,testbuffer);
+          ctime = cur_usec ();
+	  show_time(1,ctime,stime);
       }
     else
 	_cli_printf ("invalid args\n");

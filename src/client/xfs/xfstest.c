@@ -6,7 +6,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<inttypes.h>
-#include"../../lfs_sys.h"
+#include<assert.h>
 #define TEST_BLKSIZE (200<<10)
 #define LFS_BLKSIZE (1<<20)
 int *readfd;
@@ -89,6 +89,7 @@ lfs_test_read (void *arg)
     for (i = 0; i < 800; i++)
       {
 	  ret = pread (fd, rbuffer, size, offset);
+	  printf("fd=%d,off=%d\n",fd,offset);
 //	  printf("read finsished %d",ret);
 	  if(ret <=0){
 	      printf("ret =%d\n",ret);

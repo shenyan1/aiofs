@@ -87,7 +87,7 @@ int rfs_iowrite (CQ_ITEM * item)
 	  _off = Malloc_Freemap ();
 	  if (_off == 0)
 	    {
-		lfs_printf ("can not allocate more space\n");
+//		lfs_printf ("can not allocate more space\n");
 		response_client (item->clifd, -1);
 		return -1;
 	    }

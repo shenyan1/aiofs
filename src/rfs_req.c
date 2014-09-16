@@ -185,6 +185,7 @@ int process_dirrequest (char *buf, int clifd)
       case LIST_COMMAND:
 	  lfs_printf ("list dir\n");
 	  outptr = PrintDir (fname);
+	  lfs_printf("%s\n",outptr);
 	  _len = strlen (outptr);
 	  response_client_str (clifd, outptr, _len);
 	  free (outptr);

@@ -40,7 +40,7 @@ int rfs_rmdir (char *fname);
 inode_t rfs_open (char *fname);
 int rfs_remove (char *fname);
 int rfs_mkdir (char *dirname);
-
+uint64_t cur_usec(void);
 void _cli_printf (const char *fmt, ...);
 #define LFS_OK 0
 #define LFS_FAILED -1
