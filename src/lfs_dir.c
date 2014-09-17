@@ -368,7 +368,7 @@ inode_t Dir2Inode (const char *_pdir)
     //if(_pdir[len-1] == '/')_pdir[len-1] = 0;
     int i = 0, j = 1;
     for (i = 1; _pdir[i]; ++i)
-      {
+	{
 	  if (_pdir[i] == '/')
 	    {
 		char *ptmp = strndup (_pdir + j, i - j);
@@ -378,7 +378,7 @@ inode_t Dir2Inode (const char *_pdir)
 		if (iRet == 0)
 		    return 0;
 	    }
-      }
+	}
     char *ptmp = strdup (_pdir + j);
     iRet = FindSubdir (iRet, ptmp);
     free (ptmp);
@@ -613,7 +613,7 @@ inode_t MallocDirInode ()
 char *PrintDir (const char *_pdir)
 {
     int len = strlen (_pdir);
-    int i = 0, _len;
+    int i = 0, _len=0;
     int cnt = 0;
     inode_t inode = 0;
     char *ptr, *outptr;

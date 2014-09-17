@@ -302,7 +302,7 @@ int main (int argc, char *argv[])
 
     freemap_test ();
 //    lfs_test_init ();
-//      dir_test (argv[2]);
+    dir_test (argv[2]);
     lfs_wait ();
     lfs_fini ();
     return 0;
