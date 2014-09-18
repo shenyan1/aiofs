@@ -25,10 +25,11 @@ int getplen (char *buf)
     char op;
     int len = *(buf + 1);
     op = *buf;
-    if(op == CLOSE_COMMAND){
+    if (op == CLOSE_COMMAND)
+      {
 
-	return 1 + sizeof(int);
-    }
+	  return 1 + sizeof (int);
+      }
     return len + 2;
 }
 

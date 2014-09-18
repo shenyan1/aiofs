@@ -62,7 +62,7 @@ int rfs_iowrite (CQ_ITEM * item)
 	  return -1;
       }
     lnblks = getnblks (cur_max);
-    lfs_printf("offset=%"PRIu64"\n",off + item->size);
+    lfs_printf ("offset=%" PRIu64 "\n", off + item->size);
     rnblks = getnblks (off + item->size);
     if (rnblks <= lnblks)
       {
@@ -87,7 +87,7 @@ int rfs_iowrite (CQ_ITEM * item)
 	  _off = Malloc_Freemap ();
 	  if (_off == 0)
 	    {
-//		lfs_printf ("can not allocate more space\n");
+//              lfs_printf ("can not allocate more space\n");
 		response_client (item->clifd, -1);
 		return -1;
 	    }

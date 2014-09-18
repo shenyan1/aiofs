@@ -185,7 +185,7 @@ int process_dirrequest (char *buf, int clifd)
       case LIST_COMMAND:
 	  lfs_printf ("list dir\n");
 	  outptr = PrintDir (fname);
-	  lfs_printf("%s\n",outptr);
+	  lfs_printf ("%s\n", outptr);
 	  _len = strlen (outptr);
 	  response_client_str (clifd, outptr, _len);
 	  free (outptr);
@@ -204,7 +204,7 @@ int process_dirrequest (char *buf, int clifd)
 	  lfs_printf ("close a file\n");
 	  inode = *(int *) (buf + 1);
 	  iRes = CloseFile (inode);
-	  response_client(clifd,iRes);
+	  response_client (clifd, iRes);
       }
     return 0;
 }

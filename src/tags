@@ -221,7 +221,7 @@ SYS_OUT	lfs_define.h	14;"	d
 SYS_OUT	lfs_define.h	9;"	d
 SetDirEntryHead	lfs_dir.c	/^void SetDirEntryHead (offset_t _blk, offset_t _data)$/;"	f
 SetFreeMapUsed	lfs_freemap.c	/^void SetFreeMapUsed (int _idx, offset_t _v)$/;"	f
-Sync_Freemap	lfs_freemap.c	/^int Sync_Freemap(){$/;"	f
+Sync_Freemap	lfs_freemap.c	/^int Sync_Freemap ()$/;"	f
 UNIX_DOMAIN	eserver.h	14;"	d
 UNIX_DOMAIN	lfs_define.h	131;"	d
 VERIFY	lfs_define.h	125;"	d
@@ -239,6 +239,7 @@ _GNU_SOURCE	lfs_dir.c	1;"	d	file:
 _GNU_SOURCE	lfs_direntry.c	1;"	d	file:
 _GNU_SOURCE	lfs_dirindex.c	1;"	d	file:
 _GNU_SOURCE	lfs_main.c	1;"	d	file:
+_LFS_DAEMON	config.h	16;"	d
 _LFS_DEBUG	config.h	14;"	d
 _LFS_DIRENTRY_H_	lfs_direntry.h	2;"	d
 _LFS_DIRINDEX_H_	lfs_dirindex.h	2;"	d
@@ -660,7 +661,7 @@ pending_hash_remove	lfs_waitqueue.c	/^inline int pending_hash_remove (struct obj
 pending_queue	lfs.h	/^    pend_hash_t pending_queue;$/;"	m	struct:lfs_info
 pfileinodelist	lfs.h	/^    file_inode_t *pfileinodelist;$/;"	m	struct:lfs_info
 pfreelist	lfs.h	/^    free_node_t *pfreelist;$/;"	m	struct:lfs_info
-pfreesync	lfs.h	/^	free_node_t *pfreesync;$/;"	m	struct:lfs_info
+pfreesync	lfs.h	/^    free_node_t *pfreesync;$/;"	m	struct:lfs_info
 phash_mutexes	lfs_waitqueue.h	/^    lmutex_t phash_mutexes[ARC_MUTEXES + 1];$/;"	m	struct:pend_hash
 pindexlist	lfs.h	/^    dir_index_t **pindexlist;$/;"	m	struct:lfs_info
 pindexmap	lfs.h	/^    char *pindexmap;$/;"	m	struct:lfs_info

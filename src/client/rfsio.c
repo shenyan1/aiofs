@@ -47,13 +47,13 @@ char *getshmptr (int shmid)
 uint64_t cur_usec (void)
 {
     struct timeval _time;
-    unsigned long long cur_usec;
+    uint64_t cur_usec;
 
     gettimeofday (&_time, NULL);
     cur_usec = _time.tv_sec;
     cur_usec *= 1000000;
     cur_usec += _time.tv_usec;
-
+    printf("cursec=%"PRIu64"\n",cur_usec);
     return cur_usec;
 }
 
@@ -447,7 +447,7 @@ shm_malloc (int size)
     return shmid;
 }
 
-/* unfinished
+/* finished
  * rfs_write
  */
 int
@@ -501,6 +501,12 @@ rfs_write (int id, char *buffer, uint64_t size, uint64_t offset)
 	  return -1;
 //	  assert (0);
       }
+    if (shmdt (buf) == -1)
+      {
+	  perror ("shmdt failed:");
+	  return -1;
+      }
+ 
     if (shmctl (shmid, IPC_RMID, NULL) <0)
       {
 	  perror ("shmctl RMID failed in rfs_write\n");
