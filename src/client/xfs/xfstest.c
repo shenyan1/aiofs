@@ -118,7 +118,7 @@ lfs_test_streamread (int num_files1, int threads)
     uint64_t bw;
     pthread_t tids[MAX_THREADS];
 //    read_test_init ();
-    srand (time (0));
+    srand (0);
     uint64_t stime, ctime;
     for (i = 0; i < threads; i++)
       {
@@ -126,7 +126,7 @@ lfs_test_streamread (int num_files1, int threads)
 	  if (randfd[i] == 0)
 	      randfd[i] = 1;
       }
-    srand (time (0));
+    srand (0);
 
     stime = cur_usec ();
     for (i = 0; i < threads; i++)

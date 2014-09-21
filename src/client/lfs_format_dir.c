@@ -38,6 +38,7 @@ FormatDirEntry (int _fd)
     free (buffer);
     DEBUG_FUNC ("format dir_meta succeeded");
     //printf(" Format Dir_Meta succeeded @%s: %d\n", __FILE__, __LINE__);
+	FormatDirIndex(_fd);
 }
 
 void
