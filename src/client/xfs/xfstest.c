@@ -17,7 +17,7 @@ int max_files = 1000;
 uint64_t cur_usec (void)
 {
     struct timeval _time;
-    unsigned long long cur_usec;
+    uint64_t cur_usec;
 
     gettimeofday (&_time, NULL);
     cur_usec = _time.tv_sec;
@@ -28,26 +28,18 @@ uint64_t cur_usec (void)
 }
 
 
-#if 0
 int
-lfs_test_write_all (char *buffer)
+xfs_test_write_all (int files,char *buffer)
 {
     int fd;
     int res, i = 0, j;
     uint64_t offset;
     char filename[25];
-    for (i = 1; i < 100; i++)
+    for (i = 1; i <= files; i++)
       {
 
 	  memset (filename, 0, 25);
-	  sprintf (filename, "/t%d", i);
-	  printf ("create file %s\n", filename);
-	  res = test_create (filename);
-	  if (res == -1)
-	    {
-		printf ("continuing\n");
-		continue;
-	    }
+	  sprintf (filename, "/mnt/sdb1/t%d", i);
 
 	  fd = open (filename,O_RDWR);
 	  if (fd == -1 || fd == 0)
@@ -56,17 +48,16 @@ lfs_test_write_all (char *buffer)
 		return -1;
 	    }
 	  offset = 0;
-	  continue;
 	  for (j = 0; j < 200; j++)
 	    {
-	//	write (id, buffer, LFS_BLKSIZE, offset);
+		pwrite (fd, buffer, LFS_BLKSIZE, offset);
 		offset += LFS_BLKSIZE;
 	    }
 	  printf ("finish create %d,", fd);
+          close(fd);
       }
 
 }
-#endif
 
 /* simulate applications' workload:256KB stream reads.
  */
@@ -89,7 +80,7 @@ lfs_test_read (void *arg)
     for (i = 0; i < 800; i++)
       {
 	  ret = pread (fd, rbuffer, size, offset);
-	  printf("fd=%d,off=%d\n",fd,offset);
+//	  printf("fd=%d,off=%d\n",fd,offset);
 //	  printf("read finsished %d",ret);
 	  if(ret <=0){
 	      printf("ret =%d\n",ret);
@@ -109,7 +100,7 @@ read_test_fini ()
 void show_time(int threads,uint64_t ctime,uint64_t stime){
     uint64_t bw;
     bw = (200 << 20);
-    bw *= 200;
+    bw *= threads;
     bw = bw / (ctime - stime);
     printf ("bw=%" PRIu64 "", bw);
 
@@ -127,7 +118,7 @@ lfs_test_streamread (int num_files1, int threads)
     uint64_t bw;
     pthread_t tids[MAX_THREADS];
 //    read_test_init ();
-    srand (time (0));
+    srand (0);
     uint64_t stime, ctime;
     for (i = 0; i < threads; i++)
       {
@@ -135,7 +126,7 @@ lfs_test_streamread (int num_files1, int threads)
 	  if (randfd[i] == 0)
 	      randfd[i] = 1;
       }
-    srand (time (0));
+    srand (0);
 
     stime = cur_usec ();
     for (i = 0; i < threads; i++)
@@ -157,6 +148,7 @@ lfs_test_streamread (int num_files1, int threads)
     read_test_fini ();
     return 1;
 }
+
 
 void
 filebench (char *argv[])
@@ -214,7 +206,13 @@ filebench (char *argv[])
       }
     else if (strcmp (argv[1], "w") == 0)
       {
+	 files = atoi(argv[2]);
+	 uint64_t stime,ctime;
 	 // lfs_test_write_all (testbuffer);
+	 stime = cur_usec();
+	 xfs_test_write_all(files,testbuffer);
+	 ctime = cur_usec();
+	 show_time(files,ctime,stime);
       }
     else
 	printf ("invalid args\n");

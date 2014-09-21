@@ -81,7 +81,7 @@ lfs_test_write_all (int files,char *buffer)
 	  printf ("fname=%s,inode=%d\n", filename, id);
 	  offset = 0;
 	 // continue;
-#if 0
+
 	  for (j = 0; j < 200; j++)
 	    {
 		if(rfs_write (id, buffer, LFS_BLKSIZE, offset)==-1){
@@ -90,7 +90,8 @@ lfs_test_write_all (int files,char *buffer)
 	        }
 		offset += LFS_BLKSIZE;
 	    }
-#else
+//#else
+#if 0
 	printf("going to write file");
 	  for (j = 1; j <= 840; j++)
 	    {
@@ -234,7 +235,7 @@ lfs_test_streamread (int num_files1, int threads)
     int i = 0, randfd[MAX_THREADS];
     pthread_t tids[MAX_THREADS];
     // read_test_init ();
-    srand (time (0));
+    srand (0);
     uint64_t stime, ctime;
     if (num_files < num_files1)
       {
@@ -247,7 +248,7 @@ lfs_test_streamread (int num_files1, int threads)
 	  if (randfd[i] == 0)
 	      randfd[i] = 1;
       }
-    srand (time (0));
+    srand (0);
 
     stime = cur_usec ();
     for (i = 0; i < threads; i++)
@@ -330,7 +331,7 @@ filebench (char *argv[])
           stime = cur_usec ();
 	  lfs_test_write_all (files,testbuffer);
           ctime = cur_usec ();
-	  show_time(1,ctime,stime);
+	  show_time(files,ctime,stime);
       }
     else
 	_cli_printf ("invalid args\n");

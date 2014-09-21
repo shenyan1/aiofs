@@ -92,7 +92,7 @@ inline int pending_hash_remove (struct object *obj)
 	  if (_obj->id == id && _obj->off == off)
 	    {
 		__arc_list_remove (&_obj->hash);
-//		lfs_printf ("remove data in hash,line:%d\n", __LINE__);
+//              lfs_printf ("remove data in hash,line:%d\n", __LINE__);
 		response_client (_obj->clifd, obj->obj_data->shmid);
 	    }
 	  iter = ptr;

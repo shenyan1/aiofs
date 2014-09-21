@@ -13,6 +13,6 @@
 
 #define _LFS_DEBUG 1
 
-//#define _LFS_DAEMON 1
+#define _LFS_DAEMON 1
 
 #endif

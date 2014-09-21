@@ -3,7 +3,7 @@ PROGS = client
 SRCS  = $(wildcard *.c)
 OBJS  = $(SRCS:.c=.o)
 LIBNAME = librfsio.so
-CFLAGS := -Wall -I. -g -O2 -fPIC
+CFLAGS := -Wall -I. -g -O0 -fPIC
 SO_CFLAGS= -shared $(CFLAGS)
 OBJ1S = lfs_format.o lfs_format_dir.o lfs_formatfile.o
 OBJ2S = iotool.o rfsio.o 
